@@ -10,7 +10,7 @@ module Xapi
     end
 
     def paths
-      glob.reject {|path| path =~ /example/i}
+      glob.reject {|path| path =~ /example/i}.sort
     end
 
     def files
