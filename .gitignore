@@ -6,3 +6,4 @@
 .ruby-version
 tmp
 test/fixtures/approvals/*.received.*
+coverage

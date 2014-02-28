@@ -13,4 +13,5 @@ group :development, :test do
   gem 'approvals', '= 0.0.12'
   gem 'minitest', '~> 5.2'
   gem 'rack-test', '~> 0.6'
+  gem 'coveralls', '~> 0.7', require: false
 end
