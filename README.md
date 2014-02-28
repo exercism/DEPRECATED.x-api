@@ -5,3 +5,12 @@
 [![Dependency Status](https://gemnasium.com/exercism/x-api.png)](https://gemnasium.com/exercism/x-api)
 
 Exercism exercise API
+
+## Getting Started
+
+Fork and clone per usual, then run:
+
+```bash
+$ git submodule init
+$ git submodule update
+```
