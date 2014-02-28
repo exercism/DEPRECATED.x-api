@@ -1,0 +1,39 @@
+[submodule "exercises/ruby"]
+	path = exercises/ruby
+	url = https://github.com/exercism/xruby.git
+[submodule "exercises/coffeescript"]
+	path = exercises/coffeescript
+	url = https://github.com/exercism/xcoffeescript.git
+[submodule "exercises/javascript"]
+	path = exercises/javascript
+	url = https://github.com/exercism/xjavascript.git
+[submodule "exercises/clojure"]
+	path = exercises/clojure
+	url = https://github.com/exercism/xclojure.git
+[submodule "exercises/elixir"]
+	path = exercises/elixir
+	url = git@github.com:exercism/xelixir.git
+[submodule "exercises/go"]
+	path = exercises/go
+	url = https://github.com/exercism/xgo.git
+[submodule "exercises/haskell"]
+	path = exercises/haskell
+	url = https://github.com/exercism/xhaskell.git
+[submodule "exercises/objective-c"]
+	path = exercises/objective-c
+	url = https://github.com/exercism/xobjective-c.git
+[submodule "exercises/ocaml"]
+	path = exercises/ocaml
+	url = https://github.com/exercism/xocaml.git
+[submodule "exercises/perl5"]
+	path = exercises/perl5
+	url = https://github.com/exercism/perl5.git
+[submodule "exercises/python"]
+	path = exercises/python
+	url = https://github.com/exercism/xpython.git
+[submodule "exercises/scala"]
+	path = exercises/scala
+	url = https://github.com/exercism/xscala.git
+[submodule "metadata"]
+	path = metadata
+	url = https://github.com/exercism/x-common.git
