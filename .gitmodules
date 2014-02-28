@@ -12,7 +12,7 @@
 	url = https://github.com/exercism/xclojure.git
 [submodule "exercises/elixir"]
 	path = exercises/elixir
-	url = git@github.com:exercism/xelixir.git
+	url = https://github.com/exercism/xelixir.git
 [submodule "exercises/go"]
 	path = exercises/go
 	url = https://github.com/exercism/xgo.git
