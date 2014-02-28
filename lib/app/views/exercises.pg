@@ -1,4 +1,7 @@
 collection assignments: exercises do |exercise|
   node track: exercise.language
   attributes :slug, :readme, :files
+
+  node :test_file => 'PLEASE_UPGRADE.txt'
+  node :tests => 'Please upgrade to the latest version of the exercism command-line client. See: http://cli.exercism.io'
 end
