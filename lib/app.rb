@@ -1,3 +1,5 @@
+require 'sinatra/base'
+require 'sinatra/petroglyph'
 require 'app/routes'
 
 module Xapi
@@ -8,7 +10,6 @@ module Xapi
         :path => '/',
         :expire_after => 2592000,
         :secret => ENV.fetch('SESSION_SECRET') { 'Need to know only.' }
-      set :root, File.expand_path('../', __FILE__)
     end
 
     use Routes::Demo

@@ -1,6 +1,8 @@
 *.swp
+.approvals
 .DS_Store
 .bundle
 .config
 .ruby-version
 tmp
+test/fixtures/approvals/*.received.*

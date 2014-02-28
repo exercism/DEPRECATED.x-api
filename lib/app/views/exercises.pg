@@ -1,0 +1,4 @@
+collection assignments: exercises do |exercise|
+  node track: exercise.language
+  attributes :slug, :readme, :files
+end
