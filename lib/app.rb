@@ -13,5 +13,6 @@ module Xapi
     end
 
     use Routes::Demo
+    use Routes::Exercises
   end
 end
