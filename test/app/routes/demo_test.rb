@@ -1,5 +1,4 @@
 require './test/app_helper'
-require 'app'
 
 class AppRoutesDemoTest < Minitest::Test
   include Rack::Test::Methods
