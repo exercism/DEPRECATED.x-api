@@ -27,7 +27,7 @@
 	url = https://github.com/exercism/xocaml.git
 [submodule "exercises/perl5"]
 	path = exercises/perl5
-	url = https://github.com/exercism/perl5.git
+	url = https://github.com/exercism/xperl5.git
 [submodule "exercises/python"]
 	path = exercises/python
 	url = https://github.com/exercism/xpython.git
