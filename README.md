@@ -7,42 +7,16 @@
 
 Exercism exercise API
 
-## Getting Started
+This codebase collects all the exercises and metadata that make up the problem
+sets for exercism.io.
 
-Fork and clone per usual, then run:
+The exercises for each language are stored in separate repositories, included
+here as git submodules. This codebase provides an API for serving the Exercism
+exercises to people using the Exercism command-line client.
 
-```bash
-$ git submodule init
-$ git submodule update
-```
+## Contributing
 
-## Running Locally
-
-Once you clone the repository and init/update the submodules
-you just bundle install then run `rackup`:
-
-```bash
-$ bundle install
-...
-$ rackup                                                                                                       [9:15:05]
-Puma 2.7.1 starting...
-* Min threads: 0, max threads: 16
-* Environment: development
-* Listening on tcp://0.0.0.0:9292...
-```
-
-At this point you can navigate your browser to an endpoint,
-e.g. http://0.0.0.0:9292/exercises/ruby/bob
-
-## Running Tests
-
-Once you clone, init then update submodules, and get the app running locally you can finally run the tests:
-
-```bash
-bundle exec rake
-```
-
-> If you do not go through the Getting Started and Running Locally sections your tests will **not** pass.
+Please see the CONTRIBUTING.md file in the root of this repository.
 
 ## License
 
