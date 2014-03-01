@@ -7,6 +7,10 @@ module Xapi
       @path = path
     end
 
+    def next(current)
+      (slugs - current).first
+    end
+
     def slugs
       File.open(file).map(&:chomp).reject(&irrelevant)
     end
