@@ -10,8 +10,8 @@ gem 'tilt', '~> 1.3'
 gem 'petroglyph', '= 0.0.7'
 
 group :development, :test do
-  gem 'approvals', '= 0.0.12'
-  gem 'minitest', '~> 5.2'
-  gem 'rack-test', '~> 0.6'
+  gem 'approvals', '= 0.0.12', require: false
+  gem 'minitest', '~> 5.2', require: false
+  gem 'rack-test', '~> 0.6', require: false
   gem 'coveralls', '~> 0.7', require: false
 end
