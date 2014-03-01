@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 if ENV['CI'].to_i == 1
   puts 'hi'
   require 'coveralls'

@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:4567/api/v1/exercises?key=abc123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - github.com/exercism/xapi
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Content-Type-Options:
+      - nosniff
+      Set-Cookie:
+      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRWFlNTViYzczYjcxNzgyNGMyNjNk%0ANzY4MTAxOTE4Nzg2YTZiNjJmMTMxODRmMjUwYjAwY2E4ZjRjNjJlZmFjOTUG%0AOwBGSSIJY3NyZgY7AEZJIiViZGY2ZTc2NGMxZGY4NTVkOGM0MDc2MDNkMmM1%0AMTIzZAY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00MGM3NzYyZjRjOGZiOWRhZmM1MTMwMGYwZTIyZmNmMjE0MTI5OWFm%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--ff37339ff3cd8eb53570b8eee4869aa9ef4691f5;
+        path=/; HttpOnly
+      Content-Length:
+      - '47'
+    body:
+      encoding: UTF-8
+      string: "{\"go\":[\"leap\"],\"ruby\":[\"anagram\",\"word-count\"]}"
+    http_version: 
+  recorded_at: Sat, 01 Mar 2014 19:48:41 GMT
+recorded_with: VCR 2.8.0

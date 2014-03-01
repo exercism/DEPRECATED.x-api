@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.0'
 
+gem 'faraday', '~> 0.9'
 gem 'puma', '~> 2.7'
 gem 'rack', '~> 1.4'
 gem 'rake', '~> 10.1'
@@ -14,4 +15,6 @@ group :development, :test do
   gem 'minitest', '~> 5.2', require: false
   gem 'rack-test', '~> 0.6', require: false
   gem 'coveralls', '~> 0.7', require: false
+  gem 'vcr', '~> 2.8', require: false
+  gem 'webmock', '~> 1.15.0', require: false
 end
