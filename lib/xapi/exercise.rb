@@ -8,6 +8,14 @@ module Xapi
       @path = path
     end
 
+    def unknown_language?
+      !File.exist?(language_dir)
+    end
+
+    def unknown_exercise?
+      !File.exist?(dir)
+    end
+
     def files
       Code.new(dir).files
     end

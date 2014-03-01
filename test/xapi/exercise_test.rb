@@ -23,4 +23,20 @@ class ExerciseTest < Minitest::Test
     readme = "# One\n\nThis is one.\n\n* one\n* one again\n\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
     assert_equal readme, exercise.readme
   end
+
+  def test_detects_unavailable_language
+    exercise = Xapi::Exercise.new('fake', 'slug', './test/fixtures')
+    refute exercise.unknown_language?
+
+    exercise = Xapi::Exercise.new('unknown', 'slug', './test/fixtures')
+    assert exercise.unknown_language?
+  end
+
+  def test_detects_unavailable_exercise
+    exercise = Xapi::Exercise.new('fake', 'one', './test/fixtures')
+    refute exercise.unknown_exercise?
+
+    exercise = Xapi::Exercise.new('fake', 'unknown', './test/fixtures')
+    assert exercise.unknown_exercise?
+  end
 end
