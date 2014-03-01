@@ -6,7 +6,15 @@ module Xapi
           halt 401, {error: "Please provide your Exercism.io API key"}.to_json
         end
 
-        pg :exercises, locals: {exercises: Xapi::UserHomework.for(params[:key])}
+        pg :exercises, locals: {exercises: Xapi::UserHomework.exercises_for(params[:key])}
+      end
+
+      get '/exercises/restore' do
+        unless params[:key]
+          halt 401, {error: "Please provide your Exercism.io API key"}.to_json
+        end
+
+        pg :exercises, locals: {exercises: Xapi::UserHomework.restore(params[:key])}
       end
 
       get '/exercises/:language/:slug' do |language, slug|
