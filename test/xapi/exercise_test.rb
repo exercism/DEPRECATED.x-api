@@ -7,13 +7,13 @@ require 'xapi/exercise'
 class ExerciseTest < Minitest::Test
   def test_assemble_exercise
     exercise = Xapi::Exercise.new('fake', 'one', './test/fixtures')
+    readme = "# One\n\nThis is one.\n\n* one\n* one again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
     files = {
+      "README.md" => readme,
       "Fakefile" => "Autorun fake code\n",
       "one_test.test" => "assert 'one'\n",
     }
-    readme = "# One\n\nThis is one.\n\n* one\n* one again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
     assert_equal files, exercise.files
-    assert_equal readme, exercise.readme
     assert_equal 'fake', exercise.language
     assert_equal 'one', exercise.slug
   end

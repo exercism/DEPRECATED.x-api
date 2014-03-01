@@ -17,6 +17,10 @@ module Xapi
     end
 
     def files
+      code.merge('README.md' => readme)
+    end
+
+    def code
       Code.new(dir).files
     end
 
