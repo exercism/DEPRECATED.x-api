@@ -34,6 +34,16 @@ Puma 2.7.1 starting...
 At this point you can navigate your browser to an endpoint,
 e.g. http://0.0.0.0:9292/exercises/ruby/bob
 
+## Running Tests
+
+Once you clone, init then update submodules, and get the app running locally you can finally run the tests:
+
+```bash
+bundle exec rake
+```
+
+> If you do not go through the Getting Started and Running Locally sections your tests will **not** pass.
+
 ## License
 
 The MIT License (MIT)
