@@ -28,10 +28,6 @@ README
 
     private
 
-    def name
-      @name ||= slug.split('-').map(&:capitalize).join(' ')
-    end
-
     def blurb
       data['blurb']
     end

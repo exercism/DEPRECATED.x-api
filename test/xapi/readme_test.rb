@@ -14,4 +14,8 @@ class ReadmeTest < Minitest::Test
     text = "# One\n\nThis is one.\n\n* one\n* one again\n\nSetup help.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
     assert_equal text, readme.text
   end
+
+  def test_multi_word_name
+    assert_equal 'Apple Pie', Xapi::Readme.new('apple-pie').name
+  end
 end
