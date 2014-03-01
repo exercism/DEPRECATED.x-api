@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:4567/api/v1/exercises?key=abc123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - github.com/exercism/xapi
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Content-Type-Options:
+      - nosniff
+      Set-Cookie:
+      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTUwZjhhZjU4MjNjYWY4MjViY2E3%0AMGMzNjBkZWM4NDI0ZWNiZDk4YTUwN2NiNjQyYmNiOGYxMDdiN2Y2MWM2MDUG%0AOwBGSSIJY3NyZgY7AEZJIiVjODlhZDU3MzFjNmJkNzU4YjExOTRjODFhYTdl%0AY2I2MgY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00MGM3NzYyZjRjOGZiOWRhZmM1MTMwMGYwZTIyZmNmMjE0MTI5OWFm%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--94b45c22b83d7898e0342b8712462f0dcc06c8d4;
+        path=/; HttpOnly
+      Content-Length:
+      - '47'
+    body:
+      encoding: UTF-8
+      string: "{\"go\":[\"leap\"],\"ruby\":[\"anagram\",\"word-count\"]}"
+    http_version: 
+  recorded_at: Sat, 01 Mar 2014 23:00:19 GMT
+- request:
+    method: get
+    uri: http://localhost:4567/api/v1/iterations/latest?key=abc123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - github.com/exercism/xapi
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Content-Type-Options:
+      - nosniff
+      Set-Cookie:
+      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRWNlNDM0NTUzM2YyMWMwYzQwOGQ2%0AOWRhYTMzMjk2MzhjNzM4NTg4NzNmYTM4ZWZhNzM1MjFlYjg1ZmY5N2Q0NDkG%0AOwBGSSIJY3NyZgY7AEZJIiVkMTYzYWIzYThhYmExOTI4NWZiOTBiZjUxOWJm%0AZDZjOAY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00MGM3NzYyZjRjOGZiOWRhZmM1MTMwMGYwZTIyZmNmMjE0MTI5OWFm%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--f576ef17b935825be49331ab7cddb5f31e6dbbf9;
+        path=/; HttpOnly
+      Content-Length:
+      - '256'
+    body:
+      encoding: UTF-8
+      string: "{\"assignments\":[{\"slug\":\"leap\",\"track\":\"go\",\"files\":{\"one.go\":\"//
+        iteration 2 (done)\"}},{\"slug\":\"anagram\",\"track\":\"ruby\",\"files\":{\"one.rb\":\"//
+        iteration 1 (pending)\"}},{\"slug\":\"word-count\",\"track\":\"ruby\",\"files\":{\"two.rb\":\"//
+        iteration 1 (hibernating)\"}}]}"
+    http_version: 
+  recorded_at: Sat, 01 Mar 2014 23:00:19 GMT
+recorded_with: VCR 2.8.0

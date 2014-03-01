@@ -20,7 +20,7 @@ module Xapi
     end
 
     def self.code_for(key)
-      request '/api/v1/iterations/latest', key
+      request('/api/v1/iterations/latest', key)["assignments"]
     end
 
     def self.conn

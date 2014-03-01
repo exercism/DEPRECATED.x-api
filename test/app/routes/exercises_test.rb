@@ -32,12 +32,21 @@ class AppRoutesExercisesTest < Minitest::Test
     assert_equal 401, last_response.status
   end
 
-  # Acceptance test. Relies on real language-specific data.
+  # Acceptance tests. Relies on real language-specific data.
   # Expect it to fail regularly, since exercises get updated fairly frequently.
+
   def test_get_all_exercises
     VCR.use_cassette('exercism_api_exercises') do
       get '/exercises', :key => 'abc123'
       options = {:format => :json, :name => 'get_all_exercises'}
+      Approvals.verify(last_response.body, options)
+    end
+  end
+
+  def test_restore_exercises_and_solutions
+    VCR.use_cassette('exercism_api_restore') do
+      get '/exercises/restore', :key => 'abc123'
+      options = {:format => :json, :name => 'restore'}
       Approvals.verify(last_response.body, options)
     end
   end
