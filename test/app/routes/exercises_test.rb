@@ -32,6 +32,12 @@ class AppRoutesExercisesTest < Minitest::Test
     assert_equal 401, last_response.status
   end
 
+  def test_require_key_to_restore_exercises
+    get '/exercises/restore'
+
+    assert_equal 401, last_response.status
+  end
+
   # Acceptance tests. Relies on real language-specific data.
   # Expect it to fail regularly, since exercises get updated fairly frequently.
 
