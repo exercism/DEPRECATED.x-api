@@ -25,18 +25,20 @@ class ExerciseTest < Minitest::Test
   end
 
   def test_detects_unavailable_language
-    exercise = Xapi::Exercise.new('fake', 'slug', './test/fixtures')
-    refute exercise.unknown_language?
+    exercise = Xapi::Exercise.new('fake', 'one', './test/fixtures')
+    refute exercise.not_found?
 
     exercise = Xapi::Exercise.new('unknown', 'slug', './test/fixtures')
-    assert exercise.unknown_language?
+    assert exercise.not_found?
+    assert_match /language/, exercise.error_message
   end
 
   def test_detects_unavailable_exercise
     exercise = Xapi::Exercise.new('fake', 'one', './test/fixtures')
-    refute exercise.unknown_exercise?
+    refute exercise.not_found?
 
     exercise = Xapi::Exercise.new('fake', 'unknown', './test/fixtures')
-    assert exercise.unknown_exercise?
+    assert exercise.not_found?
+    assert_match /exercise/, exercise.error_message
   end
 end

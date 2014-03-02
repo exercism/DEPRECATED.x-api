@@ -8,12 +8,16 @@ module Xapi
       @path = path
     end
 
-    def unknown_language?
-      !File.exist?(language_dir)
+    def not_found?
+      unknown_language? || unknown_exercise?
     end
 
-    def unknown_exercise?
-      !File.exist?(dir)
+    def error_message
+      if unknown_language?
+        "We don't have exercises in language '#{language}'"
+      elsif unknown_exercise?
+        "We don't have exercise '#{slug}' in '#{language}'"
+      end
     end
 
     def files
@@ -40,6 +44,14 @@ module Xapi
 
     def dir
       File.join(language_dir, slug)
+    end
+
+    def unknown_language?
+      !File.exist?(language_dir)
+    end
+
+    def unknown_exercise?
+      !File.exist?(dir)
     end
   end
 end
