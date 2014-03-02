@@ -18,7 +18,7 @@ Run the tests with `rake`:
 $ bundle exec rake
 ```
 
-** If you do not go through the _Getting Started_ section your tests will _not_ pass.**
+** If you do not go through the [Getting Started](#getting-started) section your tests will _not_ pass.**
 
 You can run individual test suites using the `ruby` command:
 
@@ -46,6 +46,10 @@ At this point you can navigate to an existing endpoint in your browser, e.g.
 The supporting code for a given exercise can be found in language-specific
 subdirectories under the `exercises` directory.
 
+> If you're not seeing any exercises it is probably because you haven't
+> updated or inititialized the submodules. Be sure to work through the
+> [Getting Started](#getting-started) section.
+
 Each language-specific directory is a git submodule. If you wish to make
 changes to an exercise, look for the corresponding repository on GitHub under
 `exercism/x{LANGUAGE_NAME}`.
@@ -71,20 +75,20 @@ included in the README for each exercise.
 
 The core ideas in the codebase are:
 
-* `Progression` - a complete list of all the exercises currently available for
+* [Progression](lib/xapi/progression.rb) - a complete list of all the exercises currently available for
   a language, in the order that they will be delivered by default. This is
   based on the contents of the `EXERCISES.txt` file in the language-specific
   repository.
-* `Exercise` - the basic unit of work in exercism. It is in a given language,
+* [Exercise](lib/xapi/exercise.rb) - the basic unit of work in exercism. It is in a given language,
   and has a `slug` that identifies which particular problem is being solved.
   An exercise consists of a `Readme` and `Code`.
-* `Readme` - a language-independent explanation of the problem to be solved.
-* `Code` - supporting code to solve the problem. In its most basic form, it
+* [Readme](lib/xapi/readme.rb) - a language-independent explanation of the problem to be solved.
+* [Code](lib/xapi/code.rb) - supporting code to solve the problem. In its most basic form, it
   consists of a test suite, but there can be other supporting files (class
   or type definitions, metadata files, etc).
-* `Lesson` - a subset of exercises in a progression, based on what a person
+* [Lesson](lib/xapi/lesson.rb) - a subset of exercises in a progression, based on what a person
   has previously worked on.
-* `Homework` - a collection of lessons.
+* [Homework](lib/xapi/homework.rb) - a collection of lessons.
 
 There is also the concept of `UserHomework` which wraps the process of getting
 a user's current problem set from exercism.io, and then producing homework
