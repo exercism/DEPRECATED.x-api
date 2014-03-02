@@ -18,7 +18,7 @@ Run the tests with `rake`:
 $ bundle exec rake
 ```
 
-** If you do not go through the _Getting Started_ section your tests will _not_ pass.**
+** If you do not go through the [Getting Started](#getting-started) section your tests will _not_ pass.**
 
 You can run individual test suites using the `ruby` command:
 
