@@ -68,7 +68,7 @@ $ git submodule update
 $ bundle exec rake
 </pre>
 
-            <p><em>* If you do not go through the _Getting Started_ section your tests will _not_ pass.</em>*</p>
+            <p><em>* If you do not go through the <a href="#getting-started">Getting Started</a> section your tests will _not_ pass.</em>*</p>
 
             <p>You can run individual test suites using the <code>ruby</code> command:</p>
 
@@ -104,6 +104,10 @@ Puma 2.7.1 starting...
             <p>The supporting code for a given exercise can be found in language-specific
             subdirectories under the <code>exercises</code> directory.</p>
 
+            <blockquote> If you're not seeing any exercises it is probably because you haven't
+            updated or inititialized the submodules. Be sure to work through the
+            <a href="#getting-started">Getting Started</a> section.</blockquote>
+
             <p>Each language-specific directory is a git submodule. If you wish to make
             changes to an exercise, look for the corresponding repository on GitHub under
             <code>exercism/x{LANGUAGE_NAME}</code>.</p>
@@ -134,20 +138,20 @@ $ ls exercises/scala
             <p>The core ideas in the codebase are:</p>
 
             <ul>
-              <li><code>Progression</code> - a complete list of all the exercises currently available for
+              <li><a href="https://github.com/exercism/x-api/blob/master/lib/xapi/progression.rb">Progression</a> - a complete list of all the exercises currently available for
               a language, in the order that they will be delivered by default. This is
               based on the contents of the <code>EXERCISES.txt</code> file in the language-specific
               repository.</li>
-              <li><code>Exercise</code> - the basic unit of work in exercism. It is in a given language,
+              <li><a href="https://github.com/exercism/x-api/blob/master/lib/xapi/exercise.rb">Exercise</a> - the basic unit of work in exercism. It is in a given language,
               and has a <code>slug</code> that identifies which particular problem is being solved.
               An exercise consists of a <code>Readme</code> and <code>Code</code>.</li>
-              <li><code>Readme</code> - a language-independent explanation of the problem to be solved.</li>
-              <li><code>Code</code> - supporting code to solve the problem. In its most basic form, it
+              <li><a href="https://github.com/exercism/x-api/blob/master/lib/xapi/readme.rb">Readme</a> - a language-independent explanation of the problem to be solved.</li>
+              <li><a href="https://github.com/exercism/x-api/blob/master/lib/xapi/code.rb">Code</a> - supporting code to solve the problem. In its most basic form, it
               consists of a test suite, but there can be other supporting files (class
               or type definitions, metadata files, etc).</li>
-              <li><code>Lesson</code> - a subset of exercises in a progression, based on what a person
+              <li><a code="https://github.com/exercism/x-api/blob/master/lib/xapi/lesson.rb">Lesson</a> - a subset of exercises in a progression, based on what a person
               has previously worked on.</li>
-              <li><code>Homework</code> - a collection of lessons.</li>
+              <li><a href="https://github.com/exercism/x-api/blob/master/lib/xapi/homework.rb">Homework</a> - a collection of lessons.</li>
             </ul>
 
             <p>There is also the concept of <code>UserHomework</code> which wraps the process of getting
