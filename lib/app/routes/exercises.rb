@@ -1,19 +1,21 @@
 module Xapi
   module Routes
     class Exercises < Core
-      get '/exercises' do
-        unless params[:key]
-          halt 401, {error: "Please provide your Exercism.io API key"}.to_json
+      helpers do
+        def require_key
+          unless params[:key]
+            halt 401, {error: "Please provide your Exercism.io API key"}.to_json
+          end
         end
+      end
 
+      get '/exercises' do
+        require_key
         pg :exercises, locals: {exercises: Xapi::UserHomework.exercises_for(params[:key])}
       end
 
       get '/exercises/restore' do
-        unless params[:key]
-          halt 401, {error: "Please provide your Exercism.io API key"}.to_json
-        end
-
+        require_key
         pg :exercises, locals: {exercises: Xapi::UserHomework.restore(params[:key])}
       end
 
