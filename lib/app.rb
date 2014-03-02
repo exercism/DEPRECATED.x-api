@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/petroglyph'
 require 'app/routes'
+require 'app/helpers'
 
 module Xapi
   class App < Sinatra::Application

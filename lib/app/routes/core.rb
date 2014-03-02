@@ -4,6 +4,8 @@ module Xapi
       configure do
         set :root, './lib/app'
       end
+
+      helpers Helpers::Guards
     end
   end
 end
