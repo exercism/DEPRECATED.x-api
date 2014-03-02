@@ -75,20 +75,20 @@ included in the README for each exercise.
 
 The core ideas in the codebase are:
 
-* `Progression` - a complete list of all the exercises currently available for
+* [Progression](lib/xapi/progression.rb) - a complete list of all the exercises currently available for
   a language, in the order that they will be delivered by default. This is
   based on the contents of the `EXERCISES.txt` file in the language-specific
   repository.
-* `Exercise` - the basic unit of work in exercism. It is in a given language,
+* [Exercise](lib/xapi/exercise.rb) - the basic unit of work in exercism. It is in a given language,
   and has a `slug` that identifies which particular problem is being solved.
   An exercise consists of a `Readme` and `Code`.
-* `Readme` - a language-independent explanation of the problem to be solved.
-* `Code` - supporting code to solve the problem. In its most basic form, it
+* [Readme](lib/xapi/readme.rb) - a language-independent explanation of the problem to be solved.
+* [Code](lib/xapi/code.rb) - supporting code to solve the problem. In its most basic form, it
   consists of a test suite, but there can be other supporting files (class
   or type definitions, metadata files, etc).
-* `Lesson` - a subset of exercises in a progression, based on what a person
+* [Lesson](lib/xapi/lesson.rb) - a subset of exercises in a progression, based on what a person
   has previously worked on.
-* `Homework` - a collection of lessons.
+* [Homework](lib/xapi/homework.rb) - a collection of lessons.
 
 There is also the concept of `UserHomework` which wraps the process of getting
 a user's current problem set from exercism.io, and then producing homework
