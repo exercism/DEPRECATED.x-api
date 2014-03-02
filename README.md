@@ -16,7 +16,7 @@ exercises to people using the Exercism command-line client.
 
 ## Contributing
 
-Please see the CONTRIBUTING.md file in the root of this repository.
+Please see the [CONTRIBUTING](CONTRIBUTING.md) guidelines in the root of this repository.
 
 ## License
 
