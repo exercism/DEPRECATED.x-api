@@ -1,4 +1,6 @@
 language: ruby
 rvm:
   - 2.1.0
-script: CI=1 bundle exec rake test
+script:
+  - CI=1 bundle exec rake test
+  - bin/verify_exercises_exist
