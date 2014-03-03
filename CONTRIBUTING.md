@@ -46,9 +46,9 @@ At this point you can navigate to an existing endpoint in your browser, e.g.
 The supporting code for a given exercise can be found in language-specific
 subdirectories under the `exercises` directory.
 
-> If you're not seeing any exercises it is probably because you haven't
-> updated or inititialized the submodules. Be sure to work through the
-> [Getting Started](#getting-started) section.
+**If you're not seeing any exercises it is probably because you haven't
+updated or inititialized the submodules. Be sure to work through the
+[Getting Started](#getting-started) section.**
 
 Each language-specific directory is a git submodule. If you wish to make
 changes to an exercise, look for the corresponding repository on GitHub under

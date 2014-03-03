@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/petroglyph'
+require 'haml'
 require 'app/routes'
 require 'app/helpers'
 
@@ -13,6 +14,7 @@ module Xapi
         :secret => ENV.fetch('SESSION_SECRET') { 'Need to know only.' }
     end
 
+    use Routes::Home
     use Routes::Demo
     use Routes::Exercises
   end

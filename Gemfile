@@ -3,10 +3,13 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 gem 'faraday', '~> 0.9'
+gem 'haml', '~> 4.0'
 gem 'petroglyph', '= 0.0.7'
 gem 'puma', '~> 2.7'
 gem 'rack', '~> 1.4'
 gem 'rake', '~> 10.1'
+gem 'redcarpet', '~> 2.3'
+gem 'rouge', '~> 0.3'
 gem 'sinatra', '~> 1.4', require: 'sinatra/base'
 gem 'tilt', '~> 1.3'
 
