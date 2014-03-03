@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 gem 'faraday', '~> 0.9'
+gem 'haml', '~> 4.0'
 gem 'petroglyph', '= 0.0.7'
 gem 'puma', '~> 2.7'
 gem 'rack', '~> 1.4'

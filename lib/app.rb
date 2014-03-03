@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/petroglyph'
+require 'haml'
 require 'app/routes'
 require 'app/helpers'
 

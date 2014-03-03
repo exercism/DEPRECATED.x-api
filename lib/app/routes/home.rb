@@ -2,7 +2,7 @@ module Xapi
   module Routes
     class Home < Core
       get '/' do
-        File.read(File.join(settings.public_folder, '/index.html'))
+        haml :markdown, locals: {markdown: Xapi::Markdown.at('./CONTRIBUTING.md')}
       end
     end
   end
