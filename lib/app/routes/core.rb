@@ -6,10 +6,6 @@ module Xapi
       end
 
       helpers Helpers::Guards
-
-      get '/' do
-        File.read(File.join(settings.public_folder, '/index.html'))
-      end
     end
   end
 end
