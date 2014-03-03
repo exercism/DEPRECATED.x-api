@@ -1,0 +1,25 @@
+#!/bin/bash
+
+ROOT=$(pwd)
+
+for language in $(ls exercises)
+do
+    cd exercises/$language
+    while read exercise;
+    do
+        # ignore comments and empty lines
+        initial="$(echo $exercise | head -c 1)"
+        if [ "$initial" == "#" ] || [ "$initial" == "" ]; then
+            continue;
+        fi
+
+        # fail if exercise directory does not exist
+        if [ ! -d "$exercise" ]; then
+            echo "$exercise not found for language $language" 1>&2
+            echo "   -one possibility is that you haven't run:" 1>&2
+            echo "      $ git submodule init && git submodule update" 1>&2
+            exit 1
+        fi
+    done < EXERCISES.txt
+    cd $ROOT
+done
