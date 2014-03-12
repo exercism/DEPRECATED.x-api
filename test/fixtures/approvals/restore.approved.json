@@ -170,17 +170,7 @@
       "tests": "Please upgrade to the latest version of the exercism command-line client. See: http://cli.exercism.io"
     },
     {
-      "track": null,
-      "slug": "anagram",
-      "files": {
-        "one.rb": "// iteration 1 (pending)"
-      },
-      "readme": "Please upgrade to the latest version of the exercism command-line client. See: http://cli.exercism.io",
-      "test_file": "PLEASE_UPGRADE.txt",
-      "tests": "Please upgrade to the latest version of the exercism command-line client. See: http://cli.exercism.io"
-    },
-    {
-      "track": null,
+      "track": "go",
       "slug": "leap",
       "files": {
         "one.go": "// iteration 2 (done)"
@@ -190,7 +180,17 @@
       "tests": "Please upgrade to the latest version of the exercism command-line client. See: http://cli.exercism.io"
     },
     {
-      "track": null,
+      "track": "ruby",
+      "slug": "anagram",
+      "files": {
+        "one.rb": "// iteration 1 (pending)"
+      },
+      "readme": "Please upgrade to the latest version of the exercism command-line client. See: http://cli.exercism.io",
+      "test_file": "PLEASE_UPGRADE.txt",
+      "tests": "Please upgrade to the latest version of the exercism command-line client. See: http://cli.exercism.io"
+    },
+    {
+      "track": "ruby",
       "slug": "word-count",
       "files": {
         "two.rb": "// iteration 1 (hibernating)"
