@@ -3,5 +3,9 @@ module Xapi
     def language
       track
     end
+
+    def fresh?
+      false
+    end
   end
 end

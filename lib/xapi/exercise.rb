@@ -6,6 +6,7 @@ module Xapi
       @language = language
       @slug = slug
       @path = path
+      @fresh = false
     end
 
     def not_found?
@@ -30,6 +31,14 @@ module Xapi
 
     def readme
       Readme.new(slug, path, setup).text
+    end
+
+    def fresh!
+      @fresh = true
+    end
+
+    def fresh?
+      @fresh
     end
 
     private

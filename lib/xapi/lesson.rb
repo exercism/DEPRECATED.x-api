@@ -8,7 +8,9 @@ module Xapi
     end
 
     def exercises
-      slugs.map {|slug| Exercise.new(progression.language, slug) }
+      work = slugs.map {|slug| Exercise.new(progression.language, slug) }
+      work.last.fresh!
+      work
     end
 
     private

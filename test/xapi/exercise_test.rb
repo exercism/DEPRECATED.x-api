@@ -41,4 +41,11 @@ class ExerciseTest < Minitest::Test
     assert exercise.not_found?
     assert_match /exercise/, exercise.error_message
   end
+
+  def test_freshness
+    exercise = Xapi::Exercise.new('fake', 'one', './test/fixtures')
+    refute exercise.fresh?
+    exercise.fresh!
+    assert exercise.fresh?
+  end
 end
