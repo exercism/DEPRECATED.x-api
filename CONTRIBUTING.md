@@ -92,7 +92,9 @@ Also, the metadata for the exercise must exist in
 [exercism/x-common](https://github.com/exercism/x-common).
 
 Within the language-specific repository, create an `EXERCISES.txt` file that
-lists the order of the exercises.
+lists the order of the exercises in (more or less) increasing levels of
+difficulty. It's hard to know at first which exercises turn out to be harder
+than others, and a best guess is fine.
 
 Once the exercises have been implemented, then the repository must be included
 as a git submodule in [exercism/x-api](https://github.com/exercism/x-api).
