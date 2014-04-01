@@ -9,7 +9,6 @@ class ExercismIOTest < Minitest::Test
   def test_exercises
     VCR.use_cassette('exercism_api_exercises') do
       expected = {
-        'go' => ['leap'],
         'ruby' => ['anagram', 'word-count']
       }
       assert_equal expected, Xapi::ExercismIO.exercises_for('abc123')

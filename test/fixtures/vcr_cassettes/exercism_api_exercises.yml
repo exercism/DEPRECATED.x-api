@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:4567/api/v1/exercises?key=abc123
+    uri: http://localhost:4567/api/v1/exercises/current?key=abc123
     body:
       encoding: US-ASCII
       string: ''
@@ -23,13 +23,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Set-Cookie:
-      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRWI2NDQxNWMzODE2NDk0ZGFkNWY4%0ANzNhYTY0Mzk2MzZjM2Q1NTNmOGYwZWUyMDAzOWRiY2ZhMmU5MjY2Njk3NTAG%0AOwBGSSIJY3NyZgY7AEZJIiVhN2FiMWIxYzVlOWI4NWYyZDQzY2NkN2M4ZGMx%0AODg1NQY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00MGM3NzYyZjRjOGZiOWRhZmM1MTMwMGYwZTIyZmNmMjE0MTI5OWFm%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--4ba0d668c39526f6a19bc632c6cb4abe1bfa6891;
+      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRWE2NmFhM2E5ZmI2ZDljOTRiMjVj%0AMGM2ODIzNWMwOWUwYWEwMDhiNzAzZWNmNTQ0MGRhZTMxZTllM2M0MzA3MjQG%0AOwBGSSIJY3NyZgY7AEZJIiUzZmJiOGVmOTMyNzllMWUwOGRiMmEzN2YxN2Nm%0AMDk0NwY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00MGM3NzYyZjRjOGZiOWRhZmM1MTMwMGYwZTIyZmNmMjE0MTI5OWFm%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--afec6be8195534f984c20f02a63cb3d476e25e96;
         path=/; HttpOnly
       Content-Length:
-      - '47'
+      - '33'
     body:
       encoding: UTF-8
-      string: "{\"go\":[\"leap\"],\"ruby\":[\"anagram\",\"word-count\"]}"
+      string: "{\"ruby\":[\"anagram\",\"word-count\"]}"
     http_version: 
-  recorded_at: Tue, 01 Apr 2014 18:34:18 GMT
+  recorded_at: Tue, 01 Apr 2014 18:35:37 GMT
 recorded_with: VCR 2.8.0
