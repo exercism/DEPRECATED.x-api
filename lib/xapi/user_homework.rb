@@ -1,7 +1,7 @@
 module Xapi
   module UserHomework
     def self.exercises_for(key)
-      extract ExercismIO.exercises_for(key)
+      extract ExercismIO.all_exercises_for(key)
     end
 
     def self.code_for(key)

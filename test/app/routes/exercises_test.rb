@@ -41,18 +41,18 @@ class AppRoutesExercisesTest < Minitest::Test
   # Acceptance tests. Relies on real language-specific data.
   # Expect it to fail regularly, since exercises get updated fairly frequently.
 
-  def test_get_all_exercises
-    VCR.use_cassette('exercism_api_exercises') do
+  def test_get_exercises
+    VCR.use_cassette('exercism_api_current_exercises') do
       get '/exercises', :key => 'abc123'
-      options = {:format => :json, :name => 'get_all_exercises'}
+      options = {:format => :json, :name => 'get_current_exercises'}
       Approvals.verify(last_response.body, options)
     end
   end
 
   def test_handle_missing_exercise
-    VCR.use_cassette('exercism_api_exercises_with_error') do
+    VCR.use_cassette('exercism_api_current_exercises_with_error') do
       get '/exercises', :key => 'xyz456'
-      options = {:format => :json, :name => 'get_all_exercises_with_error'}
+      options = {:format => :json, :name => 'get_current_exercises_with_error'}
       Approvals.verify(last_response.body, options)
     end
   end

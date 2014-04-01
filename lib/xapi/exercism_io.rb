@@ -19,6 +19,10 @@ module Xapi
       request '/api/v1/exercises', key
     end
 
+    def self.all_exercises_for(key)
+      request '/api/v1/exercises', key
+    end
+
     def self.code_for(key)
       request('/api/v1/iterations/latest', key)["assignments"]
     end

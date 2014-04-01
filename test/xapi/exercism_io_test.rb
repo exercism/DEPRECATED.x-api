@@ -16,6 +16,16 @@ class ExercismIOTest < Minitest::Test
     end
   end
 
+  def test_all_exercises
+    VCR.use_cassette('exercism_all_api_exercises') do
+      expected = {
+        'go' => ['leap'],
+        'ruby' => ['anagram', 'word-count']
+      }
+      assert_equal expected, Xapi::ExercismIO.all_exercises_for('abc123')
+    end
+  end
+
   def test_code
     VCR.use_cassette('exercism_api_code') do
       expected = [
