@@ -16,6 +16,10 @@ module Xapi
     end
 
     def self.exercises_for(key)
+      request '/api/v1/exercises/current', key
+    end
+
+    def self.all_exercises_for(key)
       request '/api/v1/exercises', key
     end
 
