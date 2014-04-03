@@ -30,6 +30,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: "{\"go\":[\"no-such-exercise\"]}"
-    http_version: 
+    http_version:
   recorded_at: Wed, 02 Apr 2014 06:33:34 GMT
 recorded_with: VCR 2.8.0

@@ -8,6 +8,11 @@ module Xapi
       extract ExercismIO.all_exercises_for(key)
     end
 
+    def self.all_exercises_by_language_for(key, language)
+      exercises = extract ExercismIO.exercises_for(key)
+      exercises.select { |exercise| exercise.language == language }
+    end
+
     def self.code_for(key)
       iterations = ExercismIO.code_for(key)
       iterations.map {|iteration| Iteration.new(iteration)}.sort_by {|iteration|
