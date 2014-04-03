@@ -26,6 +26,12 @@ class AppRoutesExercisesTest < Minitest::Test
     Approvals.verify(last_response.body, options)
   end
 
+  def test_require_key_to_fetch_exercises_for_language
+    get '/exercises/ruby'
+
+    assert_equal 401, last_response.status
+  end
+
   def test_require_key_to_fetch_exercises
     get '/exercises'
 
@@ -40,6 +46,22 @@ class AppRoutesExercisesTest < Minitest::Test
 
   # Acceptance tests. Relies on real language-specific data.
   # Expect it to fail regularly, since exercises get updated fairly frequently.
+
+  def test_get_exercises_by_language
+    VCR.use_cassette('exercism_api_current_exercises') do
+      get '/exercises/ruby', :key => 'abc123'
+      options = {:format => :json, :name => 'get_current_exercises_by_language'}
+      Approvals.verify(last_response.body, options)
+    end
+  end
+
+  def test_handle_missing_exercise_by_language
+    VCR.use_cassette('exercism_api_current_exercises_with_error') do
+      get '/exercises/ruby', :key => 'xyz456'
+      options = {:format => :json, :name => 'get_current_exercises_with_error_by_language'}
+      Approvals.verify(last_response.body, options)
+    end
+  end
 
   def test_get_exercises
     VCR.use_cassette('exercism_api_current_exercises') do
