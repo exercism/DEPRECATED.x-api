@@ -35,6 +35,7 @@ module Xapi
 
     def fresh!
       @fresh = true
+      self
     end
 
     def fresh?

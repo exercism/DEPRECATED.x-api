@@ -14,7 +14,7 @@ module Xapi
     end
 
     def exercises
-      course.exercises.reject(&:not_found?).sort_by {|exercise|
+      course.lessons.map(&:current_exercises).flatten.reject(&:not_found?).sort_by {|exercise|
         [exercise.language, exercise.slug]
       }
     end

@@ -1,22 +1,32 @@
 module Xapi
   class Lesson
-    attr_reader :current_slugs, :progression
+    attr_reader :slugs, :progression
 
     def initialize(slugs, progression)
-      @current_slugs = slugs
+      @slugs = slugs
       @progression = progression
     end
 
     def exercises
-      work = slugs.map {|slug| Exercise.new(progression.language, slug) }
-      work.last.fresh!
-      work
+      (current_exercises + upcoming_exercises).compact
+    end
+
+    def current_exercises
+      slugs.map {|slug| Exercise.new(progression.language, slug) }
+    end
+
+    def upcoming_exercises
+      coming_up = []
+      if next_slug
+        coming_up << Exercise.new(progression.language, next_slug).fresh!
+      end
+      coming_up
     end
 
     private
 
-    def slugs
-      current_slugs.<<(progression.next(current_slugs)).compact
+    def next_slug
+      progression.next(slugs)
     end
   end
 end
