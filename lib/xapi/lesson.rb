@@ -8,19 +8,17 @@ module Xapi
     end
 
     def exercises
-      (current_exercises + upcoming_exercises).compact
+      (current_exercises + [upcoming_exercise].compact)
     end
 
     def current_exercises
       slugs.map {|slug| Exercise.new(progression.language, slug) }
     end
 
-    def upcoming_exercises
-      coming_up = []
+    def upcoming_exercise
       if next_slug
-        coming_up << Exercise.new(progression.language, next_slug).fresh!
+        Exercise.new(progression.language, next_slug).fresh!
       end
-      coming_up
     end
 
     private

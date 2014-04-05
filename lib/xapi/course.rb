@@ -10,10 +10,6 @@ module Xapi
       @path = path
     end
 
-    def exercises
-      lessons.map(&:exercises).flatten
-    end
-
     def lessons
       languages.map {|language|
         Lesson.new(data[language], progression.new(language, path))

@@ -14,7 +14,9 @@ class CourseTest < Minitest::Test
     course = Xapi::Course.new(data, available_languages, FakeProgression)
 
     expected = ['ruby:one', 'ruby:two', 'ruby:three', 'go:one', 'go:two', 'python:one']
-    actual = course.exercises.map {|exercise| [exercise.language, exercise.slug].join(':')}
+    actual = course.lessons.map(&:exercises).flatten.map {|exercise|
+      [exercise.language, exercise.slug].join(':')
+    }
 
     assert_equal expected.sort, actual.sort
   end

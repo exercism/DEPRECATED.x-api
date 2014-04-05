@@ -10,7 +10,9 @@ module Xapi
     end
 
     def exercises
-      course.exercises.reject(&:not_found?).sort_by(&name)
+      course.lessons.map {|lesson|
+        (lesson.current_exercises + [lesson.upcoming_exercise].compact)
+      }.flatten.reject(&:not_found?).sort_by(&name)
     end
 
     private
