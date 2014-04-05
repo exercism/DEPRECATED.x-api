@@ -24,7 +24,7 @@ module Xapi
     end
 
     def data
-      ExercismIO.all_exercises_for(key)
+      ExercismIO.exercises_for(key)
     end
 
     def code

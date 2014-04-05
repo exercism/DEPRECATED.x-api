@@ -6,8 +6,13 @@ require 'xapi/exercise'
 class CourseTest < Minitest::Test
   def test_exercises
     data = {
-      'ruby' => ['one', 'two'],
-      'go' => ['one']
+      'ruby' => [
+        {"slug" => "one", "state" => "whatever"},
+        {"slug" => "two", "state" => "whatever"},
+      ],
+      'go' => [
+        {"slug" => "one", "state" => "whatever"}
+      ]
     }
     course = Xapi::Course.new(data)
 

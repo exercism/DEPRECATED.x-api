@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:4567/api/v1/exercises/current?key=xyz456
+    uri: http://localhost:4567/api/v1/exercises?key=xyz456
     body:
       encoding: US-ASCII
       string: ''
@@ -23,13 +23,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Set-Cookie:
-      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTg0OWQyNTliNDUxMzVkYjA4NzNi%0ANDRmZWI2ZDU5YzJiM2M3YWE2OGI2ZTk0NTNjMDEzYWRiMjE5NTVjMzY1OTAG%0AOwBGSSIJY3NyZgY7AEZJIiUxZGIxNGM2ZDA1NTIxYTA0YWM5ZTI3ODNjMmQ5%0AMThmMgY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00MGM3NzYyZjRjOGZiOWRhZmM1MTMwMGYwZTIyZmNmMjE0MTI5OWFm%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--2c5c56a060dfb00392a6870df597432047f20040;
+      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTFhNDU4NGZhMWRkZmFjMTRkMDhi%0ANjNhZDRmYzM2NmQ2Y2U5MTAwNmJiM2ZlZDE0ZWYwZWQxMmNlOWNiZDBiNjYG%0AOwBGSSIJY3NyZgY7AEZJIiU1Y2U1MzZhMzRlMDBjMGE5MTg1YTQ1OTY4YmQy%0AY2NmOQY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00MGM3NzYyZjRjOGZiOWRhZmM1MTMwMGYwZTIyZmNmMjE0MTI5OWFm%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--5aa00f4b694ebde5281049019e7e6ed4dcc8eb6a;
         path=/; HttpOnly
       Content-Length:
-      - '27'
+      - '54'
     body:
       encoding: UTF-8
-      string: "{\"go\":[\"no-such-exercise\"]}"
-    http_version:
-  recorded_at: Wed, 02 Apr 2014 06:33:34 GMT
+      string: "{\"go\":[{\"slug\":\"no-such-exercise\",\"state\":\"pending\"}]}"
+    http_version: 
+  recorded_at: Sat, 05 Apr 2014 22:18:38 GMT
 recorded_with: VCR 2.8.0

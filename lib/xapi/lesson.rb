@@ -1,14 +1,14 @@
 module Xapi
   class Lesson
-    attr_reader :language, :slugs
+    attr_reader :language, :data
 
-    def initialize(language, slugs)
+    def initialize(language, data)
       @language = language
-      @slugs = slugs
+      @data = data
     end
 
     def exercises
-      slugs.map {|slug| Exercise.new(language, slug) }
+      data.map {|row| Exercise.new(language, row["slug"], row["state"]) }
     end
   end
 end

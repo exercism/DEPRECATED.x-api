@@ -16,13 +16,17 @@ module Xapi
     private
 
     def current_exercises
-      Course.new(data).exercises
+      course.exercises.reject(&:completed?)
+    end
+
+    def course
+      @course ||= Course.new(data)
     end
 
     def upcoming_exercises
       Xapi::Config.languages.map {|language|
         progression = Progression.new(language)
-        slugs = data[language]
+        slugs = course.exercises.map(&:slug)
         if progression.next(slugs)
           Exercise.new(language, progression.next(slugs)).fresh!
         end

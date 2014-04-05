@@ -2,13 +2,18 @@ module Xapi
   class Exercise
     Name = Proc.new {|exercise| [exercise.language, exercise.slug] }
 
-    attr_reader :language, :slug, :path
+    attr_reader :language, :slug, :state, :path
 
-    def initialize(language, slug, path='.')
+    def initialize(language, slug, state='fresh', path='.')
       @language = language
       @slug = slug
       @path = path
+      @state = state
       @fresh = false
+    end
+
+    def completed?
+      state == 'done'
     end
 
     def not_found?
