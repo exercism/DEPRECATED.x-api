@@ -124,10 +124,10 @@ The core ideas in the codebase are:
   or type definitions, metadata files, etc).
 * [Lesson](lib/xapi/lesson.rb) - a subset of exercises in a progression, based on what a person
   has previously worked on.
-* [Homework](lib/xapi/homework.rb) - a collection of lessons.
+* [Course](lib/xapi/homework.rb) - a collection of lessons.
 
-There is also the concept of `UserHomework` which wraps the process of getting
-a user's current problem set from exercism.io, and then producing homework
+There is also the concept of `Homework` which wraps the process of getting
+a user's current problem set from exercism.io, and then producing a course
 from it.
 
 ## Code Arrangement

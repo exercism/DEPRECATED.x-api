@@ -2,7 +2,7 @@ module Xapi
   class Progression
     attr_reader :language, :path
 
-    def initialize(language, path)
+    def initialize(language, path='.')
       @language = language
       @path = path
     end

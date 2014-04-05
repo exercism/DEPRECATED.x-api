@@ -1,5 +1,7 @@
 module Xapi
   class Exercise
+    Name = Proc.new {|exercise| [exercise.language, exercise.slug] }
+
     attr_reader :language, :slug, :path
 
     def initialize(language, slug, path='.')
@@ -35,6 +37,7 @@ module Xapi
 
     def fresh!
       @fresh = true
+      self
     end
 
     def fresh?

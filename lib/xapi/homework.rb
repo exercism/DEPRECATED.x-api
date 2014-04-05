@@ -1,27 +1,36 @@
 module Xapi
   class Homework
-    attr_reader :data, :languages, :progression, :path
+    attr_reader :key
+    def initialize(key)
+      @key = key
+    end
 
-    def initialize(data, languages, progression, path=default_path)
-      data.default_proc = Proc.new {|hash, language| hash[language] = []}
-      @data = data
-      @languages = languages
-      @progression = progression
-      @path = path
+    def exercises_in(language)
+      exercises.select { |exercise| exercise.language == language }
     end
 
     def exercises
-      lessons.map(&:exercises).flatten
+      (current_exercises + upcoming_exercises).reject(&:not_found?).sort_by(&Exercise::Name)
     end
 
-    def lessons
-      languages.map {|language|
-        Lesson.new(data[language], progression.new(language, path))
+    private
+
+    def current_exercises
+      Course.new(data).exercises
+    end
+
+    def upcoming_exercises
+      Xapi::Config.languages.map {|language|
+        progression = Progression.new(language)
+        slugs = data[language]
+        if progression.next(slugs)
+          Exercise.new(language, progression.next(slugs)).fresh!
+        end
       }
     end
 
-    def default_path
-      '.'
+    def data
+      @data ||= ExercismIO.exercises_for(key)
     end
   end
 end
