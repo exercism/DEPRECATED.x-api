@@ -1,33 +1,32 @@
 module Xapi
-  module Homework
-    def self.exercises_for(key)
-      extract ExercismIO.exercises_for(key)
+  class Homework
+    attr_reader :key
+    def initialize(key)
+      @key = key
     end
 
-    def self.all_exercises_for(key)
-      extract ExercismIO.all_exercises_for(key)
-    end
-
-    def self.all_exercises_by_language_for(key, language)
-      exercises = extract ExercismIO.exercises_for(key)
+    def exercises_in(language)
       exercises.select { |exercise| exercise.language == language }
     end
 
-    def self.code_for(key)
-      iterations = ExercismIO.code_for(key)
-      iterations.map {|iteration| Iteration.new(iteration)}.sort_by {|iteration|
-        [iteration.language, iteration.slug]
-      }
+    def exercises
+      course.exercises.reject(&:not_found?).sort_by(&name)
     end
 
-    def self.restore(key)
-      all_exercises_for(key) + code_for(key)
-    end
+    private
 
-    def self.extract(data)
-      Course.new(data, Xapi::Config.languages, Progression).exercises.reject(&:not_found?).sort_by {|exercise|
+    def name
+      Proc.new {|exercise|
         [exercise.language, exercise.slug]
       }
+    end
+
+    def data
+      ExercismIO.exercises_for(key)
+    end
+
+    def course
+      Course.new(data, Xapi::Config.languages, Progression)
     end
   end
 end
