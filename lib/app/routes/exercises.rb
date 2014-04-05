@@ -4,7 +4,7 @@ module Xapi
       helpers do
         def render_homework(method, *args)
           require_key
-          pg :exercises, locals: {exercises: Xapi::UserHomework.send(method, params[:key], *args)}
+          pg :exercises, locals: {exercises: Xapi::Homework.send(method, params[:key], *args)}
         end
       end
 
