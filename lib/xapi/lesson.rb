@@ -1,10 +1,10 @@
 module Xapi
   class Lesson
-    attr_reader :slugs, :language
+    attr_reader :language, :slugs
 
-    def initialize(slugs, language)
-      @slugs = slugs
+    def initialize(language, slugs)
       @language = language
+      @slugs = slugs
     end
 
     def exercises

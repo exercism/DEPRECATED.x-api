@@ -10,7 +10,7 @@ module Xapi
 
     def lessons
       languages.map {|language|
-        Lesson.new(data[language], language)
+        Lesson.new(language, data[language])
       }
     end
   end

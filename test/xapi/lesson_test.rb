@@ -4,7 +4,7 @@ require 'xapi/exercise'
 
 class LessonTest < Minitest::Test
   def test_exercises
-    lesson = Xapi::Lesson.new(['one', 'two'], 'ruby')
+    lesson = Xapi::Lesson.new('ruby', ['one', 'two'])
 
     expected = ['one', 'two']
     actual = lesson.exercises.map(&:slug)
@@ -13,7 +13,7 @@ class LessonTest < Minitest::Test
   end
 
   def test_exercises_if_completed_progression
-    lesson = Xapi::Lesson.new(['one', 'two', 'three'], 'ruby')
+    lesson = Xapi::Lesson.new('ruby', ['one', 'two', 'three'])
 
     expected = ['one', 'two', 'three']
     actual = lesson.exercises.map(&:slug)
