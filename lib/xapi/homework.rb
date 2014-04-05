@@ -16,7 +16,7 @@ module Xapi
     private
 
     def current_exercises
-      course.lessons.map(&:exercises).flatten
+      Course.new(data).exercises
     end
 
     def upcoming_exercises
@@ -37,10 +37,6 @@ module Xapi
 
     def data
       @data ||= ExercismIO.exercises_for(key)
-    end
-
-    def course
-      Course.new(data)
     end
   end
 end
