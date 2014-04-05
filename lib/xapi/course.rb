@@ -1,15 +1,14 @@
 module Xapi
   class Course
-    attr_reader :data, :languages
+    attr_reader :data
 
-    def initialize(data, languages)
+    def initialize(data)
       data.default_proc = Proc.new {|hash, language| hash[language] = []}
       @data = data
-      @languages = languages
     end
 
     def lessons
-      languages.map {|language|
+      data.map {|language, slugs|
         Lesson.new(language, data[language])
       }
     end

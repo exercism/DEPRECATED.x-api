@@ -9,8 +9,7 @@ class CourseTest < Minitest::Test
       'ruby' => ['one', 'two'],
       'go' => ['one']
     }
-    available_languages = ['ruby', 'go', 'python']
-    course = Xapi::Course.new(data, available_languages)
+    course = Xapi::Course.new(data)
 
     expected = ['ruby:one', 'ruby:two', 'go:one']
     actual = course.lessons.map(&:exercises).flatten.map {|exercise|
