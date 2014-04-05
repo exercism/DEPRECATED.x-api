@@ -10,7 +10,7 @@ module Xapi
     end
 
     def exercises
-      (current_exercises + upcoming_exercises).reject(&:not_found?).sort_by(&name)
+      (current_exercises + upcoming_exercises).reject(&:not_found?).sort_by(&Exercise::Name)
     end
 
     private
@@ -26,12 +26,6 @@ module Xapi
         if progression.next(slugs)
           Exercise.new(language, progression.next(slugs)).fresh!
         end
-      }
-    end
-
-    def name
-      Proc.new {|exercise|
-        [exercise.language, exercise.slug]
       }
     end
 

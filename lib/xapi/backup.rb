@@ -10,15 +10,13 @@ module Xapi
     end
 
     def restore
-      exercises + code
+      (exercises + code).sort_by(&Exercise::Name)
     end
 
     private
 
     def exercises
-      course.exercises.reject(&:not_found?).sort_by {|exercise|
-        [exercise.language, exercise.slug]
-      }
+      course.exercises.reject(&:not_found?)
     end
 
     def course
@@ -30,9 +28,7 @@ module Xapi
     end
 
     def code
-      iterations.map {|iteration| Iteration.new(iteration)}.sort_by {|iteration|
-        [iteration.language, iteration.slug]
-      }
+      iterations.map {|iteration| Iteration.new(iteration)}
     end
 
     def iterations
