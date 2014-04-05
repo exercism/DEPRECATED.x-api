@@ -1,5 +1,5 @@
 module Xapi
-  class Homework
+  class Course
     attr_reader :data, :languages, :progression, :path
 
     def initialize(data, languages, progression, path=default_path)

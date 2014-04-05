@@ -25,7 +25,7 @@ module Xapi
     end
 
     def self.extract(data)
-      Homework.new(data, Xapi::Config.languages, Progression).exercises.reject(&:not_found?).sort_by {|exercise|
+      Course.new(data, Xapi::Config.languages, Progression).exercises.reject(&:not_found?).sort_by {|exercise|
         [exercise.language, exercise.slug]
       }
     end
