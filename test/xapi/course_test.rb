@@ -13,7 +13,7 @@ class CourseTest < Minitest::Test
     available_languages = ['ruby', 'go', 'python']
     course = Xapi::Course.new(data, available_languages, FakeProgression)
 
-    expected = ['ruby:one', 'ruby:two', 'ruby:three', 'go:one', 'go:two', 'python:one']
+    expected = ['ruby:one', 'ruby:two', 'go:one']
     actual = course.lessons.map(&:exercises).flatten.map {|exercise|
       [exercise.language, exercise.slug].join(':')
     }

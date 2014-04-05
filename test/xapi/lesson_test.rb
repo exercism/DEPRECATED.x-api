@@ -7,7 +7,7 @@ class LessonTest < Minitest::Test
   def test_exercises
     lesson = Xapi::Lesson.new(['one', 'two'], FakeProgression.new('ruby', '/fake/path'))
 
-    expected = ['one', 'two', 'three']
+    expected = ['one', 'two']
     actual = lesson.exercises.map(&:slug)
 
     assert_equal expected.sort, actual.sort

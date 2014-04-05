@@ -8,10 +8,6 @@ module Xapi
     end
 
     def exercises
-      (current_exercises + [upcoming_exercise].compact)
-    end
-
-    def current_exercises
       slugs.map {|slug| Exercise.new(progression.language, slug) }
     end
 
