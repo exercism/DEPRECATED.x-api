@@ -1,5 +1,4 @@
 require './test/test_helper'
-require './test/fixtures/fake_progression'
 require 'xapi/course'
 require 'xapi/lesson'
 require 'xapi/exercise'
@@ -11,7 +10,7 @@ class CourseTest < Minitest::Test
       'go' => ['one']
     }
     available_languages = ['ruby', 'go', 'python']
-    course = Xapi::Course.new(data, available_languages, FakeProgression)
+    course = Xapi::Course.new(data, available_languages)
 
     expected = ['ruby:one', 'ruby:two', 'go:one']
     actual = course.lessons.map(&:exercises).flatten.map {|exercise|

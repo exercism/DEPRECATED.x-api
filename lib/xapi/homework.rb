@@ -11,11 +11,18 @@ module Xapi
 
     def exercises
       course.lessons.map {|lesson|
-        (lesson.exercises + [lesson.upcoming_exercise].compact)
+        (lesson.exercises + [upcoming_exercise_in(lesson)].compact)
       }.flatten.reject(&:not_found?).sort_by(&name)
     end
 
     private
+
+    def upcoming_exercise_in(lesson)
+      progression = Progression.new(lesson.language)
+      if progression.next(lesson.slugs)
+        Exercise.new(progression.language, progression.next(lesson.slugs)).fresh!
+      end
+    end
 
     def name
       Proc.new {|exercise|
@@ -28,7 +35,7 @@ module Xapi
     end
 
     def course
-      Course.new(data, Xapi::Config.languages, Progression)
+      Course.new(data, Xapi::Config.languages)
     end
   end
 end

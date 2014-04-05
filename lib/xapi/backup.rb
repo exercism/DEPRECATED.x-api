@@ -20,7 +20,7 @@ module Xapi
     end
 
     def course
-      Course.new(data, Xapi::Config.languages, Progression)
+      Course.new(data, Xapi::Config.languages)
     end
 
     def data
