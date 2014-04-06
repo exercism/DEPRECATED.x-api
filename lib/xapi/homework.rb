@@ -1,8 +1,9 @@
 module Xapi
   class Homework
-    attr_reader :key
-    def initialize(key)
+    attr_reader :key, :languages
+    def initialize(key, languages=Xapi::Config.languages)
       @key = key
+      @languages = languages
     end
 
     def exercises_in(language)
@@ -24,13 +25,11 @@ module Xapi
     end
 
     def upcoming_exercises
-      Xapi::Config.languages.map {|language|
-        progression = Progression.new(language)
-        slugs = course.in(language).slugs
-        if progression.next(slugs)
-          Exercise.new(language, progression.next(slugs)).fresh!
-        end
-      }.compact
+      progressions.map(&:next)
+    end
+
+    def progressions
+      languages.map {|language| Progression.new(language, course.in(language).slugs)}
     end
 
     def data

@@ -1,14 +1,15 @@
 module Xapi
   class Progression
-    attr_reader :language, :path
+    attr_reader :language, :current, :path
 
-    def initialize(language, path='.')
+    def initialize(language, current=[], path='.')
       @language = language
+      @current = current
       @path = path
     end
 
-    def next(current)
-      (slugs - current).first
+    def next
+      Exercise.new(language, next_slug).fresh!
     end
 
     def slugs
@@ -16,6 +17,10 @@ module Xapi
     end
 
     private
+
+    def next_slug
+      (slugs - current).first || 'no-such-exercise'
+    end
 
     def dir
       File.join(path, 'exercises', language)
