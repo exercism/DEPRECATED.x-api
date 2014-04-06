@@ -30,7 +30,7 @@ module Xapi
         if progression.next(slugs)
           Exercise.new(language, progression.next(slugs)).fresh!
         end
-      }
+      }.compact
     end
 
     def data
