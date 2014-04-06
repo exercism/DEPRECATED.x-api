@@ -12,9 +12,7 @@ module Xapi
     end
 
     def lessons
-      data.map {|language, slugs|
-        Lesson.new(language, data[language])
-      }
+      data.map {|language, row| Lesson.new(language, row)}
     end
   end
 end
