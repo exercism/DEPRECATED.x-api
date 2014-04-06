@@ -26,7 +26,7 @@ module Xapi
     def upcoming_exercises
       Xapi::Config.languages.map {|language|
         progression = Progression.new(language)
-        slugs = course.exercises.map(&:slug)
+        slugs = course.exercises.select {|exercise| exercise.language == language}.map(&:slug)
         if progression.next(slugs)
           Exercise.new(language, progression.next(slugs)).fresh!
         end
