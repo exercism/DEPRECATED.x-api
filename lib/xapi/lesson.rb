@@ -7,8 +7,16 @@ module Xapi
       @data = data
     end
 
+    def in?(language)
+      language == language
+    end
+
+    def slugs
+      exercises.map(&:slug)
+    end
+
     def exercises
-      data.map {|row| Exercise.new(language, row["slug"], row["state"]) }
+      @exercises ||= data.map {|row| Exercise.new(language, row["slug"], row["state"]) }
     end
   end
 end

@@ -7,6 +7,10 @@ module Xapi
       @data = data
     end
 
+    def in(language)
+      lessons.find {|lesson| lesson.in?(language)}
+    end
+
     def exercises
       lessons.map(&:exercises).flatten
     end
