@@ -30,26 +30,10 @@ class AppRoutesUserTest < Minitest::Test
     end
   end
 
-  def test_handle_missing_exercise_by_language
-    VCR.use_cassette('exercism_api_current_exercises_with_error') do
-      get '/exercises/ruby', :key => 'xyz456'
-      options = {:format => :json, :name => 'get_current_exercises_with_error_by_language'}
-      Approvals.verify(last_response.body, options)
-    end
-  end
-
   def test_get_exercises
     VCR.use_cassette('exercism_api_current_exercises') do
       get '/exercises', :key => 'abc123'
       options = {:format => :json, :name => 'get_current_exercises'}
-      Approvals.verify(last_response.body, options)
-    end
-  end
-
-  def test_handle_missing_exercise
-    VCR.use_cassette('exercism_api_current_exercises_with_error') do
-      get '/exercises', :key => 'xyz456'
-      options = {:format => :json, :name => 'get_current_exercises_with_error'}
       Approvals.verify(last_response.body, options)
     end
   end
