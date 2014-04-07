@@ -21,5 +21,5 @@ group :development, :test do
   gem 'rack-test', '~> 0.6', require: false
   gem 'simplecov', '~> 0.8', require: false
   gem 'vcr', '~> 2.8', require: false
-  gem 'webmock', '~> 1.15.0', require: false
+  gem 'webmock', '~> 1.17.0', require: false
 end

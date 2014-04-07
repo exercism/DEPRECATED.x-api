@@ -56,7 +56,7 @@ GEM
     tilt (1.4.1)
     tins (0.13.1)
     vcr (2.9.0)
-    webmock (1.15.2)
+    webmock (1.17.4)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
 
@@ -81,4 +81,4 @@ DEPENDENCIES
   sinatra (~> 1.4)
   tilt (~> 1.3)
   vcr (~> 2.8)
-  webmock (~> 1.15.0)
+  webmock (~> 1.17.0)
