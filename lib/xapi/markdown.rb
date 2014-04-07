@@ -5,7 +5,7 @@ require 'rouge/plugins/redcarpet'
 module Xapi
   class Renderer < Redcarpet::Render::XHTML
     def lexer
-      Rouge::Lexers::Text
+      Rouge::Lexers::PlainText
     end
 
     def formatter
