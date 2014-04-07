@@ -9,7 +9,7 @@ gem 'puma', '~> 2.7'
 gem 'rack', '~> 1.4'
 gem 'rake', '~> 10.1'
 gem 'redcarpet', '~> 3.1'
-gem 'rouge', '~> 0.3'
+gem 'rouge', '~> 1.3'
 gem 'sinatra', '~> 1.4', require: 'sinatra/base'
 gem 'tilt', '~> 1.3'
 
