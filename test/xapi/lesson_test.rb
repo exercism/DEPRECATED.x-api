@@ -15,4 +15,9 @@ class LessonTest < Minitest::Test
 
     assert_equal expected.sort, actual.sort
   end
+
+  def test_language
+    assert Xapi::Lesson.new('ruby', []).in?('ruby')
+    refute Xapi::Lesson.new('ruby', []).in?('go')
+  end
 end

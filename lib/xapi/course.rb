@@ -8,7 +8,7 @@ module Xapi
     end
 
     def in(language)
-      lessons.find {|lesson| lesson.in?(language)}
+      lessons.find {|lesson| lesson.in?(language)} || Lesson.new(language, [])
     end
 
     def exercises

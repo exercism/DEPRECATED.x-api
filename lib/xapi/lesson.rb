@@ -8,7 +8,7 @@ module Xapi
     end
 
     def in?(language)
-      language == language
+      language == self.language
     end
 
     def slugs
