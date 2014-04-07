@@ -16,7 +16,7 @@ gem 'tilt', '~> 1.3'
 group :development, :test do
   gem 'approvals', '~> 0.0.15', require: false
   gem 'coveralls', '~> 0.7', require: false
-  gem 'minitest', '~> 5.2', require: false
+  gem 'minitest', '~> 5.3', require: false
   gem 'rack-test', '~> 0.6', require: false
   gem 'simplecov', '~> 0.8', require: false
   gem 'vcr', '~> 2.8', require: false

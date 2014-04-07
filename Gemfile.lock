@@ -20,7 +20,7 @@ GEM
       tilt
     mime-types (1.25.1)
     mini_portile (0.5.3)
-    minitest (5.3.0)
+    minitest (5.3.2)
     multi_json (1.8.4)
     multipart-post (2.0.0)
     nokogiri (1.6.1)
@@ -67,7 +67,7 @@ DEPENDENCIES
   coveralls (~> 0.7)
   faraday (~> 0.9)
   haml (~> 4.0)
-  minitest (~> 5.2)
+  minitest (~> 5.3)
   petroglyph (= 0.0.7)
   puma (~> 2.7)
   rack (~> 1.4)
