@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.5)
-    approvals (0.0.12)
+    approvals (0.0.15)
       nokogiri (~> 1.6)
       thor (~> 0.18)
     coveralls (0.7.0)
@@ -63,7 +63,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  approvals (= 0.0.12)
+  approvals (~> 0.0.15)
   coveralls (~> 0.7)
   faraday (~> 0.9)
   haml (~> 4.0)
