@@ -54,7 +54,7 @@ GEM
     thor (0.19.1)
     tilt (1.4.1)
     tins (0.13.1)
-    vcr (2.8.0)
+    vcr (2.9.0)
     webmock (1.15.2)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
