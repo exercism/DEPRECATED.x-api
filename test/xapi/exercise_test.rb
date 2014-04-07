@@ -44,8 +44,6 @@ class ExerciseTest < Minitest::Test
 
   def test_freshness
     exercise = Xapi::Exercise.new('fake', 'one', 'fresh', './test/fixtures')
-    refute exercise.fresh?
-    exercise.fresh!
     assert exercise.fresh?
   end
 end

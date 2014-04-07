@@ -9,7 +9,7 @@ module Xapi
     end
 
     def next
-      Exercise.new(language, next_slug).fresh!
+      Exercise.new(language, next_slug, 'fresh')
     end
 
     def slugs

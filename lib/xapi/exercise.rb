@@ -12,6 +12,10 @@ module Xapi
       @fresh = false
     end
 
+    def fresh?
+      state == 'fresh'
+    end
+
     def completed?
       state == 'done'
     end
@@ -38,15 +42,6 @@ module Xapi
 
     def readme
       Readme.new(slug, path, setup).text
-    end
-
-    def fresh!
-      @fresh = true
-      self
-    end
-
-    def fresh?
-      @fresh
     end
 
     private
