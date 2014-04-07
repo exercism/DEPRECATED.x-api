@@ -14,7 +14,7 @@ class CourseTest < Minitest::Test
         {"slug" => "one", "state" => "whatever"}
       ]
     }
-    course = Xapi::Course.new(data)
+    course = Xapi::Course.new(data, './tmp')
 
     expected = ['ruby:one', 'ruby:two', 'go:one']
     actual = course.lessons.map(&:exercises).flatten.map {|exercise|

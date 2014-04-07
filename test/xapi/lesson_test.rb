@@ -8,7 +8,7 @@ class LessonTest < Minitest::Test
       {"slug" => "one", "state" => "whatever"},
       {"slug" => "two", "state" => "whatever"},
     ]
-    lesson = Xapi::Lesson.new('ruby', data)
+    lesson = Xapi::Lesson.new('ruby', data, '/tmp')
 
     expected = ['one', 'two']
     actual = lesson.exercises.map(&:slug)
@@ -17,7 +17,7 @@ class LessonTest < Minitest::Test
   end
 
   def test_language
-    assert Xapi::Lesson.new('ruby', []).in?('ruby')
-    refute Xapi::Lesson.new('ruby', []).in?('go')
+    assert Xapi::Lesson.new('ruby', [], '/tmp').in?('ruby')
+    refute Xapi::Lesson.new('ruby', [], '/tmp').in?('go')
   end
 end

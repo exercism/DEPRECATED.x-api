@@ -2,14 +2,14 @@ module Xapi
   class Progression
     attr_reader :language, :current, :path
 
-    def initialize(language, current=[], path='.')
+    def initialize(language, current=[], path)
       @language = language
       @current = current
       @path = path
     end
 
     def next
-      Exercise.new(language, next_slug, 'fresh')
+      Exercise.new(language, next_slug, 'fresh', path)
     end
 
     def slugs

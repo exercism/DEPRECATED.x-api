@@ -4,7 +4,7 @@ module Xapi
 
     attr_reader :language, :slug, :state, :path
 
-    def initialize(language, slug, state='fresh', path='.')
+    def initialize(language, slug, state, path)
       @language = language
       @slug = slug
       @path = path

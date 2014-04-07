@@ -4,9 +4,10 @@ module Xapi
       new(key).restore
     end
 
-    attr_reader :key
-    def initialize(key)
+    attr_reader :key, :path
+    def initialize(key, path=default_path)
       @key = key
+      @path = path
     end
 
     def restore
@@ -20,7 +21,7 @@ module Xapi
     end
 
     def course
-      Course.new(data)
+      Course.new(data, path)
     end
 
     def data
@@ -33,6 +34,10 @@ module Xapi
 
     def iterations
       ExercismIO.code_for(key)
+    end
+
+    def default_path
+      '.'
     end
   end
 end

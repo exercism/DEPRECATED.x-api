@@ -1,14 +1,15 @@
 module Xapi
   class Course
-    attr_reader :data
+    attr_reader :data, :path
 
-    def initialize(data)
+    def initialize(data, path)
       data.default_proc = Proc.new {|hash, language| hash[language] = []}
       @data = data
+      @path = path
     end
 
     def in(language)
-      lessons.find {|lesson| lesson.in?(language)} || Lesson.new(language, [])
+      lessons.find {|lesson| lesson.in?(language)} || Lesson.new(language, [], path)
     end
 
     def exercises
@@ -16,7 +17,7 @@ module Xapi
     end
 
     def lessons
-      data.map {|language, row| Lesson.new(language, row)}
+      data.map {|language, row| Lesson.new(language, row, path)}
     end
   end
 end

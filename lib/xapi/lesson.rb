@@ -1,10 +1,11 @@
 module Xapi
   class Lesson
-    attr_reader :language, :data
+    attr_reader :language, :data, :path
 
-    def initialize(language, data)
+    def initialize(language, data, path)
       @language = language
       @data = data
+      @path = path
     end
 
     def in?(language)
@@ -16,7 +17,7 @@ module Xapi
     end
 
     def exercises
-      @exercises ||= data.map {|row| Exercise.new(language, row["slug"], row["state"]) }
+      @exercises ||= data.map {|row| Exercise.new(language, row["slug"], row["state"], path) }
     end
   end
 end
