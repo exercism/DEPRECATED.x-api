@@ -1,7 +1,7 @@
 module Xapi
   class Backup
     def self.restore(key)
-      new(key).restore
+      new(key).exercises
     end
 
     attr_reader :key, :path
@@ -10,29 +10,19 @@ module Xapi
       @path = path
     end
 
-    def restore
-      (exercises + code).sort_by(&Exercise::Name)
+    def exercises
+      iterations.reject(&:not_found?).sort_by(&Exercise::Name)
     end
 
     private
 
-    def exercises
-      course.exercises.reject(&:not_found?)
-    end
-
-    def course
-      Course.new(data, path)
+    def iterations
+      data.map {|row|
+        Iteration.new(row, Exercise.new(row['track'], row['slug'], 'backup', path))
+      }
     end
 
     def data
-      ExercismIO.exercises_for(key)
-    end
-
-    def code
-      iterations.map {|iteration| Iteration.new(iteration)}
-    end
-
-    def iterations
       ExercismIO.code_for(key)
     end
 

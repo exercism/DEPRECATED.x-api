@@ -24,9 +24,9 @@ class ExercismIOTest < Minitest::Test
   def test_code
     VCR.use_cassette('exercism_api_code') do
       expected = [
-        {"slug" => "leap", "track" => "go", "files" => {"one.go" => "// iteration 2 (done)"}},
-        {"slug" => "anagram", "track" => "ruby", "files" => {"one.rb" => "// iteration 1 (pending)"}},
-        {"slug" => "word-count", "track" => "ruby", "files" => {"two.rb" => "// iteration 1 (hibernating)"}}
+        {"slug" => "leap", "track" => "go", "files" => {"leap.go" => "// iteration 2 (done)"}},
+        {"slug" => "anagram", "track" => "ruby", "files" => {"anagram.rb" => "// iteration 1 (pending)"}},
+        {"slug" => "word-count", "track" => "ruby", "files" => {"word-count.rb" => "// iteration 1 (hibernating)"}}
       ]
       assert_equal expected, Xapi::ExercismIO.code_for('abc123')
     end
