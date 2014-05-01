@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:4567/api/v1/exercises?key=no-such-key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - github.com/exercism/xapi
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '112'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJlcnJvciI6IlNvcnJ54oCUd2UgY2FuJ3QgZmlndXJlIG91dCB3aG8geW91
+        IGFyZS4gRG91YmxlLWNoZWNrIHlvdXIgQVBJIGtleSBpbiB5b3VyIGV4ZXJj
+        aXNtLmlvIGFjY291bnQgcGFnZS4ifQ==
+    http_version: 
+  recorded_at: Wed, 30 Apr 2014 23:01:27 GMT
+recorded_with: VCR 2.9.0

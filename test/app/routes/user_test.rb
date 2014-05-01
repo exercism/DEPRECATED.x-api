@@ -45,4 +45,22 @@ class AppRoutesUserTest < Minitest::Test
       Approvals.verify(last_response.body, options)
     end
   end
+
+  def test_api_error
+    VCR.use_cassette('exercism_api_error') do
+      get '/exercises', :key => 'no-such-key'
+      options = {:format => :json, :name => 'error'}
+      Approvals.verify(last_response.body, options)
+    end
+  end
+
+  def test_some_other_error
+    error = Proc.new { raise Exception.new("failing hard") }
+
+    Xapi::ExercismIO.stub(:request, error) do
+      get '/exercises', :key => 'who-cares'
+      options = {:format => :json, :name => '500-error'}
+      Approvals.verify(last_response.body, options)
+    end
+  end
 end

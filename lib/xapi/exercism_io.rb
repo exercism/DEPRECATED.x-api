@@ -2,6 +2,8 @@ require 'faraday'
 require 'json'
 
 module Xapi
+  class ApiError < StandardError; end
+
   module ExercismIO
     def self.env
       ENV.fetch('RACK_ENV') { 'production' }
@@ -35,7 +37,13 @@ module Xapi
         req.headers['User-Agent'] = "github.com/exercism/xapi"
         req.params['key'] = key
       end
-      JSON.parse(response.body)
+      intercept JSON.parse(response.body)
+    end
+
+    def self.intercept(data)
+      fail Xapi::ApiError.new(data['error']) if data['error']
+
+      data
     end
   end
 end

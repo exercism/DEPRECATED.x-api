@@ -31,4 +31,12 @@ class ExercismIOTest < Minitest::Test
       assert_equal expected, Xapi::ExercismIO.code_for('abc123')
     end
   end
+
+  def test_passes_error_on
+    VCR.use_cassette('exercism_api_error') do
+      assert_raises Xapi::ApiError do
+        Xapi::ExercismIO.exercises_for('no-such-key')
+      end
+    end
+  end
 end
