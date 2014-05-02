@@ -74,7 +74,8 @@ included in the README for each exercise.
 ## Implementing a new language
 
 If you're interested in adding exercises for a language that we don't yet have,
-[email me](mailto:kytrinyx@exercism.io) and I'll set up a new repo for that language.
+[email me](mailto:kytrinyx@exercism.io) or [tweet at me](https://twitter.com/kytrinyx)
+and I'll set up a new repo for that language.
 
 Then you can fork & clone per usual.
 
@@ -82,30 +83,7 @@ We will need at least 10 exercises in order to launch, as well as a small handfu
 people who can kick off the nitpicking. These people should have a good grasp of the
 styles and idioms in use in that language.
 
-Each exercise requires:
-
-- a test suite
-- a sample solution that tests the test suite (this doesn't have to be
-  considered good code, as it will not be exposed in the application)
-
-Also, the metadata for the exercise must exist in
-[exercism/x-common](https://github.com/exercism/x-common).
-
-Within the language-specific repository, create an `EXERCISES.txt` file that
-lists the order of the exercises in (more or less) increasing levels of
-difficulty. It's hard to know at first which exercises turn out to be harder
-than others, and a best guess is fine.
-
-Once the exercises have been implemented, then the repository must be included
-as a git submodule in [exercism/x-api](https://github.com/exercism/x-api).
-
-In addition to making the exercises available via `x-api`, the following needs
-to be added:
-
-1. A help file: `lib/app/articles/help/setup/$LANGUAGE.md`
-,. An entry in `lib/exercism/code.rb` to define the extension for that language.
-
-See the existing [ruby repository](https://github.com/exercism/xruby) for reference.
+For more about this, see the [CONTRIBUTING.md file](https://github.com/exercism/exercism.io/blob/master/CONTRIBUTING.md) in the main exercism.io repository.
 
 ## Abstractions
 
