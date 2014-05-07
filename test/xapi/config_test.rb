@@ -5,7 +5,7 @@ class ConfigTest < Minitest::Test
   # Acceptance test -- actual production languages
   def test_languages
     expected = [
-      "clojure", "coffeescript", "elixir",
+      "clojure", "coffeescript", "csharp", "elixir",
       "go", "haskell", "javascript",
       "objective-c", "ocaml", "perl5",
       "python", "ruby", "scala"

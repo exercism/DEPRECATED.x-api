@@ -37,3 +37,6 @@
 [submodule "exercises/scala"]
 	path = exercises/scala
 	url = https://github.com/exercism/xscala.git
+[submodule "exercises/csharp"]
+	path = exercises/csharp
+	url = https://github.com/exercism/xcsharp.git
