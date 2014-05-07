@@ -1,3 +1,6 @@
+[submodule "metadata"]
+	path = metadata
+	url = https://github.com/exercism/x-common.git
 [submodule "exercises/ruby"]
 	path = exercises/ruby
 	url = https://github.com/exercism/xruby.git
@@ -34,6 +37,3 @@
 [submodule "exercises/scala"]
 	path = exercises/scala
 	url = https://github.com/exercism/xscala.git
-[submodule "metadata"]
-	path = metadata
-	url = https://github.com/exercism/x-common.git
