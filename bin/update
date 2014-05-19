@@ -16,9 +16,9 @@ fi
 
 ROOT=$(pwd)
 
-for dir in $(ls exercises)
+for dir in $(ls problems)
 do
-	cd exercises/$dir
+	cd problems/$dir
 	git fetch origin && git reset --hard origin/master
 	cd $ROOT
 done
