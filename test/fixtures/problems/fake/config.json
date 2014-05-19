@@ -1,0 +1,11 @@
+{
+  "slug": "fake",
+  "language": "Fake",
+  "repository": "https://github.com/exercism/xfake",
+  "active": true,
+  "problems": [
+    "one",
+    "two",
+    "three"
+  ]
+}

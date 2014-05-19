@@ -13,10 +13,14 @@ module Xapi
     end
 
     def slugs
-      File.open(file).map(&:chomp).reject(&irrelevant)
+      config["problems"]
     end
 
     private
+
+    def config
+      @config ||= JSON.parse(File.read(file))
+    end
 
     def next_slug
       (slugs - current).first || 'no-such-problem'
@@ -27,11 +31,7 @@ module Xapi
     end
 
     def file
-      File.join(dir, 'PROBLEMS.txt')
-    end
-
-    def irrelevant
-      Proc.new {|line| line.empty? || line =~ /^#/ }
+      File.join(dir, 'config.json')
     end
   end
 end
