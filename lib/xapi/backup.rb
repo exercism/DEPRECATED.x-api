@@ -1,7 +1,7 @@
 module Xapi
   class Backup
     def self.restore(key)
-      new(key).exercises
+      new(key).problems
     end
 
     attr_reader :key, :path
@@ -10,15 +10,15 @@ module Xapi
       @path = path
     end
 
-    def exercises
-      iterations.reject(&:not_found?).sort_by(&Exercise::Name)
+    def problems
+      iterations.reject(&:not_found?).sort_by(&Problem::Name)
     end
 
     private
 
     def iterations
       data.map {|row|
-        Iteration.new(row, Exercise.new(row['track'], row['slug'], 'backup', path))
+        Iteration.new(row, Problem.new(row['track'], row['slug'], 'backup', path))
       }
     end
 

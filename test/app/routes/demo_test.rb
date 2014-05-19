@@ -7,9 +7,9 @@ class AppRoutesDemoTest < Minitest::Test
     Xapi::App
   end
 
-  def test_get_demo_exercises
+  def test_get_demo_problems
     get '/demo'
-    options = {:format => :json, :name => 'get_demo_exercises'}
+    options = {:format => :json, :name => 'get_demo_problems'}
     Approvals.verify(last_response.body, options)
   end
 end

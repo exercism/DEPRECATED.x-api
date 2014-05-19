@@ -1,5 +1,5 @@
 require './test/test_helper'
-require 'xapi/exercise'
+require 'xapi/problem'
 require 'xapi/progression'
 
 class ProgressionTest < Minitest::Test
@@ -17,6 +17,6 @@ class ProgressionTest < Minitest::Test
     assert_equal 'three', progression_with(['one', 'two']).next.slug
     assert_equal 'two', progression_with(['one', 'three']).next.slug
     assert_equal 'one', progression_with(['three', 'two']).next.slug
-    assert_equal 'no-such-exercise', progression_with(['one', 'three', 'two']).next.slug
+    assert_equal 'no-such-problem', progression_with(['one', 'three', 'two']).next.slug
   end
 end

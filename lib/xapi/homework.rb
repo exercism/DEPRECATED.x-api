@@ -7,25 +7,25 @@ module Xapi
       @path = path
     end
 
-    def exercises_in(language)
-      exercises.select { |exercise| exercise.language == language }
+    def problems_in(language)
+      problems.select { |problem| problem.language == language }
     end
 
-    def exercises
-      (current_exercises + upcoming_exercises).reject(&:not_found?).sort_by(&Exercise::Name)
+    def problems
+      (current_problems + upcoming_problems).reject(&:not_found?).sort_by(&Problem::Name)
     end
 
     private
 
-    def current_exercises
-      course.exercises.reject(&:completed?)
+    def current_problems
+      course.problems.reject(&:completed?)
     end
 
     def course
       @course ||= Course.new(data, path)
     end
 
-    def upcoming_exercises
+    def upcoming_problems
       progressions.map(&:next)
     end
 

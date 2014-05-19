@@ -22,24 +22,24 @@ module Xapi
       end
 
       get '/exercises' do
-        exercises = forward_errors do
-          Xapi::Homework.new(params[:key]).exercises
+        problems = forward_errors do
+          Xapi::Homework.new(params[:key]).problems
         end
-        pg :exercises, locals: {exercises: exercises}
+        pg :exercises, locals: {exercises: problems}
       end
 
       get '/exercises/restore' do
-        exercises = forward_errors do
+        problems = forward_errors do
           Xapi::Backup.restore(params[:key])
         end
-        pg :exercises, locals: {exercises: exercises}
+        pg :exercises, locals: {exercises: problems}
       end
 
       get '/exercises/:language' do |language|
-        exercises = forward_errors do
-          Xapi::Homework.new(params[:key]).exercises_in(language)
+        problems = forward_errors do
+          Xapi::Homework.new(params[:key]).problems_in(language)
         end
-        pg :exercises, locals: {exercises: exercises}
+        pg :exercises, locals: {exercises: problems}
       end
     end
   end

@@ -13,11 +13,11 @@ module Xapi
     end
 
     def slugs
-      exercises.map(&:slug)
+      problems.map(&:slug)
     end
 
-    def exercises
-      @exercises ||= data.map {|row| Exercise.new(language, row["slug"], row["state"], path) }
+    def problems
+      @problems ||= data.map {|row| Problem.new(language, row["slug"], row["state"], path) }
     end
   end
 end

@@ -1,6 +1,6 @@
 module Xapi
-  class Exercise
-    Name = Proc.new {|exercise| [exercise.language, exercise.slug] }
+  class Problem
+    Name = Proc.new {|problem| [problem.language, problem.slug] }
 
     attr_reader :language, :slug, :state, :path
 
@@ -21,14 +21,14 @@ module Xapi
     end
 
     def not_found?
-      unknown_language? || unknown_exercise?
+      unknown_language? || unknown_problem?
     end
 
     def error_message
       if unknown_language?
-        "We don't have exercises in language '#{language}'"
-      elsif unknown_exercise?
-        "We don't have exercise '#{slug}' in '#{language}'"
+        "We don't have problems in language '#{language}'"
+      elsif unknown_problem?
+        "We don't have problem '#{slug}' in '#{language}'"
       end
     end
 
@@ -51,7 +51,7 @@ module Xapi
     end
 
     def language_dir
-      File.join(path, 'exercises', language)
+      File.join(path, 'problems', language)
     end
 
     def dir
@@ -62,7 +62,7 @@ module Xapi
       !File.exist?(language_dir)
     end
 
-    def unknown_exercise?
+    def unknown_problem?
       !File.exist?(dir)
     end
   end

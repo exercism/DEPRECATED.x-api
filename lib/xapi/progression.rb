@@ -9,7 +9,7 @@ module Xapi
     end
 
     def next
-      Exercise.new(language, next_slug, 'fresh', path)
+      Problem.new(language, next_slug, 'fresh', path)
     end
 
     def slugs
@@ -19,15 +19,15 @@ module Xapi
     private
 
     def next_slug
-      (slugs - current).first || 'no-such-exercise'
+      (slugs - current).first || 'no-such-problem'
     end
 
     def dir
-      File.join(path, 'exercises', language)
+      File.join(path, 'problems', language)
     end
 
     def file
-      File.join(dir, 'EXERCISES.txt')
+      File.join(dir, 'PROBLEMS.txt')
     end
 
     def irrelevant

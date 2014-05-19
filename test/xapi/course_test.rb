@@ -1,10 +1,10 @@
 require './test/test_helper'
 require 'xapi/course'
 require 'xapi/lesson'
-require 'xapi/exercise'
+require 'xapi/problem'
 
 class CourseTest < Minitest::Test
-  def test_exercises
+  def test_problems
     data = {
       'ruby' => [
         {"slug" => "one", "state" => "whatever"},
@@ -17,8 +17,8 @@ class CourseTest < Minitest::Test
     course = Xapi::Course.new(data, './tmp')
 
     expected = ['ruby:one', 'ruby:two', 'go:one']
-    actual = course.lessons.map(&:exercises).flatten.map {|exercise|
-      [exercise.language, exercise.slug].join(':')
+    actual = course.lessons.map(&:problems).flatten.map {|problem|
+      [problem.language, problem.slug].join(':')
     }
 
     assert_equal expected.sort, actual.sort

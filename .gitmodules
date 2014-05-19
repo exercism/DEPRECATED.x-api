@@ -1,42 +1,42 @@
 [submodule "metadata"]
 	path = metadata
 	url = https://github.com/exercism/x-common.git
-[submodule "exercises/ruby"]
-	path = exercises/ruby
-	url = https://github.com/exercism/xruby.git
-[submodule "exercises/coffeescript"]
-	path = exercises/coffeescript
-	url = https://github.com/exercism/xcoffeescript.git
-[submodule "exercises/javascript"]
-	path = exercises/javascript
-	url = https://github.com/exercism/xjavascript.git
-[submodule "exercises/clojure"]
-	path = exercises/clojure
-	url = https://github.com/exercism/xclojure.git
-[submodule "exercises/elixir"]
-	path = exercises/elixir
-	url = https://github.com/exercism/xelixir.git
-[submodule "exercises/go"]
-	path = exercises/go
-	url = https://github.com/exercism/xgo.git
-[submodule "exercises/haskell"]
-	path = exercises/haskell
-	url = https://github.com/exercism/xhaskell.git
-[submodule "exercises/objective-c"]
-	path = exercises/objective-c
-	url = https://github.com/exercism/xobjective-c.git
-[submodule "exercises/ocaml"]
-	path = exercises/ocaml
-	url = https://github.com/exercism/xocaml.git
-[submodule "exercises/perl5"]
-	path = exercises/perl5
-	url = https://github.com/exercism/xperl5.git
-[submodule "exercises/python"]
-	path = exercises/python
-	url = https://github.com/exercism/xpython.git
-[submodule "exercises/scala"]
-	path = exercises/scala
-	url = https://github.com/exercism/xscala.git
-[submodule "exercises/csharp"]
-	path = exercises/csharp
-	url = https://github.com/exercism/xcsharp.git
+[submodule "problems/clojure"]
+	path = problems/clojure
+	url = git@github.com:exercism/xclojure.git
+[submodule "problems/coffeescript"]
+	path = problems/coffeescript
+	url = git@github.com:exercism/xcoffeescript.git
+[submodule "problems/csharp"]
+	path = problems/csharp
+	url = git@github.com:exercism/xcsharp.git
+[submodule "problems/elixir"]
+	path = problems/elixir
+	url = git@github.com:exercism/xelixir.git
+[submodule "problems/go"]
+	path = problems/go
+	url = git@github.com:exercism/xgo.git
+[submodule "problems/haskell"]
+	path = problems/haskell
+	url = git@github.com:exercism/xhaskell.git
+[submodule "problems/javascript"]
+	path = problems/javascript
+	url = git@github.com:exercism/xjavascript.git
+[submodule "problems/objective-c"]
+	path = problems/objective-c
+	url = git@github.com:exercism/xobjective-c.git
+[submodule "problems/ocaml"]
+	path = problems/ocaml
+	url = git@github.com:exercism/xocaml.git
+[submodule "problems/perl5"]
+	path = problems/perl5
+	url = git@github.com:exercism/xperl5.git
+[submodule "problems/python"]
+	path = problems/python
+	url = git@github.com:exercism/xpython.git
+[submodule "problems/ruby"]
+	path = problems/ruby
+	url = git@github.com:exercism/xruby.git
+[submodule "problems/scala"]
+	path = problems/scala
+	url = git@github.com:exercism/xscala.git

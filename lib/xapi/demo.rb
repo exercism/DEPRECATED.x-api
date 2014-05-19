@@ -14,7 +14,7 @@ module Xapi
         'python' => 'bob',
         'ruby' => 'bob',
         'scala' => 'bob'
-      }.map {|language, slug| Exercise.new(language, slug, 'fresh', '.')}
+      }.map {|language, slug| Problem.new(language, slug, 'fresh', '.')}
     end
   end
 end

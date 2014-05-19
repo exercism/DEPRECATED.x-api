@@ -1,9 +1,9 @@
 require './test/test_helper'
 require 'xapi/lesson'
-require 'xapi/exercise'
+require 'xapi/problem'
 
 class LessonTest < Minitest::Test
-  def test_exercises
+  def test_problems
     data = [
       {"slug" => "one", "state" => "whatever"},
       {"slug" => "two", "state" => "whatever"},
@@ -11,7 +11,7 @@ class LessonTest < Minitest::Test
     lesson = Xapi::Lesson.new('ruby', data, '/tmp')
 
     expected = ['one', 'two']
-    actual = lesson.exercises.map(&:slug)
+    actual = lesson.problems.map(&:slug)
 
     assert_equal expected.sort, actual.sort
   end

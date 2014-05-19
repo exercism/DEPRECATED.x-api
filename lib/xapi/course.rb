@@ -12,8 +12,8 @@ module Xapi
       lessons.find {|lesson| lesson.in?(language)} || Lesson.new(language, [], path)
     end
 
-    def exercises
-      lessons.map(&:exercises).flatten
+    def problems
+      lessons.map(&:problems).flatten
     end
 
     def lessons
