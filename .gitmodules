@@ -40,3 +40,33 @@
 [submodule "problems/scala"]
 	path = problems/scala
 	url = https://github.com/exercism/xscala.git
+[submodule "problems/cpp"]
+	path = problems/cpp
+	url = https://github.com/exercism/xcpp.git
+[submodule "problems/dlang"]
+	path = problems/dlang
+	url = https://github.com/exercism/xdlang.git
+[submodule "problems/ecmascript6"]
+	path = problems/ecmascript6
+	url = https://github.com/exercism/xecmascript6.git
+[submodule "problems/erlang"]
+	path = problems/erlang
+	url = https://github.com/exercism/xerlang.git
+[submodule "problems/fsharp"]
+	path = problems/fsharp
+	url = https://github.com/exercism/xfsharp.git
+[submodule "problems/java"]
+	path = problems/java
+	url = https://github.com/exercism/xjava.git
+[submodule "problems/lisp"]
+	path = problems/lisp
+	url = https://github.com/exercism/xlisp.git
+[submodule "problems/perl6"]
+	path = problems/perl6
+	url = https://github.com/exercism/xperl6.git
+[submodule "problems/php"]
+	path = problems/php
+	url = https://github.com/exercism/xphp.git
+[submodule "problems/rust"]
+	path = problems/rust
+	url = https://github.com/exercism/xrust.git
