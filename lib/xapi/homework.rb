@@ -12,25 +12,19 @@ module Xapi
     end
 
     def problems
-      (current_problems + upcoming_problems).reject(&:not_found?).sort_by(&Problem::Name)
+      languages.map {|language|
+        course.in(language).problems + [next_in(language)]
+      }.flatten.reject(&:completed?).reject(&:not_found?)
     end
 
     private
-
-    def current_problems
-      course.problems.reject(&:completed?)
-    end
 
     def course
       @course ||= Course.new(data, path)
     end
 
-    def upcoming_problems
-      progressions.map(&:next)
-    end
-
-    def progressions
-      languages.map {|language| Progression.new(language, course.in(language).slugs, path)}
+    def next_in(language)
+      Progression.new(language, course.in(language).slugs, path).next
     end
 
     def data

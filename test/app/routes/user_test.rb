@@ -33,6 +33,7 @@ class AppRoutesUserTest < Minitest::Test
   def test_get_problems
     VCR.use_cassette('exercism_api_current_exercises') do
       get '/exercises', :key => 'abc123'
+
       options = {:format => :json, :name => 'get_current_problems'}
       Approvals.verify(last_response.body, options)
     end

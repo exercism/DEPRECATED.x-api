@@ -1,4 +1,5 @@
 require './test/test_helper'
+require 'json'
 require 'xapi/course'
 require 'xapi/lesson'
 require 'xapi/progression'
@@ -55,7 +56,7 @@ class HomeworkTest < Minitest::Test
       ]
     }
     homework_in ['fake'], data do |homework|
-      expected = ['fake:three', 'fake:two'] # sorted alphabetically
+      expected = ['fake:two', 'fake:three']
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
@@ -69,7 +70,7 @@ class HomeworkTest < Minitest::Test
       ]
     }
     homework_in ['fake'], data do |homework|
-      expected = ['fake:three', 'fake:two'] # sorted alphabetically
+      expected = ['fake:two', 'fake:three']
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
@@ -86,7 +87,7 @@ class HomeworkTest < Minitest::Test
       ]
     }
     homework_in ['fake', 'fruit'], data do |homework|
-      expected = ["fake:three", "fake:two", "fruit:banana", "fruit:cherry"]
+      expected = ["fake:two", "fake:three", "fruit:banana", "fruit:cherry"]
       assert_equal expected, homework.problems.map(&Namify)
     end
   end

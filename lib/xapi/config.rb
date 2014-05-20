@@ -3,7 +3,7 @@ module Xapi
     LANGUAGES = Dir.entries('./problems') - ['.', '..']
 
     def self.languages
-      LANGUAGES
+      LANGUAGES.sort
     end
   end
 end
