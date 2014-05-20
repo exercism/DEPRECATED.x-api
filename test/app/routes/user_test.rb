@@ -34,6 +34,10 @@ class AppRoutesUserTest < Minitest::Test
     VCR.use_cassette('exercism_api_current_exercises') do
       get '/exercises', :key => 'abc123'
 
+      expected = JSON.parse(File.read("./test/fixtures/approvals/get_current_problems.approved.json"))
+      actual = JSON.parse(last_response.body)
+      assert_equal expected, actual
+
       options = {:format => :json, :name => 'get_current_problems'}
       Approvals.verify(last_response.body, options)
     end
