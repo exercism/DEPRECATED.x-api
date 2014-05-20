@@ -1,0 +1,3 @@
+collection tracks: tracks do
+  attributes :language, :slug, :active, :problems
+end

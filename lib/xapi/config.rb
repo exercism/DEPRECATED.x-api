@@ -3,11 +3,11 @@ module Xapi
     DEFAULT_PATH = "./problems"
 
     def self.languages
-      configs.select(&:active?).map(&:slug).sort
+      tracks.select(&:active?).map(&:slug)
     end
 
-    def self.configs
-      Dir.glob("#{DEFAULT_PATH}/*").map {|dir| new dir}
+    def self.tracks
+      Dir.glob("#{DEFAULT_PATH}/*").map {|dir| new dir}.sort_by(&:slug)
     end
 
     attr_reader :path
@@ -15,9 +15,10 @@ module Xapi
       @path = path
     end
 
-    def active?
+    def active
       data['active']
     end
+    alias_method :active?, :active
 
     def slug
       data['slug']
