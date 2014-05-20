@@ -3,7 +3,7 @@ module Xapi
     DEFAULT_PATH = "./problems"
 
     def self.languages
-      configs.select(&:active?).map(&:slug)
+      configs.select(&:active?).map(&:slug).sort
     end
 
     def self.configs
