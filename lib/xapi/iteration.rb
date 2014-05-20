@@ -6,7 +6,6 @@ module Xapi
 
     delegate [
       :language, :slug, :not_found?,
-      :tests, :test_file, :readme # deprecated
     ] => :exercise
 
     attr_reader :data, :exercise
