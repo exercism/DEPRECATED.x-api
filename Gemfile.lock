@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.6)
-    approvals (0.0.15)
+    approvals (0.0.16)
       nokogiri (~> 1.6)
       thor (~> 0.18)
     coveralls (0.7.0)
@@ -19,12 +19,12 @@ GEM
     haml (4.0.5)
       tilt
     mime-types (1.25.1)
-    mini_portile (0.5.3)
+    mini_portile (0.6.0)
     minitest (5.3.2)
     multi_json (1.8.4)
     multipart-post (2.0.0)
-    nokogiri (1.6.1)
-      mini_portile (~> 0.5.0)
+    nokogiri (1.6.2.1)
+      mini_portile (= 0.6.0)
     petroglyph (0.0.7)
       tilt
     psych (2.0.5)
@@ -64,7 +64,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  approvals (~> 0.0.15)
+  approvals (~> 0.0.16)
   coveralls (~> 0.7)
   faraday (~> 0.9)
   haml (~> 4.0)

@@ -15,7 +15,7 @@ gem 'sinatra', '~> 1.4', require: 'sinatra/base'
 gem 'tilt', '~> 1.3'
 
 group :development, :test do
-  gem 'approvals', '~> 0.0.15', require: false
+  gem 'approvals', '~> 0.0.16', require: false
   gem 'coveralls', '~> 0.7', require: false
   gem 'minitest', '~> 5.3', require: false
   gem 'rack-test', '~> 0.6', require: false
