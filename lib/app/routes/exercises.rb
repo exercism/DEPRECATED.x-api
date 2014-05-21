@@ -8,6 +8,9 @@ module Xapi
         end
         pg :exercises, locals: {exercises: [exercise]}
       end
+
+      # see lib/app/routes/user.rb for the (authenticated)
+      # /exercises and /exercises/:language endpoints
     end
   end
 end
