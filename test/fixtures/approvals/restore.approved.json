@@ -1,6 +1,8 @@
 {
   "assignments": [
     {
+      "track_id": "go",
+      "id": "leap",
       "track": "go",
       "slug": "leap",
       "files": {
@@ -11,6 +13,8 @@
       "fresh": false
     },
     {
+      "track_id": "ruby",
+      "id": "anagram",
       "track": "ruby",
       "slug": "anagram",
       "files": {
@@ -21,6 +25,8 @@
       "fresh": false
     },
     {
+      "track_id": "ruby",
+      "id": "word-count",
       "track": "ruby",
       "slug": "word-count",
       "files": {

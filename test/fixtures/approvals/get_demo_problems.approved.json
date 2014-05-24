@@ -1,6 +1,8 @@
 {
   "assignments": [
     {
+      "track_id": "clojure",
+      "id": "bob",
       "track": "clojure",
       "slug": "bob",
       "files": {
@@ -10,6 +12,8 @@
       "fresh": true
     },
     {
+      "track_id": "coffeescript",
+      "id": "bob",
       "track": "coffeescript",
       "slug": "bob",
       "files": {
@@ -19,6 +23,8 @@
       "fresh": true
     },
     {
+      "track_id": "elixir",
+      "id": "bob",
       "track": "elixir",
       "slug": "bob",
       "files": {
@@ -29,6 +35,8 @@
       "fresh": true
     },
     {
+      "track_id": "go",
+      "id": "leap",
       "track": "go",
       "slug": "leap",
       "files": {
@@ -38,6 +46,8 @@
       "fresh": true
     },
     {
+      "track_id": "haskell",
+      "id": "bob",
       "track": "haskell",
       "slug": "bob",
       "files": {
@@ -47,6 +57,8 @@
       "fresh": true
     },
     {
+      "track_id": "javascript",
+      "id": "bob",
       "track": "javascript",
       "slug": "bob",
       "files": {
@@ -56,6 +68,8 @@
       "fresh": true
     },
     {
+      "track_id": "objective-c",
+      "id": "bob",
       "track": "objective-c",
       "slug": "bob",
       "files": {
@@ -65,6 +79,8 @@
       "fresh": true
     },
     {
+      "track_id": "ocaml",
+      "id": "bob",
       "track": "ocaml",
       "slug": "bob",
       "files": {
@@ -76,6 +92,8 @@
       "fresh": true
     },
     {
+      "track_id": "perl5",
+      "id": "bob",
       "track": "perl5",
       "slug": "bob",
       "files": {
@@ -85,6 +103,8 @@
       "fresh": true
     },
     {
+      "track_id": "python",
+      "id": "bob",
       "track": "python",
       "slug": "bob",
       "files": {
@@ -94,6 +114,8 @@
       "fresh": true
     },
     {
+      "track_id": "ruby",
+      "id": "bob",
       "track": "ruby",
       "slug": "bob",
       "files": {
@@ -104,6 +126,8 @@
       "fresh": true
     },
     {
+      "track_id": "scala",
+      "id": "bob",
       "track": "scala",
       "slug": "bob",
       "files": {

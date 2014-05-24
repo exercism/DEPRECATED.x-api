@@ -1,6 +1,8 @@
 {
   "assignments": [
     {
+      "track_id": "ruby",
+      "id": "leap",
       "track": "ruby",
       "slug": "leap",
       "files": {

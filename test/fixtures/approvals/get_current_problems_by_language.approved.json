@@ -1,6 +1,8 @@
 {
   "assignments": [
     {
+      "track_id": "ruby",
+      "id": "anagram",
       "track": "ruby",
       "slug": "anagram",
       "files": {
@@ -10,6 +12,8 @@
       "fresh": false
     },
     {
+      "track_id": "ruby",
+      "id": "word-count",
       "track": "ruby",
       "slug": "word-count",
       "files": {
@@ -19,6 +23,8 @@
       "fresh": false
     },
     {
+      "track_id": "ruby",
+      "id": "hamming",
       "track": "ruby",
       "slug": "hamming",
       "files": {

@@ -1,6 +1,8 @@
 {
   "assignments": [
     {
+      "track_id": "clojure",
+      "id": "bob",
       "track": "clojure",
       "slug": "bob",
       "files": {
@@ -10,6 +12,8 @@
       "fresh": true
     },
     {
+      "track_id": "coffeescript",
+      "id": "bob",
       "track": "coffeescript",
       "slug": "bob",
       "files": {
@@ -19,6 +23,8 @@
       "fresh": true
     },
     {
+      "track_id": "csharp",
+      "id": "leap",
       "track": "csharp",
       "slug": "leap",
       "files": {
@@ -28,6 +34,8 @@
       "fresh": true
     },
     {
+      "track_id": "elixir",
+      "id": "bob",
       "track": "elixir",
       "slug": "bob",
       "files": {
@@ -38,6 +46,8 @@
       "fresh": true
     },
     {
+      "track_id": "go",
+      "id": "raindrops",
       "track": "go",
       "slug": "raindrops",
       "files": {
@@ -47,6 +57,8 @@
       "fresh": true
     },
     {
+      "track_id": "haskell",
+      "id": "bob",
       "track": "haskell",
       "slug": "bob",
       "files": {
@@ -56,6 +68,8 @@
       "fresh": true
     },
     {
+      "track_id": "javascript",
+      "id": "bob",
       "track": "javascript",
       "slug": "bob",
       "files": {
@@ -65,6 +79,8 @@
       "fresh": true
     },
     {
+      "track_id": "objective-c",
+      "id": "bob",
       "track": "objective-c",
       "slug": "bob",
       "files": {
@@ -74,6 +90,8 @@
       "fresh": true
     },
     {
+      "track_id": "ocaml",
+      "id": "bob",
       "track": "ocaml",
       "slug": "bob",
       "files": {
@@ -85,6 +103,8 @@
       "fresh": true
     },
     {
+      "track_id": "perl5",
+      "id": "bob",
       "track": "perl5",
       "slug": "bob",
       "files": {
@@ -94,6 +114,8 @@
       "fresh": true
     },
     {
+      "track_id": "python",
+      "id": "bob",
       "track": "python",
       "slug": "bob",
       "files": {
@@ -103,6 +125,8 @@
       "fresh": true
     },
     {
+      "track_id": "ruby",
+      "id": "anagram",
       "track": "ruby",
       "slug": "anagram",
       "files": {
@@ -112,6 +136,8 @@
       "fresh": false
     },
     {
+      "track_id": "ruby",
+      "id": "word-count",
       "track": "ruby",
       "slug": "word-count",
       "files": {
@@ -121,6 +147,8 @@
       "fresh": false
     },
     {
+      "track_id": "ruby",
+      "id": "hamming",
       "track": "ruby",
       "slug": "hamming",
       "files": {
@@ -130,6 +158,8 @@
       "fresh": true
     },
     {
+      "track_id": "scala",
+      "id": "bob",
       "track": "scala",
       "slug": "bob",
       "files": {

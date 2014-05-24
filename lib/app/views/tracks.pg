@@ -1,3 +1,4 @@
-collection tracks: tracks do
+collection tracks: tracks do |track|
+  node :id => track.slug
   attributes :language, :slug, :active, :problems
 end
