@@ -18,6 +18,5 @@ module Xapi
     use Routes::Demo
     use Routes::Tracks
     use Routes::Exercises
-    use Routes::User
   end
 end
