@@ -14,6 +14,10 @@ module Xapi
         :secret => ENV.fetch('SESSION_SECRET') { 'Need to know only.' }
     end
 
+    not_found do
+      halt 404, {error: "Endpoint '#{request.path}' not found."}.to_json
+    end
+
     use Routes::Home
     use Routes::Demo
     use Routes::Tracks
