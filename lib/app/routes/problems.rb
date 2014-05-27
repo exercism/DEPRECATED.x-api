@@ -3,7 +3,7 @@ module Xapi
     class Problems < Core
       get '/problems/:language' do |language|
         track = Xapi::Config.track_in(language)
-        pg :exercises, locals: {exercises: track.problems}
+        pg :problems, locals: {problems: track.problems}
       end
 
       get '/problems/:language/:slug' do |language, slug|
@@ -11,7 +11,7 @@ module Xapi
         if problem.not_found?
           halt 404, {error: problem.error_message}.to_json
         end
-        pg :exercises, locals: {exercises: [problem]}
+        pg :problems, locals: {problems: [problem]}
       end
     end
   end

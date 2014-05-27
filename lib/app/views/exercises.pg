@@ -1,7 +1,0 @@
-collection assignments: exercises do |exercise|
-  node track_id: exercise.language
-  node id: exercise.slug
-  node track: exercise.language
-  attributes :slug, :files
-  node :fresh => exercise.fresh?
-end

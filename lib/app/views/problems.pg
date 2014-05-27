@@ -1,0 +1,7 @@
+collection assignments: problems do |problems|
+  node track_id: problems.language
+  node id: problems.slug
+  node track: problems.language
+  attributes :slug, :files
+  node :fresh => problems.fresh?
+end

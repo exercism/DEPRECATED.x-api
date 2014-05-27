@@ -6,7 +6,7 @@ module Xapi
         problems = forward_errors do
           Xapi::Homework.new(params[:key]).problems
         end
-        pg :exercises, locals: {exercises: problems}
+        pg :problems, locals: {problems: problems}
       end
 
       get '/exercises/restore' do
@@ -14,7 +14,7 @@ module Xapi
         problems = forward_errors do
           Xapi::Backup.restore(params[:key])
         end
-        pg :exercises, locals: {exercises: problems}
+        pg :problems, locals: {problems: problems}
       end
 
       get '/exercises/:language' do |language|
@@ -22,7 +22,7 @@ module Xapi
         problems = forward_errors do
           Xapi::Homework.new(params[:key]).problems_in(language)
         end
-        pg :exercises, locals: {exercises: problems}
+        pg :problems, locals: {problems: problems}
       end
 
       # Deprecate this endpoint, forward to the new one.

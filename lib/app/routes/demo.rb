@@ -2,7 +2,7 @@ module Xapi
   module Routes
     class Demo < Core
       get '/demo' do
-        pg :exercises, locals: {exercises: Xapi::Demo.exercises}
+        pg :problems, locals: {problems: Xapi::Demo.problems}
       end
     end
   end

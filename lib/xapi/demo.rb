@@ -1,6 +1,6 @@
 module Xapi
   module Demo
-    def self.exercises
+    def self.problems
       {
         'clojure' => 'bob',
         'coffeescript' => 'bob',
