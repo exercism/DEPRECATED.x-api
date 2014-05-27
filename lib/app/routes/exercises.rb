@@ -24,11 +24,6 @@ module Xapi
         end
         pg :problems, locals: {problems: problems}
       end
-
-      # Deprecate this endpoint, forward to the new one.
-      get '/exercises/:language/:slug' do |language, slug|
-        redirect File.join('/', 'problems', language, slug)
-      end
     end
   end
 end

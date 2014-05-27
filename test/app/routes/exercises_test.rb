@@ -8,12 +8,6 @@ class AppRoutesExercisesTest < Minitest::Test
     Xapi::App
   end
 
-  def test_deprecated_endpoint
-    get '/exercises/ruby/leap'
-    assert_equal 302, last_response.status
-    assert_equal "http://example.org/problems/ruby/leap", last_response.headers['Location']
-  end
-
   def test_protected_endpoints
     [
       '/exercises/ruby',
