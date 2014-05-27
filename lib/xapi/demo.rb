@@ -12,7 +12,7 @@ module Xapi
         'ocaml' => 'bob',
         'perl5' => 'bob',
         'python' => 'bob',
-        'ruby' => 'bob',
+        'ruby' => 'leap',
         'scala' => 'bob'
       }.map {|language, slug| Problem.new(language, slug, 'fresh', '.')}
     end
