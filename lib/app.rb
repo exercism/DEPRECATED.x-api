@@ -21,6 +21,7 @@ module Xapi
     use Routes::Home
     use Routes::Demo
     use Routes::Tracks
+    use Routes::Problems
     use Routes::Exercises
   end
 end

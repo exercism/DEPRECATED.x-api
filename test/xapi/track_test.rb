@@ -9,6 +9,7 @@ class TrackTest < Minitest::Test
     assert_equal "fruit", track.slug
     assert_equal "Fruit", track.language
     assert_equal ["apple", "banana", "cherry"], track.problem_ids
+    assert_equal ["apple", "banana", "cherry"], track.problems.map(&:slug).sort
   end
 
   def test_inactive_language

@@ -18,6 +18,10 @@ module Xapi
       data['language']
     end
 
+    def problems
+      problem_ids.map {|id| Problem.new(slug, id, 'fresh', '.')}
+    end
+
     def problem_ids
       data['problems']
     end
