@@ -25,12 +25,9 @@ module Xapi
         pg :exercises, locals: {exercises: problems}
       end
 
+      # Deprecate this endpoint, forward to the new one.
       get '/exercises/:language/:slug' do |language, slug|
-        exercise = Problem.new(language, slug, 'fresh', '.')
-        if exercise.not_found?
-          halt 404, {error: exercise.error_message}.to_json
-        end
-        pg :exercises, locals: {exercises: [exercise]}
+        redirect File.join('/', 'problems', language, slug)
       end
     end
   end
