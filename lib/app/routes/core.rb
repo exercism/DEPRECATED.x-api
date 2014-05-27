@@ -6,6 +6,7 @@ module Xapi
       end
 
       helpers Helpers::Guards
+      helpers Helpers::Errors
 
       before do
         content_type 'application/json;charset=utf-8'
