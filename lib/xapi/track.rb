@@ -18,7 +18,7 @@ module Xapi
       data['language']
     end
 
-    def problems
+    def problem_ids
       data['problems']
     end
 
