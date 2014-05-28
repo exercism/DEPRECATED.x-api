@@ -3,7 +3,7 @@
 [2] "cpp"
 [3] "csharp"
 [4] "dlang"
-[5] "ecmascript6"
+[5] "ecmascript"
 [6] "elixir"
 [7] "erlang"
 [8] "fsharp"
