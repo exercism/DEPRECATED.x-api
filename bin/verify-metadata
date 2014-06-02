@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require './lib/xapi/track'
+
+METADATA = Dir.glob("metadata/*").map {|path| File.basename(path)}
+
+def missing?(slug)
+  !(METADATA.include?("#{slug}.yml") || METADATA.include?("#{slug}.md"))
+end
+
+omissions = []
+Dir.glob("problems/*").each do |path|
+  track = Xapi::Track.new(path)
+  track.problem_ids.each do |problem_id|
+    if missing?(problem_id)
+      omissions << problem_id
+    end
+  end
+end
+
+omissions = omissions.uniq
+unless omissions.empty?
+  puts "missing:"
+  omissions.each do |omission|
+    puts "  #{omission}"
+  end
+  exit 1
+end

@@ -3,4 +3,5 @@ rvm:
   - 2.1.1
 script:
   - CI=1 bundle exec rake test
-  - bundle exec rake problems:verify
+  - bin/verify-configs
+  - bin/verify-metadata
