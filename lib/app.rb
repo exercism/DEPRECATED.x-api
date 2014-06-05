@@ -22,6 +22,7 @@ module Xapi
     use Routes::Demo
     use Routes::Tracks
     use Routes::Problems
+    use Routes::Assignments # deprecated: CLI and prototype use it
     use Routes::Exercises
   end
 end

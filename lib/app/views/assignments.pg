@@ -1,0 +1,7 @@
+collection assignments: assignments do |assignment|
+  node track_id: assignment.language
+  node id: assignment.slug
+  node track: assignment.language
+  attributes :slug, :files
+  node :fresh => assignment.fresh?
+end
