@@ -47,12 +47,12 @@
     },
     {
       "track_id": "go",
-      "id": "raindrops",
+      "id": "gigasecond",
       "track": "go",
-      "slug": "raindrops",
+      "slug": "gigasecond",
       "files": {
-        "raindrops_test.go": "package raindrops\n\nimport \"testing\"\n\nvar tests = []struct {\n\tinput    int\n\texpected string\n}{\n\t{1, \"1\"},\n\t{3, \"Pling\"},\n\t{5, \"Plang\"},\n\t{7, \"Plong\"},\n\t{6, \"Pling\"},\n\t{9, \"Pling\"},\n\t{10, \"Plang\"},\n\t{14, \"Plong\"},\n\t{15, \"PlingPlang\"},\n\t{21, \"PlingPlong\"},\n\t{25, \"Plang\"},\n\t{35, \"PlangPlong\"},\n\t{49, \"Plong\"},\n\t{52, \"52\"},\n\t{105, \"PlingPlangPlong\"},\n\t{12121, \"12121\"},\n}\n\nfunc TestConvert(t *testing.T) {\n\tfor _, test := range tests {\n\t\tif actual := Convert(test.input); actual != test.expected {\n\t\t\tt.Errorf(\"Convert(%d) expected %q, Actual %q\", test.input, test.expected, actual)\n\t\t}\n\t}\n}\n",
-        "README.md": "# Raindrops\n\nWrite a program that converts a number to a string, the contents of which depends on the number's prime factors.\n\n- If the number contains 3 as a prime factor, output 'Pling'.\n- If the number contains 5 as a prime factor, output 'Plang'.\n- If the number contains 7 as a prime factor, output 'Plong'.\n- If the number does not contain 3, 5, or 7 as a prime factor,\n  just pass the number's digits straight through.\n\n## Examples\n- 28's prime-factorization is 2, 2, 7.\n  - In raindrop-speak, this would be a simple \"Plong\".\n- 1755 prime-factorization is 3, 3, 3, 5, 13.\n  - In raindrop-speak, this would be a \"PlingPlang\".\n- The prime factors of 34 are 2 and 17.\n  - Raindrop-speak doesn't know what to make of that,\n    so it just goes with the straightforward \"34\".\n\n\n## Source\n\nA variation on a famous interview question intended to weed out the obviously incompetent. [view source](http://jumpstartlab.com)\n"
+        "gigasecond_test.go": "package gigasecond\n\nimport (\n\t\"math/rand\"\n\t\"testing\"\n\t\"time\"\n)\n\nfunc TestGigasecond(t *testing.T) {\n\tif Gigasecond != 1e18 {\n\t\tt.Fatalf(\"Gigasecond is incorrectly defined.\")\n\t}\n}\n\nfunc TestAddGigasecond(t *testing.T) {\n\tfor i := 0; i < 100; i++ {\n\t\tns := rand.Int63()\n\t\tinput := time.Unix(0, ns)\n\t\texpect := time.Unix(1e9, ns)\n\t\toutput := AddGigasecond(input)\n\t\tif !output.Equal(expect) {\n\t\t\tt.Fatalf(\"AddGigasecond(%v): got %v; want %v\", input, output, expect)\n\t\t}\n\t}\n}\n\nfunc BenchmarkAddGigasecond(b *testing.B) {\n\tt := time.Unix(123456789, 123456789)\n\tfor i := 0; i < b.N; i++ {\n\t\tAddGigasecond(t)\n\t}\n}\n",
+        "README.md": "# Gigasecond\n\nWrite a program that will calculate the date that someone turned or will celebrate their 1 Gs anniversary.\n\nA gigasecond is one billion (10**9) seconds.\n\n\n## Source\n\nChapter 9 in Chris Pine's online Learn to Program tutorial. [view source](http://pine.fm/LearnToProgram/?Chapter=09)\n"
       },
       "fresh": true
     },
