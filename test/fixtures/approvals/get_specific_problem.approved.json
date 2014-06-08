@@ -1,9 +1,8 @@
 {
-  "assignments": [
+  "problems": [
     {
+      "id": "ruby/leap",
       "track_id": "ruby",
-      "id": "leap",
-      "track": "ruby",
       "slug": "leap",
       "files": {
         "leap_test.rb": "require 'date'\nrequire 'minitest/autorun'\nrequire_relative 'year'\n\nclass Date\n  def leap?\n    throw \"Try to implement this yourself instead of using Ruby's implementation.\"\n  end\n\n  alias :gregorian_leap? :leap?\n  alias :julian_leap? :leap?\nend\n\nclass YearTest < MiniTest::Unit::TestCase\n  def test_leap_year\n    assert Year.leap?(1996)\n  end\n\n  def test_non_leap_year\n    skip\n    refute Year.leap?(1997)\n  end\n\n  def test_non_leap_even_year\n    skip\n    refute Year.leap?(1998)\n  end\n\n  def test_century\n    skip\n    refute Year.leap?(1900)\n  end\n\n  def test_fourth_century\n    skip\n    assert Year.leap?(2400)\n  end\nend\n",
