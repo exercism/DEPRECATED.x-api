@@ -7,7 +7,7 @@ class ConfigTest < Minitest::Test
   def test_languages
     expected = [
       "clojure", "coffeescript", "csharp", "elixir",
-      "go", "haskell", "javascript",
+      "fsharp", "go", "haskell", "javascript",
       "objective-c", "ocaml", "perl5",
       "python", "ruby", "scala"
     ].sort
