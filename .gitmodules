@@ -73,3 +73,6 @@
 [submodule "problems/lua"]
 	path = problems/lua
 	url = https://github.com/exercism/xlua.git
+[submodule "problems/swift"]
+	path = problems/swift
+	url = https://github.com/exercism/xswift.git
