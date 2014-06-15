@@ -1,8 +1,0 @@
-# ignore comments
-
-one
-
-# also, blank lines are OK
-
-two
-three
