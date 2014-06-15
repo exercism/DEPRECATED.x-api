@@ -58,12 +58,12 @@
     },
     {
       "track_id": "go",
-      "id": "gigasecond",
+      "id": "clock",
       "track": "go",
-      "slug": "gigasecond",
+      "slug": "clock",
       "files": {
-        "gigasecond_test.go": "package gigasecond\n\nimport (\n\t\"math/rand\"\n\t\"testing\"\n\t\"time\"\n)\n\nfunc TestGigasecond(t *testing.T) {\n\tif Gigasecond != 1e18 {\n\t\tt.Fatalf(\"Gigasecond is incorrectly defined.\")\n\t}\n}\n\nfunc TestAddGigasecond(t *testing.T) {\n\tfor i := 0; i < 100; i++ {\n\t\tns := rand.Int63()\n\t\tinput := time.Unix(0, ns)\n\t\texpect := time.Unix(1e9, ns)\n\t\toutput := AddGigasecond(input)\n\t\tif !output.Equal(expect) {\n\t\t\tt.Fatalf(\"AddGigasecond(%v): got %v; want %v\", input, output, expect)\n\t\t}\n\t}\n}\n\nfunc BenchmarkAddGigasecond(b *testing.B) {\n\tt := time.Unix(123456789, 123456789)\n\tfor i := 0; i < b.N; i++ {\n\t\tAddGigasecond(t)\n\t}\n}\n",
-        "README.md": "# Gigasecond\n\nWrite a program that will calculate the date that someone turned or will celebrate their 1 Gs anniversary.\n\nA gigasecond is one billion (10**9) seconds.\n\n\n## Source\n\nChapter 9 in Chris Pine's online Learn to Program tutorial. [view source](http://pine.fm/LearnToProgram/?Chapter=09)\n"
+        "clock_test.go": "package clock\n\nimport \"testing\"\n\nvar newTests = []struct {\n\th, m int\n\tdisp string\n}{\n\t{8, 0, \"08:00\"},\n\t{9, 0, \"09:00\"},\n\t{11, 9, \"11:09\"},\n}\n\nvar addTests = []struct {\n\th, m, a int\n\tdisp    string\n}{\n\t{10, 0, 3, \"10:03\"},\n\t{10, 0, 61, \"11:01\"},\n\t{23, 30, 60, \"00:30\"},\n\t{10, 0, -90, \"08:30\"},\n\t{0, 30, -60, \"23:30\"},\n}\n\nfunc TestClock(t *testing.T) {\n\tfor _, n := range newTests {\n\t\tif c := New(n.h, n.m); c.String() != n.disp {\n\t\t\tt.Fatalf(\"New(%d, %d) = %q, want %q\", n.h, n.m, c, n.disp)\n\t\t}\n\t}\n\tfor _, a := range addTests {\n\t\tif c := New(a.h, a.m).Add(a.a); c.String() != a.disp {\n\t\t\tt.Fatalf(\"New(%d, %d).Add(%d) = %q, want %q\", a.h, a.m, a.a, c, a.disp)\n\t\t}\n\t}\n\tclock0 := New(15, 37)\n\tclock1 := New(15, 37)\n\tclock2 := New(15, 36)\n\tclock3 := New(14, 37)\n\tif clock0 != clock1 {\n\t\tt.Fatal(clock0, \"!=\", clock1, \"want ==\")\n\t}\n\tif clock2 == clock1 {\n\t\tt.Fatal(clock2, \"==\", clock1, \"want !=\")\n\t}\n\tif clock3 == clock1 {\n\t\tt.Fatal(clock3, \"==\", clock1, \"want !=\")\n\t}\n}\n",
+        "README.md": "# Clock\n\nImplement a clock that handles times without dates.\n\nCreate a clock that is independent of date.\n\nYou should be able to add and subtract minutes to it.\n\nTwo clocks that represent the same time should be equal to each other.\n\n\n## Source\n\nPairing session with Erin Drummond [view source](https://twitter.com/ebdrummond)\n"
       },
       "fresh": true
     },
