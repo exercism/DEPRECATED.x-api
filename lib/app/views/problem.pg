@@ -1,0 +1,7 @@
+node :problem do
+  node id: problem.id
+  node track_id: problem.track_id
+  node slug: problem.slug
+  node files: problem.files
+  node fresh: problem.fresh?
+end

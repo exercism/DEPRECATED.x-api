@@ -11,7 +11,7 @@ module Xapi
         if problem.not_found?
           halt 404, {error: problem.error_message}.to_json
         end
-        pg :problems, locals: {problems: [problem]}
+        pg :problem, locals: {problem: problem}
       end
     end
   end

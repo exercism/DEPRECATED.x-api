@@ -2,14 +2,20 @@ module Xapi
   class Problem
     Name = Proc.new {|problem| [problem.language, problem.slug] }
 
-    attr_reader :language, :slug, :state, :path
+    attr_reader :track_id, :slug, :state, :path
 
-    def initialize(language, slug, state, path)
-      @language = language
+    def initialize(track_id, slug, state, path)
+      @track_id = track_id
       @slug = slug
       @path = path
       @state = state
       @fresh = false
+    end
+
+    alias_method :language, :track_id
+
+    def id
+      [track_id, slug].join("/")
     end
 
     def fresh?
