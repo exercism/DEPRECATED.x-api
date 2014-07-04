@@ -1,0 +1,4 @@
+node :track do
+  node :id => track.slug
+  partial :problems, :problems => track.problems
+end

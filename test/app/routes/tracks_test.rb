@@ -15,4 +15,12 @@ class AppRoutesTracksTest < Minitest::Test
     tracks = JSON.parse(last_response.body)['tracks'].map {|track| track['slug']}
     Approvals.verify(tracks, name: 'get_tracks')
   end
+
+  # Again, a smoke test.
+  # It will break as the track gets updated, since
+  # we're including the entire problem (not just the id).
+  def test_a_track
+    get '/tracks/ruby'
+    Approvals.verify(last_response.body, format: :json, name: 'get_track_ruby')
+  end
 end
