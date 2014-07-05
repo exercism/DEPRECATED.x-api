@@ -1,8 +1,14 @@
 require 'sinatra/base'
 require 'sinatra/petroglyph'
+require "bugsnag"
 require 'haml'
 require 'app/routes'
 require 'app/helpers'
+
+Bugsnag.configure do |config|
+  config.api_key = ENV['BUGSNAG_API_KEY']
+end
+
 
 module Xapi
   class App < Sinatra::Application
