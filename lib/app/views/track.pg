@@ -1,4 +1,6 @@
 node :track do
   node :id => track.slug
-  partial :problems, :problems => track.problems
+  node :problems => track.problem_ids
 end
+
+partial :problems, :problems => track.problems
