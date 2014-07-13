@@ -1,5 +1,5 @@
 collection tracks: tracks do |track|
   node :id => track.slug
-  node :problems => track.problem_ids
+  node :problems => track.problems.map(&:id)
   attributes :language, :slug, :active
 end

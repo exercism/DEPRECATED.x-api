@@ -22,10 +22,6 @@ module Xapi
       problem_slugs.map {|problem_slug| Problem.new(slug, problem_slug, 'fresh', '.')}
     end
 
-    def problem_ids
-      problem_slugs.map {|problem_slug| [slug, problem_slug].join("/")}
-    end
-
     def problem_slugs
       data['problems']
     end

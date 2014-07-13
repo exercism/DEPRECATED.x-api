@@ -1,6 +1,6 @@
 node :track do
   node :id => track.slug
-  node :problems => track.problem_ids
+  node :problems => track.problems.map(&:id)
 end
 
 partial :problems, :problems => track.problems
