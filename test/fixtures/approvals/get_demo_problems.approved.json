@@ -90,6 +90,17 @@
       "fresh": true
     },
     {
+      "track_id": "lua",
+      "id": "hamming",
+      "track": "lua",
+      "slug": "hamming",
+      "files": {
+        "hamming_test.lua": "local compute = require('./hamming').compute\n\ndescribe('Hamming', function () \n\n  it('no difference between identical strands', function () \n     assert.are.equals(compute('A', 'A'),0)\n  end)\n\n  it('complete hamming distance of for single nucleotide strand', function () \n     assert.are.equals(compute('A','G'),1)\n  end)\n\n  it('complete hamming distance of for small strand', function ()\n     assert.are.equals(compute('AG','CT'),2)\n  end)\n\n  it('small hamming distance', function ()\n     assert.are.equals(compute('AT','CT'),1)\n  end)\n\n  it('small hamming distance in longer strand', function ()\n     assert.are.equals(compute('GGACG', 'GGTCG'),1)\n  end)\n\n  it('ignores extra length on first strand when longer', function ()\n     assert.are.equals(compute('AAAG', 'AAA'),0)\n  end)\n\n  it('ignores extra length on other strand when longer', function ()\n     assert.are.equals(compute('AAA', 'AAAG'),0)\n  end)\n\n  it('large hamming distance', function ()\n     assert.are.equals(compute('GATACA', 'GCATAA'),4)\n  end)\n\n  it('hamming distance in very long strand', function ()\n     assert.are.equals(compute('GGACGGATTCTG', 'AGGACGGATTCT'),9)\n  end)\n\nend)\n\n",
+        "README.md": "# Hamming\n\nWrite a program that can calculate the Hamming difference between two DNA strands.\n\nA mutation is simply a mistake that occurs during the creation or copying of a nucleic acid, in particular DNA. Because nucleic acids are vital to cellular functions, mutations tend to cause a ripple effect throughout the cell. Although mutations are technically mistakes, a very rare mutation may equip the cell with a beneficial attribute. In fact, the macro effects of evolution are attributable by the accumulated result of beneficial microscopic mutations over many generations.\n\nThe simplest and most common type of nucleic acid mutation is a point mutation, which replaces one base with another at a single nucleotide.\n\nBy counting the number of differences between two homologous DNA strands taken from different genomes with a common ancestor, we get a measure of the minimum number of point mutations that could have occurred on the evolutionary path between the two strands.\n\nThis is called the 'Hamming distance'\n\n    GAGCCTACTAACGGGAT\n    CATCGTAATGACGGCCT\n    ^ ^ ^  ^ ^    ^^\n\nThe Hamming distance between these two DNA strands is 7.\n\n\n### Getting started\nFirst install lua using [homebrew][1]\n\n    $ brew install lua\n\nThen install [luarocks][2] to install packages for lua\n\n    $ brew install luarocks\n\nThen install [busted][3] testing framework for lua\n\n    $ luarocks install busted\n    \nThen run your test\n\n    $ busted bob_test.lua \n    \nOther resources\n\n  1. [Lua Style Guide][4]\n  2. [Learn Lua in 15 minutes][5] \n\n[1]: http://brew.sh/\n[2]: http://luarocks.org/\n[3]: http://olivinelabs.com/busted/\n[4]: https://github.com/Olivine-Labs/lua-style-guide\n[5]: http://tylerneylon.com/a/learn-lua/\n\n## Source\n\nThe Calculating Point Mutations problem at Rosalind [view source](http://rosalind.info/problems/hamm/)\n"
+      },
+      "fresh": true
+    },
+    {
       "track_id": "objective-c",
       "id": "bob",
       "track": "objective-c",
