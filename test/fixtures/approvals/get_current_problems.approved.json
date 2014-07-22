@@ -46,6 +46,17 @@
       "fresh": true
     },
     {
+      "track_id": "erlang",
+      "id": "leap",
+      "track": "erlang",
+      "slug": "leap",
+      "files": {
+        "leap_tests.erl": "% To run tests:\n% erl -make\n% erl -noshell -eval \"eunit:test(leap, [verbose])\" -s init stop\n%\n\n-module(leap_tests).\n\n-include_lib(\"eunit/include/eunit.hrl\").\n\nleap_year_test() ->\n    ?assert(leap:leap_year(1996)).\n\nnon_leap_year_test() ->\n    ?assertNot(leap:leap_year(1997)).\n\ncentury_test() ->\n    ?assertNot(leap:leap_year(1900)).\n\nfourth_century_test() ->\n    ?assert(leap:leap_year(2400)).\n",
+        "README.md": "# Leap\n\nWrite a program that will take a year and report if it is a leap year.\n\nThe tricky thing here is that a leap year occurs:\n\n```plain\non every year that is evenly divisible by 4\n  except every year that is evenly divisible by 100\n    unless the year is also evenly divisible by 400\n```\n\nFor example, 1997 is not a leap year, but 1996 is.\n1900 is not a leap year, but 2000 is.\n\nIf your language provides a method in the standard library that does this\nlook-up, pretend it doesn't exist and implement it yourself.\n\n## Notes\n\nFor a delightful, four minute explanation of the whole leap year phenomenon, go watch [this youtube video](http://www.youtube.com/watch?v=xX96xng7sAE).\n\n\n## Source\n\nJavaRanch Cattle Drive, exercise 3 [view source](http://www.javaranch.com/leap.jsp)\n"
+      },
+      "fresh": true
+    },
+    {
       "track_id": "fsharp",
       "id": "sum-of-multiples",
       "track": "fsharp",

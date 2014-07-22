@@ -8,8 +8,8 @@ class ConfigTest < Minitest::Test
   def test_languages
     expected = [
       "clojure", "coffeescript", "csharp", "elixir",
-      "fsharp", "go", "haskell", "javascript", "lua",
-      "objective-c", "ocaml", "perl5",
+      "erlang", "fsharp", "go", "haskell", "javascript",
+      "lua", "objective-c", "ocaml", "perl5",
       "python", "ruby", "scala", "swift"
     ].sort
     assert_equal expected, Xapi::Config.languages.sort
