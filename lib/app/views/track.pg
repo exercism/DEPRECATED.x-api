@@ -1,4 +1,5 @@
-node :track do
+node :track => track do
+  attributes :language, :slug, :active
   node :id => track.slug
   node :problems => track.problems.map(&:id)
 end

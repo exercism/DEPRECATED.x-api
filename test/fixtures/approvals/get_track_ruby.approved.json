@@ -1,5 +1,8 @@
 {
   "track": {
+    "language": "Ruby",
+    "slug": "ruby",
+    "active": true,
     "id": "ruby",
     "problems": [
       "ruby/hamming",
