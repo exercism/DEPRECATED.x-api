@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/petroglyph'
 require "bugsnag"
 require 'haml'
+require './config/build_id'
 require 'app/routes'
 require 'app/helpers'
 
