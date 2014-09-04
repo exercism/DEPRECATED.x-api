@@ -3,15 +3,15 @@ module Xapi
     DEFAULT_PATH = "./problems"
 
     def self.languages
-      tracks.select(&:active?).map(&:slug)
+      tracks.select(&:active?).map(&:id)
     end
 
     def self.tracks
-      @tracks ||= Dir.glob("#{path}/*").map {|dir| Xapi::Track.new(dir)}.sort_by(&:slug)
+      @tracks ||= Dir.glob("#{path}/*").map {|dir| Xapi::Track.new(dir)}.sort_by(&:id)
     end
 
-    def self.track_in(slug)
-      tracks.find {|track| track.slug == slug}
+    def self.track_in(id)
+      tracks.find {|track| track.id == id}
     end
 
     def self.path

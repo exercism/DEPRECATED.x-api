@@ -10,7 +10,7 @@ module Xapi
     end
     alias_method :active?, :active
 
-    def slug
+    def id
       data['slug']
     end
 
@@ -35,7 +35,7 @@ module Xapi
     def problem_attributes(slug)
       {
         language: language,
-        track_id: self.slug,
+        track_id: id,
         slug: slug,
         state: 'fresh',
         path: '.',

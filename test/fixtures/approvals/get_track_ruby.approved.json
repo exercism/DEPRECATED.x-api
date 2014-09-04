@@ -1,9 +1,9 @@
 {
   "track": {
     "language": "Ruby",
-    "slug": "ruby",
     "active": true,
     "id": "ruby",
+    "slug": "ruby",
     "problems": [
       "ruby/hamming",
       "ruby/gigasecond",
