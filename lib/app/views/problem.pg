@@ -1,6 +1,8 @@
 node :problem do
   node id: problem.id
+  node language: problem.language
   node track_id: problem.track_id
+  node name: problem.name
   node slug: problem.slug
   node files: problem.files
   node fresh: problem.fresh?

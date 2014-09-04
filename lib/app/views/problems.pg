@@ -1,4 +1,4 @@
 collection :problems => problems do |problem|
-  attributes :id, :track_id, :slug, :files
+  attributes :id, :track_id, :language, :slug, :name, :files
   node fresh: problem.fresh?
 end
