@@ -5,15 +5,15 @@ module Xapi
         pg :problems, locals: {problems: Xapi::Demo.problems}
       end
 
-      get '/problems/:language' do |language|
-        track = Xapi::Config.track_in(language)
+      get '/problems/:track' do |id|
+        track = Xapi::Config.find(id)
         pg :problems, locals: {problems: track.problems}
       end
 
-      get '/problems/:language/:slug' do |language, slug|
-        track = Xapi::Config.track_in(language)
+      get '/problems/:track/:slug' do |id, slug|
+        track = Xapi::Config.find(id)
         if track.nil?
-          halt 404, {error: "no track found '#{language}'"}.to_json
+          halt 404, {error: "no track found '#{id}'"}.to_json
         end
         problem = track.find(slug)
         if problem.not_found?

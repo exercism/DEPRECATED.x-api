@@ -2,15 +2,15 @@ module Xapi
   module Routes
     # deprecated
     class Assignments < Core
-      get '/assignments/:language' do |language|
-        track = Xapi::Config.track_in(language)
+      get '/assignments/:track' do |id|
+        track = Xapi::Config.find(id)
         pg :assignments, locals: {assignments: track.problems}
       end
 
-      get '/assignments/:language/:slug' do |language, slug|
-        track = Xapi::Config.track_in(language)
+      get '/assignments/:track/:problem' do |id, slug|
+        track = Xapi::Config.find(id)
         if track.nil?
-          halt 404, {error: "no track found '#{language}'"}.to_json
+          halt 404, {error: "no track found '#{id}'"}.to_json
         end
         problem = track.find(slug)
         if problem.not_found?
