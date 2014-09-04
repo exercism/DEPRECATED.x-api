@@ -19,7 +19,7 @@ module Xapi
     end
 
     def problems
-      @problems ||= problem_slugs.map {|problem_slug| Problem.new(slug, problem_slug, 'fresh', '.')}
+      @problems ||= problem_slugs.map {|slug| Problem.new(problem_attributes(slug))}
     end
 
     def problem_slugs
@@ -27,10 +27,20 @@ module Xapi
     end
 
     def find(slug)
-      problems.find {|problem| problem.slug == slug} || Problem.new(self.slug, slug, 'fresh', '.')
+      problems.find {|problem| problem.slug == slug} || Problem.new(problem_attributes(slug))
     end
 
     private
+
+    def problem_attributes(slug)
+      {
+        language: language,
+        track_id: self.slug,
+        slug: slug,
+        state: 'fresh',
+        path: '.',
+      }
+    end
 
     def data
       @data ||= JSON.parse(File.read(file))

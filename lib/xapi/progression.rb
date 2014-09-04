@@ -9,7 +9,15 @@ module Xapi
     end
 
     def next
-      Problem.new(language, next_slug, 'fresh', path)
+      # TODO: Use a real track here so we can get
+      # the actual language name
+      Problem.new(
+        language: language,
+        track_id: language,
+        slug: next_slug,
+        state: 'fresh',
+        path: path
+      )
     end
 
     def slugs

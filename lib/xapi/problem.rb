@@ -4,17 +4,27 @@ module Xapi
 
     attr_reader :track_id, :slug, :state, :path
 
-    def initialize(track_id, slug, state, path)
-      @track_id = track_id
-      @slug = slug
-      @path = path
-      @state = state
+    def initialize(*args)
+      @track_id, @slug, @state, @path = *args
+      attributes = {}
+
+      if args.last.is_a?(Hash)
+        attributes = args.pop
+      end
+
+      attributes.each {|field, value|
+        instance_variable_set(:"@#{field}", value)
+      }
     end
 
     alias_method :language, :track_id
 
     def id
       [track_id, slug].join("/")
+    end
+
+    def name
+      slug.split('-').map(&:capitalize).join(' ')
     end
 
     def fresh?

@@ -17,7 +17,19 @@ module Xapi
     end
 
     def problems
-      @problems ||= data.map {|row| Problem.new(language, row["slug"], row["state"], path) }
+      @problems ||= data.map {|row| Problem.new(problem_from(row)) }
+    end
+
+    private
+
+    def problem_from(row)
+      {
+        language: language, # TODO: get real language name
+        track_id: language,
+        path: path,
+        slug: row["slug"],
+        state: row["state"],
+      }
     end
   end
 end

@@ -18,7 +18,14 @@ module Xapi
 
     def iterations
       data.map {|row|
-        Iteration.new(row, Problem.new(row['track'], row['slug'], 'backup', path))
+        Iteration.new(row, Problem.new(
+          track_id: row['track'],
+          language: row['track'],
+          slug: row['slug'],
+          state: 'backup',
+          path: path
+          )
+        )
       }
     end
 
