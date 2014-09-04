@@ -2,22 +2,13 @@ module Xapi
   class Problem
     Name = Proc.new {|problem| [problem.language, problem.slug] }
 
-    attr_reader :track_id, :slug, :state, :path
+    attr_reader :track_id, :slug, :state, :path, :language
 
-    def initialize(*args)
-      @track_id, @slug, @state, @path = *args
-      attributes = {}
-
-      if args.last.is_a?(Hash)
-        attributes = args.pop
-      end
-
+    def initialize(attributes)
       attributes.each {|field, value|
         instance_variable_set(:"@#{field}", value)
       }
     end
-
-    alias_method :language, :track_id
 
     def id
       [track_id, slug].join("/")
@@ -41,9 +32,9 @@ module Xapi
 
     def error_message
       if unknown_language?
-        "We don't have problems in language '#{language}'"
+        "We don't have problems in language '#{track_id}'"
       elsif unknown_problem?
-        "We don't have problem '#{slug}' in '#{language}'"
+        "We don't have problem '#{slug}' in '#{track_id}'"
       end
     end
 
@@ -66,7 +57,7 @@ module Xapi
     end
 
     def language_dir
-      File.join(path, 'problems', language)
+      File.join(path, 'problems', track_id)
     end
 
     def dir

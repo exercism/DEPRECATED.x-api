@@ -5,7 +5,7 @@ module Xapi
     extend Forwardable
 
     delegate [
-      :language, :slug, :not_found?,
+      :track_id, :language, :slug, :name, :not_found?,
     ] => :exercise
 
     attr_reader :data, :exercise
