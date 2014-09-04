@@ -1,6 +1,10 @@
 module Xapi
   module Routes
     class Problems < Core
+      get '/problems/demo' do
+        pg :problems, locals: {problems: Xapi::Demo.problems}
+      end
+
       get '/problems/:language' do |language|
         track = Xapi::Config.track_in(language)
         pg :problems, locals: {problems: track.problems}
