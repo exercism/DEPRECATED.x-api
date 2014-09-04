@@ -9,7 +9,6 @@ module Xapi
       @slug = slug
       @path = path
       @state = state
-      @fresh = false
     end
 
     alias_method :language, :track_id
