@@ -7,3 +7,4 @@
 tmp
 test/fixtures/approvals/*.received.*
 coverage
+bin/configlet

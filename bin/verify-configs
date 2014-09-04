@@ -2,7 +2,5 @@
 
 root = Dir.pwd
 Dir.glob("problems/*").each do |path|
-  Dir.chdir path
-  `bin/configlet-linux-amd64 .`
-  Dir.chdir root
+  `bin/configlet #{path}`
 end
