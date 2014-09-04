@@ -19,11 +19,15 @@ module Xapi
     end
 
     def problems
-      problem_slugs.map {|problem_slug| Problem.new(slug, problem_slug, 'fresh', '.')}
+      @problems ||= problem_slugs.map {|problem_slug| Problem.new(slug, problem_slug, 'fresh', '.')}
     end
 
     def problem_slugs
       data['problems']
+    end
+
+    def find(slug)
+      problems.find {|problem| problem.slug == slug} || Problem.new(self.slug, slug, 'fresh', '.')
     end
 
     private
