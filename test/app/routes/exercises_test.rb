@@ -39,6 +39,23 @@ class AppRoutesExercisesTest < Minitest::Test
     end
   end
 
+  def test_v2_get_problems_by_language
+    VCR.use_cassette('exercism_api_current_exercises_v2') do
+      get '/v2/exercises/ruby', :key => 'abc123'
+      options = {:format => :json, :name => 'get_current_problems_by_language_v2'}
+      Approvals.verify(last_response.body, options)
+    end
+  end
+
+  def test_get_problems
+    VCR.use_cassette('exercism_api_current_exercises_v2') do
+      get '/v2/exercises', :key => 'abc123'
+
+      options = {:format => :json, :name => 'get_current_problems_v2'}
+      Approvals.verify(last_response.body, options)
+    end
+  end
+
   def test_restore_exercises_and_solutions
     VCR.use_cassette('exercism_api_restore') do
       get '/exercises/restore', :key => 'abc123'

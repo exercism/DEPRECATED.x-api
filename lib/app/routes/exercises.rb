@@ -24,6 +24,22 @@ module Xapi
         end
         pg :assignments, locals: {assignments: problems}
       end
+
+      get '/v2/exercises' do
+        require_key
+        problems = forward_errors do
+          Xapi::Homework.new(params[:key]).problems
+        end
+        pg :problems, locals: {problems: problems}
+      end
+
+      get '/v2/exercises/:language' do |language|
+        require_key
+        problems = forward_errors do
+          Xapi::Homework.new(params[:key]).problems_in(language)
+        end
+        pg :problems, locals: {problems: problems}
+      end
     end
   end
 end
