@@ -56,6 +56,15 @@ class AppRoutesExercisesTest < Minitest::Test
     end
   end
 
+  def test_get_single_problems
+    VCR.use_cassette('exercism_api_single_exercise_v2') do
+      get '/v2/exercises/ruby/queen-attack'
+
+      options = {:format => :json, :name => 'get_single_problem_v2'}
+      Approvals.verify(last_response.body, options)
+    end
+  end
+
   def test_restore_exercises_and_solutions
     VCR.use_cassette('exercism_api_restore') do
       get '/exercises/restore', :key => 'abc123'
