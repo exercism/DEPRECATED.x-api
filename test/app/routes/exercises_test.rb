@@ -73,6 +73,14 @@ class AppRoutesExercisesTest < Minitest::Test
     end
   end
 
+  def test_restore_exercises_and_solutions_v2
+    VCR.use_cassette('exercism_api_restore_v2') do
+      get '/v2/exercises/restore', :key => 'abc123'
+      options = {:format => :json, :name => 'restore_v2'}
+      Approvals.verify(last_response.body, options)
+    end
+  end
+
   def test_api_error
     VCR.use_cassette('exercism_api_error') do
       get '/exercises', :key => 'no-such-key'

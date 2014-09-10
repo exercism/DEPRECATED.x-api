@@ -33,6 +33,14 @@ module Xapi
         pg :problems, locals: {problems: problems}
       end
 
+      get '/v2/exercises/restore' do
+        require_key
+        problems = forward_errors do
+          Xapi::Backup.restore(params[:key])
+        end
+        pg :problems, locals: {problems: problems}
+      end
+
       get '/v2/exercises/:language' do |language|
         require_key
         problems = forward_errors do
