@@ -47,7 +47,7 @@ class AppRoutesExercisesTest < Minitest::Test
     end
   end
 
-  def test_get_problems
+  def test_v2_get_problems
     VCR.use_cassette('exercism_api_current_exercises_v2') do
       get '/v2/exercises', :key => 'abc123'
 
