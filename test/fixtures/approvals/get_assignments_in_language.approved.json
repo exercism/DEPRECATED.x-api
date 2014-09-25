@@ -24,6 +24,17 @@
     },
     {
       "track_id": "php",
+      "id": "rna-transcription",
+      "track": "php",
+      "slug": "rna-transcription",
+      "files": {
+        "rna-transcription_test.php": "<?php\n\nrequire \"rna-transcription.php\";\n\nclass ComplementTest extends \\PHPUnit_Framework_TestCase\n{\n    public function testRNAComplementOfCytosineIsGuanine()\n    {\n        $this->assertSame(Complement::ofDna('C'), 'G');\n    }\n\n    public function testRNAComplementOfGuanineIsCytosine()\n    {\n        $this->markTestSkipped();\n\n        $this->assertSame(Complement::ofDna('G'), 'C');\n    }\n\n    public function testRNAComplementOfThymineIsAdenine()\n    {\n        $this->markTestSkipped();\n\n        $this->assertSame(Complement::ofDna('T'), 'A');\n    }\n\n    public function testRNAComplementOfAdenineIsUracil()\n    {\n        $this->markTestSkipped();\n\n        $this->assertSame(Complement::ofDna('A'), 'U');\n    }\n\n    public function testRNAComplement()\n    {\n        $this->markTestSkipped();\n\n        $this->assertSame(Complement::ofDna('ACGTGGTCTTAA'), 'UGCACCAGAAUU');\n    }\n\n    public function testDNAComplementOfCytosineIsGuanine()\n    {\n        $this->markTestSkipped();\n\n        $this->assertSame(Complement::ofRna('C'), 'G');\n    }\n\n    public function testDNAComplementOfGuanineIsCytosine()\n    {\n        $this->markTestSkipped();\n\n        $this->assertSame(Complement::ofRna('G'), 'C');\n    }\n\n    public function testDNAComplementOfUracilIsAdenine()\n    {\n        $this->markTestSkipped();\n\n        $this->assertSame(Complement::ofRna('U'), 'A');\n    }\n\n    public function testDNAComplementOfAdenineIsThymine()\n    {\n        $this->markTestSkipped();\n\n        $this->assertSame(Complement::ofRna('A'), 'T');\n    }\n\n    public function testDNAComplement()\n    {\n        $this->markTestSkipped();\n\n        $this->assertSame(Complement::ofRna('UGAACCCGACAUG'), 'ACTTGGGCTGTAC');\n    }\n}\n",
+        "README.md": "# Rna Transcription\n\nWrite a program that, given a DNA strand, returns its RNA complement (per RNA transcription).\n\nBoth DNA and RNA strands are a sequence of nucleotides.\n\nThe four nucleotides found in DNA are adenine (**A**), cytosine (**C**),\nguanine (**G**) and thymidine (**T**).\n\nThe four nucleotides found in RNA are adenine (**A**), cytosine (**C**),\nguanine (**G**) and uracil (**U**).\n\nGiven a DNA strand, its transcribed RNA strand is formed by replacing\neach nucleotide with its complement:\n\n* `G` -> `C`\n* `C` -> `G`\n* `T` -> `A`\n* `A` -> `U`\n\n## Making the Test Suite Pass\n\n1. Get [PHPUnit].\n\n        % wget --no-check-certificate https://phar.phpunit.de/phpunit.phar\n        % chmod +x phpunit.phar\n\n2. Execute the tests for an assignment.\n\n        % phpunit.phar wordy/wordy_test.php\n\n3. All but the first test have been skipped. For example:\n\n        /** @group skipped */\n        public function testFoo() { ... }\n\n4. You can enable the next test by removing the `@group` annotation; for example, the code above, becomes:\n\n        public function testFoo() { ... }\n\n[PHPUnit]: http://phpunit.de\n\n\n## Source\n\nRosalind [view source](http://rosalind.info/problems/rna)\n"
+      },
+      "fresh": true
+    },
+    {
+      "track_id": "php",
       "id": "wordy",
       "track": "php",
       "slug": "wordy",
