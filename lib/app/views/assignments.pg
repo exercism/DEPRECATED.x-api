@@ -3,5 +3,6 @@ collection assignments: assignments do |assignment|
   node id: assignment.slug
   node track: assignment.track_id
   attributes :slug, :files
-  node :fresh => assignment.fresh?
+  # deprecated
+  node :fresh => false
 end

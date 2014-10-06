@@ -1,4 +1,5 @@
 collection :problems => problems do |problem|
   attributes :id, :track_id, :language, :slug, :name, :files
-  node fresh: problem.fresh?
+  # deprecated
+  node fresh: false
 end

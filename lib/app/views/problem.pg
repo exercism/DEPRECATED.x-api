@@ -5,5 +5,6 @@ node :problem do
   node name: problem.name
   node slug: problem.slug
   node files: problem.files
-  node fresh: problem.fresh?
+  # deprecated
+  node fresh: false
 end
