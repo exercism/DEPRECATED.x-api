@@ -18,32 +18,16 @@ class HomeworkTest < Minitest::Test
     end
   end
 
-  def test_start_a_new_track
-    data = {'fake' => []}
+  def test_ignore_unknown_problem
+    data = {'fake' => [{'slug' => 'unknown'}]}
     homework_in ['fake'], data do |homework|
       expected = ['fake:one']
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
 
-  def test_exclude_completed_problem
-    data = {'fake' => [{'slug' => 'one', 'state' => 'done'}]}
-    homework_in ['fake'], data do |homework|
-      expected = ['fake:two']
-      assert_equal expected, homework.problems.map(&Namify)
-    end
-  end
-
-  def test_serve_active_problem
-    data = {'fake' => [{'slug' => 'one', 'state' => 'pending'}]}
-    homework_in ['fake'], data do |homework|
-      expected = ['fake:one', 'fake:two']
-      assert_equal expected, homework.problems.map(&Namify)
-    end
-  end
-
-  def test_ignore_unknown_problem
-    data = {'fake' => [{'slug' => 'unknown', 'state' => 'pending'}]}
+  def test_start_a_new_track
+    data = {'fake' => []}
     homework_in ['fake'], data do |homework|
       expected = ['fake:one']
       assert_equal expected, homework.problems.map(&Namify)
@@ -53,12 +37,12 @@ class HomeworkTest < Minitest::Test
   def test_serve_ongoing_track
     data = {
       'fake' => [
-        {'slug' => 'one', 'state' => 'done'},
-        {'slug' => 'two', 'state' => 'pending'},
+        {'slug' => 'one'},
+        {'slug' => 'two'},
       ]
     }
     homework_in ['fake'], data do |homework|
-      expected = ['fake:two', 'fake:three']
+      expected = ['fake:one', 'fake:two', 'fake:three']
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
@@ -66,13 +50,13 @@ class HomeworkTest < Minitest::Test
   def test_serve_completed_track
     data = {
       'fake' => [
-        {'slug' => 'one', 'state' => 'done'},
-        {'slug' => 'two', 'state' => 'pending'},
-        {'slug' => 'three', 'state' => 'pending'},
+        {'slug' => 'one'},
+        {'slug' => 'two'},
+        {'slug' => 'three'},
       ]
     }
     homework_in ['fake'], data do |homework|
-      expected = ['fake:two', 'fake:three']
+      expected = ['fake:one', 'fake:two', 'fake:three']
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
@@ -80,16 +64,16 @@ class HomeworkTest < Minitest::Test
   def test_multiple_tracks
     data = {
       'fake' => [
-        {'slug' => 'one', 'state' => 'done'},
-        {'slug' => 'two', 'state' => 'pending'},
+        {'slug' => 'one'},
+        {'slug' => 'two'},
       ],
       'fruit' => [
-        {'slug' => 'apple', 'state' => 'done'},
-        {'slug' => 'banana', 'state' => 'pending'},
+        {'slug' => 'apple'},
+        {'slug' => 'banana'},
       ]
     }
     homework_in ['fake', 'fruit'], data do |homework|
-      expected = ["fake:two", "fake:three", "fruit:banana", "fruit:cherry"]
+      expected = ["fake:one", "fake:two", "fake:three", "fruit:apple", "fruit:banana", "fruit:cherry"]
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
@@ -97,16 +81,16 @@ class HomeworkTest < Minitest::Test
   def test_fetch_a_single_track
     data = {
       'fake' => [
-        {'slug' => 'one', 'state' => 'done'},
-        {'slug' => 'two', 'state' => 'pending'},
+        {'slug' => 'one'},
+        {'slug' => 'two'},
       ],
       'fruit' => [
-        {'slug' => 'apple', 'state' => 'done'},
-        {'slug' => 'banana', 'state' => 'pending'},
+        {'slug' => 'apple'},
+        {'slug' => 'banana'},
       ]
     }
     homework_in ['fake', 'fruit'], data do |homework|
-      expected = ["fruit:banana", "fruit:cherry"]
+      expected = ["fruit:apple", "fruit:banana", "fruit:cherry"]
       assert_equal expected, homework.problems_in('fruit').map(&Namify)
     end
   end

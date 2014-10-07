@@ -22,7 +22,6 @@ module Xapi
           track_id: row['track'],
           language: row['track'],
           slug: row['slug'],
-          state: 'backup',
           path: path
           )
         )

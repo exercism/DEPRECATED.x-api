@@ -17,9 +17,5 @@ module Xapi
     def files
       data["files"].merge(exercise.files)
     end
-
-    def fresh?
-      false
-    end
   end
 end

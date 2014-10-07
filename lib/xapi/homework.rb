@@ -14,7 +14,7 @@ module Xapi
     def problems
       languages.map {|language|
         course.in(language).problems + [next_in(language)]
-      }.flatten.reject(&:completed?).reject(&:not_found?)
+      }.flatten.reject(&:not_found?)
     end
 
     private

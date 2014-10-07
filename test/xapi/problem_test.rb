@@ -10,7 +10,6 @@ class ProblemTest < Minitest::Test
       track_id: 'fake',
       language: 'Who Cares',
       slug: 'one',
-      state: 'fresh',
       path: './test/fixtures',
 
     }
@@ -54,14 +53,6 @@ class ProblemTest < Minitest::Test
     problem = Xapi::Problem.new(attributes.update(slug: 'unknown'))
     assert problem.not_found?
     assert_match /problem/, problem.error_message
-  end
-
-  def test_freshness
-    problem = Xapi::Problem.new(attributes)
-    assert problem.fresh?
-
-    problem = Xapi::Problem.new(attributes.update(state: 'stale'))
-    refute problem.fresh?
   end
 
   def test_naming

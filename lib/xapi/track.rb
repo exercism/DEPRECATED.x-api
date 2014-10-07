@@ -37,7 +37,6 @@ module Xapi
         language: language,
         track_id: id,
         slug: slug,
-        state: 'fresh',
         path: '.',
       }
     end

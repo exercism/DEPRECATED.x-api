@@ -2,7 +2,7 @@ module Xapi
   class Problem
     Name = Proc.new {|problem| [problem.language, problem.slug] }
 
-    attr_reader :track_id, :slug, :state, :path, :language
+    attr_reader :track_id, :slug, :path, :language
 
     def initialize(attributes)
       attributes.each {|field, value|
@@ -16,14 +16,6 @@ module Xapi
 
     def name
       slug.split('-').map(&:capitalize).join(' ')
-    end
-
-    def fresh?
-      state == 'fresh'
-    end
-
-    def completed?
-      state == 'done'
     end
 
     def not_found?

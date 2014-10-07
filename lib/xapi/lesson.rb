@@ -28,7 +28,6 @@ module Xapi
         track_id: language,
         path: path,
         slug: row["slug"],
-        state: row["state"],
       }
     end
   end
