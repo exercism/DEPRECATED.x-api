@@ -7,11 +7,11 @@ class CourseTest < Minitest::Test
   def test_problems
     data = {
       'ruby' => [
-        {"slug" => "one", "state" => "whatever"},
-        {"slug" => "two", "state" => "whatever"},
+        {"slug" => "one"},
+        {"slug" => "two"},
       ],
       'go' => [
-        {"slug" => "one", "state" => "whatever"}
+        {"slug" => "one"}
       ]
     }
     course = Xapi::Course.new(data, './tmp')

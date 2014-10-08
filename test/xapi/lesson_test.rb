@@ -5,8 +5,8 @@ require 'xapi/problem'
 class LessonTest < Minitest::Test
   def test_problems
     data = [
-      {"slug" => "one", "state" => "whatever"},
-      {"slug" => "two", "state" => "whatever"},
+      {"slug" => "one"},
+      {"slug" => "two"},
     ]
     lesson = Xapi::Lesson.new('ruby', data, '/tmp')
 
