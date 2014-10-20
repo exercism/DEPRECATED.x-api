@@ -76,3 +76,33 @@
 [submodule "problems/swift"]
 	path = problems/swift
 	url = https://github.com/exercism/xswift.git
+[submodule "problems/assembly"]
+	path = problems/assembly
+	url = https://github.com/exercism/xassembly.git
+[submodule "problems/bash"]
+	path = problems/bash
+	url = https://github.com/exercism/xbash.git
+[submodule "problems/c"]
+	path = problems/c
+	url = https://github.com/exercism/xc.git
+[submodule "problems/groovy"]
+	path = problems/groovy
+	url = https://github.com/exercism/xgroovy.git
+[submodule "problems/nimrod"]
+	path = problems/nimrod
+	url = https://github.com/exercism/xnimrod.git
+[submodule "problems/powershell"]
+	path = problems/powershell
+	url = https://github.com/exercism/xpowershell.git
+[submodule "problems/proofs"]
+	path = problems/proofs
+	url = https://github.com/exercism/xproofs.git
+[submodule "problems/r"]
+	path = problems/r
+	url = https://github.com/exercism/xr.git
+[submodule "problems/sml"]
+	path = problems/sml
+	url = https://github.com/exercism/xsml.git
+[submodule "problems/vbnet"]
+	path = problems/vbnet
+	url = https://github.com/exercism/xvbnet.git
