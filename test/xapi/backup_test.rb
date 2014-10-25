@@ -19,11 +19,15 @@ class BackupTest < Minitest::Test
     ]
     backup.stub(:data, data) do
       expected = [
-        ["two.ext", "two_test.test", "README.md"],
-        ["apple.ext", "apple_test.test", "README.md"],
-        ["banana.ext", "banana_test.test", "README.md"]
+        ["README.md", "two.ext", "two_test.test"],
+        ["README.md", "apple.ext", "apple_test.test"],
+        ["README.md", "banana.ext", "banana_test.test"],
       ]
-      assert_equal expected, backup.problems.map {|problem| problem.files.keys }
+      assert_equal expected, backup.problems.map {|problem| problem.files.keys.sort }
+
+      assert_equal "// iteration 2 (done)", backup.problems[0].files["two.ext"]
+      assert_equal "// iteration 1 (pending)", backup.problems[1].files["apple.ext"]
+      assert_equal "// iteration 1 (hibernating)", backup.problems[2].files["banana.ext"]
     end
   end
 end

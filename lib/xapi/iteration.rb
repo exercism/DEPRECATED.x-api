@@ -15,7 +15,7 @@ module Xapi
     end
 
     def files
-      data["files"].merge(exercise.files)
+      exercise.files.merge(data["files"])
     end
   end
 end
