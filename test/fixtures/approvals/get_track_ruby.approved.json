@@ -68,7 +68,8 @@
       "ruby/custom-set",
       "ruby/minesweeper",
       "ruby/scale-generator"
-    ]
+    ],
+    "repository": "https://github.com/exercism/xruby"
   },
   "problems": [
     {

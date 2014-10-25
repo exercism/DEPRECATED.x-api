@@ -14,6 +14,10 @@ module Xapi
       data['slug']
     end
 
+    def repository
+      data['repository']
+    end
+
     def language
       data['language']
     end

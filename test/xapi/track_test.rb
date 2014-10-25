@@ -1,6 +1,7 @@
 require './test/test_helper'
 require 'json'
 require 'xapi/track'
+require 'xapi/problem'
 
 class TrackTest < Minitest::Test
   def test_basic_configuration
@@ -10,6 +11,7 @@ class TrackTest < Minitest::Test
     assert_equal "Fruit", track.language
     assert_equal ["apple", "banana", "cherry"], track.problem_slugs
     assert_equal ["apple", "banana", "cherry"], track.problems.map(&:slug).sort
+    assert_equal "https://example.com/exercism/xfruit", track.repository
   end
 
   def test_inactive_language

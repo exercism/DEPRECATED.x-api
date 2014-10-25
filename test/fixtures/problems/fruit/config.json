@@ -1,7 +1,7 @@
 {
   "slug": "fruit",
   "language": "Fruit",
-  "repository": "https://github.com/exercism/xfruit",
+  "repository": "https://example.com/exercism/xfruit",
   "active": true,
   "problems": [
     "apple",

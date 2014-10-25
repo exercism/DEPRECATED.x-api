@@ -2,6 +2,7 @@ node :track => track do
   attributes :language, :active, :id
   node :slug => track.id
   node :problems => track.problems.map(&:id)
+  node :repository => track.repository
 end
 
 partial :problems, :problems => track.problems
