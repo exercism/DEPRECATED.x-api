@@ -23,10 +23,10 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Content-Length:
-      - '129'
+      - '133'
     body:
       encoding: UTF-8
-      string: '{"go":[{"slug":"leap","state":"done"}],"ruby":[{"slug":"anagram","state":"pending"},{"slug":"word-count","state":"hibernating"}]}'
+      string: '{"go":[{"slug":"leap","state":"done"}],"haskell":[{"slug":"list-ops","state":"pending"},{"slug":"word-count","state":"hibernating"}]}'
     http_version: 
-  recorded_at: Fri, 05 Sep 2014 04:42:16 GMT
+  recorded_at: Sat, 25 Oct 2014 16:00:14 GMT
 recorded_with: VCR 2.9.0

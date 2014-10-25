@@ -22,17 +22,14 @@ http_interactions:
       - application/json;charset=utf-8
       X-Content-Type-Options:
       - nosniff
-      Set-Cookie:
-      - rack.session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiRTAyOTdmOGQ1Y2Q3YTZjM2NhNzBk%0ANTQ0YTM2MDY4NGM0MWY3YTM5YTNjYzk1NzEwN2YyNmQwY2IxODg1YTNiMDMG%0AOwBGSSIJY3NyZgY7AEZJIiUyM2M3NmJkZWE4MzQyOGY2NDIyMzI0NjZmZjRk%0AYTg3NgY7AEZJIg10cmFja2luZwY7AEZ7CEkiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi00MGM3NzYyZjRjOGZiOWRhZmM1MTMwMGYwZTIyZmNmMjE0MTI5OWFm%0ABjsARkkiGUhUVFBfQUNDRVBUX0VOQ09ESU5HBjsAVEkiLWRkZDA5ODkxNzRm%0AMTlhNWIxODc5MTIxM2NjNDBjNWE2MDlkMjU0NmMGOwBGSSIZSFRUUF9BQ0NF%0AUFRfTEFOR1VBR0UGOwBUSSItZGEzOWEzZWU1ZTZiNGIwZDMyNTViZmVmOTU2%0AMDE4OTBhZmQ4MDcwOQY7AEY%3D%0A--58caa8d211726df2669900635c3251435ee4ef87;
-        path=/; HttpOnly
       Content-Length:
-      - '268'
+      - '274'
     body:
       encoding: UTF-8
       string: '{"assignments":[{"slug":"leap","track":"go","files":{"leap.go":"//
-        iteration 2 (done)"}},{"slug":"anagram","track":"ruby","files":{"anagram.rb":"//
-        iteration 1 (pending)"}},{"slug":"word-count","track":"ruby","files":{"word-count.rb":"//
+        iteration 2 (done)"}},{"slug":"list-ops","track":"haskell","files":{"ListOps.hs":"//
+        iteration 1 (pending)"}},{"slug":"word-count","track":"haskell","files":{"WordCount.hs":"//
         iteration 1 (hibernating)"}}]}'
     http_version: 
-  recorded_at: Tue, 08 Apr 2014 14:10:15 GMT
+  recorded_at: Sat, 25 Oct 2014 16:00:15 GMT
 recorded_with: VCR 2.9.0

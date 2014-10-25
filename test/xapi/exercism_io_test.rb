@@ -12,8 +12,8 @@ class ExercismIOTest < Minitest::Test
         "go" => [
           {"slug" => "leap", "state" => "done"}
         ],
-        "ruby" => [
-          {"slug" => "anagram", "state" => "pending"},
+        "haskell" => [
+          {"slug" => "list-ops", "state" => "pending"},
           {"slug" => "word-count", "state" => "hibernating"}
         ]
       }
@@ -25,8 +25,8 @@ class ExercismIOTest < Minitest::Test
     VCR.use_cassette('exercism_api_code') do
       expected = [
         {"slug" => "leap", "track" => "go", "files" => {"leap.go" => "// iteration 2 (done)"}},
-        {"slug" => "anagram", "track" => "ruby", "files" => {"anagram.rb" => "// iteration 1 (pending)"}},
-        {"slug" => "word-count", "track" => "ruby", "files" => {"word-count.rb" => "// iteration 1 (hibernating)"}}
+        {"slug" => "list-ops", "track" => "haskell", "files" => {"ListOps.hs" => "// iteration 1 (pending)"}},
+        {"slug" => "word-count", "track" => "haskell", "files" => {"WordCount.hs" => "// iteration 1 (hibernating)"}}
       ]
       assert_equal expected, Xapi::ExercismIO.code_for('abc123')
     end
