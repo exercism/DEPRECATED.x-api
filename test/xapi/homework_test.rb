@@ -1,7 +1,6 @@
 require './test/test_helper'
 require 'json'
-require 'xapi/course'
-require 'xapi/lesson'
+require 'xapi/config'
 require 'xapi/progression'
 require 'xapi/problem'
 require 'xapi/homework'
@@ -15,6 +14,14 @@ class HomeworkTest < Minitest::Test
       Xapi::Config.stub(:path, './test/fixtures') do
         yield homework
       end
+    end
+  end
+
+  def test_handle_languages_they_havent_started_yet
+    data = {'fake' => [{'slug' => 'one'}]}
+    homework_in ['fake', 'fruit'], data do |homework|
+      expected = ['fake:one', 'fake:two', 'fruit:apple']
+      assert_equal expected, homework.problems.map(&Namify)
     end
   end
 

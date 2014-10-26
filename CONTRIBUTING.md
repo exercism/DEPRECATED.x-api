@@ -100,12 +100,9 @@ The core ideas in the codebase are:
 * [Code](lib/xapi/code.rb) - supporting code to solve the problem. In its most basic form, it
   consists of a test suite, but there can be other supporting files (class
   or type definitions, metadata files, etc).
-* [Lesson](lib/xapi/lesson.rb) - a subset of problems in a progression.
-* [Course](lib/xapi/homework.rb) - a collection of lessons.
 
 There is also the concept of `Homework` which wraps the process of getting
-a user's current exercise set from exercism.io, and then producing a course
-from it.
+a user's current exercise set from exercism.io, and getting all the relevant problems.
 
 **NOTE** A _problem_ is a README and test suite/supporting code (language+slug). An _exercise_ is a problem worked by a user.
 

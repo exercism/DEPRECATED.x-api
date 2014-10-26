@@ -4,9 +4,7 @@ require 'yaml'
 require 'xapi/problem'
 require 'xapi/code'
 require 'xapi/readme'
-require 'xapi/lesson'
 require 'xapi/iteration'
-require 'xapi/course'
 require 'xapi/backup'
 
 class BackupTest < Minitest::Test

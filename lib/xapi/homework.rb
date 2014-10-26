@@ -13,18 +13,16 @@ module Xapi
 
     def problems
       languages.map {|language|
-        course.in(language).problems + [next_in(language)]
+        Array(data[language]).map{|row|
+          Problem.new(track_id: language, language: language, slug: row["slug"], path: path)
+        }.uniq + [next_in(language)]
       }.flatten.reject(&:not_found?)
     end
 
     private
 
-    def course
-      @course ||= Course.new(data, path)
-    end
-
     def next_in(language)
-      Progression.new(language, course.in(language).slugs, path).next
+      Progression.new(language, Array(data[language]).map{|problem| problem["slug"] }, path).next
     end
 
     def data
