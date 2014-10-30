@@ -19,7 +19,7 @@ module Xapi
       use Rack::Session::Cookie,
         :key => 'rack.session',
         :path => '/',
-        :expire_after => 2592000,
+        :expire_after => 2_592_000,
         :secret => ENV.fetch('SESSION_SECRET') { 'Need to know only.' }
     end
 
