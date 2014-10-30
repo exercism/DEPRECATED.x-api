@@ -12,7 +12,7 @@ class AppRoutesExercisesTest < Minitest::Test
     [
       '/exercises/ruby',
       '/exercises',
-      '/exercises/restore'
+      '/exercises/restore',
     ].each do |endpoint|
       get endpoint
       assert_equal 401, last_response.status, "GET #{endpoint} should be protected"

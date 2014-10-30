@@ -46,7 +46,7 @@ class HomeworkTest < Minitest::Test
       'fake' => [
         {'slug' => 'one'},
         {'slug' => 'two'},
-      ]
+      ],
     }
     homework_in ['fake'], data do |homework|
       expected = ['fake:one', 'fake:two', 'fake:three']
@@ -60,7 +60,7 @@ class HomeworkTest < Minitest::Test
         {'slug' => 'one'},
         {'slug' => 'two'},
         {'slug' => 'three'},
-      ]
+      ],
     }
     homework_in ['fake'], data do |homework|
       expected = ['fake:one', 'fake:two', 'fake:three']
@@ -77,7 +77,7 @@ class HomeworkTest < Minitest::Test
       'fruit' => [
         {'slug' => 'apple'},
         {'slug' => 'banana'},
-      ]
+      ],
     }
     homework_in ['fake', 'fruit'], data do |homework|
       expected = ["fake:one", "fake:two", "fake:three", "fruit:apple", "fruit:banana", "fruit:cherry"]
@@ -94,7 +94,7 @@ class HomeworkTest < Minitest::Test
       'fruit' => [
         {'slug' => 'apple'},
         {'slug' => 'banana'},
-      ]
+      ],
     }
     homework_in ['fake', 'fruit'], data do |homework|
       expected = ["fruit:apple", "fruit:banana", "fruit:cherry"]

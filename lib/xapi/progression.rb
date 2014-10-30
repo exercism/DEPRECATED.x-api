@@ -15,7 +15,7 @@ module Xapi
         language: language,
         track_id: language,
         slug: next_slug,
-        path: path
+        path: path,
       )
     end
 

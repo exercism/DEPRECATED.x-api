@@ -22,7 +22,7 @@ module Xapi
           track_id: row['track'],
           language: row['track'],
           slug: row['slug'],
-          path: path
+          path: path,
           )
         )
       }

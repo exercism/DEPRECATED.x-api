@@ -17,7 +17,7 @@ class CodeTest < Minitest::Test
       path_to("Fakefile"),
       path_to("example.ext"),
       path_to("one_test.test"),
-      path_to("sub/src/ExampleFile.ext")
+      path_to("sub/src/ExampleFile.ext"),
     ]
     assert_equal expected.sort, code.glob.sort
   end
@@ -25,7 +25,7 @@ class CodeTest < Minitest::Test
   def test_paths
     expected = [
       path_to("Fakefile"),
-      path_to("one_test.test")
+      path_to("one_test.test"),
     ]
     assert_equal expected, code.paths
   end

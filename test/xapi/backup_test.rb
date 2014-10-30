@@ -13,7 +13,7 @@ class BackupTest < Minitest::Test
     data = [
       {"slug" => "two", "track" => "fake", "files" => {"two.ext" => "// iteration 2 (done)"}},
       {"slug" => "apple", "track" => "fruit", "files" => {"apple.ext" => "// iteration 1 (pending)"}},
-      {"slug" => "banana", "track" => "fruit", "files" => {"banana.ext" => "// iteration 1 (hibernating)"}}
+      {"slug" => "banana", "track" => "fruit", "files" => {"banana.ext" => "// iteration 1 (hibernating)"}},
     ]
     backup.stub(:data, data) do
       expected = [
