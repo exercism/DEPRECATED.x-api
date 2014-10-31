@@ -19,24 +19,24 @@ class HomeworkTest < Minitest::Test
 
   def test_handle_languages_they_havent_started_yet
     data = {'fake' => [{'slug' => 'one'}]}
-    homework_in ['fake', 'fruit'], data do |homework|
-      expected = ['fake:one', 'fake:two', 'fruit:apple']
+    homework_in %w(fake fruit), data do |homework|
+      expected = %w(fake:one fake:two fruit:apple)
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
 
   def test_ignore_unknown_problem
     data = {'fake' => [{'slug' => 'unknown'}]}
-    homework_in ['fake'], data do |homework|
-      expected = ['fake:one']
+    homework_in %w(fake), data do |homework|
+      expected = %w(fake:one)
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
 
   def test_start_a_new_track
     data = {'fake' => []}
-    homework_in ['fake'], data do |homework|
-      expected = ['fake:one']
+    homework_in %w(fake), data do |homework|
+      expected = %w(fake:one)
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
@@ -49,7 +49,7 @@ class HomeworkTest < Minitest::Test
       ],
     }
     homework_in ['fake'], data do |homework|
-      expected = ['fake:one', 'fake:two', 'fake:three']
+      expected = %w(fake:one fake:two fake:three)
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
@@ -63,7 +63,7 @@ class HomeworkTest < Minitest::Test
       ],
     }
     homework_in ['fake'], data do |homework|
-      expected = ['fake:one', 'fake:two', 'fake:three']
+      expected = %w(fake:one fake:two fake:three)
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
@@ -79,8 +79,8 @@ class HomeworkTest < Minitest::Test
         {'slug' => 'banana'},
       ],
     }
-    homework_in ['fake', 'fruit'], data do |homework|
-      expected = ["fake:one", "fake:two", "fake:three", "fruit:apple", "fruit:banana", "fruit:cherry"]
+    homework_in %w(fake fruit), data do |homework|
+      expected = %w(fake:one fake:two fake:three fruit:apple fruit:banana fruit:cherry)
       assert_equal expected, homework.problems.map(&Namify)
     end
   end
@@ -96,8 +96,8 @@ class HomeworkTest < Minitest::Test
         {'slug' => 'banana'},
       ],
     }
-    homework_in ['fake', 'fruit'], data do |homework|
-      expected = ["fruit:apple", "fruit:banana", "fruit:cherry"]
+    homework_in %w(fake fruit), data do |homework|
+      expected = %w(fruit:apple fruit:banana fruit:cherry)
       assert_equal expected, homework.problems_in('fruit').map(&Namify)
     end
   end
