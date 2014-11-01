@@ -6,3 +6,4 @@ script:
   - bin/fetch-configlet
   - bin/verify-configs
   - bin/verify-metadata
+  - rubocop

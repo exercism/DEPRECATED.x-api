@@ -1,0 +1,48 @@
+AllCops:
+  Exclude:
+    - 'problems/**/*'
+    - 'test/fixtures/**/*'
+    - 'bin/*'
+
+Style/StringLiterals:
+  Enabled: false
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+Style/TrailingComma:
+  EnforcedStyleForMultiline: comma
+Style/Blocks:
+  Enabled: false
+Style/Documentation:
+  Exclude:
+    - 'test/**/*'
+    - 'lib/app.rb'
+    - 'lib/app/**/*'
+Style/RaiseArgs:
+  Enabled: true
+  EnforcedStyle: compact
+Style/AndOr:
+  Enabled: true
+  EnforcedStyle: conditionals
+Style/FormatString:
+  Enabled: true
+  EnforcedStyle: percent
+Lint/RescueException:
+  Exclude:
+    - 'lib/app/helpers/errors.rb'
+Metrics/LineLength:
+  Max: 80
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+  Exclude:
+    - 'test/**/*'
+Metrics/MethodLength:
+  Exclude:
+    - 'test/**/*'
+Metrics/AbcSize:
+  Exclude:
+    - 'test/**/*'
+Metrics/LineLength:
+  Exclude:
+    - 'test/**/*'
