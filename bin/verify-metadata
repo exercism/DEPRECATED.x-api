@@ -12,9 +12,9 @@ end
 omissions = []
 Dir.glob("problems/*").each do |path|
   track = Xapi::Track.new(path)
-  track.problem_slugs.each do |problem_slug|
-    if missing?(problem_slug)
-      omissions << problem_slug
+  track.slugs.each do |slug|
+    if missing?(slug)
+      omissions << slug
     end
   end
 end

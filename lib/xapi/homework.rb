@@ -14,16 +14,21 @@ module Xapi
 
     def problems
       languages.map {|language|
-        Array(data[language]).map {|row|
-          Problem.new(track_id: language, language: language, slug: row["slug"], path: path)
+        attributes = { track_id: language, language: language, path: path }
+        slugs_in(language).map {|slug|
+          Problem.new(attributes.merge(slug: slug))
         }.uniq + [next_in(language)]
       }.flatten.reject(&:not_found?)
     end
 
     private
 
+    def slugs_in(language)
+      Array(data[language]).map { |row| row["slug"] }
+    end
+
     def next_in(language)
-      Progression.new(language, Array(data[language]).map { |problem| problem["slug"] }, path).next
+      Progression.new(language, slugs_in(language), path).next
     end
 
     def data

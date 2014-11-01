@@ -24,20 +24,22 @@ module Xapi
     end
 
     def problems
-      @problems ||= problem_slugs.map { |slug| Problem.new(problem_attributes(slug)) }
+      @problems ||= slugs.map { |slug| Problem.new(attributes(slug)) }
     end
 
-    def problem_slugs
+    def slugs
       data['problems']
     end
 
     def find(slug)
-      problems.find { |problem| problem.slug == slug } || Problem.new(problem_attributes(slug))
+      problems.find(proc { Problem.new(attributes(slug)) }) { |problem|
+        problem.slug == slug
+      }
     end
 
     private
 
-    def problem_attributes(slug)
+    def attributes(slug)
       {
         language: language,
         track_id: id,

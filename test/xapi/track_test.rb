@@ -9,7 +9,7 @@ class TrackTest < Minitest::Test
     assert track.active?
     assert_equal "fruit", track.id
     assert_equal "Fruit", track.language
-    assert_equal %w(apple banana cherry), track.problem_slugs
+    assert_equal %w(apple banana cherry), track.slugs
     assert_equal %w(apple banana cherry), track.problems.map(&:slug).sort
     assert_equal "https://example.com/exercism/xfruit", track.repository
   end

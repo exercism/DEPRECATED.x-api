@@ -3,9 +3,9 @@ module Xapi
     class Home < Sinatra::Base
       get '/' do
         {
-          "repository" => "https://github.com/exercism/x-api",
-          "contributing" => "https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md",
-          "build_id" => BuildID,
+          "repository" => Config::REPO_URL,
+          "contributing" => Config::CONTRIBUTING_URL,
+          "build_id" => BUILD_ID,
         }.to_json
       end
     end
