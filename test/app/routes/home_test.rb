@@ -9,6 +9,6 @@ class AppRoutesHomeTest < Minitest::Test
 
   def test_get_landing_page
     get '/'
-    assert_match /contributing/, last_response.body
+    assert_match(/contributing/, last_response.body)
   end
 end
