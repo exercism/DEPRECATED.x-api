@@ -8,11 +8,11 @@ module Xapi
     end
 
     def self.tracks
-      @tracks ||= Dir.glob("#{path}/*").map {|dir| Xapi::Track.new(dir)}.sort_by(&:id)
+      @tracks ||= Dir.glob("#{path}/*").map { |dir| Xapi::Track.new(dir) }.sort_by(&:id)
     end
 
     def self.find(id)
-      tracks.find {|track| track.id == id}
+      tracks.find { |track| track.id == id }
     end
 
     def self.path

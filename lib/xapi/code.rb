@@ -7,11 +7,11 @@ module Xapi
     end
 
     def glob
-      Dir.glob("#{dir}/**/*").reject {|path| File.directory?(path)}
+      Dir.glob("#{dir}/**/*").reject { |path| File.directory?(path) }
     end
 
     def paths
-      glob.reject {|path| path =~ /example/i}.sort
+      glob.reject { |path| path =~ /example/i }.sort
     end
 
     def files

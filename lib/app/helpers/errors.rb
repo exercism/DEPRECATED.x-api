@@ -8,9 +8,9 @@ module Xapi
       def forward_errors
         yield
       rescue Xapi::ApiError => e
-        halt 400, {error: e.message}.to_json
+        halt 400, { error: e.message }.to_json
       rescue Exception
-        halt 500, {error: something_went_wrong}.to_json
+        halt 500, { error: something_went_wrong }.to_json
       end
     end
   end

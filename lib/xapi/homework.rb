@@ -14,7 +14,7 @@ module Xapi
 
     def problems
       languages.map {|language|
-        Array(data[language]).map{|row|
+        Array(data[language]).map {|row|
           Problem.new(track_id: language, language: language, slug: row["slug"], path: path)
         }.uniq + [next_in(language)]
       }.flatten.reject(&:not_found?)
@@ -23,7 +23,7 @@ module Xapi
     private
 
     def next_in(language)
-      Progression.new(language, Array(data[language]).map{|problem| problem["slug"] }, path).next
+      Progression.new(language, Array(data[language]).map { |problem| problem["slug"] }, path).next
     end
 
     def data

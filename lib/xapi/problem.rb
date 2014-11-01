@@ -1,7 +1,7 @@
 module Xapi
   # Problem represents a README and related code in a given language track.
   class Problem
-    Name = Proc.new {|problem| [problem.language, problem.slug] }
+    Name = proc { |problem| [problem.language, problem.slug] }
 
     attr_reader :track_id, :slug, :path, :language
 

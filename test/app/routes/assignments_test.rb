@@ -22,13 +22,13 @@ class AppRoutesAssignmentsTest < Minitest::Test
 
   def test_get_assignments_in_language
     get '/assignments/php'
-    options = {:format => :json, :name => 'get_assignments_in_language'}
+    options = { format: :json, name: 'get_assignments_in_language' }
     Approvals.verify(last_response.body, options)
   end
 
   def test_get_specific_assignment
     get '/assignments/ruby/leap'
-    options = {:format => :json, :name => 'get_specific_assignment'}
+    options = { format: :json, name: 'get_specific_assignment' }
     Approvals.verify(last_response.body, options)
   end
 end

@@ -6,7 +6,7 @@ require 'xapi/problem'
 require 'xapi/homework'
 
 class HomeworkTest < Minitest::Test
-  Namify = Proc.new{ |problem| [problem.language, problem.slug].join(':') }
+  Namify = proc { |problem| [problem.language, problem.slug].join(':') }
 
   def homework_in(languages, data)
     homework = Xapi::Homework.new('abc123', languages, './test/fixtures')
@@ -18,7 +18,7 @@ class HomeworkTest < Minitest::Test
   end
 
   def test_handle_languages_they_havent_started_yet
-    data = {'fake' => [{'slug' => 'one'}]}
+    data = { 'fake' => [{ 'slug' => 'one' }] }
     homework_in %w(fake fruit), data do |homework|
       expected = %w(fake:one fake:two fruit:apple)
       assert_equal expected, homework.problems.map(&Namify)
@@ -26,7 +26,7 @@ class HomeworkTest < Minitest::Test
   end
 
   def test_ignore_unknown_problem
-    data = {'fake' => [{'slug' => 'unknown'}]}
+    data = { 'fake' => [{ 'slug' => 'unknown' }] }
     homework_in %w(fake), data do |homework|
       expected = %w(fake:one)
       assert_equal expected, homework.problems.map(&Namify)
@@ -34,7 +34,7 @@ class HomeworkTest < Minitest::Test
   end
 
   def test_start_a_new_track
-    data = {'fake' => []}
+    data = { 'fake' => [] }
     homework_in %w(fake), data do |homework|
       expected = %w(fake:one)
       assert_equal expected, homework.problems.map(&Namify)
@@ -44,8 +44,8 @@ class HomeworkTest < Minitest::Test
   def test_serve_ongoing_track
     data = {
       'fake' => [
-        {'slug' => 'one'},
-        {'slug' => 'two'},
+        { 'slug' => 'one' },
+        { 'slug' => 'two' },
       ],
     }
     homework_in ['fake'], data do |homework|
@@ -57,9 +57,9 @@ class HomeworkTest < Minitest::Test
   def test_serve_completed_track
     data = {
       'fake' => [
-        {'slug' => 'one'},
-        {'slug' => 'two'},
-        {'slug' => 'three'},
+        { 'slug' => 'one' },
+        { 'slug' => 'two' },
+        { 'slug' => 'three' },
       ],
     }
     homework_in ['fake'], data do |homework|
@@ -71,12 +71,12 @@ class HomeworkTest < Minitest::Test
   def test_multiple_tracks
     data = {
       'fake' => [
-        {'slug' => 'one'},
-        {'slug' => 'two'},
+        { 'slug' => 'one' },
+        { 'slug' => 'two' },
       ],
       'fruit' => [
-        {'slug' => 'apple'},
-        {'slug' => 'banana'},
+        { 'slug' => 'apple' },
+        { 'slug' => 'banana' },
       ],
     }
     homework_in %w(fake fruit), data do |homework|
@@ -88,12 +88,12 @@ class HomeworkTest < Minitest::Test
   def test_fetch_a_single_track
     data = {
       'fake' => [
-        {'slug' => 'one'},
-        {'slug' => 'two'},
+        { 'slug' => 'one' },
+        { 'slug' => 'two' },
       ],
       'fruit' => [
-        {'slug' => 'apple'},
-        {'slug' => 'banana'},
+        { 'slug' => 'apple' },
+        { 'slug' => 'banana' },
       ],
     }
     homework_in %w(fake fruit), data do |homework|

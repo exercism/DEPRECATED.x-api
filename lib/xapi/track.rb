@@ -24,7 +24,7 @@ module Xapi
     end
 
     def problems
-      @problems ||= problem_slugs.map {|slug| Problem.new(problem_attributes(slug))}
+      @problems ||= problem_slugs.map { |slug| Problem.new(problem_attributes(slug)) }
     end
 
     def problem_slugs
@@ -32,7 +32,7 @@ module Xapi
     end
 
     def find(slug)
-      problems.find {|problem| problem.slug == slug} || Problem.new(problem_attributes(slug))
+      problems.find { |problem| problem.slug == slug } || Problem.new(problem_attributes(slug))
     end
 
     private

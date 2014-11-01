@@ -27,7 +27,7 @@ module Xapi
     end
 
     def self.conn
-      Faraday.new(:url => url) do |c|
+      Faraday.new(url: url) do |c|
         c.use Faraday::Adapter::NetHttp
       end
     end

@@ -22,13 +22,13 @@ class AppRoutesProblemsTest < Minitest::Test
 
   def test_get_problems_in_language
     get '/problems/php'
-    options = {:format => :json, :name => 'get_problems_in_language'}
+    options = { format: :json, name: 'get_problems_in_language' }
     Approvals.verify(last_response.body, options)
   end
 
   def test_get_specific_problem
     get '/problems/ruby/leap'
-    options = {:format => :json, :name => 'get_specific_problem'}
+    options = { format: :json, name: 'get_specific_problem' }
     Approvals.verify(last_response.body, options)
   end
 end

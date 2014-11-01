@@ -9,7 +9,7 @@ class AppRoutesDemoTest < Minitest::Test
 
   def test_get_demo_problems
     get '/demo'
-    options = {:format => :json, :name => 'get_demo_problems'}
+    options = { format: :json, name: 'get_demo_problems' }
     Approvals.verify(last_response.body, options)
   end
 end
