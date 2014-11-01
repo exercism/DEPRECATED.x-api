@@ -4,7 +4,6 @@ require 'xapi/problem'
 require 'xapi/progression'
 
 class ProgressionTest < Minitest::Test
-
   def progression_with(current_slugs)
     Xapi::Progression.new('fake', current_slugs, './test/fixtures')
   end
