@@ -1,4 +1,5 @@
 module Xapi
+  # Code represents all the non-readme portions of a problem.
   class Code
     attr_reader :dir
     def initialize(dir)

@@ -1,4 +1,5 @@
 module Xapi
+  # Homework gets all of a user's currently pending problems.
   class Homework
     attr_reader :key, :languages, :path
     def initialize(key, languages=Xapi::Config.languages, path=default_path)

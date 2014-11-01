@@ -1,4 +1,5 @@
 module Xapi
+  # Track is a collection of problems in a given language.
   class Track
     attr_reader :path
     def initialize(path)

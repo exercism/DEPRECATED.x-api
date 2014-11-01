@@ -1,4 +1,5 @@
 module Xapi
+  # Readme combines metadata into a README for a problem.
   class Readme
     attr_reader :slug, :dir, :help
 

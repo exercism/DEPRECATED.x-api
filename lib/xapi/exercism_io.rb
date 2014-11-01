@@ -4,6 +4,7 @@ require 'json'
 module Xapi
   class ApiError < StandardError; end
 
+  # ExercismIO encapsulates access to the Exercism API.
   module ExercismIO
     def self.env
       ENV.fetch('RACK_ENV') { 'production' }

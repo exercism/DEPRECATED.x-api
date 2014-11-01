@@ -1,4 +1,5 @@
 module Xapi
+  # Backup gets all the problems and solutions that a user has solved.
   class Backup
     def self.restore(key)
       new(key).problems

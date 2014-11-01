@@ -1,4 +1,5 @@
 module Xapi
+  # Config is a track-specific config.
   class Config
     DEFAULT_PATH = "./problems"
 

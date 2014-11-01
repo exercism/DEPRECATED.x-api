@@ -1,4 +1,5 @@
 module Xapi
+  # Progression is a series of problems to be solved in order.
   class Progression
     attr_reader :language, :current, :path
 
