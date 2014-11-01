@@ -23,6 +23,10 @@ module Xapi
       unknown_language? || unknown_problem?
     end
 
+    def validate
+      !unknown_language? && !unknown_problem?
+    end
+
     def error_message
       if unknown_language?
         "We don't have problems in language '#{track_id}'"
@@ -30,6 +34,7 @@ module Xapi
         "We don't have problem '#{slug}' in '#{track_id}'"
       end
     end
+    alias_method :error, :error_message
 
     def files
       code.merge('README.md' => readme)

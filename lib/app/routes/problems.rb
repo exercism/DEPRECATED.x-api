@@ -11,14 +11,8 @@ module Xapi
       end
 
       get '/problems/:track/:slug' do |id, slug|
-        track = Xapi::Config.find(id)
-        if track.nil?
-          halt 404, { error: "no track found '#{id}'" }.to_json
-        end
-        problem = track.find(slug)
-        if problem.not_found?
-          halt 404, { error: problem.error_message }.to_json
-        end
+        problem = Xapi::Config.find(id).find(slug)
+        problem.validate or halt 404, { error: problem.error }.to_json
         pg :problem, locals: { problem: problem }
       end
     end

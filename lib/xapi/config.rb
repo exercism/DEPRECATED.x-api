@@ -12,7 +12,7 @@ module Xapi
     end
 
     def self.find(id)
-      tracks.find { |track| track.id == id }
+      tracks.find { |track| track.id == id } || NullTrack.new(id)
     end
 
     def self.path

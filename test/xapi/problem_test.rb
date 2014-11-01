@@ -39,18 +39,22 @@ class ProblemTest < Minitest::Test
 
   def test_detects_unavailable_language
     problem = Xapi::Problem.new(attributes)
+    assert problem.validate
     refute problem.not_found?
 
     problem = Xapi::Problem.new(attributes.update(track_id: 'unknown'))
+    refute problem.validate
     assert problem.not_found?
     assert_match(/language/, problem.error_message)
   end
 
   def test_detects_unavailable_problem
     problem = Xapi::Problem.new(attributes)
+    assert problem.validate
     refute problem.not_found?
 
     problem = Xapi::Problem.new(attributes.update(slug: 'unknown'))
+    refute problem.validate
     assert problem.not_found?
     assert_match(/problem/, problem.error_message)
   end
