@@ -3,6 +3,7 @@ AllCops:
     - 'problems/**/*'
     - 'test/fixtures/**/*'
     - 'bin/*'
+    - 'vendor/**/*'
 
 Style/StringLiterals:
   Enabled: false
