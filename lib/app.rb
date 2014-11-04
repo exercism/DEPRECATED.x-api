@@ -23,7 +23,7 @@ module Xapi
     end
 
     not_found do
-      halt 404, { error: "Endpoint '#{request.path}' not found." }.to_json
+      halt 404, { error: "endpoint '#{request.path}' not found." }.to_json
     end
 
     use Routes::Home
