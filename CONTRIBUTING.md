@@ -1,24 +1,20 @@
 # Contributing
 
-This contributing guide pertains to contributing to exercism problems in
-general, as well as the exercism Problem API (x-api), which is a small
-application that delivers the problems in all of the languages.
+This contributing guide pertains to contributing to exercism problem sets
+in individual languages, as well as the exercism Problem API (x-api),
+which is a small application that delivers the problems in all of the
+languages.
 
 The problem API includes each of the language repositories as a git submodule.
 
-Submodules can be a bit tricky to work with, but in this case the benefits are
-worth it, since contributing to a language track can be done with no
-dependencies on other languages.
+Submodules can be a bit tricky to work with, but in this case it's worth it,
+since contributing to a language track can be done with no dependencies on
+other languages.
 
 **You don't need to have a working Ruby development environment to contribute
 problems in Haskell or Erlang!**
 
 ## Contributing to an Existing Language Track
-
-If you wish to provide fixes to a problem in a specific language, you can
-navigate to each language repository from this repository via the "problems"
-directory at the root of the repository. Each entry there is a link to the
-relevant submodule's repository.
 
 Each language has its own repository, in the exercism GitHub organization. It
 is named `x<language>`, e.g.
@@ -26,8 +22,12 @@ is named `x<language>`, e.g.
 * [exercism/xelixir](https://github.com/exercism/xelixir)
 * [exercism/xpython](https://github.com/exercism/xpython)
 
-If there are any special considerations when contributing to a language, then
-these will be listed in the README for that specific repository.
+You can also navigate to each language repository from this repository via the
+`problems` directory at the root of the repository. Each entry there is a link to
+the relevant submodule's repository.
+
+**If there are any special considerations when contributing to a language,
+then these will be listed in the README for that specific repository.**
 
 Each problem consists of:
 
