@@ -209,11 +209,15 @@ bad exercise for the language.
 ## Using the CLI Locally
 
 The `~/.exercism.go` configuration file for the CLI contains a field
-'hostname' which defaults to 'http://exercism.io'. You can change this to
-'http://localhost:4567' to run against your development environment.
+'hostname' which defaults to 'http://exercism.io'.
 
-If you are also serving exercises locally via `x-api`, you can configure the
-exercism.io app to talk to `x-api` locally by exporting an environment
+To reconfigure the CLI to talk to your local development environment, either
+edit file directly, or use the `configure` command:
+
+    exercism configure --host='http://localhost:4567'
+
+If you are also serving exercises locally via the `x-api` app, you can configure
+your local exercism.io app to talk to the problems api by exporting an environment
 variable:
 
 ```bash
