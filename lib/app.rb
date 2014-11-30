@@ -15,6 +15,7 @@ end
 module Xapi
   class App < Sinatra::Application
     configure do
+      enable :raise_errors
       use Rack::Session::Cookie,
           key: 'rack.session',
           path: '/',
@@ -24,6 +25,11 @@ module Xapi
 
     not_found do
       halt 404, { error: "endpoint '#{request.path}' not found." }.to_json
+    end
+
+    error 500 do
+      Bugsnag.auto_notify($!)
+      {error: "So sorry! Something went terribly wrong. We've been notified and will look into it."}.to_json
     end
 
     use Routes::Home
