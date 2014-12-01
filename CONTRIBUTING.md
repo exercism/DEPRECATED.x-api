@@ -14,6 +14,15 @@ other languages.
 **You don't need to have a working Ruby development environment to contribute
 problems in Haskell or Erlang!**
 
+## Viewing Available Language Tracks
+
+To get a quick overview of which language tracks exist you can look at the
+[problems directory](https://github.com/exercism/x-api/tree/master/problems)
+in this repository (x-api).
+
+To see which problems have been implemented in which language, check out the
+[synopsis](http://synopsis.exercism.io/) minisite.
+
 ## Contributing to an Existing Language Track
 
 Each language has its own repository, in the exercism GitHub organization. It
