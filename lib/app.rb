@@ -28,8 +28,9 @@ module Xapi
     end
 
     error 500 do
-      Bugsnag.auto_notify($!)
-      {error: "So sorry! Something went terribly wrong. We've been notified and will look into it."}.to_json
+      Bugsnag.auto_notify($ERROR_INFO)
+      msg = "So sorry! We've been notified of the error and will investigate."
+      { error: msg }.to_json
     end
 
     use Routes::Home
