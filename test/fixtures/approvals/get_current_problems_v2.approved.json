@@ -162,6 +162,19 @@
       "fresh": false
     },
     {
+      "id": "lisp/point-mutations",
+      "track_id": "lisp",
+      "language": "lisp",
+      "slug": "point-mutations",
+      "name": "Point Mutations",
+      "files": {
+        "dna.lisp": "(defpackage #:dna\n  (:use #:cl)\n  (:export #:hamming-distance))\n(in-package #:dna)\n\n(defun hamming-distance (dna1 dna2)\n  \"Determine number of mutations between DNA strands by computing the Hamming Distance.\"\n  )\n",
+        "point-mutations-test.lisp": "(ql:quickload \"lisp-unit\")\n\n(defpackage #:point-mutations-test\n  (:use #:common-lisp #:lisp-unit))\n\n(load \"dna\")\n\n(in-package #:point-mutations-test)\n\n(define-test no-difference-between-empty-strands\n  (assert-equal 0 (dna:hamming-distance \"\" \"\")))\n\n(define-test no-difference-between-identical-strands\n  (assert-equal 0 (dna:hamming-distance \"GGACTGA\" \"GGACTGA\")))\n\n(define-test complete-hamming-distance-in-small-strand\n  (assert-equal 3 (dna:hamming-distance \"ACT\" \"GGA\")))\n\n(define-test small-hamming-distance-in-middle-somewhere\n  (assert-equal 1 (dna:hamming-distance \"GGACG\" \"GGTCG\")))\n\n(define-test larger-distance\n  (assert-equal 2 (dna:hamming-distance \"ACCAGGG\" \"ACTATGG\")))\n\n(define-test invalid-to-get-distance-for-different-length-strings\n  (assert-equal nil (dna:hamming-distance \"AGACAACAGCCAGCCGCCGGATT\" \"AGGCAA\"))\n  (assert-equal nil (dna:hamming-distance \"AGACAACAGCCAGCCGCCGGATT\" \"AGACATCTTTCAGCCGCCGGATTAGGCAA\"))\n  (assert-equal nil (dna:hamming-distance \"AGG\" \"AGACAACAGCCAGCCGCCGGATT\")))\n\n(let ((*print-errors* t)\n      (*print-failures* t))\n  (run-tests :all :point-mutations-test))\n",
+        "README.md": "# Point Mutations\n\nWrite a program that can calculate the Hamming difference between two DNA strands.\n\nA mutation is simply a mistake that occurs during the creation or\ncopying of a nucleic acid, in particular DNA. Because nucleic acids are\nvital to cellular functions, mutations tend to cause a ripple effect\nthroughout the cell. Although mutations are technically mistakes, a very\nrare mutation may equip the cell with a beneficial attribute. In fact,\nthe macro effects of evolution are attributable by the accumulated\nresult of beneficial microscopic mutations over many generations.\n\nThe simplest and most common type of nucleic acid mutation is a point\nmutation, which replaces one base with another at a single nucleotide.\n\nBy counting the number of differences between two homologous DNA strands\ntaken from different genomes with a common ancestor, we get a measure of\nthe minimum number of point mutations that could have occurred on the\nevolutionary path between the two strands.\n\nThis is called the 'Hamming distance'\n\n    GAGCCTACTAACGGGAT\n    CATCGTAATGACGGCCT\n    ^ ^ ^  ^ ^    ^^\n\nThe Hamming distance between these two DNA strands is 7.\n\n# Implementation notes\n\nThe Hamming distance is only defined for sequences of equal length. Hence you\nmay assume that only sequences of equal length will be passed to your hamming\ndistance function.\n\n\n## Source\n\nThe Calculating Point Mutations problem at Rosalind [view source](http://rosalind.info/problems/hamm/)\n"
+      },
+      "fresh": false
+    },
+    {
       "id": "lua/hamming",
       "track_id": "lua",
       "language": "lua",
