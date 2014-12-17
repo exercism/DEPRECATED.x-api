@@ -15,6 +15,7 @@ other languages.
 problems in Haskell or Erlang!**
 
 ## Viewing Available Language Tracks
+---
 
 To get a quick overview of which language tracks exist you can look at the
 [problems directory](https://github.com/exercism/x-api/tree/master/problems)
@@ -24,6 +25,7 @@ To see which problems have been implemented in which language, check out the
 [synopsis](http://synopsis.exercism.io/) minisite.
 
 ## Contributing to an Existing Language Track
+---
 
 Each language has its own repository, in the exercism GitHub organization. It
 is named `x<language>`, e.g.
@@ -56,6 +58,7 @@ Supporting files could be anything from additional documentation
 boilerplate.
 
 ### Existing Problems
+---
 
 To contribute to an existing problem, fork, fix, and submit a pull request as
 usual.
@@ -76,6 +79,7 @@ If you have a global change, for example normalizing whitespace in all the
 problems, then it's fine to submit that in a single pull request.
 
 ### New Problems
+---
 
 A problem must have a unique slug. This slug is used as
 
@@ -110,6 +114,7 @@ repository (e.g. `configlet /home/you/code/exercism/haskell`)
 An exercise may have supporting files, such as type definitions.
 
 ### Nitpicking a Problem You Created
+---
 
 Once you've created a problem, you'll probably want to provide feedback to people who
 submit solutions to it. Once the problem goes live, you can fetch it using the CLI:
@@ -124,6 +129,7 @@ the problem available to you in the nitpick menu.
 Remember to mark it with "OK, I'm done" if you don't want other people to comment on it.
 
 ## Contributing to Metadata
+---
 
 The problem metadata is shared between all of the languages. This also lives
 in a separate repository (http://github.com/exercism/x-common), and is a
@@ -151,6 +157,7 @@ handling, since each language track can choose to handle these things quite
 differently.
 
 ## Contributing a New Language Track
+---
 
 If you're interested in adding problems for a language that we don't yet have,
 [email me](mailto:kytrinyx@exercism.io) or [tweet at me](https://twitter.com/kytrinyx)
@@ -173,6 +180,7 @@ that instructs the cli application how to recognize test files to prevent
 people from accidentally submitting tests as solutions.
 
 ### Beta-Testing a Language Track
+---
 
 Provided that I've remembered to add the language as a submodule to the x-api
 repository, it should be enough to set `active` to `false` in the
@@ -194,6 +202,7 @@ You can include advice and helpful links for your language track in the
 `SETUP.md` file.
 
 ## config.json
+---
 
 There are a number of keys in the `config.json` of each language repository.
 
@@ -216,6 +225,7 @@ A problem might be foregone for a number of reasons, typically because it's a
 bad exercise for the language.
 
 ## Using the CLI Locally
+---
 
 The `~/.exercism.go` configuration file for the CLI contains a field
 'hostname' which defaults to 'http://exercism.io'.
@@ -234,6 +244,7 @@ $ export EXERCISES_API_URL=http://localhost:9292
 ```
 
 ## Contributing to the Problem API
+---
 
 Fork and clone per usual, then run:
 
@@ -244,6 +255,7 @@ $ git submodule update
 ```
 
 ### Running the Tests
+---
 
 Run the tests with `rake`:
 
@@ -260,6 +272,7 @@ $ ruby path/to/something_test.rb
 ```
 
 ### Running Locally
+---
 
 Run the server with `rackup`:
 
@@ -275,6 +288,7 @@ At this point you can navigate to an existing endpoint in your browser, e.g.
 [localhost:9292/exercises/ruby/bob](http://localhost:9292/exercises/ruby/bob)
 
 ### The Problem Data
+---
 
 The supporting code for a given problem can be found in language-specific
 subdirectories under the `problems` directory.
@@ -301,6 +315,7 @@ This is also a git submodule, and if you wish to make changes to it, the codebas
 can be found on GitHub under [exercism/x-common](https://github.com/exercism/x-common).
 
 ### Abstractions
+---
 
 The core ideas in the codebase are:
 
@@ -322,6 +337,7 @@ a user's current exercise set from exercism.io, and getting all the relevant pro
 **NOTE** A _problem_ is a README and test suite/supporting code (language+slug). An _exercise_ is a problem worked by a user.
 
 ### Code Arrangement
+---
 
 The sinatra app lives in `lib/app`, and the business logic lives in
 `lib/xapi`. To determine whether something is business logic or web
