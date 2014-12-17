@@ -14,7 +14,19 @@ other languages.
 **You don't need to have a working Ruby development environment to contribute
 problems in Haskell or Erlang!**
 
-### Abstractions/Definitions
+### Table of Contents
+* [Abstractions](#abstractions)
+* [Code Arrangement](#code-arrangement)
+* [config.json](#configjson)
+* [Existing Language Tracks](#existing-language-tracks)
+* [New Language Tracks](#new-language-tracks)
+* [Problem Sets](#problem-sets)
+* [Metadata](#metadata)
+* [CLI](#cli)
+* [Problem API](#problem-api)
+
+
+### Abstractions
 ---
 
 The core ideas in the codebase are:
