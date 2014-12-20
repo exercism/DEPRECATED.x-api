@@ -33,8 +33,6 @@ GEM
     docile (1.1.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    haml (4.0.5)
-      tilt
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -95,7 +93,6 @@ DEPENDENCIES
   bugsnag
   coveralls (~> 0.7)
   faraday (~> 0.9)
-  haml (~> 4.0)
   minitest (~> 5.3)
   petroglyph (= 0.0.7)
   psych
