@@ -9,7 +9,7 @@ gem 'petroglyph', '= 0.0.7'
 gem 'psych'
 gem 'puma', '~> 2.7'
 gem 'rack', '~> 1.4'
-gem 'rake', '~> 10.1'
+gem 'rake', '~> 10.4'
 gem 'sinatra', '~> 1.4', require: 'sinatra/base'
 gem 'tilt', '~> 1.3'
 
