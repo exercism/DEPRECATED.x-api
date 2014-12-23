@@ -14,12 +14,46 @@ The exercises for each language are stored in separate repositories, included
 here as git submodules. This codebase provides an API for serving the Exercism
 exercises to people using the Exercism command-line client.
 
-## Tests
+## Getting Started
 
-Run the entire test suite with `rake`, or an individual test file with
+Fork and clone per usual, then run:
 
 ```bash
-ruby path/to/file_test.rb
+$ bundle install
+$ git submodule init
+$ git submodule update
+```
+
+## Running Locally
+
+Run the server with `rackup`:
+
+```bash
+$ rackup
+Puma 2.7.1 starting...
+* Min threads: 0, max threads: 16
+* Environment: development
+* Listening on tcp://0.0.0.0:9292...
+```
+
+At this point you can navigate to an existing endpoint in your browser, e.g.
+[localhost:9292/exercises/ruby/bob](http://localhost:9292/exercises/ruby/bob)
+
+**If you're not seeing any problems it is probably because you haven't
+updated or inititialized the submodules. Be sure to work through the
+[Getting Started](https://github.com/exercism/x-api/blob/master/README.md#getting-started)
+section of the README.**
+
+## Tests
+
+Run the entire test suite with `rake`, or an individual test file with `ruby`:
+
+```bash
+$ bundle exec rake # runs the entire suite
+```
+
+```bash
+ruby path/to/file_test.rb # runs only the tests in file_test.rb
 ```
 
 Some of the API tests use approvals, which is a form of Golden Master testing.

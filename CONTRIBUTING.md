@@ -187,10 +187,6 @@ You can include advice and helpful links for your language track in the
 The supporting code for a given problem can be found in language-specific
 subdirectories under the `problems` directory.
 
-**If you're not seeing any problems it is probably because you haven't
-updated or inititialized the submodules. Be sure to work through the
-[Getting Started](#getting-started) section.**
-
 Each language-specific directory is a git submodule. If you wish to make
 changes to a problem, look for the corresponding repository on GitHub under
 `exercism/x{LANGUAGE_NAME}`.
@@ -327,48 +323,3 @@ variable:
 ```bash
 $ export EXERCISES_API_URL=http://localhost:9292
 ```
-
-## Problem API
-### Contributing to the API
----
-
-Fork and clone per usual, then run:
-
-```bash
-$ bundle install
-$ git submodule init
-$ git submodule update
-```
-
-### Running the Tests
----
-
-Run the tests with `rake`:
-
-```bash
-$ bundle exec rake
-```
-
-** If you do not go through the [Getting Started](#getting-started) section your tests will _not_ pass.**
-
-You can run individual test suites using the `ruby` command:
-
-```bash
-$ ruby path/to/something_test.rb
-```
-
-### Run Project Locally
----
-
-Run the server with `rackup`:
-
-```bash
-$ rackup
-Puma 2.7.1 starting...
-* Min threads: 0, max threads: 16
-* Environment: development
-* Listening on tcp://0.0.0.0:9292...
-```
-
-At this point you can navigate to an existing endpoint in your browser, e.g.
-[localhost:9292/exercises/ruby/bob](http://localhost:9292/exercises/ruby/bob)
