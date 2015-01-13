@@ -157,16 +157,21 @@ to define the file extension for that language.
 that instructs the cli application how to recognize test files to prevent
 people from accidentally submitting tests as solutions.
 
+Provided that I've remembered to add the language as a submodule to the x-api
+repository, activating a language is as simple as setting `active` to `true`
+in the `config.json`. Then the next time that I update the submodules (more
+or less daily) it will be available via the `exercism` CLI.
+
 ### Beta-Testing a Language Track
 ---
 
-Provided that I've remembered to add the language as a submodule to the x-api
-repository, it should be enough to set `active` to `false` in the
-`config.json`. Then the next time that I update the submodules (more or less
-daily) it will be available via the `exercism` CLI.
+For a track that is set as `"active": false` in the `config.json`, `exercism fetch`
+will not automatically pull down problems. You can still test the language by
+fetching problems directly, e.g.:
 
-You can test your new language track by fetching the assignments directly,
-i.e. `exercism fetch cpp bob`.
+```
+exercism fetch cpp bob
+```
 
 This will allow you to do some dry-run tests of fetching exercises,
 double checking the instructions for each problem and submitting the
