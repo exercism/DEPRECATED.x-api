@@ -23,4 +23,10 @@ class AppRoutesTracksTest < Minitest::Test
     get '/tracks/ruby'
     Approvals.verify(last_response.body, format: :json, name: 'get_track_ruby')
   end
+
+  def test_track_does_not_exist
+    get '/tracks/rubby'
+    assert_equal last_response.status, 404
+    Approvals.verify(last_response.body, format: :json, name: 'get_invalid_track')
+  end
 end
