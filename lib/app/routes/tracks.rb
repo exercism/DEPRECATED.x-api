@@ -6,7 +6,11 @@ module Xapi
       end
 
       get '/tracks/:id' do |id|
-        pg :track, locals: { track: Xapi::Config.find(id) }
+        track = Xapi::Config.find(id)
+        if track.is_a?(NullTrack)
+          halt 404, { error: "Track #{id} not found." }.to_json
+        end
+        pg :track, locals: { track: track }
       end
     end
   end
