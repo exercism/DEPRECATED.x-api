@@ -106,3 +106,6 @@
 [submodule "problems/vbnet"]
 	path = problems/vbnet
 	url = https://github.com/exercism/xvbnet.git
+[submodule "problems/plsql"]
+	path = problems/plsql
+	url = https://github.com/exercism/xplsql.git
