@@ -150,9 +150,6 @@ have a good grasp of the styles and idioms in use in that language.
 In addition to a problem set and some initial mentors, we also need:
 
 1. A help topic: [`app/pages/languages/getting-started-with-$LANGUAGE.md`](https://github.com/exercism/docs/tree/master/app/pages/languages)
-1. An entry in
-[`lib/exercism/code.rb`](https://github.com/exercism/exercism.io/blob/master/lib/exercism/code.rb)
-to define the file extension for that language.
 1. (maybe) an addition to the [exercism CLI](https://github.com/exercism/cli)
 that instructs the cli application how to recognize test files to prevent
 people from accidentally submitting tests as solutions.
