@@ -1,0 +1,5 @@
+node :problem_test do
+  node track_id: problem.track_id
+  node slug: problem.slug
+  node test: problem.test_file
+end

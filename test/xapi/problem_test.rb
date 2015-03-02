@@ -1,8 +1,10 @@
 require './test/test_helper'
 require 'yaml'
+require 'json'
 require 'xapi/code'
 require 'xapi/readme'
 require 'xapi/problem'
+require 'xapi/test_file'
 
 class ProblemTest < Minitest::Test
   def attributes
@@ -62,5 +64,11 @@ class ProblemTest < Minitest::Test
   def test_naming
     problem = Xapi::Problem.new(attributes.update(slug: 'a-day-in-paradise'))
     assert_equal "A Day In Paradise", problem.name
+  end
+
+  def test_test_file
+    expected_test_file = "assert 'one'\n"
+    problem = Xapi::Problem.new(attributes)
+    assert_equal expected_test_file, problem.test_file
   end
 end

@@ -50,4 +50,10 @@ class AppRoutesProblemsTest < Minitest::Test
     options = { format: :json, name: 'get_specific_problem_readme' }
     Approvals.verify(last_response.body, options)
   end
+
+  def test_get_specific_problem_tests
+    get '/problems/ruby/leap/tests'
+    options = { format: :json, name: 'get_specific_problem_tests' }
+    Approvals.verify(last_response.body, options)
+  end
 end
