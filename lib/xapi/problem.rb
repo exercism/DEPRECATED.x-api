@@ -48,6 +48,10 @@ module Xapi
       Readme.new(slug, path, setup).text
     end
 
+    def test_file
+      TestFile.new(path: language_dir, files: files).text
+    end
+
     private
 
     def setup
