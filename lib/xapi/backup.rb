@@ -19,13 +19,13 @@ module Xapi
 
     def iterations
       data.map {|row|
-        Iteration.new(row, Problem.new(
+        attributes = {
           track_id: row['track'],
           language: row['track'],
           slug: row['slug'],
           path: path,
-          )
-        )
+        }
+        Iteration.new(row, Problem.new(attributes))
       }
     end
 
