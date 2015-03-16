@@ -18,6 +18,7 @@ problems in Haskell or Erlang!**
 * [Abstractions](#abstractions)
 * [Code Arrangement](#code-arrangement)
 * [config.json](#configjson)
+* [SETUP.md](#setupmd)
 * [Existing Language Tracks](#existing-language-tracks)
 * [New Language Tracks](#new-language-tracks)
 * [Problem Sets](#problem-sets)
@@ -88,6 +89,32 @@ is useful. Ignored directories don't get flagged as unimplemented problems.
 
 A problem might be foregone for a number of reasons, typically because it's a
 bad exercise for the language.
+
+### SETUP.md
+---
+
+Each language track may optionally contain a SETUP.md file in the root of
+the repository. This file should contain helpful, generic information about
+solving an exercism problem in the target language.
+
+The contents of the SETUP.md file gets included in the README.md that gets
+delivered along with the test suite and any supporting files when a user runs
+the `exercism fetch` command from their terminal.
+
+At the very minimum, it should contain a link to the relevant
+language-specific documentation on
+[help.exercism.io](http://help.exercism.io).
+
+It would also be useful to explain in a generic way how to run the tests.
+Remember that this file will be included with _all_ the problems, so it gets
+confusing if we refer to specific problems or files.
+
+Some languages have very particular needs in terms of the solution. For
+example, in Java, the solution is expected to go into the `src/main/java/`
+directory.
+
+If a language track has specific expectations, these should also be documented
+here.
 
 ## EXISTING LANGUAGE TRACKS
 ### Viewing Available Language Tracks
