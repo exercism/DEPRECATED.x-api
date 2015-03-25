@@ -9,6 +9,7 @@
       "ruby/gigasecond",
       "ruby/rna-transcription",
       "ruby/raindrops",
+      "ruby/acronym",
       "ruby/difference-of-squares",
       "ruby/roman-numerals",
       "ruby/robot-name",
@@ -119,6 +120,18 @@
       "files": {
         "raindrops_test.rb": "require 'minitest/autorun'\nrequire_relative 'raindrops'\n\nclass RaindropsTest < Minitest::Test\n  def test_1\n    assert_equal '1', Raindrops.convert(1)\n  end\n\n  def test_3\n    skip\n    assert_equal 'Pling', Raindrops.convert(3)\n  end\n\n  def test_5\n    skip\n    assert_equal 'Plang', Raindrops.convert(5)\n  end\n\n  def test_7\n    skip\n    assert_equal 'Plong', Raindrops.convert(7)\n  end\n\n  def test_6\n    skip\n    assert_equal 'Pling', Raindrops.convert(6)\n  end\n\n  def test_9\n    skip\n    assert_equal 'Pling', Raindrops.convert(9)\n  end\n\n  def test_10\n    skip\n    assert_equal 'Plang', Raindrops.convert(10)\n  end\n\n  def test_14\n    skip\n    assert_equal 'Plong', Raindrops.convert(14)\n  end\n\n  def test_15\n    skip\n    assert_equal 'PlingPlang', Raindrops.convert(15)\n  end\n\n  def test_21\n    skip\n    assert_equal 'PlingPlong', Raindrops.convert(21)\n  end\n\n  def test_25\n    skip\n    assert_equal 'Plang', Raindrops.convert(25)\n  end\n\n  def test_35\n    skip\n    assert_equal 'PlangPlong', Raindrops.convert(35)\n  end\n\n  def test_49\n    skip\n    assert_equal 'Plong', Raindrops.convert(49)\n  end\n\n  def test_52\n    skip\n    assert_equal '52', Raindrops.convert(52)\n  end\n\n  def test_105\n    skip\n    assert_equal 'PlingPlangPlong', Raindrops.convert(105)\n  end\n\n  def test_12121\n    skip\n    assert_equal '12121', Raindrops.convert(12_121)\n  end\nend\n",
         "README.md": "# Raindrops\n\nWrite a program that converts a number to a string, the contents of which depends on the number's prime factors.\n\n- If the number contains 3 as a prime factor, output 'Pling'.\n- If the number contains 5 as a prime factor, output 'Plang'.\n- If the number contains 7 as a prime factor, output 'Plong'.\n- If the number does not contain 3, 5, or 7 as a prime factor,\n  just pass the number's digits straight through.\n\n## Examples\n\n- 28's prime-factorization is 2, 2, 7.\n  - In raindrop-speak, this would be a simple \"Plong\".\n- 1755 prime-factorization is 3, 3, 3, 5, 13.\n  - In raindrop-speak, this would be a \"PlingPlang\".\n- The prime factors of 34 are 2 and 17.\n  - Raindrop-speak doesn't know what to make of that,\n    so it just goes with the straightforward \"34\".\n\nYou will need the Minitest gem. To install it, open a\nterminal window and run:\n\n    gem install minitest\n\n## Source\n\nA variation on a famous interview question intended to weed out potential candidates. [view source](http://jumpstartlab.com)\n"
+      },
+      "fresh": false
+    },
+    {
+      "id": "ruby/acronym",
+      "track_id": "ruby",
+      "language": "Ruby",
+      "slug": "acronym",
+      "name": "Acronym",
+      "files": {
+        "acronym_test.rb": "require 'minitest/autorun'\nrequire_relative 'acronym'\n\nclass AcronymTest < Minitest::Test\n  def test_png\n    assert_equal 'PNG', Acronym.abbreviate('Portable Network Graphics')\n  end\n\n  def test_ruby_on_rails\n    skip\n    assert_equal 'ROR', Acronym.abbreviate('Ruby on Rails')\n  end\n\n  def test_html\n    skip\n    assert_equal 'HTML', Acronym.abbreviate('HyperText Markup Language')\n  end\n\n  def test_fifo\n    skip\n    assert_equal 'FIFO', Acronym.abbreviate('First In, First Out')\n  end\n\n  def test_php\n    skip\n    assert_equal 'PHP', Acronym.abbreviate('PHP: Hypertext Preprocessor')\n  end\n\n  def test_cmos\n    skip\n    assert_equal 'CMOS', Acronym.abbreviate('Complementary metal-oxide semiconductor')\n  end\nend\n",
+        "README.md": "# Acronym\n\nConvert a long phrase to its acronym\n\nTechies love their TLA (Three Letter Acronyms)!\n\nHelp generate some jargon by writing a program that converts a long name\nlike Portable Network Graphics to its acronym (PNG).\n\n\nYou will need the Minitest gem. To install it, open a\nterminal window and run:\n\n    gem install minitest\n\n## Source\n\nJulien Vanier [view source](https://github.com/monkbroc)\n"
       },
       "fresh": false
     },
