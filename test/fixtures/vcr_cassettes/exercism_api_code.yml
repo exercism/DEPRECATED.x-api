@@ -20,10 +20,14 @@ http_interactions:
     headers:
       Content-Type:
       - application/json;charset=utf-8
-      X-Content-Type-Options:
-      - nosniff
       Content-Length:
       - '274'
+      X-Content-Type-Options:
+      - nosniff
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.5.1 codename Straight Razor
     body:
       encoding: UTF-8
       string: '{"assignments":[{"slug":"leap","track":"go","files":{"leap.go":"//
@@ -31,5 +35,5 @@ http_interactions:
         iteration 1 (pending)"}},{"slug":"word-count","track":"haskell","files":{"WordCount.hs":"//
         iteration 1 (hibernating)"}}]}'
     http_version: 
-  recorded_at: Sat, 25 Oct 2014 16:00:15 GMT
-recorded_with: VCR 2.9.0
+  recorded_at: Sat, 28 Mar 2015 15:43:35 GMT
+recorded_with: VCR 2.9.3
