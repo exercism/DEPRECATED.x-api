@@ -30,10 +30,10 @@ class TestFileTest < Minitest::Test
     files = {
       "README.md" => "This is a readme",
       "Fakefile" => "Autorun fake code\n",
-      "ones_test.test" => "assert 'one'\n",
+      "ones_test.tst" => "assert 'one'\n",
     }
     path = './test/fixtures/problems/fake'
     test_file = Xapi::TestFile.new(path: path, files: files)
-    assert_equal files['ones_test.test'], test_file.text
+    assert_equal files['ones_test.tst'], test_file.text
   end
 end
