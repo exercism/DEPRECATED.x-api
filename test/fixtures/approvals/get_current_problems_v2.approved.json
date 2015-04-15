@@ -308,6 +308,19 @@
       "fresh": false
     },
     {
+      "id": "scheme/anagram",
+      "track_id": "scheme",
+      "language": "scheme",
+      "slug": "anagram",
+      "name": "Anagram",
+      "files": {
+        "anagram-test.scm": ";; Load SRFI-64 lightweight testing specification\n(use-modules (srfi srfi-64))\n\n;; Suppress log file output. To write logs, comment out the following line:\n(module-define! (resolve-module '(srfi srfi-64)) 'test-log-to-file #f)\n\n;; Require module\n(add-to-load-path (dirname (current-filename)))\n(use-modules (anagram))\n\n(test-begin \"anagram\")\n\n;; Tests go here\n\n(test-equal \"no-matches\"\n            '()\n            (anagrams-for\n             \"diaper\"\n             '(\"hello\" \"world\" \"zombies\" \"pants\")))\n\n(test-equal \"detect simple anagram\"\n            '(\"tan\")\n            (anagrams-for \"ant\" '(\"tan\" \"stand\" \"at\")))\n\n(test-equal \"does not confuse different duplicates\"\n            '()\n            (anagrams-for \"galea\" '(\"eagle\")))\n\n(test-equal \"eliminate anagram subsets\"\n            '()\n            (anagrams-for \"good\" '(\"dog\" \"goody\")))\n\n(test-equal \"detect anagram\"\n            '(\"inlets\")\n            (anagrams-for\n             \"listen\"\n             '(\"enlists\" \"google\" \"inlets\" \"banana\")))\n\n(test-equal \"multiple-anagrams\"\n            '(\"gallery\" \"regally\" \"largely\")\n            (anagrams-for\n             \"allergy\"\n             '(\"gallery\" \"ballerina\" \"regally\" \"clergy\" \"largely\" \"leading\")))\n\n(test-equal \"case-insensitive-anagrams\"\n            '(\"Carthorse\")\n            (anagrams-for\n             \"Orchestra\"\n             '(\"cashregister\" \"Carthorse\" \"radishes\")))\n\n(test-equal \"word is not own anagram\"\n            '()\n            (anagrams-for \"banana\" '(\"banana\")))\n\n(test-end \"anagram\")\n",
+        "anagram.scm": "(define-module (anagram)\n  #:export (anagrams-for))\n",
+        "README.md": "# Anagram\n\nWrite a program that, given a word and a list of possible anagrams, selects the correct sublist.\n\nGiven `\"listen\"` and a list of candidates like `\"enlists\" \"google\"\n\"inlets\" \"banana\"` the program should return a list containing\n`\"inlets\"`.\n\nNo additional dependencies should be required.\n\nIf you need help getting set up, see [Getting Started With Scheme][1]\nin the [Exercism.io Help][2] pages.\n\n[1]: http://help.exercism.io/getting-started-with-scheme.html\n[2]: http://help.exercism.io\n\n## Source\n\nInspired by the Extreme Startup game [view source](https://github.com/rchatley/extreme_startup)\n"
+      },
+      "fresh": false
+    },
+    {
       "id": "swift/leap",
       "track_id": "swift",
       "language": "swift",

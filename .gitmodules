@@ -109,3 +109,6 @@
 [submodule "problems/plsql"]
 	path = problems/plsql
 	url = https://github.com/exercism/xplsql.git
+[submodule "problems/scheme"]
+	path = problems/scheme
+	url = https://github.com/exercism/xscheme.git
