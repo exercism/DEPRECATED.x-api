@@ -18,6 +18,7 @@ problems in Haskell or Erlang!**
 * [Abstractions](#abstractions)
 * [Code Arrangement](#code-arrangement)
 * [config.json](#configjson)
+* [configlet](#configlet)
 * [SETUP.md](#setupmd)
 * [Existing Language Tracks](#existing-language-tracks)
 * [New Language Tracks](#new-language-tracks)
@@ -89,6 +90,22 @@ is useful. Ignored directories don't get flagged as unimplemented problems.
 
 A problem might be foregone for a number of reasons, typically because it's a
 bad exercise for the language.
+
+### configlet
+---
+
+If the `config.json` file is incomplete or broken, a lot of other things break.
+To make things easier we made a small tool to help verify the config:
+https://github.com/exercism/configlet#configlet
+
+You can download the latest release from the releases page in the [configlet
+repo](https://github.com/exercism/configlet/releases), or you can use the
+`bin/fetch-configlet` command from the root of the language track repository,
+which will make a guess at what operating system and architecture you have and
+attempt to download the right one.
+
+Then, verify the config by calling `bin/configlet .` (notice the dot). This says
+_check the config of the language track that is stored right here).
 
 ### SETUP.md
 ---
