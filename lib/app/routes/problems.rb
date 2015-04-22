@@ -1,3 +1,4 @@
+require 'json'
 module Xapi
   module Routes
     class Problems < Core
@@ -30,21 +31,40 @@ module Xapi
 
       get '/problems' do
         all_languages = Xapi::Config.languages # Xapi::Config.all
+        
+
         slugs={}
+
+
         all_languages.each do |language|
           track = Xapi::Config.find(language)
           problems = track.problems
           problems.each do |problem|
             if slugs[problem.name].nil?
-              slugs[problem.name] = []
+              slugs[problem.name] = {}
+              slugs[problem.name]["languages"] = []
+              slugs[problem.name]["name"] = problem.name
+              slugs[problem.name]["slug"] = problem.slug
+              theYaml = "./metadata/#{problem.slug}.yml"
+              slugs[problem.name]["blurb"] = YAML.load(File.read(theYaml))['blurb']
             else
-              slugs[problem.name].push(language)
+              slugs[problem.name]["languages"].push(language)
             end
           end
           
         end
         slugs.to_json
       end
+
+      get '/wtfwip' do
+        # {'helllo' => ''}.to_json
+        YAML.load(File.read("./metadata/accumulate.yml"))['blurb'].to_json
+      end
+
+#require 'json'
+#YAML.load(File.read("./metadata/#{slug}.yml"))
+# https://github.com/exercism/x-api/blob/694b387d950b3365ad8f75906b7437ac2c4aea3b/lib/xapi/readme.rb#L49
+
 
     end
   end
