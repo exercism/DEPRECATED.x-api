@@ -27,6 +27,28 @@ module Xapi
         problem.validate or halt 404, { error: problem.error }.to_json
         pg :problem_test, locals: { problem: problem }
       end
+
+      get '/problems' do
+        all_languages = Xapi::Config.languages # Xapi::Config.all
+        slugs={}
+        all_languages.each do |language|
+          track = Xapi::Config.find(language)
+          problems = track.problems
+          problems.each do |problem|
+            if slugs[problem.name].nil?
+              slugs[problem.name] = []
+            else
+              slugs[problem.name].push(language)
+            end
+          end
+          
+        end
+        slugs.to_json
+      end
+
     end
   end
 end
+
+
+
