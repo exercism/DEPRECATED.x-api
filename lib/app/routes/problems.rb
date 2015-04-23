@@ -30,21 +30,13 @@ module Xapi
       end
 
       get '/problems' do
-        slugs = {}
+        directory = Xapi::Metadata.load.directory
         Xapi::Config.languages.each do |language|
           Xapi::Config.find(language).problems.each do |problem|
-            if slugs[problem.slug].nil?
-              slugs[problem.slug] = {}
-              slugs[problem.slug]["track_ids"] = []
-              slugs[problem.slug]["name"] = problem.name
-              slugs[problem.slug]["slug"] = problem.slug
-              yml = YAML.load(File.read("./metadata/#{problem.slug}.yml"))
-              slugs[problem.slug]["blurb"] = yml['blurb']
-            end
-            slugs[problem.slug]["track_ids"].push(language)
+            directory[problem.slug].append(problem.track_id)
           end
         end
-        { "problems" => slugs.values.sort_by {|data| data["slug"]} }.to_json
+        pg :summaries, locals: { summaries: directory.values.sort_by(&:slug) }
       end
     end
   end

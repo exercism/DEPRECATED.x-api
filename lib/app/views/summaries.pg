@@ -1,0 +1,3 @@
+collection :problems => summaries do |summary|
+  attributes :slug, :blurb, :source, :source_url, :track_ids
+end
