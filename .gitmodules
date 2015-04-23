@@ -112,3 +112,6 @@
 [submodule "problems/scheme"]
 	path = problems/scheme
 	url = https://github.com/exercism/xscheme.git
+[submodule "problems/coldfusion"]
+	path = problems/coldfusion
+	url = https://github.com/exercism/xcoldfusion.git
