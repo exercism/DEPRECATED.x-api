@@ -33,18 +33,18 @@ module Xapi
         slugs = {}
         Xapi::Config.languages.each do |language|
           Xapi::Config.find(language).problems.each do |problem|
-            if slugs[problem.name].nil?
-              slugs[problem.name] = {}
-              slugs[problem.name]["languages"] = []
-              slugs[problem.name]["name"] = problem.name
-              slugs[problem.name]["slug"] = problem.slug
+            if slugs[problem.slug].nil?
+              slugs[problem.slug] = {}
+              slugs[problem.slug]["track_ids"] = []
+              slugs[problem.slug]["name"] = problem.name
+              slugs[problem.slug]["slug"] = problem.slug
               yml = YAML.load(File.read("./metadata/#{problem.slug}.yml"))
-              slugs[problem.name]["blurb"] = yml['blurb']
+              slugs[problem.slug]["blurb"] = yml['blurb']
             end
-            slugs[problem.name]["languages"].push(language)
+            slugs[problem.slug]["track_ids"].push(language)
           end
         end
-        slugs.to_json
+        { "problems" => slugs.values }.to_json
       end
     end
   end

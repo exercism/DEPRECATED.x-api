@@ -56,4 +56,10 @@ class AppRoutesProblemsTest < Minitest::Test
     options = { format: :json, name: 'get_specific_problem_tests' }
     Approvals.verify(last_response.body, options)
   end
+
+  def test_full_problems_list
+    get '/problems'
+    options = { format: :json, name: 'get_full_problems_list' }
+    Approvals.verify(last_response.body, options)
+  end
 end
