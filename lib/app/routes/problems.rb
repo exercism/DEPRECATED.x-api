@@ -44,7 +44,7 @@ module Xapi
             slugs[problem.slug]["track_ids"].push(language)
           end
         end
-        { "problems" => slugs.values }.to_json
+        { "problems" => slugs.values.sort_by {|data| data["slug"]} }.to_json
       end
     end
   end

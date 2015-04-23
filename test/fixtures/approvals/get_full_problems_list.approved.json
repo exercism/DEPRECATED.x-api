@@ -4,34 +4,35 @@
       "track_ids": [
         "clojure",
         "coffeescript",
-        "cpp",
         "csharp",
-        "elixir",
         "erlang",
         "fsharp",
-        "go",
         "haskell",
         "java",
         "javascript",
-        "lisp",
-        "lua",
-        "objective-c",
-        "ocaml",
         "perl5",
-        "python",
         "ruby",
         "scala",
-        "scheme",
         "swift"
       ],
-      "name": "Bob",
-      "slug": "bob",
-      "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited."
+      "name": "Accumulate",
+      "slug": "accumulate",
+      "blurb": "Implement the `accumulate` operation, which, given a collection and an operation to perform on each element of the collection, returns a new collection containing the result of applying that operation to each element of the input collection."
+    },
+    {
+      "track_ids": [
+        "csharp",
+        "fsharp",
+        "ruby",
+        "swift"
+      ],
+      "name": "Acronym",
+      "slug": "acronym",
+      "blurb": "Convert a long phrase to its acronym"
     },
     {
       "track_ids": [
         "clojure",
-        "cpp",
         "csharp",
         "elixir",
         "erlang",
@@ -40,48 +41,15 @@
         "haskell",
         "java",
         "javascript",
-        "lisp",
-        "lua",
-        "ocaml",
-        "perl5",
-        "php",
-        "plsql",
-        "python",
-        "ruby",
-        "scala",
-        "scheme",
-        "swift"
-      ],
-      "name": "Rna Transcription",
-      "slug": "rna-transcription",
-      "blurb": "Write a program that, given a DNA strand, returns its RNA complement (per RNA transcription)."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "coffeescript",
-        "cpp",
-        "csharp",
-        "elixir",
-        "erlang",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "lua",
-        "objective-c",
-        "ocaml",
         "perl5",
         "python",
         "ruby",
         "scala",
         "swift"
       ],
-      "name": "Word Count",
-      "slug": "word-count",
-      "blurb": "Write a program that given a phrase can count the occurrences of each word in that phrase."
+      "name": "Allergies",
+      "slug": "allergies",
+      "blurb": "Write a program that, given a person's allergy score, can tell them whether or not they're allergic to a given item, and their full list of allergies."
     },
     {
       "track_ids": [
@@ -110,448 +78,6 @@
       "name": "Anagram",
       "slug": "anagram",
       "blurb": "Write a program that, given a word and a list of possible anagrams, selects the correct sublist."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "coffeescript",
-        "cpp",
-        "erlang",
-        "fsharp",
-        "go",
-        "haskell",
-        "javascript",
-        "lisp",
-        "lua",
-        "ocaml",
-        "perl5",
-        "python",
-        "ruby"
-      ],
-      "name": "Beer Song",
-      "slug": "beer-song",
-      "blurb": "Write a program which produces the lyrics to that beloved classic, that field-trip favorite: 99 Bottles of Beer on the Wall."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "coffeescript",
-        "cpp",
-        "csharp",
-        "elixir",
-        "erlang",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "lua",
-        "objective-c",
-        "ocaml",
-        "perl5",
-        "ruby",
-        "scala",
-        "scheme",
-        "swift"
-      ],
-      "name": "Nucleotide Count",
-      "slug": "nucleotide-count",
-      "blurb": "Given a DNA string, compute how many times each nucleotide occurs in the string."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "elixir",
-        "erlang",
-        "haskell",
-        "lisp",
-        "ocaml",
-        "scheme"
-      ],
-      "name": "Point Mutations",
-      "slug": "point-mutations",
-      "blurb": "Write a program that can calculate the Hamming difference between two DNA strands."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "erlang",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "lua",
-        "objective-c",
-        "ocaml",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "scheme",
-        "swift"
-      ],
-      "name": "Phone Number",
-      "slug": "phone-number",
-      "blurb": "Write a program that cleans up user-entered phone numbers so that they can be sent SMS messages."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "erlang",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "lua",
-        "objective-c",
-        "ocaml",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Grade School",
-      "slug": "grade-school",
-      "blurb": "Write a small archiving program that stores students' names along with the grade that they are in."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "lua",
-        "objective-c",
-        "perl5",
-        "php",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Robot Name",
-      "slug": "robot-name",
-      "blurb": "Write a program that manages robot factory settings."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "erlang",
-        "fsharp",
-        "go",
-        "haskell",
-        "javascript",
-        "lisp",
-        "lua",
-        "objective-c",
-        "ocaml",
-        "perl5",
-        "php",
-        "plsql",
-        "python",
-        "ruby",
-        "scala",
-        "scheme",
-        "swift"
-      ],
-      "name": "Leap",
-      "slug": "leap",
-      "blurb": "Write a program that will take a year and report if it is a leap year."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "erlang",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "objective-c",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Etl",
-      "slug": "etl",
-      "blurb": "We are going to do the `Transform` step of an Extract-Transform-Load."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Meetup",
-      "slug": "meetup",
-      "blurb": "Calculate the date of meetups."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "erlang",
-        "fsharp",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "lua",
-        "ocaml",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Space Age",
-      "slug": "space-age",
-      "blurb": "Write a program that, given an age in seconds, calculates how old someone is in terms of a given planet's solar years."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "elixir",
-        "fsharp",
-        "go",
-        "haskell",
-        "javascript",
-        "lisp",
-        "lua",
-        "perl5",
-        "plsql",
-        "python",
-        "ruby",
-        "scala",
-        "scheme",
-        "swift"
-      ],
-      "name": "Grains",
-      "slug": "grains",
-      "blurb": "Write a program that calculates the number of grains of wheat on a chessboard given that the number on each square doubles."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "lua",
-        "perl5",
-        "php",
-        "plsql",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Gigasecond",
-      "slug": "gigasecond",
-      "blurb": "Write a program that will calculate the date that someone turned or will celebrate their 1 Gs anniversary."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "coffeescript",
-        "cpp",
-        "csharp",
-        "elixir",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "lua",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Triangle",
-      "slug": "triangle",
-      "blurb": "Write a program that can tell you if a triangle is equilateral, isosceles, or scalene."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lua",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Scrabble Score",
-      "slug": "scrabble-score",
-      "blurb": "Write a program that, given a word, computes the scrabble score for that word."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lisp",
-        "lua",
-        "perl5",
-        "php",
-        "plsql",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Roman Numerals",
-      "slug": "roman-numerals",
-      "blurb": "Write a function to convert from normal numbers to Roman Numerals: e.g."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "coffeescript",
-        "cpp",
-        "csharp",
-        "elixir",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lua",
-        "plsql",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Binary",
-      "slug": "binary",
-      "blurb": "Write a program that will convert a binary number, represented as a string (e.g. '101010'), to its decimal equivalent using first principles"
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "lua",
-        "ocaml",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Prime Factors",
-      "slug": "prime-factors",
-      "blurb": "Compute the prime factors of a given natural number."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "cpp",
-        "csharp",
-        "elixir",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "perl5",
-        "php",
-        "plsql",
-        "ruby",
-        "scala",
-        "scheme",
-        "swift"
-      ],
-      "name": "Raindrops",
-      "slug": "raindrops",
-      "blurb": "Write a program that converts a number to a string, the contents of which depends on the number's prime factors."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "csharp",
-        "elixir",
-        "erlang",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Allergies",
-      "slug": "allergies",
-      "blurb": "Write a program that, given a person's allergy score, can tell them whether or not they're allergic to a given item, and their full list of allergies."
     },
     {
       "track_ids": [
@@ -590,6 +116,160 @@
     {
       "track_ids": [
         "clojure",
+        "coffeescript",
+        "cpp",
+        "erlang",
+        "fsharp",
+        "go",
+        "haskell",
+        "javascript",
+        "lisp",
+        "lua",
+        "ocaml",
+        "perl5",
+        "python",
+        "ruby"
+      ],
+      "name": "Beer Song",
+      "slug": "beer-song",
+      "blurb": "Write a program which produces the lyrics to that beloved classic, that field-trip favorite: 99 Bottles of Beer on the Wall."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "coffeescript",
+        "cpp",
+        "csharp",
+        "elixir",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lua",
+        "plsql",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Binary",
+      "slug": "binary",
+      "blurb": "Write a program that will convert a binary number, represented as a string (e.g. '101010'), to its decimal equivalent using first principles"
+    },
+    {
+      "track_ids": [
+        "go",
+        "perl5",
+        "ruby"
+      ],
+      "name": "Binary Search",
+      "slug": "binary-search",
+      "blurb": "Write a program that implements a binary search algorithm."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "coffeescript",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "ruby",
+        "scala"
+      ],
+      "name": "Binary Search Tree",
+      "slug": "binary-search-tree",
+      "blurb": "Write a program that inserts numbers and searches in a binary tree."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "coffeescript",
+        "cpp",
+        "csharp",
+        "elixir",
+        "erlang",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lisp",
+        "lua",
+        "objective-c",
+        "ocaml",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "scheme",
+        "swift"
+      ],
+      "name": "Bob",
+      "slug": "bob",
+      "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited."
+    },
+    {
+      "track_ids": [
+        "php"
+      ],
+      "name": "Bowling",
+      "slug": "bowling",
+      "blurb": "Score a bowling game"
+    },
+    {
+      "track_ids": [
+        "javascript"
+      ],
+      "name": "Bracket Push",
+      "slug": "bracket-push",
+      "blurb": "Make sure the braces all match."
+    },
+    {
+      "track_ids": [
+        "go",
+        "javascript",
+        "lua",
+        "ruby"
+      ],
+      "name": "Circular Buffer",
+      "slug": "circular-buffer",
+      "blurb": "A data structure that uses a single, fixed-size buffer as if it were connected end-to-end."
+    },
+    {
+      "track_ids": [
+        "coffeescript",
+        "cpp",
+        "csharp",
+        "fsharp",
+        "go",
+        "haskell",
+        "javascript",
+        "lua",
+        "perl5",
+        "php",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Clock",
+      "slug": "clock",
+      "blurb": "Implement a clock that handles times without dates."
+    },
+    {
+      "track_ids": [
+        "go",
+        "haskell",
+        "php"
+      ],
+      "name": "Connect",
+      "slug": "connect",
+      "blurb": "Compute the result for a game of Hex / Polygon"
+    },
+    {
+      "track_ids": [
+        "clojure",
         "cpp",
         "csharp",
         "fsharp",
@@ -609,83 +289,18 @@
     },
     {
       "track_ids": [
-        "clojure",
+        "elixir",
         "go",
         "haskell",
         "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "scala"
-      ],
-      "name": "Kindergarten Garden",
-      "slug": "kindergarten-garden",
-      "blurb": "Write a program that, given a diagram, can tell you which plants each child in the kindergarten class is responsible for."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "go",
-        "haskell",
-        "javascript",
+        "ocaml",
         "perl5",
         "ruby",
         "scala"
       ],
-      "name": "Robot Simulator",
-      "slug": "robot-simulator",
-      "blurb": "Write a robot simulator."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "coffeescript",
-        "cpp",
-        "go",
-        "haskell",
-        "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "scala"
-      ],
-      "name": "Queen Attack",
-      "slug": "queen-attack",
-      "blurb": "Write a program that positions two queens on a chess board and indicates whether or not they are positioned so that they can attack each other."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "coffeescript",
-        "csharp",
-        "erlang",
-        "fsharp",
-        "haskell",
-        "java",
-        "javascript",
-        "perl5",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Accumulate",
-      "slug": "accumulate",
-      "blurb": "Implement the `accumulate` operation, which, given a collection and an operation to perform on each element of the collection, returns a new collection containing the result of applying that operation to each element of the input collection."
-    },
-    {
-      "track_ids": [
-        "clojure",
-        "coffeescript",
-        "go",
-        "haskell",
-        "javascript",
-        "perl5",
-        "ruby",
-        "scala"
-      ],
-      "name": "Binary Search Tree",
-      "slug": "binary-search-tree",
-      "blurb": "Write a program that inserts numbers and searches in a binary tree."
+      "name": "Custom Set",
+      "slug": "custom-set",
+      "blurb": "Create a custom set type."
     },
     {
       "track_ids": [
@@ -713,181 +328,149 @@
     },
     {
       "track_ids": [
-        "clojure",
-        "coffeescript",
-        "cpp",
-        "go",
-        "haskell",
-        "javascript",
-        "ocaml",
-        "perl5",
-        "python",
-        "ruby",
-        "scala"
+        "go"
       ],
-      "name": "Hexadecimal",
-      "slug": "hexadecimal",
-      "blurb": "Write a program that will convert a hexadecimal number, represented as a string (e.g. \"10af8c\"), to its decimal equivalent using first principles (i.e. no, you may not use built-in ruby libraries or gems to accomplish the conversion)."
+      "name": "Diffie Hellman",
+      "slug": "diffie-hellman",
+      "blurb": "Diffie-Hellman key exchange."
+    },
+    {
+      "track_ids": [
+        "elixir"
+      ],
+      "name": "Dot Dsl",
+      "slug": "dot-dsl",
+      "blurb": "Write a Domain Specific Language similar to the Graphviz dot language"
     },
     {
       "track_ids": [
         "clojure",
-        "elixir",
-        "go",
-        "haskell",
-        "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "scala"
-      ],
-      "name": "Largest Series Product",
-      "slug": "largest-series-product",
-      "blurb": "Write a program that, when given a string of digits, can calculate the largest product for a series of consecutive digits of length n."
-    },
-    {
-      "track_ids": [
-        "coffeescript",
         "cpp",
         "csharp",
+        "elixir",
         "erlang",
         "fsharp",
         "go",
         "haskell",
         "java",
         "javascript",
-        "perl5",
-        "php",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Trinary",
-      "slug": "trinary",
-      "blurb": "Write a program that will convert a trinary number, represented as a string (e.g. '102012'), to its decimal equivalent using first principles."
-    },
-    {
-      "track_ids": [
-        "coffeescript",
-        "csharp",
-        "erlang",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "ocaml",
+        "lisp",
+        "objective-c",
         "perl5",
         "python",
         "ruby",
         "scala",
         "swift"
       ],
-      "name": "Luhn",
-      "slug": "luhn",
-      "blurb": "Write a program that can take a number and determine whether or not it is valid per the Luhn formula."
+      "name": "Etl",
+      "slug": "etl",
+      "blurb": "We are going to do the `Transform` step of an Extract-Transform-Load."
     },
     {
       "track_ids": [
-        "coffeescript",
         "cpp",
-        "elixir",
-        "go",
-        "haskell",
-        "javascript",
-        "plsql",
-        "python",
-        "ruby",
-        "scala"
-      ],
-      "name": "Nth Prime",
-      "slug": "nth-prime",
-      "blurb": "Write a program that can tell you what the nth prime is."
-    },
-    {
-      "track_ids": [
-        "coffeescript",
-        "elixir",
-        "go",
-        "haskell",
-        "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "scala"
-      ],
-      "name": "Palindrome Products",
-      "slug": "palindrome-products",
-      "blurb": "Write a program that can detect palindrome products in a given range."
-    },
-    {
-      "track_ids": [
-        "coffeescript",
-        "csharp",
-        "go",
-        "haskell",
-        "javascript",
-        "perl5",
-        "php",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Wordy",
-      "slug": "wordy",
-      "blurb": "Write a program that takes a word problem and returns the answer as an integer."
-    },
-    {
-      "track_ids": [
-        "coffeescript",
-        "cpp",
-        "csharp",
-        "fsharp",
         "go",
         "haskell",
         "javascript",
         "lua",
         "perl5",
-        "php",
         "ruby",
-        "scala",
-        "swift"
+        "scala"
       ],
-      "name": "Clock",
-      "slug": "clock",
-      "blurb": "Implement a clock that handles times without dates."
+      "name": "Food Chain",
+      "slug": "food-chain",
+      "blurb": "Write a program that outputs the lyrics of the song 'I Know an Old Lady Who Swallowed a Fly'"
     },
     {
       "track_ids": [
-        "coffeescript",
+        "elixir",
+        "haskell"
+      ],
+      "name": "Forth",
+      "slug": "forth",
+      "blurb": "Implement an evaluator for a very simple subset of Forth"
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
         "csharp",
+        "elixir",
         "fsharp",
-        "haskell",
-        "javascript",
-        "perl5",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Linked List",
-      "slug": "linked-list",
-      "blurb": "Write a Singly-Linked List implementation that uses the Proxy pattern"
-    },
-    {
-      "track_ids": [
-        "coffeescript",
         "go",
         "haskell",
         "java",
         "javascript",
+        "lisp",
+        "lua",
         "perl5",
+        "php",
+        "plsql",
+        "python",
         "ruby",
-        "scala"
+        "scala",
+        "swift"
       ],
-      "name": "Pascals Triangle",
-      "slug": "pascals-triangle",
-      "blurb": "Write a program that computes Pascal's triangle up to a given number of rows."
+      "name": "Gigasecond",
+      "slug": "gigasecond",
+      "blurb": "Write a program that will calculate the date that someone turned or will celebrate their 1 Gs anniversary."
+    },
+    {
+      "track_ids": [
+        "haskell"
+      ],
+      "name": "Go Counting",
+      "slug": "go-counting",
+      "blurb": "Count the scored points on a Go board."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "erlang",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lisp",
+        "lua",
+        "objective-c",
+        "ocaml",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Grade School",
+      "slug": "grade-school",
+      "blurb": "Write a small archiving program that stores students' names along with the grade that they are in."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "elixir",
+        "fsharp",
+        "go",
+        "haskell",
+        "javascript",
+        "lisp",
+        "lua",
+        "perl5",
+        "plsql",
+        "python",
+        "ruby",
+        "scala",
+        "scheme",
+        "swift"
+      ],
+      "name": "Grains",
+      "slug": "grains",
+      "blurb": "Write a program that calculates the number of grains of wheat on a chessboard given that the number on each square doubles."
     },
     {
       "track_ids": [
@@ -913,18 +496,689 @@
     },
     {
       "track_ids": [
+        "ocaml"
+      ],
+      "name": "Hangman",
+      "slug": "hangman",
+      "blurb": "Implement the logic of the hangman game using functional reactive programming."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "coffeescript",
         "cpp",
         "go",
         "haskell",
         "javascript",
+        "ocaml",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Hexadecimal",
+      "slug": "hexadecimal",
+      "blurb": "Write a program that will convert a hexadecimal number, represented as a string (e.g. \"10af8c\"), to its decimal equivalent using first principles (i.e. no, you may not use built-in ruby libraries or gems to accomplish the conversion)."
+    },
+    {
+      "track_ids": [
+        "go",
+        "haskell",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "House",
+      "slug": "house",
+      "blurb": "Write a program that outputs the nursery rhyme 'This is the House that Jack Built'."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Kindergarten Garden",
+      "slug": "kindergarten-garden",
+      "blurb": "Write a program that, given a diagram, can tell you which plants each child in the kindergarten class is responsible for."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "elixir",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Largest Series Product",
+      "slug": "largest-series-product",
+      "blurb": "Write a program that, when given a string of digits, can calculate the largest product for a series of consecutive digits of length n."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "erlang",
+        "fsharp",
+        "go",
+        "haskell",
+        "javascript",
+        "lisp",
         "lua",
+        "objective-c",
+        "ocaml",
+        "perl5",
+        "php",
+        "plsql",
+        "python",
+        "ruby",
+        "scala",
+        "scheme",
+        "swift"
+      ],
+      "name": "Leap",
+      "slug": "leap",
+      "blurb": "Write a program that will take a year and report if it is a leap year."
+    },
+    {
+      "track_ids": [
+        "go"
+      ],
+      "name": "Ledger",
+      "slug": "ledger",
+      "blurb": "Refactor a ledger printer."
+    },
+    {
+      "track_ids": [
+        "coffeescript",
+        "csharp",
+        "fsharp",
+        "haskell",
+        "javascript",
+        "perl5",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Linked List",
+      "slug": "linked-list",
+      "blurb": "Write a Singly-Linked List implementation that uses the Proxy pattern"
+    },
+    {
+      "track_ids": [
+        "elixir",
+        "haskell",
+        "ocaml",
+        "perl5",
+        "scheme"
+      ],
+      "name": "List Ops",
+      "slug": "list-ops",
+      "blurb": "Implement basic list operations"
+    },
+    {
+      "track_ids": [
+        "coffeescript",
+        "csharp",
+        "erlang",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "ocaml",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Luhn",
+      "slug": "luhn",
+      "blurb": "Write a program that can take a number and determine whether or not it is valid per the Luhn formula."
+    },
+    {
+      "track_ids": [
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Matrix",
+      "slug": "matrix",
+      "blurb": "Write a program that, given a string representing a matrix of numbers, can return the rows and columns of that matrix."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lisp",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Meetup",
+      "slug": "meetup",
+      "blurb": "Calculate the date of meetups."
+    },
+    {
+      "track_ids": [
+        "elixir",
+        "go",
+        "haskell",
+        "ocaml",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Minesweeper",
+      "slug": "minesweeper",
+      "blurb": "Write a program that adds the numbers to a minesweeper board"
+    },
+    {
+      "track_ids": [
+        "coffeescript",
+        "cpp",
+        "elixir",
+        "go",
+        "haskell",
+        "javascript",
+        "plsql",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Nth Prime",
+      "slug": "nth-prime",
+      "blurb": "Write a program that can tell you what the nth prime is."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "coffeescript",
+        "cpp",
+        "csharp",
+        "elixir",
+        "erlang",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lisp",
+        "lua",
+        "objective-c",
+        "ocaml",
+        "perl5",
+        "ruby",
+        "scala",
+        "scheme",
+        "swift"
+      ],
+      "name": "Nucleotide Count",
+      "slug": "nucleotide-count",
+      "blurb": "Given a DNA string, compute how many times each nucleotide occurs in the string."
+    },
+    {
+      "track_ids": [
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Ocr Numbers",
+      "slug": "ocr-numbers",
+      "blurb": "Write a program that, given a 3 x 4 grid of pipes, underscores, and spaces, can determine which number is represented, or whether it is garbled."
+    },
+    {
+      "track_ids": [
+        "csharp",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "scala",
+        "swift"
+      ],
+      "name": "Octal",
+      "slug": "octal",
+      "blurb": "Write a program that will convert a octal number, represented as a string (e.g. '1735263'), to its decimal equivalent using first principles (i.e. no, you may not use built-in ruby libraries or gems to accomplish the conversion)."
+    },
+    {
+      "track_ids": [
+        "go"
+      ],
+      "name": "Paasio",
+      "slug": "paasio",
+      "blurb": "Write a program that reports network IO statistics"
+    },
+    {
+      "track_ids": [
+        "coffeescript",
+        "elixir",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Palindrome Products",
+      "slug": "palindrome-products",
+      "blurb": "Write a program that can detect palindrome products in a given range."
+    },
+    {
+      "track_ids": [
+        "elixir",
+        "go",
+        "haskell"
+      ],
+      "name": "Parallel Letter Frequency",
+      "slug": "parallel-letter-frequency",
+      "blurb": "Write a program that counts the frequency of letters in texts using parallel computation."
+    },
+    {
+      "track_ids": [
+        "coffeescript",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
         "perl5",
         "ruby",
         "scala"
       ],
-      "name": "Food Chain",
-      "slug": "food-chain",
-      "blurb": "Write a program that outputs the lyrics of the song 'I Know an Old Lady Who Swallowed a Fly'"
+      "name": "Pascals Triangle",
+      "slug": "pascals-triangle",
+      "blurb": "Write a program that computes Pascal's triangle up to a given number of rows."
+    },
+    {
+      "track_ids": [
+        "swift"
+      ],
+      "name": "Perfect Numbers",
+      "slug": "perfect-numbers",
+      "blurb": "The Greek mathematician Nicomachus devised a classification scheme for natural numbers."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "erlang",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lisp",
+        "lua",
+        "objective-c",
+        "ocaml",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "scheme",
+        "swift"
+      ],
+      "name": "Phone Number",
+      "slug": "phone-number",
+      "blurb": "Write a program that cleans up user-entered phone numbers so that they can be sent SMS messages."
+    },
+    {
+      "track_ids": [
+        "csharp",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "perl5",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Pig Latin",
+      "slug": "pig-latin",
+      "blurb": "Implement a program that translates from English to Pig Latin"
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "elixir",
+        "erlang",
+        "haskell",
+        "lisp",
+        "ocaml",
+        "scheme"
+      ],
+      "name": "Point Mutations",
+      "slug": "point-mutations",
+      "blurb": "Write a program that can calculate the Hamming difference between two DNA strands."
+    },
+    {
+      "track_ids": [
+        "go"
+      ],
+      "name": "Poker",
+      "slug": "poker",
+      "blurb": "Pick the best hand(s) from a list of poker hands."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lua",
+        "ocaml",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Prime Factors",
+      "slug": "prime-factors",
+      "blurb": "Compute the prime factors of a given natural number."
+    },
+    {
+      "track_ids": [
+        "ruby"
+      ],
+      "name": "Protein Translation",
+      "slug": "protein-translation",
+      "blurb": "Write a program that will translate RNA sequences into proteins."
+    },
+    {
+      "track_ids": [
+        "perl5",
+        "ruby"
+      ],
+      "name": "Proverb",
+      "slug": "proverb",
+      "blurb": "For want of a horseshoe nail, a kingdom was lost, or so the saying goes. Write a program that outputs the full text of this proverbial rhyme."
+    },
+    {
+      "track_ids": [
+        "csharp",
+        "elixir",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Pythagorean Triplet",
+      "slug": "pythagorean-triplet",
+      "blurb": "There exists exactly one Pythagorean triplet for which a + b + c = 1000. Find the product a * b * c."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "coffeescript",
+        "cpp",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Queen Attack",
+      "slug": "queen-attack",
+      "blurb": "Write a program that positions two queens on a chess board and indicates whether or not they are positioned so that they can attack each other."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "perl5",
+        "php",
+        "plsql",
+        "ruby",
+        "scala",
+        "scheme",
+        "swift"
+      ],
+      "name": "Raindrops",
+      "slug": "raindrops",
+      "blurb": "Write a program that converts a number to a string, the contents of which depends on the number's prime factors."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "erlang",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lisp",
+        "lua",
+        "ocaml",
+        "perl5",
+        "php",
+        "plsql",
+        "python",
+        "ruby",
+        "scala",
+        "scheme",
+        "swift"
+      ],
+      "name": "Rna Transcription",
+      "slug": "rna-transcription",
+      "blurb": "Write a program that, given a DNA strand, returns its RNA complement (per RNA transcription)."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lisp",
+        "lua",
+        "objective-c",
+        "perl5",
+        "php",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Robot Name",
+      "slug": "robot-name",
+      "blurb": "Write a program that manages robot factory settings."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "ruby",
+        "scala"
+      ],
+      "name": "Robot Simulator",
+      "slug": "robot-simulator",
+      "blurb": "Write a robot simulator."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lisp",
+        "lua",
+        "perl5",
+        "php",
+        "plsql",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Roman Numerals",
+      "slug": "roman-numerals",
+      "blurb": "Write a function to convert from normal numbers to Roman Numerals: e.g."
+    },
+    {
+      "track_ids": [
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala"
+      ],
+      "name": "Saddle Points",
+      "slug": "saddle-points",
+      "blurb": "Write a program that detects saddle points in a matrix."
+    },
+    {
+      "track_ids": [
+        "cpp",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "ruby",
+        "scala"
+      ],
+      "name": "Say",
+      "slug": "say",
+      "blurb": "Write a program that will take a number from 0 to 999,999,999,999 and spell out that number in English."
+    },
+    {
+      "track_ids": [
+        "ruby"
+      ],
+      "name": "Scale Generator",
+      "slug": "scale-generator",
+      "blurb": "Write a program that can generate musical scales, given a starting note and a set of intervals. "
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "lua",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Scrabble Score",
+      "slug": "scrabble-score",
+      "blurb": "Write a program that, given a word, computes the scrabble score for that word."
+    },
+    {
+      "track_ids": [
+        "csharp",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Secret Handshake",
+      "slug": "secret-handshake",
+      "blurb": "Write a program that will take a decimal number, and convert it to the appropriate sequence of events for a secret handshake."
+    },
+    {
+      "track_ids": [
+        "cpp",
+        "csharp",
+        "fsharp",
+        "go",
+        "haskell",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Series",
+      "slug": "series",
+      "blurb": "Write a program that will take a string of digits and give you all the possible consecutive number series of length `n` in that string."
+    },
+    {
+      "track_ids": [
+        "haskell"
+      ],
+      "name": "Sgf Parsing",
+      "slug": "sgf-parsing",
+      "blurb": "Parsing a Standard Game Format string."
     },
     {
       "track_ids": [
@@ -943,6 +1197,86 @@
       "name": "Sieve",
       "slug": "sieve",
       "blurb": "Write a program that uses the Sieve of Eratosthenes to find all the primes from 2 up to a given number."
+    },
+    {
+      "track_ids": [
+        "csharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "perl5",
+        "python",
+        "ruby",
+        "swift"
+      ],
+      "name": "Simple Cipher",
+      "slug": "simple-cipher",
+      "blurb": "Implement a simple shift cipher like Caesar and a more secure substitution cipher"
+    },
+    {
+      "track_ids": [
+        "haskell",
+        "perl5",
+        "ruby",
+        "swift"
+      ],
+      "name": "Simple Linked List",
+      "slug": "simple-linked-list",
+      "blurb": "Write a simple linked list implementation that uses Elements and a loop"
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "erlang",
+        "fsharp",
+        "haskell",
+        "java",
+        "javascript",
+        "lisp",
+        "lua",
+        "ocaml",
+        "perl5",
+        "python",
+        "ruby",
+        "scala",
+        "swift"
+      ],
+      "name": "Space Age",
+      "slug": "space-age",
+      "blurb": "Write a program that, given an age in seconds, calculates how old someone is in terms of a given planet's solar years."
+    },
+    {
+      "track_ids": [
+        "csharp",
+        "erlang",
+        "fsharp",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "perl5",
+        "ruby",
+        "swift"
+      ],
+      "name": "Strain",
+      "slug": "strain",
+      "blurb": "Implement the `keep` and `discard` operation on collections. Given a collection and a predicate on the collection's elements, `keep` returns a new collection containing those elements where the predicate is true, while `discard` returns a new collection containing those elements where the predicate is false."
+    },
+    {
+      "track_ids": [
+        "elixir",
+        "haskell",
+        "perl5",
+        "python",
+        "scala"
+      ],
+      "name": "Sublist",
+      "slug": "sublist",
+      "blurb": "Write a function to determine if a list is a sublist of another list."
     },
     {
       "track_ids": [
@@ -965,35 +1299,66 @@
     },
     {
       "track_ids": [
+        "csharp",
+        "go",
+        "swift"
+      ],
+      "name": "Tournament",
+      "slug": "tournament",
+      "blurb": "Tally the results of a small football competition."
+    },
+    {
+      "track_ids": [
+        "go"
+      ],
+      "name": "Tree Building",
+      "slug": "tree-building",
+      "blurb": "Refactor a tree building algorithm."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "coffeescript",
         "cpp",
         "csharp",
+        "elixir",
         "fsharp",
         "go",
         "haskell",
+        "java",
         "javascript",
+        "lisp",
+        "lua",
         "perl5",
         "python",
         "ruby",
         "scala",
         "swift"
       ],
-      "name": "Series",
-      "slug": "series",
-      "blurb": "Write a program that will take a string of digits and give you all the possible consecutive number series of length `n` in that string."
+      "name": "Triangle",
+      "slug": "triangle",
+      "blurb": "Write a program that can tell you if a triangle is equilateral, isosceles, or scalene."
     },
     {
       "track_ids": [
+        "coffeescript",
         "cpp",
+        "csharp",
+        "erlang",
+        "fsharp",
         "go",
         "haskell",
+        "java",
         "javascript",
         "perl5",
+        "php",
         "ruby",
-        "scala"
+        "scala",
+        "swift"
       ],
-      "name": "Say",
-      "slug": "say",
-      "blurb": "Write a program that will take a number from 0 to 999,999,999,999 and spell out that number in English."
+      "name": "Trinary",
+      "slug": "trinary",
+      "blurb": "Write a program that will convert a trinary number, represented as a string (e.g. '102012'), to its decimal equivalent using first principles."
     },
     {
       "track_ids": [
@@ -1009,313 +1374,38 @@
     },
     {
       "track_ids": [
+        "javascript"
+      ],
+      "name": "Two Bucket",
+      "slug": "two-bucket",
+      "blurb": "Given two buckets of different size, write a program to demonstrate how to measure an exact number of liters."
+    },
+    {
+      "track_ids": [
+        "clojure",
+        "coffeescript",
+        "cpp",
         "csharp",
+        "elixir",
         "erlang",
         "fsharp",
         "go",
         "haskell",
         "java",
         "javascript",
-        "perl5",
-        "ruby",
-        "swift"
-      ],
-      "name": "Strain",
-      "slug": "strain",
-      "blurb": "Implement the `keep` and `discard` operation on collections. Given a collection and a predicate on the collection's elements, `keep` returns a new collection containing those elements where the predicate is true, while `discard` returns a new collection containing those elements where the predicate is false."
-    },
-    {
-      "track_ids": [
-        "csharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "swift"
-      ],
-      "name": "Simple Cipher",
-      "slug": "simple-cipher",
-      "blurb": "Implement a simple shift cipher like Caesar and a more secure substitution cipher"
-    },
-    {
-      "track_ids": [
-        "csharp",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "scala",
-        "swift"
-      ],
-      "name": "Octal",
-      "slug": "octal",
-      "blurb": "Write a program that will convert a octal number, represented as a string (e.g. '1735263'), to its decimal equivalent using first principles (i.e. no, you may not use built-in ruby libraries or gems to accomplish the conversion)."
-    },
-    {
-      "track_ids": [
-        "csharp",
-        "fsharp",
-        "go",
-        "haskell",
-        "java",
-        "javascript",
-        "perl5",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Pig Latin",
-      "slug": "pig-latin",
-      "blurb": "Implement a program that translates from English to Pig Latin"
-    },
-    {
-      "track_ids": [
-        "csharp",
-        "elixir",
-        "go",
-        "haskell",
-        "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Pythagorean Triplet",
-      "slug": "pythagorean-triplet",
-      "blurb": "There exists exactly one Pythagorean triplet for which a + b + c = 1000. Find the product a * b * c."
-    },
-    {
-      "track_ids": [
-        "csharp",
-        "go",
-        "haskell",
-        "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "scala",
-        "swift"
-      ],
-      "name": "Secret Handshake",
-      "slug": "secret-handshake",
-      "blurb": "Write a program that will take a decimal number, and convert it to the appropriate sequence of events for a secret handshake."
-    },
-    {
-      "track_ids": [
-        "csharp",
-        "go",
-        "swift"
-      ],
-      "name": "Tournament",
-      "slug": "tournament",
-      "blurb": "Tally the results of a small football competition."
-    },
-    {
-      "track_ids": [
-        "csharp",
-        "fsharp",
-        "ruby",
-        "swift"
-      ],
-      "name": "Acronym",
-      "slug": "acronym",
-      "blurb": "Convert a long phrase to its acronym"
-    },
-    {
-      "track_ids": [
-        "elixir",
-        "haskell",
-        "ocaml",
-        "perl5",
-        "scheme"
-      ],
-      "name": "List Ops",
-      "slug": "list-ops",
-      "blurb": "Implement basic list operations"
-    },
-    {
-      "track_ids": [
-        "elixir",
-        "haskell",
-        "perl5",
-        "python",
-        "scala"
-      ],
-      "name": "Sublist",
-      "slug": "sublist",
-      "blurb": "Write a function to determine if a list is a sublist of another list."
-    },
-    {
-      "track_ids": [
-        "elixir",
-        "go",
-        "haskell"
-      ],
-      "name": "Parallel Letter Frequency",
-      "slug": "parallel-letter-frequency",
-      "blurb": "Write a program that counts the frequency of letters in texts using parallel computation."
-    },
-    {
-      "track_ids": [
-        "elixir",
-        "haskell",
-        "ocaml"
-      ],
-      "name": "Zipper",
-      "slug": "zipper",
-      "blurb": "Creating a zipper for a binary tree."
-    },
-    {
-      "track_ids": [
-        "elixir",
-        "go",
-        "haskell",
-        "ocaml",
-        "perl5",
-        "python",
-        "ruby",
-        "scala"
-      ],
-      "name": "Minesweeper",
-      "slug": "minesweeper",
-      "blurb": "Write a program that adds the numbers to a minesweeper board"
-    },
-    {
-      "track_ids": [
-        "elixir"
-      ],
-      "name": "Dot Dsl",
-      "slug": "dot-dsl",
-      "blurb": "Write a Domain Specific Language similar to the Graphviz dot language"
-    },
-    {
-      "track_ids": [
-        "elixir",
-        "go",
-        "haskell",
-        "javascript",
-        "ocaml",
-        "perl5",
-        "ruby",
-        "scala"
-      ],
-      "name": "Custom Set",
-      "slug": "custom-set",
-      "blurb": "Create a custom set type."
-    },
-    {
-      "track_ids": [
-        "elixir",
-        "haskell"
-      ],
-      "name": "Forth",
-      "slug": "forth",
-      "blurb": "Implement an evaluator for a very simple subset of Forth"
-    },
-    {
-      "track_ids": [
-        "go",
-        "haskell",
-        "perl5",
-        "python",
-        "ruby",
-        "scala"
-      ],
-      "name": "House",
-      "slug": "house",
-      "blurb": "Write a program that outputs the nursery rhyme 'This is the House that Jack Built'."
-    },
-    {
-      "track_ids": [
-        "go",
-        "javascript",
+        "lisp",
         "lua",
-        "ruby"
-      ],
-      "name": "Circular Buffer",
-      "slug": "circular-buffer",
-      "blurb": "A data structure that uses a single, fixed-size buffer as if it were connected end-to-end."
-    },
-    {
-      "track_ids": [
-        "go"
-      ],
-      "name": "Diffie Hellman",
-      "slug": "diffie-hellman",
-      "blurb": "Diffie-Hellman key exchange."
-    },
-    {
-      "track_ids": [
-        "go",
-        "haskell",
-        "javascript",
+        "objective-c",
+        "ocaml",
         "perl5",
         "python",
         "ruby",
-        "scala"
+        "scala",
+        "swift"
       ],
-      "name": "Ocr Numbers",
-      "slug": "ocr-numbers",
-      "blurb": "Write a program that, given a 3 x 4 grid of pipes, underscores, and spaces, can determine which number is represented, or whether it is garbled."
-    },
-    {
-      "track_ids": [
-        "go",
-        "haskell",
-        "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "scala"
-      ],
-      "name": "Matrix",
-      "slug": "matrix",
-      "blurb": "Write a program that, given a string representing a matrix of numbers, can return the rows and columns of that matrix."
-    },
-    {
-      "track_ids": [
-        "go",
-        "haskell",
-        "javascript",
-        "perl5",
-        "python",
-        "ruby",
-        "scala"
-      ],
-      "name": "Saddle Points",
-      "slug": "saddle-points",
-      "blurb": "Write a program that detects saddle points in a matrix."
-    },
-    {
-      "track_ids": [
-        "go",
-        "perl5",
-        "ruby"
-      ],
-      "name": "Binary Search",
-      "slug": "binary-search",
-      "blurb": "Write a program that implements a binary search algorithm."
-    },
-    {
-      "track_ids": [
-        "go"
-      ],
-      "name": "Tree Building",
-      "slug": "tree-building",
-      "blurb": "Refactor a tree building algorithm."
-    },
-    {
-      "track_ids": [
-        "go"
-      ],
-      "name": "Paasio",
-      "slug": "paasio",
-      "blurb": "Write a program that reports network IO statistics"
+      "name": "Word Count",
+      "slug": "word-count",
+      "blurb": "Write a program that given a phrase can count the occurrences of each word in that phrase."
     },
     {
       "track_ids": [
@@ -1327,97 +1417,21 @@
     },
     {
       "track_ids": [
+        "coffeescript",
+        "csharp",
         "go",
         "haskell",
-        "php"
-      ],
-      "name": "Connect",
-      "slug": "connect",
-      "blurb": "Compute the result for a game of Hex / Polygon"
-    },
-    {
-      "track_ids": [
-        "go"
-      ],
-      "name": "Ledger",
-      "slug": "ledger",
-      "blurb": "Refactor a ledger printer."
-    },
-    {
-      "track_ids": [
-        "go"
-      ],
-      "name": "Poker",
-      "slug": "poker",
-      "blurb": "Pick the best hand(s) from a list of poker hands."
-    },
-    {
-      "track_ids": [
-        "haskell",
+        "javascript",
         "perl5",
+        "php",
+        "python",
         "ruby",
+        "scala",
         "swift"
       ],
-      "name": "Simple Linked List",
-      "slug": "simple-linked-list",
-      "blurb": "Write a simple linked list implementation that uses Elements and a loop"
-    },
-    {
-      "track_ids": [
-        "haskell"
-      ],
-      "name": "Sgf Parsing",
-      "slug": "sgf-parsing",
-      "blurb": "Parsing a Standard Game Format string."
-    },
-    {
-      "track_ids": [
-        "haskell"
-      ],
-      "name": "Go Counting",
-      "slug": "go-counting",
-      "blurb": "Count the scored points on a Go board."
-    },
-    {
-      "track_ids": [
-        "javascript"
-      ],
-      "name": "Bracket Push",
-      "slug": "bracket-push",
-      "blurb": "Make sure the braces all match."
-    },
-    {
-      "track_ids": [
-        "javascript"
-      ],
-      "name": "Two Bucket",
-      "slug": "two-bucket",
-      "blurb": "Given two buckets of different size, write a program to demonstrate how to measure an exact number of liters."
-    },
-    {
-      "track_ids": [
-        "ocaml"
-      ],
-      "name": "Hangman",
-      "slug": "hangman",
-      "blurb": "Implement the logic of the hangman game using functional reactive programming."
-    },
-    {
-      "track_ids": [
-        "perl5",
-        "ruby"
-      ],
-      "name": "Proverb",
-      "slug": "proverb",
-      "blurb": "For want of a horseshoe nail, a kingdom was lost, or so the saying goes. Write a program that outputs the full text of this proverbial rhyme."
-    },
-    {
-      "track_ids": [
-        "php"
-      ],
-      "name": "Bowling",
-      "slug": "bowling",
-      "blurb": "Score a bowling game"
+      "name": "Wordy",
+      "slug": "wordy",
+      "blurb": "Write a program that takes a word problem and returns the answer as an integer."
     },
     {
       "track_ids": [
@@ -1429,27 +1443,13 @@
     },
     {
       "track_ids": [
-        "ruby"
+        "elixir",
+        "haskell",
+        "ocaml"
       ],
-      "name": "Scale Generator",
-      "slug": "scale-generator",
-      "blurb": "Write a program that can generate musical scales, given a starting note and a set of intervals. "
-    },
-    {
-      "track_ids": [
-        "ruby"
-      ],
-      "name": "Protein Translation",
-      "slug": "protein-translation",
-      "blurb": "Write a program that will translate RNA sequences into proteins."
-    },
-    {
-      "track_ids": [
-        "swift"
-      ],
-      "name": "Perfect Numbers",
-      "slug": "perfect-numbers",
-      "blurb": "The Greek mathematician Nicomachus devised a classification scheme for natural numbers."
+      "name": "Zipper",
+      "slug": "zipper",
+      "blurb": "Creating a zipper for a binary tree."
     }
   ]
 }
