@@ -1146,6 +1146,7 @@
         "python",
         "ruby",
         "scala",
+        "scheme",
         "swift"
       ]
     },
@@ -1313,6 +1314,7 @@
         "perl5",
         "python",
         "ruby",
+        "scala",
         "swift"
       ]
     },
