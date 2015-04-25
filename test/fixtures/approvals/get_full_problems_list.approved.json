@@ -302,6 +302,15 @@
       ]
     },
     {
+      "slug": "counter",
+      "blurb": "Design a test suite for a line/letter/character counter tool.",
+      "source": null,
+      "source_url": null,
+      "track_ids": [
+
+      ]
+    },
+    {
       "slug": "crypto-square",
       "blurb": "Implement the classic method for composing secret messages called a square code.",
       "source": "J Dalbey's Programming Practice problems",
@@ -388,6 +397,15 @@
       "source_url": null,
       "track_ids": [
         "elixir"
+      ]
+    },
+    {
+      "slug": "error-handling",
+      "blurb": "Implement various kinds of error handling and resource management",
+      "source": null,
+      "source_url": null,
+      "track_ids": [
+
       ]
     },
     {
@@ -561,8 +579,8 @@
     },
     {
       "slug": "hello-world",
-      "blurb": "\"Hello, World!\" is the simplest program that can be written in any language.",
-      "source": "This is a program with a long and glorious tradition.",
+      "blurb": "Write a program that greets the user by name, or by saying \"Hello world!\" if no name is given",
+      "source": "This is a program to introduce users to using Exercism",
       "source_url": "http://en.wikipedia.org/wiki/%22Hello,_world!%22_program",
       "track_ids": [
 
