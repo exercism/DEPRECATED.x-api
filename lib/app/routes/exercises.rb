@@ -25,6 +25,8 @@ module Xapi
         pg :assignments, locals: { assignments: problems }
       end
 
+      # v1 deprecated and v2 introduced: September 2014
+
       get '/v2/exercises' do
         require_key
         problems = forward_errors do
