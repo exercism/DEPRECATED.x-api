@@ -33,7 +33,6 @@ module Xapi
     end
 
     use Routes::Home
-    use Routes::Demo
     use Routes::Tracks
     use Routes::Problems
     use Routes::Assignments # deprecated: CLI and prototype use it
