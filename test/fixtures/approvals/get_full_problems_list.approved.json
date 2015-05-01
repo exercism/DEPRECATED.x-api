@@ -298,7 +298,8 @@
       "track_ids": [
         "go",
         "haskell",
-        "php"
+        "php",
+        "scala"
       ]
     },
     {
@@ -908,7 +909,8 @@
       "track_ids": [
         "elixir",
         "go",
-        "haskell"
+        "haskell",
+        "scala"
       ]
     },
     {
