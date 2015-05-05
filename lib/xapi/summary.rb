@@ -1,7 +1,7 @@
 module Xapi
   # Summary is the metadata for a single problem.
   class Summary
-    def self.load(slug: slug, dir: dir)
+    def self.load(slug, dir)
       new(slug, YAML.load(File.read(File.join(dir, "#{slug}.yml"))))
     end
 

@@ -21,7 +21,7 @@ module Xapi
     end
 
     attr_reader :dir, :slugs
-    def initialize(dir: dir, slugs: slugs)
+    def initialize(dir: default_dir, slugs: [])
       @dir = dir
       @slugs = slugs
     end
@@ -32,7 +32,7 @@ module Xapi
 
     def directory
       @directory ||= slugs.each_with_object({}) { |slug, table|
-        table[slug] = Summary.load(slug: slug, dir: dir)
+        table[slug] = Summary.load(slug, dir)
       }
     end
 
