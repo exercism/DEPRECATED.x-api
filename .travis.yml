@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.2
+  - 2.2.1
 script:
   - CI=1 bundle exec rake test
   - bin/fetch-configlet
