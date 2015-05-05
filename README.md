@@ -14,6 +14,23 @@ The exercises for each language are stored in separate repositories, included
 here as git submodules. This codebase provides an API for serving the Exercism
 exercises to people using the Exercism command-line client.
 
+## Prerequisites
+
+You need Ruby (version 1.9 or greater) and Bundler to work on this API. 
+
+To check which version of Ruby you have, then run:
+
+```bash
+$ ruby -version
+```
+
+To install bundler, then run:
+
+```bash
+$ gem install bundler
+```
+
+
 ## Getting Started
 
 Fork and clone per usual, then run:
