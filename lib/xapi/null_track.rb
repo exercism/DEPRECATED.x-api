@@ -9,5 +9,9 @@ module Xapi
     def find(slug)
       Problem.new(language: 'Unknown', track_id: id, slug: slug, path: '.')
     end
+
+    def docs
+      NullDocs.new
+    end
   end
 end

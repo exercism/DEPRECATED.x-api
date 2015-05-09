@@ -37,5 +37,6 @@ module Xapi
     use Routes::Problems
     use Routes::Assignments # deprecated: CLI and prototype use it
     use Routes::Exercises
+    use Routes::Docs
   end
 end

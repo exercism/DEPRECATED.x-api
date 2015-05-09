@@ -31,6 +31,10 @@ module Xapi
       data['problems']
     end
 
+    def docs
+      @docs ||= Docs.new(path)
+    end
+
     def find(slug)
       problems.find(proc { Problem.new(attributes(slug)) }) { |problem|
         problem.slug == slug
