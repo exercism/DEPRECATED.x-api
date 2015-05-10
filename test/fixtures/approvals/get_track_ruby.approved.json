@@ -5,6 +5,7 @@
     "id": "ruby",
     "slug": "ruby",
     "problems": [
+      "ruby/hello-world",
       "ruby/hamming",
       "ruby/gigasecond",
       "ruby/rna-transcription",
@@ -74,6 +75,18 @@
     "repository": "https://github.com/exercism/xruby"
   },
   "problems": [
+    {
+      "id": "ruby/hello-world",
+      "track_id": "ruby",
+      "language": "Ruby",
+      "slug": "hello-world",
+      "name": "Hello World",
+      "files": {
+        "hello_world_test.rb": "require 'minitest/autorun'\nrequire_relative 'hello_world'\nclass HelloWorldTest < Minitest::Test\n  def test_no_name\n    assert_equal 'Hello, world!', HelloWorld.hello(''), 'Greeting given no name'\n  end\n\n  def test_sample_name\n    assert_equal 'Hello, Alice!', HelloWorld.hello('Alice'), 'Greeting given the name \"Alice\"'\n  end\n\n  def test_other_sample_name\n    assert_equal 'Hello, Bob!', HelloWorld.hello('Bob'), 'Greeting given the name \"Bob\"'\n  end\nend\n",
+        "README.md": "# Hello World\n\nWrite a program that greets the user by name, or by saying \"Hello world!\" if no name is given.\n\n[\"Hello, World!\"](http://en.wikipedia.org/wiki/%22Hello,_world!%22_program) is the traditional first program for beginning programmers. As programmers mature, they eventually want to test their code.\n\nHere at Exercism we encourage [Test Driven Development](http://en.wikipedia.org/wiki/Test-driven_development) (TDD). Test Driven Development is where you write your tests before writing any functionality. This allows you to consider the requirements of the code, and any edge cases that you may need to support.\n\nOnce you finish writing a test, you write the functionality to make it pass. When all the functionality is finished, you can write tests for your next feature. One of the best features of tests is that they become a safety net when making changes to the existing codebase.\n\nWe encourage users to use TDD when solving problems to help form good coding habits,\nand help simulate working on **Real World™** projects.\n\n## A typical TDD workflow on Exercism:\n\n1. Run the test file and pick one test that's failing.\n2. Write some code to fix the test you picked.\n3. Re-run the tests to confirm the test is now passing.\n4. Repeat from step 1.\n5. [Submit your solution](http://help.exercism.io/submitting-exercises.html).\n\n## Instructions\n\nSubmissions are encouraged to be general, within reason. Having said that, it's also important not to over-engineer a solution.\n\nIt's important to remember that the goal is to make code as expressive and readable as we can. However, solutions to the hello-world exercise will be not be reviewed by a person, but by rikki- the robot, who will offer an encouraging word. \n\n## Specification\n\nThe `Hello World!` program will greet me, the caller.\n\nIf I tell the program my name is Alice, it will greet me by saying \"Hello, Alice!\".\n\nIf I neglect to give it my name, it will greet me by saying \"Hello, world!\"\n\nRefer exercism help page at http://help.exercism.io/getting-started-with-ruby.html for ruby installation and learning resources.\n\nFor running the tests provided, you will need the Minitest gem. Open a terminal window and run the following command to install minitest:\n\n    gem install minitest\n\nIn order to run the test, you can run the test file from the exercise directory. For example, if the test suite is called `hello_world_test.rb`, you can run the following command:\n\n    ruby hello_world_test.rb\n\n## Source\n\nThis is a program to introduce users to using Exercism [view source](http://en.wikipedia.org/wiki/%22Hello,_world!%22_program)\n"
+      },
+      "fresh": false
+    },
     {
       "id": "ruby/hamming",
       "track_id": "ruby",
