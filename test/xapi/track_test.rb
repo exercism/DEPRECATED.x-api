@@ -20,4 +20,24 @@ class TrackTest < Minitest::Test
     assert_equal "jewels", track.id
     assert_equal "Fancy Stones", track.language
   end
+
+  def test_docs
+    track = Xapi::Track.new("./test/fixtures/problems/fake")
+    docs = track.docs
+
+    content = {
+      "hello" => "Module\n",
+      "resources" => "Resources\n",
+      "installation" => "Installing\n",
+      "tools" => "Lint\n",
+      "workflow" => "Running\n",
+    }
+    assert_equal content, docs.content
+  end
+
+  def test_null_track_docs
+    track = Xapi::NullTrack.new('id')
+
+    assert_instance_of Xapi::NullDocs, track.docs
+  end
 end

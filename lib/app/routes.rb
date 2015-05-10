@@ -7,5 +7,6 @@ module Xapi
     autoload :Assignments, 'app/routes/assignments'
     autoload :Exercises, 'app/routes/exercises'
     autoload :User, 'app/routes/user'
+    autoload :Docs, 'app/routes/docs'
   end
 end
