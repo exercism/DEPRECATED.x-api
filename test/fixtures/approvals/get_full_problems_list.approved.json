@@ -587,8 +587,12 @@
       "source_url": "http://en.wikipedia.org/wiki/%22Hello,_world!%22_program",
       "track_ids": [
         "coffeescript",
+        "javascript",
+        "lua",
         "python",
-        "ruby"
+        "ruby",
+        "scala",
+        "scheme"
       ]
     },
     {
