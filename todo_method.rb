@@ -1,14 +1,16 @@
+# slugs are the exercises that are written in each language
+# track are the languages
+
 require './lib/xapi'
 
 class Todo
 
-  
   def get_slugs
     slugs = []
     Dir.glob("./metadata/*.yml").each do |filename|
       slugs << filename[11...-4]
     end
-    slugs
+    slugs.sort
   end
 
   def get_tracks
@@ -17,94 +19,141 @@ class Todo
     tracksfiles.each do |filename|
       tracks << filename[11..-1]
     end
-    tracks
+    tracks.sort
   end
 
-  def get_slugs_done
-    slugs_done = {}
+  def get_existing_slugs(track)
+    existing_slugs = {}
     get_tracks.each do |track|
-        slugs_done[track] = Xapi::Config.find(track).slugs
+      existing_slugs[track] = Xapi::Config.find(track).slugs
     end
-    slugs_done
+    existing_slugs[track].sort
   end
 
-  def get_todo
+  def get_todo(track)
     todo = {}
     get_tracks.each do |track|
-      todo[track] = get_slugs - get_slugs_done[track]
+      todo[track] = get_slugs - get_existing_slugs(track)
     end
-    todo
+    todo[track]
+  end
+
+  def print_todo(track)
+    total_slugs = get_todo(track).size
+    number_of_slugs_to_be_written = get_todo(track).size
+    to_be_written = get_todo(track).size
+    language = (track).capitalize
+    puts "There are #{total_slugs} exercises that could be in this track. 
+      Right now there are only #{number_of_slugs_to_be_written}.\n
+      That means there are #{to_be_written} #{language} exercises that 
+      need to be written to complete it's set.\n
+      Contribute to this site and the open source community by 
+        writing one of these exercises."
   end
 
   def track1_minus_track2(track1, track2)
-    #what is done in track1 but not done in track2
-    track1_minus_track2 = get_slugs_done[track1] - get_slugs_done[track2]
-  end
-
-  def exercises_to_be_written(track)
-    all_slugs = get_slugs.size
-    all_slugs - get_slugs_done[track].size
-  end
-
-  def print_exercises_to_be_written(track)
-    to_be_written = exercises_to_be_written(track)
-    language = (track).capitalize
-    puts "There are #{to_be_written} #{language} exercises that need to be written to complete it's set."
+    track1 = get_existing_slugs(track1)
+    track2 = get_existing_slugs(track2)
+    track1_minus_track2 = track1 - track2
+    track1_minus_track2.sort
   end
 end
 
 tracker = Todo.new
-puts tracker.print_exercises_to_be_written("ruby")
-puts tracker.print_exercises_to_be_written("python")
-puts tracker.print_exercises_to_be_written("r")
 
-go_track = tracker.exercises_to_be_written("go")
-puts "There are #{go_track} go exercises that need to be written to complete it's set."
-unique_slugs = tracker.get_slugs.length
-puts "There are #{unique_slugs} unique exercises between all the languages. This is the list:"
+puts ""
+puts "------------------------------------------"
+puts "------------------------------------------"
+puts ""
+puts "get_slugs - gets a list of all the unique exercises that currently exist in all the language tracks"
+puts "---------------------"
+puts ""
+puts "get_slugs.size"
+puts "---------------------"
+puts tracker.get_slugs.size
+puts ""
+puts "get_slugs"
+puts "---------------------"
+puts tracker.get_slugs
+puts ""
+puts "------------------------------------------"
+puts "------------------------------------------"
+puts ""
+puts "get_tracks - gets a list of all the language tracks"
+puts "---------------------"
+puts ""
+puts "get_tracks.size"
+puts "---------------------"
+puts tracker.get_tracks.size
+puts ""
+puts "get_tracks"
+puts "---------------------"
+puts tracker.get_tracks
+puts ""
+puts "------------------------------------------"
+puts "------------------------------------------"
+puts ""
+puts "get_existing_slugs - gets a list of all the exercises that currently exist in a particular language track"
+puts "---------------------"
+puts ""
+puts "get_existing_slugs('python').size"
+puts "---------------------"
+puts tracker.get_existing_slugs('python').size
+puts ""
+puts "get_existing_slugs('python')"
+puts "---------------------"
+puts tracker.get_existing_slugs('python')
+puts ""
+puts "------------------------------------------"
+puts "------------------------------------------"
+puts ""
+puts "get_todo - a list of the slugs that need to be made for a particular track"
+puts "---------------------"
+puts ""
+puts "get_todo('ruby').size"
+puts "---------------------"
+puts tracker.get_todo('ruby').size
+puts ""
+puts "get_todo('ruby')"
+puts "---------------------"
+puts tracker.get_todo('ruby')
+puts ""
+puts "---------------------"
+puts ""
+puts "print_todo('ruby')"
+puts "---------------------"
+puts tracker.print_todo('ruby')
+puts ""
+puts "print_todo('python')"
+puts "---------------------"
+puts tracker.print_todo('python')
+puts ""
+puts "print_todo('r')"
+puts "---------------------"
+puts tracker.print_todo('r')
+puts ""
+puts "------------------------------------------"
+puts "------------------------------------------"
+puts ""
+puts "track1_minus_track2(track1, track2) - gets a list of all the exercises that currently exist in a particular language track"
+puts "---------------------"
+puts ""
+puts "track1_minus_track2('ruby', 'python').size"
+puts "---------------------"
+puts tracker.track1_minus_track2("ruby", "python").size
+puts ""
+puts "track1_minus_track2('ruby', 'python')"
+puts "---------------------"
+puts tracker.track1_minus_track2("ruby", "python")
+puts ""
+puts "------------------------------------------"
+puts "------------------------------------------"
 
-python_track = tracker.exercises_to_be_written("python")
-puts "There are #{python_track} go exercises that need to be written to complete it's set."
-
-ruby_track = tracker.exercises_to_be_written("ruby")
-puts "There are #{ruby_track} go exercises that need to be written to complete it's set."
-
-#puts exercises_to_be_written
-#puts get_todo("go")
-
-=begin
-puts""
-
-       all_slugs = get_slugs.size
-        go_track = get_slugs_done["go"].size
-go_to_be_written = all_slugs - go_track
-
-puts "There are #{all_slugs} unique exercises that appear in all the tracks.  
-It would be great if each track had the same exercises. 
-We could use your help with this."
-puts""
-puts "------------GO--------------"
-
-puts "There are #{go_track} exercises already written in the Go Track."
-
-puts "That means there are #{go_to_be_written} exercises that need to be written in the Go Track for it to have a complete set of exercises."
-
-puts""
-puts"-----------PYTHON--------------"
-
-go_minus_python = track1_minus_track2("go", "python").size
-python_track = get_slugs_done["python"].size
-puts "There are #{python_track} exercises already written in the Python Track."
-python_exercises_to_be_written =  all_slugs - python_track
-puts "That means there are #{python_exercises_to_be_written} exercises that need to be written in the Go Track for it to have a complete set of exercises."
-
-
-# puts track1_minus_track2("python", "go").size
-
-# puts (track1_minus_track2("python", "go") == track1_minus_track2("go", "python"))
-
+=begin 
+# same as todo method
+  def get_slugs_to_be_written(track)
+    all_slugs = get_slugs.size
+    existing_slugs = get_existing_slugs(track).size
+    all_slugs - existing_slugs
+  end
 =end
-
-
-
-
