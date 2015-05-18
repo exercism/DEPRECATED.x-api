@@ -1126,6 +1126,15 @@
       ]
     },
     {
+      "slug": "react",
+      "blurb": "Implement a basic reactive system.",
+      "source": null,
+      "source_url": null,
+      "track_ids": [
+
+      ]
+    },
+    {
       "slug": "rna-transcription",
       "blurb": "Write a program that, given a DNA strand, returns its RNA complement (per RNA transcription).",
       "source": "Rosalind",
