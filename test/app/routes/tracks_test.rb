@@ -20,7 +20,7 @@ class AppRoutesTracksTest < Minitest::Test
     get '/tracks'
     tracks = JSON.parse(last_response.body)['tracks'].find { |track|
       track['slug'] == 'clojure'
-    }['todo']
+    }['todo'].sort
     Approvals.verify(tracks, name: 'get_clojure_todo')
   end
 
