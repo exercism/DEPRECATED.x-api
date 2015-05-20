@@ -11,7 +11,9 @@ module Xapi
     end
 
     def self.tracks
-      @tracks ||= dirs.map { |dir| Xapi::Track.new(dir) }.sort_by(&:id)
+      @tracks ||= dirs.map { |dir|
+        Xapi::Track.new(dir, Xapi::Metadata.load("./metadata").slugs)
+      }.sort_by(&:id)
     end
 
     def self.find(id)
