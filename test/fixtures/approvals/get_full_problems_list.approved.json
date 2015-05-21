@@ -87,6 +87,7 @@
         "perl5",
         "python",
         "ruby",
+        "rust",
         "scala",
         "scheme",
         "swift"
@@ -147,7 +148,8 @@
         "ocaml",
         "perl5",
         "python",
-        "ruby"
+        "ruby",
+        "rust"
       ]
     },
     {
@@ -225,6 +227,7 @@
         "perl5",
         "python",
         "ruby",
+        "rust",
         "scala",
         "scheme",
         "swift"
@@ -345,6 +348,7 @@
         "ocaml",
         "perl5",
         "ruby",
+        "rust",
         "scala"
       ]
     },
@@ -388,7 +392,7 @@
       "source": null,
       "source_url": null,
       "track_ids": [
-
+        "rust"
       ]
     },
     {
@@ -519,6 +523,7 @@
         "perl5",
         "python",
         "ruby",
+        "rust",
         "scala",
         "swift"
       ]
@@ -589,6 +594,7 @@
         "coffeescript",
         "javascript",
         "lua",
+        "objective-c",
         "python",
         "ruby",
         "scala",
@@ -686,6 +692,7 @@
         "plsql",
         "python",
         "ruby",
+        "rust",
         "scala",
         "scheme",
         "swift"
@@ -846,6 +853,7 @@
         "ocaml",
         "perl5",
         "ruby",
+        "rust",
         "scala",
         "scheme",
         "swift"
@@ -917,6 +925,7 @@
         "elixir",
         "go",
         "haskell",
+        "rust",
         "scala"
       ]
     },
@@ -967,6 +976,7 @@
         "perl5",
         "python",
         "ruby",
+        "rust",
         "scala",
         "scheme",
         "swift"
@@ -1002,6 +1012,7 @@
         "haskell",
         "lisp",
         "ocaml",
+        "rust",
         "scheme"
       ]
     },
@@ -1158,6 +1169,7 @@
         "plsql",
         "python",
         "ruby",
+        "rust",
         "scala",
         "scheme",
         "swift"
@@ -1184,6 +1196,7 @@
         "php",
         "python",
         "ruby",
+        "rust",
         "scala",
         "scheme",
         "swift"
@@ -1471,6 +1484,7 @@
       "track_ids": [
         "csharp",
         "go",
+        "rust",
         "swift"
       ]
     },
@@ -1576,6 +1590,7 @@
         "perl5",
         "python",
         "ruby",
+        "rust",
         "scala",
         "swift"
       ]
