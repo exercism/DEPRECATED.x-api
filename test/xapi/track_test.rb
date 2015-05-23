@@ -14,6 +14,11 @@ class TrackTest < Minitest::Test
     assert_equal "https://example.com/exercism/xfruit", track.repository
   end
 
+  def test_todo
+    track = Xapi::Track.new("./test/fixtures/problems/fruit", %w(apple banana dog one two))
+    assert_equal %w(dog one two), track.todo
+  end
+
   def test_inactive_language
     track = Xapi::Track.new("./test/fixtures/problems/jewels")
     refute track.active?

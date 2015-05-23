@@ -1,9 +1,10 @@
 module Xapi
   # Track is a collection of problems in a given language.
   class Track
-    attr_reader :path
-    def initialize(path)
+    attr_reader :path, :metadata
+    def initialize(path, metadata=[])
       @path = path
+      @metadata = metadata
     end
 
     def active
@@ -39,6 +40,10 @@ module Xapi
       problems.find(proc { Problem.new(attributes(slug)) }) { |problem|
         problem.slug == slug
       }
+    end
+
+    def todo
+      metadata - slugs
     end
 
     private

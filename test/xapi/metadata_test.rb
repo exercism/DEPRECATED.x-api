@@ -6,5 +6,6 @@ class MetadataTest < Minitest::Test
     metadata = Xapi::Metadata.load("./test/fixtures/metadata")
     slugs = %w(apple banana dog one two).sort
     assert_equal slugs, metadata.summaries.map(&:slug).sort
+    assert_equal slugs, metadata.slugs.sort
   end
 end

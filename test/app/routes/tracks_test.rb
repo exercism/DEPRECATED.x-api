@@ -16,6 +16,14 @@ class AppRoutesTracksTest < Minitest::Test
     Approvals.verify(tracks, name: 'get_tracks')
   end
 
+  def test_all_the_todos
+    get '/tracks'
+    tracks = JSON.parse(last_response.body)['tracks'].find { |track|
+      track['slug'] == 'clojure'
+    }['todo'].sort
+    Approvals.verify(tracks, name: 'get_clojure_todo')
+  end
+
   # Again, a smoke test.
   # It will break as the track gets updated, since
   # we're including the entire problem (not just the id).
