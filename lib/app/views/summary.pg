@@ -1,0 +1,3 @@
+node :problem => summary do |problem|
+  attributes :slug, :blurb, :source, :source_url, :track_ids
+end

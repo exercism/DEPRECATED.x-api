@@ -8,10 +8,15 @@ class AppRoutesProblemsTest < Minitest::Test
     Xapi::App
   end
 
-
   def test_full_problems_list
     get '/problems'
     options = { format: :json, name: 'get_full_problems_list' }
+    Approvals.verify(last_response.body, options)
+  end
+
+  def test_single_problem
+    get '/problems/leap'
+    options = { format: :json, name: 'get_all_leaps' }
     Approvals.verify(last_response.body, options)
   end
 end

@@ -1,0 +1,32 @@
+{
+  "problem": {
+    "slug": "leap",
+    "blurb": "Write a program that will take a year and report if it is a leap year.",
+    "source": "JavaRanch Cattle Drive, exercise 3",
+    "source_url": "http://www.javaranch.com/leap.jsp",
+    "track_ids": [
+      "clojure",
+      "cpp",
+      "csharp",
+      "elixir",
+      "erlang",
+      "fsharp",
+      "go",
+      "haskell",
+      "javascript",
+      "lisp",
+      "lua",
+      "objective-c",
+      "ocaml",
+      "perl5",
+      "php",
+      "plsql",
+      "python",
+      "ruby",
+      "rust",
+      "scala",
+      "scheme",
+      "swift"
+    ]
+  }
+}
