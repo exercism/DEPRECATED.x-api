@@ -37,4 +37,47 @@ class AppRoutesTracksTest < Minitest::Test
     assert_equal last_response.status, 404
     Approvals.verify(last_response.body, format: :json, name: 'get_invalid_track')
   end
+
+  def test_error_on_missing_language
+    get '/tracks/unknown/language'
+
+    assert_equal 404, last_response.status
+  end
+
+  def test_error_on_missing_language_with_readme
+    get '/tracks/unknown/language/readme'
+
+    assert_equal 404, last_response.status
+  end
+
+  def test_error_on_nonexistent_problem
+    get '/tracks/ruby/unknown'
+
+    assert_equal 404, last_response.status
+  end
+
+  def test_error_on_nonexistent_problem_with_readme
+    get '/tracks/ruby/unknown/readme'
+
+    assert_equal 404, last_response.status
+  end
+
+  def test_get_specific_problem
+    get '/tracks/ruby/leap'
+    options = { format: :json, name: 'get_specific_problem' }
+    Approvals.verify(last_response.body, options)
+  end
+
+  def test_get_specific_problem_readme
+    get '/tracks/ruby/leap/readme'
+
+    options = { format: :json, name: 'get_specific_problem_readme' }
+    Approvals.verify(last_response.body, options)
+  end
+
+  def test_get_specific_problem_tests
+    get '/tracks/ruby/leap/tests'
+    options = { format: :json, name: 'get_specific_problem_tests' }
+    Approvals.verify(last_response.body, options)
+  end
 end
