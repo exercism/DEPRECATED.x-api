@@ -50,6 +50,7 @@
         "perl5",
         "python",
         "ruby",
+        "rust",
         "scala",
         "swift"
       ]
@@ -372,6 +373,7 @@
         "plsql",
         "python",
         "ruby",
+        "rust",
         "scala",
         "scheme",
         "swift"
@@ -1131,6 +1133,7 @@
         "php",
         "plsql",
         "ruby",
+        "rust",
         "scala",
         "scheme",
         "swift"
