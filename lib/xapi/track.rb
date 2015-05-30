@@ -1,10 +1,11 @@
 module Xapi
   # Track is a collection of problems in a given language.
   class Track
-    attr_reader :path, :metadata
-    def initialize(path, metadata=[])
+    def initialize(path, track, metadata_slugs=[])
       @path = path
-      @metadata = metadata
+      @track = track
+      @track_path = File.join(path, "problems", track)
+      @metadata_slugs = metadata_slugs
     end
 
     def active
@@ -33,7 +34,7 @@ module Xapi
     end
 
     def docs
-      @docs ||= Docs.new(path)
+      @docs ||= Docs.new(track_path)
     end
 
     def find(slug)
@@ -43,17 +44,19 @@ module Xapi
     end
 
     def todo
-      metadata - slugs
+      metadata_slugs - slugs
     end
 
     private
+
+    attr_reader :path, :track, :track_path, :metadata_slugs
 
     def attributes(slug)
       {
         language: language,
         track_id: id,
         slug: slug,
-        path: '.',
+        path: path,
       }
     end
 
@@ -62,7 +65,7 @@ module Xapi
     end
 
     def file
-      File.join(path, "config.json")
+      File.join(track_path, "config.json")
     end
   end
 end

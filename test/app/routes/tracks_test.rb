@@ -8,8 +8,6 @@ class AppRoutesTracksTest < Minitest::Test
     Xapi::App
   end
 
-  # More of a smoke test than anything else.
-  # It will break as we add new languages.
   def test_all_the_tracks
     get '/tracks'
     tracks = JSON.parse(last_response.body)['tracks'].map { |track| track['slug'] }
@@ -19,21 +17,18 @@ class AppRoutesTracksTest < Minitest::Test
   def test_all_the_todos
     get '/tracks'
     tracks = JSON.parse(last_response.body)['tracks'].find { |track|
-      track['slug'] == 'clojure'
+      track['slug'] == 'fruit'
     }['todo'].sort
-    Approvals.verify(tracks, name: 'get_clojure_todo')
+    Approvals.verify(tracks, name: 'get_fruit_todo')
   end
 
-  # Again, a smoke test.
-  # It will break as the track gets updated, since
-  # we're including the entire problem (not just the id).
   def test_a_track
-    get '/tracks/ruby'
-    Approvals.verify(last_response.body, format: :json, name: 'get_track_ruby')
+    get '/tracks/fake'
+    Approvals.verify(last_response.body, format: :json, name: 'get_track_fake')
   end
 
   def test_track_does_not_exist
-    get '/tracks/rubby'
+    get '/tracks/unknown'
     assert_equal last_response.status, 404
     Approvals.verify(last_response.body, format: :json, name: 'get_invalid_track')
   end
@@ -51,32 +46,32 @@ class AppRoutesTracksTest < Minitest::Test
   end
 
   def test_error_on_nonexistent_problem
-    get '/tracks/ruby/unknown'
+    get '/tracks/fake/unknown'
 
     assert_equal 404, last_response.status
   end
 
   def test_error_on_nonexistent_problem_with_readme
-    get '/tracks/ruby/unknown/readme'
+    get '/tracks/fake/unknown/readme'
 
     assert_equal 404, last_response.status
   end
 
   def test_get_specific_problem
-    get '/tracks/ruby/leap'
+    get '/tracks/fake/three'
     options = { format: :json, name: 'get_specific_problem' }
     Approvals.verify(last_response.body, options)
   end
 
   def test_get_specific_problem_readme
-    get '/tracks/ruby/leap/readme'
+    get '/tracks/fake/three/readme'
 
     options = { format: :json, name: 'get_specific_problem_readme' }
     Approvals.verify(last_response.body, options)
   end
 
   def test_get_specific_problem_tests
-    get '/tracks/ruby/leap/tests'
+    get '/tracks/ruby/three/tests'
     options = { format: :json, name: 'get_specific_problem_tests' }
     Approvals.verify(last_response.body, options)
   end

@@ -1,13 +1,14 @@
 {
   "assignments": [
     {
-      "track_id": "ruby",
-      "id": "leap",
-      "track": "ruby",
-      "slug": "leap",
+      "track_id": "fake",
+      "id": "one",
+      "track": "fake",
+      "slug": "one",
       "files": {
-        "leap_test.rb": "#!/usr/bin/env ruby\ngem 'minitest', '>= 5.0.0'\nrequire 'date'\nrequire 'minitest/autorun'\nrequire_relative 'leap'\n\nclass Date\n  def leap?\n    throw \"Implement this yourself instead of using Ruby's implementation.\"\n  end\n\n  alias_method :gregorian_leap?, :leap?\n  alias_method :julian_leap?, :leap?\nend\n\nclass YearTest < Minitest::Test\n  def test_leap_year\n    assert Year.leap?(1996), 'Yes, 1996 is a leap year'\n  end\n\n  def test_non_leap_year\n    skip\n    refute Year.leap?(1997), 'No, 1997 is not a leap year'\n  end\n\n  def test_non_leap_even_year\n    skip\n    refute Year.leap?(1998), 'No, 1998 is not a leap year'\n  end\n\n  def test_century\n    skip\n    refute Year.leap?(1900), 'No, 1900 is not a leap year'\n  end\n\n  def test_fourth_century\n    skip\n    assert Year.leap?(2400), 'Yes, 2400 is a leap year'\n  end\nend\n",
-        "README.md": "# Leap\n\nWrite a program that will take a year and report if it is a leap year.\n\nThe tricky thing here is that a leap year occurs:\n\n```plain\non every year that is evenly divisible by 4\n  except every year that is evenly divisible by 100\n    unless the year is also evenly divisible by 400\n```\n\nFor example, 1997 is not a leap year, but 1996 is.  1900 is not a leap\nyear, but 2000 is.\n\nIf your language provides a method in the standard library that does\nthis look-up, pretend it doesn't exist and implement it yourself.\n\n## Notes\n\nFor a delightful, four minute explanation of the whole leap year\nphenomenon, go watch [this youtube video][video].\n\n[video]: http://www.youtube.com/watch?v=xX96xng7sAE\n\nRefer to the [exercism help\npage](http://help.exercism.io/getting-started-with-ruby.html) at\nfor ruby installation and learning resources.\n\nFor running the tests provided, you will need the Minitest gem. Open a\nterminal window and run the following command to install minitest:\n\n    gem install minitest\n\nIf you would like color output, you can `require 'minitest/pride'` in\nthe test file, or note the alternative instruction, below, for runnng\nthe test file.\n\n\nIn order to run the test, you can run the test file from the exercise\ndirectory. For example, if the test suite is called\n`hello_world_test.rb`, you can run the following command:\n\n    ruby hello_world_test.rb\n\nTo include color from the command line:\n\n    ruby -rminitest/pride hello_world_test.rb\n\nThe test files may have the execution bit set so you may also be\nable to run it like this:\n\n    ./hello_world_test.rb\n\n\n\n## Source\n\nJavaRanch Cattle Drive, exercise 3 [view source](http://www.javaranch.com/leap.jsp)\n"
+        "Fakefile": "Autorun fake code\n",
+        "one_test.tst": "assert 'one'\n",
+        "README.md": "# One\n\nThis is one.\n\n* one\n* one again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
       },
       "fresh": false
     }

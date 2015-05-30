@@ -11,7 +11,8 @@ end
 
 omissions = []
 Dir.glob("problems/*").each do |path|
-  track = Xapi::Track.new(path)
+  track_id = File.basename(path)
+  track = Xapi::Track.new(".", track_id)
   track.slugs.each do |slug|
     if missing?(slug)
       omissions << slug
