@@ -4,8 +4,12 @@ require 'xapi/track'
 require 'xapi/problem'
 
 class TrackTest < Minitest::Test
+  def setup
+    @path = "./test/fixtures/"
+  end
+
   def test_basic_configuration
-    track = Xapi::Track.new("./test/fixtures/problems/fruit")
+    track = Xapi::Track.new(@path, "fruit")
     assert track.active?
     assert_equal "fruit", track.id
     assert_equal "Fruit", track.language
@@ -15,19 +19,19 @@ class TrackTest < Minitest::Test
   end
 
   def test_todo
-    track = Xapi::Track.new("./test/fixtures/problems/fruit", %w(apple banana dog one two))
+    track = Xapi::Track.new(@path, "fruit", %w(apple banana dog one two))
     assert_equal %w(dog one two), track.todo
   end
 
   def test_inactive_language
-    track = Xapi::Track.new("./test/fixtures/problems/jewels")
+    track = Xapi::Track.new(@path, "jewels")
     refute track.active?
     assert_equal "jewels", track.id
     assert_equal "Fancy Stones", track.language
   end
 
   def test_docs
-    track = Xapi::Track.new("./test/fixtures/problems/fake")
+    track = Xapi::Track.new(@path, "fake")
     docs = track.docs
 
     content = {
