@@ -1,7 +1,3 @@
 {
-  "problem_test": {
-    "track_id": "ruby",
-    "slug": "leap",
-    "test": "#!/usr/bin/env ruby\ngem 'minitest', '>= 5.0.0'\nrequire 'date'\nrequire 'minitest/autorun'\nrequire_relative 'leap'\n\nclass Date\n  def leap?\n    throw \"Implement this yourself instead of using Ruby's implementation.\"\n  end\n\n  alias_method :gregorian_leap?, :leap?\n  alias_method :julian_leap?, :leap?\nend\n\nclass YearTest < Minitest::Test\n  def test_leap_year\n    assert Year.leap?(1996), 'Yes, 1996 is a leap year'\n  end\n\n  def test_non_leap_year\n    skip\n    refute Year.leap?(1997), 'No, 1997 is not a leap year'\n  end\n\n  def test_non_leap_even_year\n    skip\n    refute Year.leap?(1998), 'No, 1998 is not a leap year'\n  end\n\n  def test_century\n    skip\n    refute Year.leap?(1900), 'No, 1900 is not a leap year'\n  end\n\n  def test_fourth_century\n    skip\n    assert Year.leap?(2400), 'Yes, 2400 is a leap year'\n  end\nend\n"
-  }
+  "error": "We don't have problem 'three' in 'ruby'"
 }

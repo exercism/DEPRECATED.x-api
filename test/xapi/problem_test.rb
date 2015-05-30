@@ -13,7 +13,6 @@ class ProblemTest < Minitest::Test
       language: 'Who Cares',
       slug: 'one',
       path: './test/fixtures',
-
     }
   end
 

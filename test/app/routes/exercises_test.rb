@@ -24,7 +24,7 @@ class AppRoutesExercisesTest < Minitest::Test
 
   def test_get_problems_by_language
     VCR.use_cassette('exercism_api_current_exercises') do
-      get '/exercises/haskell', key: 'abc123'
+      get '/exercises/fruit', key: 'abc123'
       options = { format: :json, name: 'get_current_problems_by_language' }
       Approvals.verify(last_response.body, options)
     end
@@ -41,7 +41,7 @@ class AppRoutesExercisesTest < Minitest::Test
 
   def test_v2_get_problems_by_language
     VCR.use_cassette('exercism_api_current_exercises_v2') do
-      get '/v2/exercises/haskell', key: 'abc123'
+      get '/v2/exercises/fruit', key: 'abc123'
       options = { format: :json, name: 'get_current_problems_by_language_v2' }
       Approvals.verify(last_response.body, options)
     end
@@ -58,7 +58,7 @@ class AppRoutesExercisesTest < Minitest::Test
 
   def test_get_single_problems
     VCR.use_cassette('exercism_api_single_exercise_v2') do
-      get '/v2/exercises/ruby/queen-attack'
+      get '/v2/exercises/fruit/apple'
 
       options = { format: :json, name: 'get_single_problem_v2' }
       Approvals.verify(last_response.body, options)
