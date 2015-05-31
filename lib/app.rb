@@ -27,7 +27,7 @@ module Xapi
     end
 
     error 500 do
-      Bugsnag.auto_notify($ERROR_INFO)
+      Bugsnag.auto_notify($ERROR_INFO, nil, request)
       msg = "So sorry! We've been notified of the error and will investigate."
       { error: msg }.to_json
     end
