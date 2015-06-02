@@ -169,6 +169,7 @@
         "haskell",
         "java",
         "javascript",
+        "lisp",
         "lua",
         "plsql",
         "python",
@@ -436,6 +437,7 @@
         "perl5",
         "python",
         "ruby",
+        "rust",
         "scala",
         "swift"
       ]
