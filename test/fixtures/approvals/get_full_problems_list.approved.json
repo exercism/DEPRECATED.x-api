@@ -622,6 +622,7 @@
         "perl5",
         "python",
         "ruby",
+        "rust",
         "scala"
       ]
     },
