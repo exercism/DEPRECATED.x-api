@@ -39,8 +39,8 @@ Puma 2.7.1 starting...
 At this point you can navigate to an existing endpoint in your browser, e.g.
 [localhost:9292/problems/ruby/bob](http://localhost:9292/problems/ruby/bob)
 
-**If you're not seeing any problems it is probably because you haven't
-updated or inititialized the submodules. Be sure to work through the
+**If the endpoint does not return exercism problem data, it is probably because
+you haven't updated or inititialized the submodules. Be sure to work through the
 [Getting Started](https://github.com/exercism/x-api/blob/master/README.md#getting-started)
 section of the README.**
 
