@@ -465,7 +465,8 @@
       "source_url": null,
       "track_ids": [
         "elixir",
-        "haskell"
+        "haskell",
+        "rust"
       ]
     },
     {
