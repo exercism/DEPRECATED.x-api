@@ -17,7 +17,7 @@ group :development, :test do
   gem 'coveralls', '~> 0.7', require: false
   gem 'minitest', '~> 5.3', require: false
   gem 'rack-test', '~> 0.6', require: false
-  gem 'rubocop', git: 'https://github.com/bbatsov/rubocop.git', require: false
+  gem 'rubocop', '~> 0.30.0', require: false
   gem 'simplecov', '~> 0.8', require: false
   gem 'vcr', '~> 2.8', require: false
   gem 'webmock', '~> 1.17.0', require: false
