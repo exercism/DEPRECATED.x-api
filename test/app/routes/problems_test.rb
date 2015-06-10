@@ -15,7 +15,7 @@ class AppRoutesProblemsTest < Minitest::Test
   end
 
   def test_single_problem
-    get '/problems/leap'
+    get '/problems/one'
     options = { format: :json, name: 'get_all_leaps' }
     Approvals.verify(last_response.body, options)
   end

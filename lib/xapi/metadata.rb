@@ -6,19 +6,22 @@ module Xapi
   class Metadata
     REGEX_SLUG = %r{.*\/([^\/]*)\.yml}
 
-    def self.default_dir
-      File.join(".", "metadata")
+    def self.load(path)
+      metadata_dir = metadata_dir(path)
+      new(dir: metadata_dir, slugs: slugs_in(metadata_dir))
     end
 
-    def self.load(dir=default_dir)
-      new(dir: dir, slugs: slugs_in(dir))
+    def self.metadata_dir(dir)
+      File.join(dir, "metadata")
     end
+    private_class_method :metadata_dir
 
     def self.slugs_in(dir)
       Dir["#{dir}/*.yml"].map do |f|
         f[REGEX_SLUG, 1]
       end
     end
+    private_class_method :slugs_in
 
     attr_reader :dir, :slugs
     def initialize(dir: default_dir, slugs: [])
@@ -39,6 +42,8 @@ module Xapi
     def summaries
       @summary ||= directory.values
     end
+
+    private
 
     def append(track_id)
       tracks << track_id

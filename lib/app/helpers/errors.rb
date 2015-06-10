@@ -7,7 +7,7 @@ module Xapi
         "%s %s %s/issues" % [
           "Something went wrong.",
           "Please post an issue on GitHub so we can figure out what happened.",
-          Config::EXERCISM_URL,
+          Xapi::Config::EXERCISM_URL,
         ]
       end
 

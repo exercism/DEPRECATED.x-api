@@ -11,9 +11,7 @@ class HomeworkTest < Minitest::Test
   def homework_in(languages, data)
     homework = Xapi::Homework.new('abc123', languages, './test/fixtures')
     homework.stub(:data, data) do
-      Xapi::Config.stub(:path, './test/fixtures') do
-        yield homework
-      end
+      yield homework
     end
   end
 

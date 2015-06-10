@@ -2,7 +2,7 @@ module Xapi
   # Homework gets all of a user's currently pending problems.
   class Homework
     attr_reader :key, :languages, :path
-    def initialize(key, languages=Xapi::Config.languages, path=default_path)
+    def initialize(key, languages, path)
       @key = key
       @languages = languages
       @path = path
@@ -33,10 +33,6 @@ module Xapi
 
     def data
       @data ||= ExercismIO.exercises_for(key)
-    end
-
-    def default_path
-      '.'
     end
   end
 end

@@ -3,12 +3,12 @@ module Xapi
     # deprecated
     class Assignments < Core
       get '/assignments/:track' do |id|
-        track = Xapi::Config.find(id)
+        track = config.find(id)
         pg :assignments, locals: { assignments: track.problems }
       end
 
       get '/assignments/:track/:problem' do |id, slug|
-        problem = Xapi::Config.find(id).find(slug)
+        problem = config.find(id).find(slug)
         problem.validate or halt 404, { error: problem.error }.to_json
         pg :assignments, locals: { assignments: [problem] }
       end

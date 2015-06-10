@@ -11,9 +11,9 @@ module Xapi
       end
 
       get '/problems' do
-        directory = Xapi::Metadata.load.directory
-        Xapi::Config.languages.each do |language|
-          Xapi::Config.find(language).problems.each do |problem|
+        directory = Xapi::Metadata.load(path).directory
+        languages.each do |language|
+          config.find(language).problems.each do |problem|
             directory[problem.slug].append(problem.track_id)
           end
         end
@@ -22,12 +22,12 @@ module Xapi
 
       # v1: brute force
       get '/problems/:slug' do |slug|
-        directory = Xapi::Metadata.load.directory
+        directory = Xapi::Metadata.load(path).directory
         unless directory[slug]
           halt 404, { error: "Unknown problem '#{slug}'" }.to_json
         end
-        Xapi::Config.languages.each do |language|
-          Xapi::Config.find(language).problems.each do |problem|
+        languages.each do |language|
+          config.find(language).problems.each do |problem|
             directory[problem.slug].append(problem.track_id)
           end
         end
