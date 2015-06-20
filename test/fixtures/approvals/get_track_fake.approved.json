@@ -9,7 +9,13 @@
       "fake/two",
       "fake/three"
     ],
-    "repository": "https://github.com/exercism/xfake"
+    "repository": "https://github.com/exercism/xfake",
+    "todo": [
+      "apple",
+      "banana",
+      "cherry",
+      "dog"
+    ]
   },
   "problems": [
     {

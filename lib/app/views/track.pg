@@ -3,6 +3,7 @@ node :track => track do
   node :slug => track.id
   node :problems => track.problems.map(&:id)
   node :repository => track.repository
+  node :todo => track.todo
 end
 
 partial :problems, :problems => track.problems
