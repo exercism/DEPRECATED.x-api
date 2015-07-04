@@ -289,8 +289,11 @@ When creating a new problem there are a few things to keep in mind.
 If you are adding an exercise that already exists in another language, then
 the metadata files will already be present.
 
-The example solution's file should contain the word `example` or `Example` in
-it, to avoid delivering it as part of the problem.
+The pathname of the example solution file(s) should contain the word `example`
+(case-insensitive) to avoid delivering it/them as part of the problem. To
+illustrate: `example.scala`, `WordCountExample.swift` and
+`src/example/java/PrimeFactors.java` will all be omitted when their problem
+is delivered.
 
 The example is not shown to people, it doesn't have to be beautiful code, it's
 just there to make sure that the test suite works.
