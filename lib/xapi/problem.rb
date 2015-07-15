@@ -44,8 +44,12 @@ module Xapi
       Code.new(dir).files
     end
 
+    def blurb
+      meta.blurb
+    end
+
     def readme
-      Readme.new(slug, path, setup).text
+      meta.text
     end
 
     def test_file
@@ -72,6 +76,10 @@ module Xapi
 
     def unknown_problem?
       !File.exist?(dir)
+    end
+
+    def meta
+      @meta ||= Readme.new(slug, path, setup)
     end
   end
 end

@@ -27,11 +27,11 @@ module Xapi
 README
     end
 
-    private
-
     def blurb
       data['blurb']
     end
+
+    private
 
     def source
       data['source']

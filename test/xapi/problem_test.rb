@@ -28,6 +28,7 @@ class ProblemTest < Minitest::Test
     assert_equal 'fake', problem.track_id
     assert_equal 'one', problem.slug
     assert_equal 'One', problem.name
+    assert_equal 'This is one.', problem.blurb
     # TODO: make sure we use track_id everywhere
     # assert_equal 'Who Cares', problem.language
   end
