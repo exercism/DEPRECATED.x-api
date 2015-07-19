@@ -118,3 +118,6 @@
 [submodule "problems/haxe"]
 	path = problems/haxe
 	url = https://github.com/exercism/xhaxe.git
+[submodule "problems/pony"]
+	path = problems/pony
+	url = https://github.com/exercism/xpony.git
