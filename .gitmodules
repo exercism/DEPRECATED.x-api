@@ -115,3 +115,6 @@
 [submodule "problems/coldfusion"]
 	path = problems/coldfusion
 	url = https://github.com/exercism/xcoldfusion.git
+[submodule "problems/haxe"]
+	path = problems/haxe
+	url = https://github.com/exercism/xhaxe.git
