@@ -121,3 +121,6 @@
 [submodule "problems/pony"]
 	path = problems/pony
 	url = https://github.com/exercism/xpony.git
+[submodule "problems/lfe"]
+	path = problems/lfe
+	url = https://github.com/exercism/xlfe.git
