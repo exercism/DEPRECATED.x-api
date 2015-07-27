@@ -124,3 +124,6 @@
 [submodule "problems/lfe"]
 	path = problems/lfe
 	url = https://github.com/exercism/xlfe.git
+[submodule "problems/elisp"]
+	path = problems/elisp
+	url = https://github.com/exercism/xelisp.git
