@@ -91,6 +91,10 @@ is useful. Ignored directories don't get flagged as unimplemented problems.
 A problem might be foregone for a number of reasons, typically because it's a
 bad exercise for the language.
 
+The `config.json` also has an optional `test_pattern` key. This is a regex that
+test filenames will match. If test files contain `/test/`, then this key can be
+deleted.
+
 ### configlet
 ---
 
