@@ -14,10 +14,31 @@ class ConfigTest < Minitest::Test
     config = Xapi::Config.new(".")
 
     expected = [
-      "clojure", "coffeescript", "cpp", "csharp", "elixir",
-      "erlang", "fsharp", "go", "haskell", "java", "javascript",
-      "lisp", "lua", "objective-c", "ocaml", "perl5", "plsql",
-      "php", "python", "ruby", "rust", "scala", "swift", "scheme"
+      "clojure",
+      "coffeescript",
+      "cpp",
+      "csharp",
+      "elisp",
+      "elixir",
+      "erlang",
+      "fsharp",
+      "go",
+      "haskell",
+      "java",
+      "javascript",
+      "lisp",
+      "lua",
+      "objective-c",
+      "ocaml",
+      "perl5",
+      "php",
+      "plsql",
+      "python",
+      "ruby",
+      "rust",
+      "scala",
+      "scheme",
+      "swift",
     ].sort
     assert_equal expected, config.languages.sort
   end
