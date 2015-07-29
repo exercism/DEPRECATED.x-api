@@ -26,6 +26,7 @@ class ConfigTest < Minitest::Test
       "haskell",
       "java",
       "javascript",
+      "lfe",
       "lisp",
       "lua",
       "objective-c",
