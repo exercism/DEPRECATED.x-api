@@ -127,3 +127,6 @@
 [submodule "problems/elisp"]
 	path = problems/elisp
 	url = https://github.com/exercism/xelisp.git
+[submodule "problems/tcl"]
+	path = problems/tcl
+	url = https://github.com/exercism/xtcl.git
