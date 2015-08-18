@@ -130,3 +130,6 @@
 [submodule "problems/tcl"]
 	path = problems/tcl
 	url = https://github.com/exercism/xtcl.git
+[submodule "problems/racket"]
+	path = problems/racket
+	url = https://github.com/exercism/xracket.git
