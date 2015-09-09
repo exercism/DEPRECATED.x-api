@@ -6,6 +6,7 @@ class DocsTest < Minitest::Test
     docs = Xapi::Docs.new(path)
     content = {
       "hello" => "Module\n",
+      "about" => "Language Information\n",
       "resources" => "Resources\n",
       "installation" => "Installing\n",
       "tools" => "Lint\n",
@@ -43,6 +44,7 @@ class DocsTest < Minitest::Test
     docs = Xapi::NullDocs.new
     expected_content = {
       "hello" => "",
+      "about" => "",
       "resources" => "",
       "tools" => "",
       "workflow" => "",

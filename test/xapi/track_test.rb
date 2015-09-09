@@ -36,6 +36,7 @@ class TrackTest < Minitest::Test
 
     content = {
       "hello" => "Module\n",
+      "about" => "Language Information\n",
       "resources" => "Resources\n",
       "installation" => "Installing\n",
       "tools" => "Lint\n",
