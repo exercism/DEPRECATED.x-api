@@ -6,7 +6,7 @@ module Xapi
         halt 404, {
           error: "Documentation for track #{id} was not found.",
         }.to_json unless docs.available?
-        pg :docs, locals:  { docs: docs }
+        pg :docs, locals:  { docs: docs, track_id: id }
       end
     end
   end

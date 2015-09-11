@@ -1,7 +1,7 @@
 module Xapi
   # Track specific documentation
   class Docs
-    DOCS_NAMES = %w(hello workflow resources installation tools)
+    DOCS_NAMES = %w(hello about workflow resources installation tools)
 
     def initialize(path)
       @docs_dir = File.join(path, 'docs')
