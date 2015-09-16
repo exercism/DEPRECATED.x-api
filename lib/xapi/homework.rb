@@ -9,16 +9,18 @@ module Xapi
     end
 
     def problems_in(language)
-      problems.select { |problem| problem.language == language }
+      problems = slugs_in(language).map do |slug|
+        Problem.new track_id: language,
+                    language: language,
+                    path: path,
+                    slug: slug
+      end
+      problems << next_in(language)
+      problems.reject(&:not_found?)
     end
 
     def problems
-      languages.map {|language|
-        attributes = { track_id: language, language: language, path: path }
-        slugs_in(language).map {|slug|
-          Problem.new(attributes.merge(slug: slug))
-        }.uniq + [next_in(language)]
-      }.flatten.reject(&:not_found?)
+      languages.flat_map { |language| problems_in language }
     end
 
     private
@@ -28,7 +30,14 @@ module Xapi
     end
 
     def next_in(language)
-      Progression.new(language, slugs_in(language), path).next
+      mark_as_fetched Progression.new(language, slugs_in(language), path).next
+    end
+
+    def mark_as_fetched(problem)
+      unless problem.not_found?
+        ExercismIO.fetch_for(key, problem.language, problem.slug)
+      end
+      problem
     end
 
     def data

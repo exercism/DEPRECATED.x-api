@@ -31,7 +31,7 @@ class AppRoutesExercisesTest < Minitest::Test
   end
 
   def test_get_problems
-    VCR.use_cassette('exercism_api_current_exercises') do
+    VCR.use_cassette('exercism_api_current_exercises', record: :new_episodes) do
       get '/exercises', key: 'abc123'
 
       options = { format: :json, name: 'get_current_problems' }
@@ -48,7 +48,7 @@ class AppRoutesExercisesTest < Minitest::Test
   end
 
   def test_v2_get_problems
-    VCR.use_cassette('exercism_api_current_exercises_v2') do
+    VCR.use_cassette('exercism_api_current_exercises_v2', record: :new_episodes) do
       get '/v2/exercises', key: 'abc123'
 
       options = { format: :json, name: 'get_current_problems_v2' }

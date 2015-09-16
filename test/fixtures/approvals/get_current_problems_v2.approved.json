@@ -26,6 +26,30 @@
       "fresh": false
     },
     {
+      "id": "fake/three",
+      "track_id": "fake",
+      "language": "fake",
+      "slug": "three",
+      "name": "Three",
+      "files": {
+        "three_test.tst": "assert 'one'\n",
+        "README.md": "# Three\n\nThis is three.\n\n* three\n* three again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com/3)\n"
+      },
+      "fresh": false
+    },
+    {
+      "id": "fake/two",
+      "track_id": "fake",
+      "language": "fake",
+      "slug": "two",
+      "name": "Two",
+      "files": {
+        "two_test.tst": "assert 'one'\n",
+        "README.md": "# Two\n\nThis is two.\n\n* two\n* two again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+      },
+      "fresh": false
+    },
+    {
       "id": "fruit/apple",
       "track_id": "fruit",
       "language": "fruit",
@@ -35,6 +59,30 @@
         "apple.ext": "an apple a day keeps the doctor away\n",
         "apple_test.tst": "assert 'one'\n",
         "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+      },
+      "fresh": false
+    },
+    {
+      "id": "fruit/banana",
+      "track_id": "fruit",
+      "language": "fruit",
+      "slug": "banana",
+      "name": "Banana",
+      "files": {
+        "banana_test.tst": "assert 'one'\n",
+        "README.md": "# Banana\n\nThis is banana.\n\n* banana\n* banana again\n\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+      },
+      "fresh": false
+    },
+    {
+      "id": "fruit/cherry",
+      "track_id": "fruit",
+      "language": "fruit",
+      "slug": "cherry",
+      "name": "Cherry",
+      "files": {
+        "cherry_test.tst": "assert 'one'\n",
+        "README.md": "# Cherry\n\nThis is cherry.\n\n* cherry\n* cherry again\n\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
       },
       "fresh": false
     }

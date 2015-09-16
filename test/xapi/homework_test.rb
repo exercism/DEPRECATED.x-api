@@ -1,6 +1,7 @@
 require './test/test_helper'
 require 'json'
 require 'xapi/config'
+require 'xapi/exercism_io'
 require 'xapi/progression'
 require 'xapi/problem'
 require 'xapi/homework'
@@ -11,7 +12,9 @@ class HomeworkTest < Minitest::Test
   def homework_in(languages, data)
     homework = Xapi::Homework.new('abc123', languages, './test/fixtures')
     homework.stub(:data, data) do
-      yield homework
+      Xapi::ExercismIO.stub(:fetch_for, nil) do
+        yield homework
+      end
     end
   end
 

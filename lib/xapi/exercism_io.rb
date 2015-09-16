@@ -19,11 +19,15 @@ module Xapi
     end
 
     def self.exercises_for(key)
-      request '/api/v1/exercises', key
+      get '/api/v1/exercises', key
     end
 
     def self.code_for(key)
-      request('/api/v1/iterations/latest', key)["assignments"]
+      get('/api/v1/iterations/latest', key)["assignments"]
+    end
+
+    def self.fetch_for(key, language, slug)
+      post("/api/v1/iterations/#{language}/#{slug}/fetch", key)
     end
 
     def self.conn
@@ -32,13 +36,21 @@ module Xapi
       end
     end
 
-    def self.request(path, key)
-      response = conn.get do |req|
+    def self.get(path, key)
+      request(:get, path, key)
+    end
+
+    def self.post(path, key)
+      request(:post, path, key)
+    end
+
+    def self.request(verb, path, key)
+      response = conn.send(verb) do |req|
         req.url File.join(path)
         req.headers['User-Agent'] = "github.com/exercism/xapi"
         req.params['key'] = key
       end
-      intercept JSON.parse(response.body)
+      intercept JSON.parse(response.body) unless response.body.empty?
     end
 
     def self.intercept(data)
