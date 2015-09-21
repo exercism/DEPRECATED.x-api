@@ -94,8 +94,8 @@ class AppRoutesExercisesTest < Minitest::Test
 
     Xapi::ExercismIO.stub(:request, error) do
       get '/exercises', key: 'who-cares'
-      options = { format: :json, name: '500-error' }
-      Approvals.verify(last_response.body, options)
+      body = JSON.parse(last_response.body)
+      assert_equal ["failing hard"], body["error"]
     end
   end
 end
