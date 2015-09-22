@@ -11,6 +11,28 @@
         "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
       },
       "fresh": false
+    },
+    {
+      "track_id": "fruit",
+      "id": "banana",
+      "track": "fruit",
+      "slug": "banana",
+      "files": {
+        "banana_test.tst": "assert 'one'\n",
+        "README.md": "# Banana\n\nThis is banana.\n\n* banana\n* banana again\n\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+      },
+      "fresh": false
+    },
+    {
+      "track_id": "fruit",
+      "id": "cherry",
+      "track": "fruit",
+      "slug": "cherry",
+      "files": {
+        "cherry_test.tst": "assert 'one'\n",
+        "README.md": "# Cherry\n\nThis is cherry.\n\n* cherry\n* cherry again\n\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+      },
+      "fresh": false
     }
   ]
 }

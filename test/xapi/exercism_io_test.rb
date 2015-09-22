@@ -32,6 +32,21 @@ class ExercismIOTest < Minitest::Test
     end
   end
 
+  def test_fetch
+    key, language, slug = %w(abc123 go leap)
+    VCR.use_cassette('exercism_api_fetch') do
+      assert_equal nil, Xapi::ExercismIO.fetch_for(key, language, slug)
+    end
+    # ensure that ::fetch_for calls ::request
+    mock = MiniTest::Mock.new
+    path = "/api/v1/iterations/#{language}/#{slug}/fetch"
+    mock.expect(:call, nil, [:post, path, key])
+    Xapi::ExercismIO.stub(:request, mock) do
+      Xapi::ExercismIO.fetch_for(key, language, slug)
+    end
+    mock.verify
+  end
+
   def test_passes_error_on
     VCR.use_cassette('exercism_api_error') do
       assert_raises Xapi::ApiError do
