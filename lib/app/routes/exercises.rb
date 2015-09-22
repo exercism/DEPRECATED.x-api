@@ -46,12 +46,15 @@ module Xapi
       end
 
       get '/v2/exercises/:language' do |language|
+        language = language.downcase
         require_key
         problems = forward_errors { homework.problems_in(language) }
         pg :problems, locals: { problems: problems }
       end
 
       get '/v2/exercises/:language/:slug' do |language, slug|
+        language, slug = language.downcase, slug.downcase
+
         # no need to authenticate for this one
         problem = config.find(language).find(slug)
         problem.validate or halt 404, { error: problem.error }.to_json
