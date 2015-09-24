@@ -9,10 +9,11 @@ class ProgressionTest < Minitest::Test
   end
 
   def test_exercise_list
-    assert_equal %w(one two three), progression_with([]).slugs
+    assert_equal %w(hello-world one two three), progression_with([]).slugs
   end
 
   def test_next_in_line
+    assert_equal 'hello-world', progression_with([]).next.slug
     assert_equal 'two', progression_with(%w(one)).next.slug
     assert_equal 'three', progression_with(%w(one two)).next.slug
     assert_equal 'two', progression_with(%w(one three)).next.slug

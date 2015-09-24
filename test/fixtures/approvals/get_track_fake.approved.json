@@ -5,6 +5,7 @@
     "id": "fake",
     "slug": "fake",
     "problems": [
+      "fake/hello-world",
       "fake/one",
       "fake/two",
       "fake/three"
@@ -14,11 +15,22 @@
       "apple",
       "banana",
       "cherry",
-      "dog",
-      "hello-world"
+      "dog"
     ]
   },
   "problems": [
+    {
+      "id": "fake/hello-world",
+      "track_id": "fake",
+      "language": "Fake",
+      "slug": "hello-world",
+      "name": "Hello World",
+      "files": {
+        "one_test.tst": "assert 'hello'\n",
+        "README.md": "# Hello World\n\nOh, hello.\n\n* hello\n* hello again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+      },
+      "fresh": false
+    },
     {
       "id": "fake/one",
       "track_id": "fake",

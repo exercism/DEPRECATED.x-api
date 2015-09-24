@@ -37,7 +37,7 @@ class HomeworkTest < Minitest::Test
   def test_start_a_new_track
     data = { 'fake' => [] }
     homework_in %w(fake), data do |homework|
-      expected = %w(fake:one)
+      expected = %w(fake:hello-world)
       assert_equal expected, homework.problems.map(&Namify)
     end
   end

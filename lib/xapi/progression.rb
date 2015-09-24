@@ -5,6 +5,7 @@ module Xapi
 
     def initialize(language, current=[], path)
       @language = language
+      current << 'hello-world' unless current.empty?
       @current = current
       @path = path
     end

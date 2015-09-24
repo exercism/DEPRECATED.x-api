@@ -4,6 +4,7 @@
   "repository": "https://github.com/exercism/xfake",
   "active": true,
   "problems": [
+    "hello-world",
     "one",
     "two",
     "three"
