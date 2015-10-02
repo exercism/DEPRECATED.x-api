@@ -8,18 +8,20 @@ class AppRoutesDocsTest < Minitest::Test
     Xapi::App
   end
 
-  def test_error_on_missing_track
+  def test_no_error_on_missing_track
     get '/docs/unknown'
 
-    assert_equal 404, last_response.status
-    assert_equal '{"error":"Documentation for track unknown was not found."}', last_response.body
+    assert_equal 200, last_response.status
+    options = { format: :json, name: 'get_docs_for_unknown_language' }
+    Approvals.verify(last_response.body, options)
   end
 
-  def test_error_on_missing_documentation
-    get '/docs/unknown'
+  def test_no_error_on_missing_documentation
+    get '/docs/animal'
 
-    assert_equal 404, last_response.status
-    assert_equal '{"error":"Documentation for track unknown was not found."}', last_response.body
+    assert_equal 200, last_response.status
+    options = { format: :json, name: 'get_docs_for_docless_language' }
+    Approvals.verify(last_response.body, options)
   end
 
   def test_get_docs_for_language

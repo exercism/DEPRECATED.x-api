@@ -2,11 +2,7 @@ module Xapi
   module Routes
     class Docs < Core
       get '/docs/:track' do |id|
-        docs = config.find(id).docs
-        halt 404, {
-          error: "Documentation for track #{id} was not found.",
-        }.to_json unless docs.available?
-        pg :docs, locals:  { docs: docs, track_id: id }
+        pg :docs, locals:  { docs: config.find(id).docs, track_id: id }
       end
     end
   end
