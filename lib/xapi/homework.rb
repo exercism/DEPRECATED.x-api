@@ -1,5 +1,7 @@
 module Xapi
-  # Homework gets all of a user's currently pending problems.
+  # Homework gets all of a user's currently pending problems,
+  # marking any new ones as fetched.
+  # TODO: this class violates command/query separation. Refactor.
   class Homework
     attr_reader :key, :languages, :path
     def initialize(key, languages, path)
