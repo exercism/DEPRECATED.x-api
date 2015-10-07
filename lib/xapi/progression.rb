@@ -1,3 +1,5 @@
+require_relative 'errors'
+
 module Xapi
   # Progression is a series of problems to be solved in order.
   class Progression
@@ -29,6 +31,8 @@ module Xapi
 
     def config
       @config ||= JSON.parse(File.read(file))
+    rescue Errno::ENOENT
+      raise UnknownLanguage.new("no language track '%s'" % language)
     end
 
     def next_slug

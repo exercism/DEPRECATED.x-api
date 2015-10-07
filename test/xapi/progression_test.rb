@@ -20,4 +20,10 @@ class ProgressionTest < Minitest::Test
     assert_equal 'one', progression_with(%w(three two)).next.slug
     assert_equal 'no-such-problem', progression_with(%w(one three two)).next.slug
   end
+
+  def test_unknown_language
+    assert_raises Xapi::UnknownLanguage do
+      Xapi::Progression.new('does-not-exist', [], './test/fixtures').slugs
+    end
+  end
 end

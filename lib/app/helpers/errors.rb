@@ -22,13 +22,13 @@ module Xapi
 
       def forward_errors
         yield
-      rescue Xapi::ApiError => e
+      rescue Xapi::ApiError, Xapi::UnknownLanguage => e
         halt 400, { error: e.message }.to_json
       rescue Exception => e
-        Bugsnag.notify(e)
         if %w(test development).include?(ENV['RACK_ENV'].to_s)
           halt 500, verbose_500(e)
         end
+        Bugsnag.notify(e)
         halt 500, friendly_500
       end
     end
