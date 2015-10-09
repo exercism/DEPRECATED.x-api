@@ -18,6 +18,7 @@ class ConfigTest < Minitest::Test
       "coffeescript",
       "cpp",
       "csharp",
+      "ecmascript",
       "elisp",
       "elixir",
       "erlang",
