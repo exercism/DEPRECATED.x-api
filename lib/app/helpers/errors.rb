@@ -28,7 +28,7 @@ module Xapi
         if %w(test development).include?(ENV['RACK_ENV'].to_s)
           halt 500, verbose_500(e)
         end
-        Bugsnag.notify(e)
+        Bugsnag.notify(e, nil, request)
         halt 500, friendly_500
       end
     end
