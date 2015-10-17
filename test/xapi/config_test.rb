@@ -1,5 +1,7 @@
 require './test/test_helper'
 require 'json'
+require 'xapi/metadata'
+require 'xapi/null_track'
 require 'xapi/config'
 require 'xapi/track'
 

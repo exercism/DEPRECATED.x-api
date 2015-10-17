@@ -2,6 +2,9 @@ require './test/test_helper'
 require 'json'
 require 'xapi/track'
 require 'xapi/problem'
+require 'xapi/null_track'
+require 'xapi/docs'
+require 'xapi/null_docs'
 
 class TrackTest < Minitest::Test
   def setup

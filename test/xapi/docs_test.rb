@@ -1,5 +1,6 @@
 require './test/test_helper'
 require 'xapi/docs'
+require 'xapi/null_docs'
 
 class DocsTest < Minitest::Test
   def test_content
