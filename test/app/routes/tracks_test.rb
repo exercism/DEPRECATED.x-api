@@ -88,5 +88,4 @@ class AppRoutesTracksTest < Minitest::Test
     get url
     JSON.parse(last_response.body)['problems'].map { |p| p['slug'] }
   end
-
 end

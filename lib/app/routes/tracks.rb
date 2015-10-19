@@ -6,15 +6,15 @@ module Xapi
       end
 
       get '/tracks/:id' do |id|
-        pg :track, locals: { track: find_track(id)}
+        pg :track, locals: { track: find_track(id) }
       end
 
       # return track's problem summaries IN TRACK ORDER, not sorted by slug as
       # on /problems.  track problem screen only needs the things shown below.
       # NOTE: THIS ROUTE MEANS WE CAN'T HAVE A PROBLEM NAMED "problems"!
       get '/tracks/:id/problems' do |id|
-        summaries = find_track(id).problems.map { |p|
-          { :slug => p.slug, :blurb => p.blurb, :name => p.name }
+        summaries = find_track(id).problems.map { |problem|
+          { slug: problem.slug, blurb: problem.blurb, name: problem.name }
         }
         pg :summaries, locals: { summaries: summaries }
       end
@@ -46,7 +46,6 @@ module Xapi
         end
         track
       end
-
     end
   end
 end
