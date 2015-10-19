@@ -6,11 +6,17 @@ module Xapi
       end
 
       get '/tracks/:id' do |id|
-        track = config.find(id)
-        if track.is_a?(NullTrack)
-          halt 404, { error: "Track #{id} not found." }.to_json
-        end
-        pg :track, locals: { track: track }
+        pg :track, locals: { track: find_track(id)}
+      end
+
+      # return track's problem summaries IN TRACK ORDER, not sorted by slug as
+      # on /problems.  track problem screen only needs the things shown below.
+      # NOTE: THIS ROUTE MEANS WE CAN'T HAVE A PROBLEM NAMED "problems"!
+      get '/tracks/:id/problems' do |id|
+        summaries = find_track(id).problems.map { |p|
+          { :slug => p.slug, :blurb => p.blurb, :name => p.name }
+        }
+        pg :summaries, locals: { summaries: summaries }
       end
 
       get '/tracks/:id/:problem' do |id, slug|
@@ -30,6 +36,17 @@ module Xapi
         problem.validate or halt 404, { error: problem.error }.to_json
         pg :problem_test, locals: { problem: problem }
       end
+
+      private
+
+      def find_track(id)
+        track = config.find(id)
+        if track.is_a?(NullTrack)
+          halt 404, { error: "Track #{id} not found." }.to_json
+        end
+        track
+      end
+
     end
   end
 end
