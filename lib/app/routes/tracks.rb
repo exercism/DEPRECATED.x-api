@@ -14,7 +14,7 @@ module Xapi
       # NOTE: THIS ROUTE MEANS WE CAN'T HAVE A PROBLEM NAMED "problems"!
       get '/tracks/:id/problems' do |id|
         summaries = find_track(id).problems.map { |problem|
-          { slug: problem.slug, blurb: problem.blurb, name: problem.name }
+          { slug: problem.slug, blurb: problem.blurb }
         }
         pg :summaries, locals: { summaries: summaries }
       end
