@@ -8,5 +8,6 @@ module Xapi
     autoload :Exercises, 'app/routes/exercises'
     autoload :User, 'app/routes/user'
     autoload :Docs, 'app/routes/docs'
+    autoload :Legacy, 'app/routes/legacy'
   end
 end

@@ -35,8 +35,8 @@ module Xapi
     use Routes::Home
     use Routes::Tracks
     use Routes::Problems
-    use Routes::Assignments # deprecated: CLI and prototype use it
     use Routes::Exercises
     use Routes::Docs
+    use Routes::Legacy
   end
 end

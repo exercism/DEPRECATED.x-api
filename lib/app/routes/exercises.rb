@@ -7,30 +7,6 @@ module Xapi
         end
       end
 
-      get '/exercises' do
-        require_key
-        problems = forward_errors { homework.problems }
-        pg :assignments, locals: { assignments: problems }
-      end
-
-      get '/exercises/restore' do
-        require_key
-        problems = forward_errors do
-          Xapi::Backup.restore(params[:key])
-        end
-        pg :assignments, locals: { assignments: problems }
-      end
-
-      get '/exercises/:language' do |language|
-        require_key
-        problems = forward_errors do
-          homework.problems_in(language)
-        end
-        pg :assignments, locals: { assignments: problems }
-      end
-
-      # v1 deprecated and v2 introduced: September 2014
-
       get '/v2/exercises' do
         require_key
         problems = forward_errors { homework.problems }
