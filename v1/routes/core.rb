@@ -4,7 +4,7 @@ module Xapi
       use Bugsnag::Rack
 
       configure do
-        set :root, "./lib/app"
+        set :root, "./v1"
         enable :raise_errors
       end
 

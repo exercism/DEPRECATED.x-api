@@ -53,17 +53,22 @@ a user's current exercise set from exercism.io, and getting all the relevant pro
 ### Code Arrangement
 ---
 
-The sinatra app lives in `lib/app`, and the business logic lives in
+The sinatra app lives in `v1/`, and the business logic lives in
 `lib/xapi`. To determine whether something is business logic or web
 application logic, think about whether or not a different interface (say,
 perhaps a command-line interface) would also need that behavior.
 
-The tests live under `test`, and the path to the test file will mirror the
-path to the code file, except with `test` rather than `lib`:
+The tests live under `test`. The path to the test file will mirror the
+path to the code file, except without `lib`:
 
 ```bash
-lib/app/routes/demo.rb
-test/app/routes/demo_test.rb
+# sinatra app
+v1/routes/demo.rb
+test/v1/routes/demo_test.rb
+
+# business logic
+lib/xapi/docs.rb
+test/xapi/docs_test.rb
 ```
 
 There could be exceptions to this, but they are rare.

@@ -3,7 +3,7 @@ require 'rack/test'
 require 'approvals'
 require 'yaml'
 require 'xapi'
-require 'app'
+require_relative '../v1'
 
 Approvals.configure do |c|
   c.approvals_path = './test/fixtures/approvals/'

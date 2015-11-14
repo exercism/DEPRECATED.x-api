@@ -16,8 +16,8 @@ Style/BlockDelimiters:
 Style/Documentation:
   Exclude:
     - 'test/**/*'
-    - 'lib/app.rb'
-    - 'lib/app/**/*'
+    - 'lib/v1.rb'
+    - 'v1/**/*'
 Style/RaiseArgs:
   Enabled: true
   EnforcedStyle: compact
@@ -29,7 +29,7 @@ Style/FormatString:
   EnforcedStyle: percent
 Lint/RescueException:
   Exclude:
-    - 'lib/app/helpers/errors.rb'
+    - 'v1/helpers/errors.rb'
 Metrics/LineLength:
   Max: 80
   AllowURI: true

@@ -1,9 +1,10 @@
+$LOAD_PATH << File.expand_path('..', __FILE__)
 require 'sinatra/base'
 require 'sinatra/petroglyph'
 require "bugsnag"
 require './config/build_id'
-require 'app/routes'
-require 'app/helpers'
+require 'v1/routes'
+require 'v1/helpers'
 
 Bugsnag.configure do |config|
   config.api_key = ENV['BUGSNAG_API_KEY']
@@ -12,7 +13,7 @@ Bugsnag.configure do |config|
 end
 
 module Xapi
-  class App < Sinatra::Application
+  class V1 < Sinatra::Application
     configure do
       enable :raise_errors
       use Rack::Session::Cookie,

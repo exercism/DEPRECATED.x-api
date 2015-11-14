@@ -1,11 +1,11 @@
-require './test/app_helper'
+require './test/v1_helper'
 require './test/vcr_helper'
 
-class AppRoutesTracksTest < Minitest::Test
+class V1RoutesTracksTest < Minitest::Test
   include Rack::Test::Methods
 
   def app
-    Xapi::App
+    Xapi::V1
   end
 
   def test_all_the_tracks

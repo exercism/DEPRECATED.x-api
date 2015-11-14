@@ -1,10 +1,10 @@
-require './test/app_helper'
+require './test/v1_helper'
 
-class AppTest < Minitest::Test
+class V1Test < Minitest::Test
   include Rack::Test::Methods
 
   def app
-    Xapi::App
+    Xapi::V1
   end
 
   def test_404
