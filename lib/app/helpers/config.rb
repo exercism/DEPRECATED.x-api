@@ -5,10 +5,6 @@ module Xapi
         settings.config
       end
 
-      def languages
-        config.languages
-      end
-
       def path
         config.path
       end

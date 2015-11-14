@@ -12,12 +12,12 @@ module Xapi
       @path = path
     end
 
-    def languages
+    def track_ids
       tracks.select(&:active?).map(&:id)
     end
 
     def tracks
-      @tracks ||= tracks_names.map do |track_name|
+      @tracks ||= ids.map do |track_name|
         Xapi::Track.new(path, track_name, exercices)
       end.sort_by(&:id)
     end
@@ -32,7 +32,7 @@ module Xapi
       @exercices =  Xapi::Metadata.load(path).slugs
     end
 
-    def tracks_names
+    def ids
       pattern = File.join(path, "problems", "*")
       Dir.glob(pattern).map { |dir| File.basename(dir) }
     end

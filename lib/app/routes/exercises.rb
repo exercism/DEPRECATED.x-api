@@ -3,7 +3,7 @@ module Xapi
     class Exercises < Core
       helpers do
         def homework
-          Xapi::Homework.new(params[:key], languages, path)
+          Xapi::Homework.new(params[:key], config.track_ids, path)
         end
       end
 

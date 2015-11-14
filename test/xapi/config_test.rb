@@ -44,13 +44,13 @@ class ConfigTest < Minitest::Test
       "scheme",
       "swift",
     ].sort
-    assert_equal expected, config.languages.sort
+    assert_equal expected, config.track_ids.sort
   end
 
-  def test_languages
+  def test_track_ids
     expected = %w(animal fake fruit)
 
-    assert_equal expected, @config.languages.sort
+    assert_equal expected, @config.track_ids.sort
   end
 
   def test_tracks
