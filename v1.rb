@@ -13,6 +13,7 @@ Bugsnag.configure do |config|
 end
 
 module Xapi
+  # API, version 1.
   class V1 < Sinatra::Application
     configure do
       enable :raise_errors

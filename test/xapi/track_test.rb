@@ -3,8 +3,8 @@ require 'json'
 require 'xapi/track'
 require 'xapi/problem'
 require 'xapi/null_track'
-require 'xapi/docs'
-require 'xapi/null_docs'
+require 'xapi/track/docs'
+require 'xapi/track/null_docs'
 
 class TrackTest < Minitest::Test
   def setup
