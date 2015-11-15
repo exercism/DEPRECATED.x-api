@@ -5,16 +5,21 @@
 [![Code Climate](https://codeclimate.com/github/exercism/x-api.png)](https://codeclimate.com/github/exercism/x-api)
 [![Dependency Status](https://gemnasium.com/exercism/x-api.png)](https://gemnasium.com/exercism/x-api)
 
-Exercism exercise API
+**Exercism exercise API**
 
-This codebase collects all the exercises and metadata that make up the problem
-sets for exercism.io.
+This codebase provides an API for delivering Exercism
+exercises. This is consumed both by the Exercism command-line client,
+as well as the Exercism website.
 
 The exercises for each language are stored in separate repositories, included
-here as git submodules. This codebase provides an API for serving the Exercism
-exercises to people using the Exercism command-line client.
+here as git submodules.
+
+The common metadata which is shared between all the language tracks are also
+included as a git submodule.
 
 ## Getting Started
+
+The API is implemented in Ruby as a Sinatra application.
 
 Fork and clone per usual, then run:
 
@@ -22,6 +27,30 @@ Fork and clone per usual, then run:
 $ bundle install
 $ git submodule init
 $ git submodule update
+```
+
+## Terminology
+
+We've struggled a bit with the terminology, and the project currently has a mix of
+old and new.
+
+Here's the terminology we're working towards:
+
+* _Language_ - the name of a programming language, e.g. _C++_.
+* _Track_ - a collection of exercises in a programming language.
+* _Track ID_ - a url-friendly version of the language name, e.g. `cpp`.
+* _Problem_ - a high-level, language-independent description of a problem to solve.
+* _Exercise_ - a language-specific implementation of a problem. This contains a README and a test suite.
+
+## Code Arrangement
+
+```
+.
+├── v1.rb     # sinatra api
+├── v1/
+├── lib/xapi/ # application logic
+├── metadata/ # shared metadata
+└── tracks/   # language track submodules
 ```
 
 ## Running Locally
@@ -46,11 +75,13 @@ section of the README.**
 
 ## Tests
 
-Run the entire test suite with `rake`, or an individual test file with `ruby`:
+Run the entire test suite with `rake`.
 
 ```bash
 $ bundle exec rake # runs the entire suite
 ```
+
+To run individual tests, you can use the `ruby` command directly:
 
 ```bash
 ruby path/to/file_test.rb # runs only the tests in file_test.rb
@@ -74,8 +105,8 @@ approvals verify -d diff -a
 
 `-a` is a boolean option that, if passed, will ask you if you want to accept the change.
 
-Accepting the change means that the new output gets copied over the old one, and any new
-test runs will be compared to this output.
+Accepting the change means that the new output gets copied over the old one. Running the
+test again will compare against this new output.
 
 The approvals tests are particularly handy when tweaking the view templates.
 
