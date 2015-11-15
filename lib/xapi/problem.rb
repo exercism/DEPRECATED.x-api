@@ -63,7 +63,7 @@ module Xapi
     end
 
     def language_dir
-      File.join(path, 'problems', track_id)
+      File.join(path, 'tracks', track_id)
     end
 
     def dir

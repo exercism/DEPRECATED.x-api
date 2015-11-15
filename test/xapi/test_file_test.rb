@@ -12,7 +12,7 @@ class TestFileTest < Minitest::Test
   end
 
   def attributes
-    { path: './test/fixtures/problems/animal', files: files }
+    { path: './test/fixtures/tracks/animal', files: files }
   end
 
   def test_assemble_test_file
@@ -32,7 +32,7 @@ class TestFileTest < Minitest::Test
       "Fakefile" => "Autorun fake code\n",
       "ones_test.tst" => "assert 'one'\n",
     }
-    path = './test/fixtures/problems/fake'
+    path = './test/fixtures/tracks/fake'
     test_file = Xapi::TestFile.new(path: path, files: files)
     assert_equal files['ones_test.tst'], test_file.text
   end

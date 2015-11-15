@@ -40,7 +40,7 @@ module Xapi
     end
 
     def dir
-      File.join(path, 'problems', language)
+      File.join(path, 'tracks', language)
     end
 
     def file

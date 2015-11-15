@@ -5,7 +5,7 @@ module Xapi
     def initialize(root, id, metadata_slugs=[])
       @root = root
       @id = id
-      @track_path = File.join(root, "problems", id)
+      @track_path = File.join(root, "tracks", id)
       @metadata_slugs = metadata_slugs
     end
 

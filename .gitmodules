@@ -1,135 +1,135 @@
 [submodule "metadata"]
 	path = metadata
 	url = https://github.com/exercism/x-common.git
-[submodule "problems/clojure"]
-	path = problems/clojure
+[submodule "tracks/clojure"]
+	path = tracks/clojure
 	url = https://github.com/exercism/xclojure.git
-[submodule "problems/coffeescript"]
-	path = problems/coffeescript
+[submodule "tracks/coffeescript"]
+	path = tracks/coffeescript
 	url = https://github.com/exercism/xcoffeescript.git
-[submodule "problems/csharp"]
-	path = problems/csharp
+[submodule "tracks/csharp"]
+	path = tracks/csharp
 	url = https://github.com/exercism/xcsharp.git
-[submodule "problems/elixir"]
-	path = problems/elixir
+[submodule "tracks/elixir"]
+	path = tracks/elixir
 	url = https://github.com/exercism/xelixir.git
-[submodule "problems/go"]
-	path = problems/go
+[submodule "tracks/go"]
+	path = tracks/go
 	url = https://github.com/exercism/xgo.git
-[submodule "problems/haskell"]
-	path = problems/haskell
+[submodule "tracks/haskell"]
+	path = tracks/haskell
 	url = https://github.com/exercism/xhaskell.git
-[submodule "problems/javascript"]
-	path = problems/javascript
+[submodule "tracks/javascript"]
+	path = tracks/javascript
 	url = https://github.com/exercism/xjavascript.git
-[submodule "problems/objective-c"]
-	path = problems/objective-c
+[submodule "tracks/objective-c"]
+	path = tracks/objective-c
 	url = https://github.com/exercism/xobjective-c.git
-[submodule "problems/ocaml"]
-	path = problems/ocaml
+[submodule "tracks/ocaml"]
+	path = tracks/ocaml
 	url = https://github.com/exercism/xocaml.git
-[submodule "problems/perl5"]
-	path = problems/perl5
+[submodule "tracks/perl5"]
+	path = tracks/perl5
 	url = https://github.com/exercism/xperl5.git
-[submodule "problems/python"]
-	path = problems/python
+[submodule "tracks/python"]
+	path = tracks/python
 	url = https://github.com/exercism/xpython.git
-[submodule "problems/ruby"]
-	path = problems/ruby
+[submodule "tracks/ruby"]
+	path = tracks/ruby
 	url = https://github.com/exercism/xruby.git
-[submodule "problems/scala"]
-	path = problems/scala
+[submodule "tracks/scala"]
+	path = tracks/scala
 	url = https://github.com/exercism/xscala.git
-[submodule "problems/cpp"]
-	path = problems/cpp
+[submodule "tracks/cpp"]
+	path = tracks/cpp
 	url = https://github.com/exercism/xcpp.git
-[submodule "problems/dlang"]
-	path = problems/dlang
+[submodule "tracks/dlang"]
+	path = tracks/dlang
 	url = https://github.com/exercism/xdlang.git
-[submodule "problems/erlang"]
-	path = problems/erlang
+[submodule "tracks/erlang"]
+	path = tracks/erlang
 	url = https://github.com/exercism/xerlang.git
-[submodule "problems/fsharp"]
-	path = problems/fsharp
+[submodule "tracks/fsharp"]
+	path = tracks/fsharp
 	url = https://github.com/exercism/xfsharp.git
-[submodule "problems/java"]
-	path = problems/java
+[submodule "tracks/java"]
+	path = tracks/java
 	url = https://github.com/exercism/xjava.git
-[submodule "problems/lisp"]
-	path = problems/lisp
+[submodule "tracks/lisp"]
+	path = tracks/lisp
 	url = https://github.com/exercism/xlisp.git
-[submodule "problems/perl6"]
-	path = problems/perl6
+[submodule "tracks/perl6"]
+	path = tracks/perl6
 	url = https://github.com/exercism/xperl6.git
-[submodule "problems/php"]
-	path = problems/php
+[submodule "tracks/php"]
+	path = tracks/php
 	url = https://github.com/exercism/xphp.git
-[submodule "problems/rust"]
-	path = problems/rust
+[submodule "tracks/rust"]
+	path = tracks/rust
 	url = https://github.com/exercism/xrust.git
-[submodule "problems/ecmascript"]
-	path = problems/ecmascript
+[submodule "tracks/ecmascript"]
+	path = tracks/ecmascript
 	url = https://github.com/exercism/xecmascript.git
-[submodule "problems/lua"]
-	path = problems/lua
+[submodule "tracks/lua"]
+	path = tracks/lua
 	url = https://github.com/exercism/xlua.git
-[submodule "problems/swift"]
-	path = problems/swift
+[submodule "tracks/swift"]
+	path = tracks/swift
 	url = https://github.com/exercism/xswift.git
-[submodule "problems/assembly"]
-	path = problems/assembly
+[submodule "tracks/assembly"]
+	path = tracks/assembly
 	url = https://github.com/exercism/xassembly.git
-[submodule "problems/bash"]
-	path = problems/bash
+[submodule "tracks/bash"]
+	path = tracks/bash
 	url = https://github.com/exercism/xbash.git
-[submodule "problems/c"]
-	path = problems/c
+[submodule "tracks/c"]
+	path = tracks/c
 	url = https://github.com/exercism/xc.git
-[submodule "problems/groovy"]
-	path = problems/groovy
+[submodule "tracks/groovy"]
+	path = tracks/groovy
 	url = https://github.com/exercism/xgroovy.git
-[submodule "problems/nimrod"]
-	path = problems/nimrod
+[submodule "tracks/nimrod"]
+	path = tracks/nimrod
 	url = https://github.com/exercism/xnimrod.git
-[submodule "problems/powershell"]
-	path = problems/powershell
+[submodule "tracks/powershell"]
+	path = tracks/powershell
 	url = https://github.com/exercism/xpowershell.git
-[submodule "problems/proofs"]
-	path = problems/proofs
+[submodule "tracks/proofs"]
+	path = tracks/proofs
 	url = https://github.com/exercism/xproofs.git
-[submodule "problems/r"]
-	path = problems/r
+[submodule "tracks/r"]
+	path = tracks/r
 	url = https://github.com/exercism/xr.git
-[submodule "problems/sml"]
-	path = problems/sml
+[submodule "tracks/sml"]
+	path = tracks/sml
 	url = https://github.com/exercism/xsml.git
-[submodule "problems/vbnet"]
-	path = problems/vbnet
+[submodule "tracks/vbnet"]
+	path = tracks/vbnet
 	url = https://github.com/exercism/xvbnet.git
-[submodule "problems/plsql"]
-	path = problems/plsql
+[submodule "tracks/plsql"]
+	path = tracks/plsql
 	url = https://github.com/exercism/xplsql.git
-[submodule "problems/scheme"]
-	path = problems/scheme
+[submodule "tracks/scheme"]
+	path = tracks/scheme
 	url = https://github.com/exercism/xscheme.git
-[submodule "problems/coldfusion"]
-	path = problems/coldfusion
+[submodule "tracks/coldfusion"]
+	path = tracks/coldfusion
 	url = https://github.com/exercism/xcoldfusion.git
-[submodule "problems/haxe"]
-	path = problems/haxe
+[submodule "tracks/haxe"]
+	path = tracks/haxe
 	url = https://github.com/exercism/xhaxe.git
-[submodule "problems/pony"]
-	path = problems/pony
+[submodule "tracks/pony"]
+	path = tracks/pony
 	url = https://github.com/exercism/xpony.git
-[submodule "problems/lfe"]
-	path = problems/lfe
+[submodule "tracks/lfe"]
+	path = tracks/lfe
 	url = https://github.com/exercism/xlfe.git
-[submodule "problems/elisp"]
-	path = problems/elisp
+[submodule "tracks/elisp"]
+	path = tracks/elisp
 	url = https://github.com/exercism/xelisp.git
-[submodule "problems/tcl"]
-	path = problems/tcl
+[submodule "tracks/tcl"]
+	path = tracks/tcl
 	url = https://github.com/exercism/xtcl.git
-[submodule "problems/racket"]
-	path = problems/racket
+[submodule "tracks/racket"]
+	path = tracks/racket
 	url = https://github.com/exercism/xracket.git

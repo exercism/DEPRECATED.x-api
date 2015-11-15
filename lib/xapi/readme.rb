@@ -3,7 +3,7 @@ module Xapi
   class Readme
     attr_reader :slug, :dir, :help
 
-    def initialize(slug, dir="./problems", help=nil)
+    def initialize(slug, dir="./tracks", help=nil)
       @slug = slug
       @dir = dir
       @help = help

@@ -5,11 +5,11 @@ class CodeTest < Minitest::Test
   attr_reader :code
 
   def path_to(file)
-    "./test/fixtures/problems/fake/one/#{file}"
+    "./test/fixtures/tracks/fake/one/#{file}"
   end
 
   def setup
-    @code = Xapi::Code.new('./test/fixtures/problems/fake/one')
+    @code = Xapi::Code.new('./test/fixtures/tracks/fake/one')
   end
 
   def test_glob

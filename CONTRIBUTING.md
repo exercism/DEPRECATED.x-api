@@ -147,7 +147,7 @@ here.
 ---
 
 To get a quick overview of which language tracks exist you can look at the
-[problems directory](https://github.com/exercism/x-api/tree/master/problems)
+[tracks directory](https://github.com/exercism/x-api/tree/master/tracks)
 in this repository (x-api).
 
 To see which problems have been implemented in which language, check out the
@@ -163,7 +163,7 @@ is named `x<language>`, e.g.
 * [exercism/xpython](https://github.com/exercism/xpython)
 
 You can also navigate to each language repository from this repository via the
-`problems` directory at the root of the repository. Each entry there is a link to
+`tracks` directory at the root of the repository. Each entry there is a link to
 the relevant submodule's repository.
 
 **If there are any special considerations when contributing to a language,
@@ -240,7 +240,7 @@ You can include advice and helpful links for your language track in the
 ---
 
 The supporting code for a given problem can be found in language-specific
-subdirectories under the `problems` directory.
+subdirectories under the `tracks` directory.
 
 Each language-specific directory is a git submodule. If you wish to make
 changes to a problem, look for the corresponding repository on GitHub under
@@ -249,7 +249,7 @@ changes to a problem, look for the corresponding repository on GitHub under
 So, for example, the Scala examples can be found in this repository:
 
 ```bash
-$ ls problems/scala
+$ ls tracks/scala
 ```
 
 The corresponding git repository is at

@@ -33,7 +33,7 @@ module Xapi
     end
 
     def ids
-      pattern = File.join(path, "problems", "*")
+      pattern = File.join(path, "tracks", "*")
       Dir.glob(pattern).map { |dir| File.basename(dir) }
     end
   end
