@@ -1,6 +1,6 @@
 AllCops:
   Exclude:
-    - 'problems/**/*'
+    - 'tracks/**/*'
     - 'test/fixtures/**/*'
     - 'bin/*'
     - 'vendor/**/*'
