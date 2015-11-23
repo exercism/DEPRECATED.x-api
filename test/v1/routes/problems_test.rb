@@ -19,10 +19,4 @@ class V1RoutesProblemsTest < Minitest::Test
     options = { format: :json, name: 'get_all_leaps' }
     Approvals.verify(last_response.body, options)
   end
-
-  def test_demo_problems_list
-    get '/problems/demo'
-    options = { format: :json, name: 'get_demo_problems_list' }
-    Approvals.verify(last_response.body, options)
-  end
 end

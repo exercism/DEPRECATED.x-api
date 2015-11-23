@@ -14,6 +14,10 @@ module V1
       get '/exercises/:language' do
         halt 500, ERR_PLEASE_UPGRADE
       end
+
+      get '/problems/demo' do
+        hast 404, "We no longer support the demo command."
+      end
     end
   end
 end

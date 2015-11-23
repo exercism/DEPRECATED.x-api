@@ -1,14 +1,6 @@
 module V1
   module Routes
     class Problems < Core
-      # This is special.
-      # There is no problem called 'demo',
-      # and perhaps this really should be just plain
-      # /demo at the root of the app.
-      get '/problems/demo' do
-        pg :problems, locals: { problems: Xapi::Demo.problems }
-      end
-
       get '/problems' do
         directory = Xapi::Metadata.load(path).directory
         config.track_ids.each do |language|

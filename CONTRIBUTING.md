@@ -63,8 +63,8 @@ path to the code file, except without `lib`:
 
 ```bash
 # sinatra app
-v1/routes/demo.rb
-test/v1/routes/demo_test.rb
+v1/routes/docs.rb
+test/v1/routes/docs_test.rb
 
 # business logic
 lib/xapi/docs.rb
