@@ -1,4 +1,4 @@
-module Xapi
+module V1
   module Routes
     autoload :Home, 'v1/routes/home'
     autoload :Core, 'v1/routes/core'

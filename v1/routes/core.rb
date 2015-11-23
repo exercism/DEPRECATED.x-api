@@ -1,4 +1,4 @@
-module Xapi
+module V1
   module Routes
     class Core < Sinatra::Application
       use Bugsnag::Rack

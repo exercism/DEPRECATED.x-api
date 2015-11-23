@@ -1,4 +1,4 @@
-module Xapi
+module V1
   module Helpers
     module Guards
       def require_key

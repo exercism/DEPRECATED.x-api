@@ -4,7 +4,7 @@ class V1RoutesHomeTest < Minitest::Test
   include Rack::Test::Methods
 
   def app
-    Xapi::V1
+    V1::App
   end
 
   def test_get_landing_page

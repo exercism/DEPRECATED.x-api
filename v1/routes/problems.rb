@@ -1,5 +1,4 @@
-require 'json'
-module Xapi
+module V1
   module Routes
     class Problems < Core
       # This is special.

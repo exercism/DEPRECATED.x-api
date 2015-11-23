@@ -5,7 +5,7 @@ class V1RoutesDocsTest < Minitest::Test
   include Rack::Test::Methods
 
   def app
-    Xapi::V1
+    V1::App
   end
 
   def test_no_error_on_missing_track

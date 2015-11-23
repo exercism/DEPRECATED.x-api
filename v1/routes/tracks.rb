@@ -1,4 +1,4 @@
-module Xapi
+module V1
   module Routes
     class Tracks < Core
       get '/tracks' do
@@ -41,7 +41,7 @@ module Xapi
 
       def find_track(id)
         track = config.find(id)
-        if track.is_a?(NullTrack)
+        if track.is_a?(Xapi::NullTrack)
           halt 404, { error: "Track #{id} not found." }.to_json
         end
         track

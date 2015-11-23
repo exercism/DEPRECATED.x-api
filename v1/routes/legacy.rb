@@ -1,4 +1,4 @@
-module Xapi
+module V1
   module Routes
     class Legacy < Core
       ERR_PLEASE_UPGRADE = "Please upgrade the exercism command-line client."

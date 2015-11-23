@@ -1,10 +1,10 @@
-module Xapi
+module V1
   module Routes
     class Home < Sinatra::Base
       get '/' do
         {
-          "repository" => Config::REPO_URL,
-          "contributing" => Config::CONTRIBUTING_URL,
+          "repository" => Xapi::Config::REPO_URL,
+          "contributing" => Xapi::Config::CONTRIBUTING_URL,
           "build_id" => BUILD_ID,
         }.to_json
       end

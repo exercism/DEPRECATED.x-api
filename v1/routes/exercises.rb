@@ -1,4 +1,4 @@
-module Xapi
+module V1
   module Routes
     class Exercises < Core
       helpers do

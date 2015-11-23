@@ -7,16 +7,16 @@ require './config/bugsnag'
 require 'v1/routes'
 require 'v1/helpers'
 
-module Xapi
+module V1
   # API, version 1.
-  class V1 < Sinatra::Application
+  class App < Sinatra::Application
     configure do
       enable :raise_errors
       use Rack::Session::Cookie,
-          key: 'rack.session',
-          path: '/',
-          expire_after: 2_592_000,
-          secret: ENV.fetch('SESSION_SECRET') { 'Need to know only.' }
+        key: 'rack.session',
+        path: '/',
+        expire_after: 2_592_000,
+        secret: ENV.fetch('SESSION_SECRET') { 'Need to know only.' }
     end
 
     not_found do

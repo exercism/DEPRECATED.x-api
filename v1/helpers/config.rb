@@ -1,4 +1,4 @@
-module Xapi
+module V1
   module Helpers
     module Config
       def config

@@ -4,7 +4,7 @@ class V1Test < Minitest::Test
   include Rack::Test::Methods
 
   def app
-    Xapi::V1
+    V1::App
   end
 
   def test_404
