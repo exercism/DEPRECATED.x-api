@@ -15,7 +15,7 @@ module Xapi
     alias_method :active?, :active
 
     def implemented?
-      true
+      problems.size > 0
     end
 
     def repository
