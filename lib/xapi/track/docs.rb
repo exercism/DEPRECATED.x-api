@@ -1,7 +1,7 @@
 module Xapi
   # Track-specific documentation
   class Docs
-    TOPICS = %w(hello about workflow resources installation tools)
+    TOPICS = %w(about installation tests resources)
 
     def initialize(path)
       @dir = File.join(path, 'docs')

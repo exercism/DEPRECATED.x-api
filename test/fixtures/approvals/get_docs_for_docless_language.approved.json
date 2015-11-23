@@ -1,11 +1,9 @@
 {
   "id": "animal",
   "docs": {
-    "hello": "",
     "about": "",
-    "workflow": "",
-    "resources": "",
     "installation": "",
-    "tools": ""
+    "tests": "",
+    "resources": ""
   }
 }

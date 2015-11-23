@@ -1,11 +1,9 @@
 {
   "id": "fake",
   "docs": {
-    "hello": "Module\n",
     "about": "Language Information\n",
-    "workflow": "Running\n",
-    "resources": "Resources\n",
     "installation": "Installing\n",
-    "tools": "Lint\n"
+    "tests": "Running\n",
+    "resources": "Resources\n"
   }
 }

@@ -7,12 +7,10 @@ class DocsTest < Minitest::Test
     docs = Xapi::Docs.new(path)
 
     content = {
-      "hello" => "Module\n",
       "about" => "Language Information\n",
-      "resources" => "Resources\n",
       "installation" => "Installing\n",
-      "tools" => "Lint\n",
-      "workflow" => "Running\n",
+      "tests" => "Running\n",
+      "resources" => "Resources\n",
     }
     assert_equal content, docs.content
   end
