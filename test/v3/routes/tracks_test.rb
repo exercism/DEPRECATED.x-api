@@ -13,11 +13,11 @@ class V3RoutesTracksTest < Minitest::Test
 
     tracks = JSON.parse(last_response.body)["tracks"]
     expected = %w(animal fake fruit jewels)
-    assert_equal expected, tracks.map {|track| track["id"]}.sort
+    assert_equal expected, tracks.map { |track| track["id"] }.sort
 
     get '/tracks/fake'
 
-    fake1 = tracks.find {|track| track["id"] == "fake"}
+    fake1 = tracks.find { |track| track["id"] == "fake" }
     fake2 = JSON.parse(last_response.body)["track"]
     assert_equal fake1, fake2
 

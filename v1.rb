@@ -13,10 +13,10 @@ module V1
     configure do
       enable :raise_errors
       use Rack::Session::Cookie,
-        key: 'rack.session',
-        path: '/',
-        expire_after: 2_592_000,
-        secret: ENV.fetch('SESSION_SECRET') { 'Need to know only.' }
+          key: 'rack.session',
+          path: '/',
+          expire_after: 2_592_000,
+          secret: ENV.fetch('SESSION_SECRET') { 'Need to know only.' }
     end
 
     not_found do

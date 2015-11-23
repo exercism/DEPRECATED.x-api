@@ -4,7 +4,6 @@ AllCops:
     - 'test/fixtures/**/*'
     - 'bin/*'
     - 'vendor/**/*'
-
 Style/StringLiterals:
   Enabled: false
 Style/SpaceAroundEqualsInParameterDefault:
@@ -16,8 +15,8 @@ Style/BlockDelimiters:
 Style/Documentation:
   Exclude:
     - 'test/**/*'
-    - 'lib/v1.rb'
     - 'v1/**/*'
+    - 'v3/**/*'
 Style/RaiseArgs:
   Enabled: true
   EnforcedStyle: compact
