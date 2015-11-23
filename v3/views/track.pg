@@ -1,5 +1,7 @@
 node track: track do
-  attributes :id, :language, :active, :repository, :todo
+  attributes :id, :language, :repository, :todo
+  node active: track.active?
+  node implemented: track.implemented?
 
   node docs: track.docs.content
 

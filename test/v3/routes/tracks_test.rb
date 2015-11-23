@@ -22,5 +22,9 @@ class V3RoutesTracksTest < Minitest::Test
     assert_equal fake1, fake2
 
     Approvals.verify(fake2, name: 'v3_track')
+
+    get '/tracks/blueberry' # no such track
+    blueberry = JSON.parse(last_response.body)["track"]
+    Approvals.verify(blueberry, name: 'v3_track_unimplemented')
   end
 end

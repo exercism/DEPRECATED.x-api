@@ -14,6 +14,10 @@ module Xapi
     end
     alias_method :active?, :active
 
+    def implemented?
+      true
+    end
+
     def repository
       data['repository']
     end
