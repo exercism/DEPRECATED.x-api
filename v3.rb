@@ -4,19 +4,13 @@ require 'sinatra/petroglyph'
 require "bugsnag"
 require './config/build_id'
 require './config/bugsnag'
-require 'v1/routes'
-require 'v1/helpers'
+require 'v3/routes'
 
-module V1
-  # API, version 1 and kind of 2. It was a mess.
+module V3
+  # API, version 3.
   class App < Sinatra::Application
     configure do
       enable :raise_errors
-      use Rack::Session::Cookie,
-        key: 'rack.session',
-        path: '/',
-        expire_after: 2_592_000,
-        secret: ENV.fetch('SESSION_SECRET') { 'Need to know only.' }
     end
 
     not_found do
@@ -29,11 +23,6 @@ module V1
       { error: msg }.to_json
     end
 
-    use Routes::Legacy
-    use Routes::Home
     use Routes::Tracks
-    use Routes::Problems
-    use Routes::Exercises
-    use Routes::Docs
   end
 end

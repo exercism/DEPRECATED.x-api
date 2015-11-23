@@ -1,0 +1,9 @@
+{
+	"id" => "fake"
+	"language" => "Fake"
+	"active" => true
+	"repository" => "https://github.com/exercism/xfake"
+	"todo" => ["apple", "banana", "cherry", "dog"]
+	"docs" => {"about"=>"Language Information\n", "installation"=>"Installing\n", "tests"=>"Running\n", "resources"=>"Resources\n"}
+	"problems" => [{"slug"=>"hello-world", "name"=>"Hello World", "blurb"=>"Oh, hello."}, {"slug"=>"one", "name"=>"One", "blurb"=>"This is one."}, {"slug"=>"two", "name"=>"Two", "blurb"=>"This is two."}, {"slug"=>"three", "name"=>"Three", "blurb"=>"This is three."}]
+}

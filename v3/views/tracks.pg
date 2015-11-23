@@ -1,0 +1,9 @@
+collection tracks: tracks do |track|
+  attributes :id, :language, :active, :repository, :todo
+
+  node docs: track.docs.content
+
+  collection problems: track.problems do |problem|
+    attributes :slug, :name, :blurb
+  end
+end
