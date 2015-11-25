@@ -27,4 +27,11 @@ class V3RoutesTracksTest < Minitest::Test
     blueberry = JSON.parse(last_response.body)["track"]
     Approvals.verify(blueberry, name: 'v3_track_unimplemented')
   end
+
+  def test_readme
+    get '/tracks/fake/three/readme'
+
+    options = { format: :json, name: 'v3_valid_readme' }
+    Approvals.verify(last_response.body, options)
+  end
 end

@@ -8,6 +8,11 @@ module V3
       get '/tracks/:id' do |id|
         pg :track, locals: { track: config.find(id) }
       end
+
+      get '/tracks/:id/:exercise_slug/readme' do |id, slug|
+        problem = config.find(id).find(slug)
+        pg :readme, locals: { problem: problem }
+      end
     end
   end
 end
