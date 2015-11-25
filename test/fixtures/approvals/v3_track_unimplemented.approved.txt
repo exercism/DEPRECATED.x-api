@@ -5,6 +5,6 @@
 	"todo" => []
 	"active" => false
 	"implemented" => false
-	"docs" => {"about"=>"", "installation"=>"", "tests"=>"", "resources"=>""}
+	"docs" => {"about"=>"", "installation"=>"", "tests"=>"", "learning"=>"", "resources"=>""}
 	"problems" => []
 }

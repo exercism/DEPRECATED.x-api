@@ -41,6 +41,7 @@ class TrackTest < Minitest::Test
       "about" => "Language Information\n",
       "installation" => "Installing\n",
       "tests" => "Running\n",
+      "learning" => "Learning Fake!\n",
       "resources" => "Resources\n",
     }
     assert_equal content, docs.content
