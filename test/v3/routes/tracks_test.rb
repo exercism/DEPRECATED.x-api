@@ -29,7 +29,7 @@ class V3RoutesTracksTest < Minitest::Test
   end
 
   def test_readme
-    get '/tracks/fake/three/readme'
+    get '/tracks/fake/exercises/three/readme'
 
     options = { format: :json, name: 'v3_valid_readme' }
     Approvals.verify(last_response.body, options)

@@ -9,7 +9,7 @@ module V3
         pg :track, locals: { track: config.find(id) }
       end
 
-      get '/tracks/:id/:exercise_slug/readme' do |id, slug|
+      get '/tracks/:id/exercises/:slug/readme' do |id, slug|
         problem = config.find(id).find(slug)
         pg :readme, locals: { problem: problem }
       end
