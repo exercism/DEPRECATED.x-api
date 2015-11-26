@@ -1,7 +1,0 @@
-node :readme do
-  node track_id: problem.track_id
-  node slug: problem.slug
-  node language: problem.language
-  node name: problem.name
-  node readme: problem.readme
-end

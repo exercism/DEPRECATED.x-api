@@ -1,0 +1,3 @@
+node exercise: problem do
+  attributes :track_id, :language, :slug, :name, :readme
+end

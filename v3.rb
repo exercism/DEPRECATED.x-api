@@ -24,5 +24,6 @@ module V3
     end
 
     use Routes::Tracks
+    use Routes::Exercises
   end
 end
