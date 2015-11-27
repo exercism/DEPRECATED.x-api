@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/exercism/x-api/badge.png)](https://coveralls.io/r/exercism/x-api)
 [![Code Climate](https://codeclimate.com/github/exercism/x-api.png)](https://codeclimate.com/github/exercism/x-api)
 [![Dependency Status](https://gemnasium.com/exercism/x-api.png)](https://gemnasium.com/exercism/x-api)
+[![Supporting 24 Pull Requests](https://img.shields.io/badge/Supporting-24%20Pull%20Requests-red.svg?style=flat)](http://24pullrequests.com)
 
 **Exercism exercise API**
 
