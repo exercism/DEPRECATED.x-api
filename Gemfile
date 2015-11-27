@@ -4,6 +4,7 @@ ruby '2.2.1'
 
 gem 'bugsnag'
 gem 'faraday', '~> 0.9'
+gem 'org-ruby'
 gem 'petroglyph', '= 0.0.7'
 gem 'psych'
 gem 'puma', '~> 2.7'

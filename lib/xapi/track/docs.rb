@@ -1,3 +1,5 @@
+require 'org-ruby'
+
 module Xapi
   # Track-specific documentation
   class Docs
@@ -16,7 +18,15 @@ module Xapi
     attr_reader :dir
 
     def read(topic)
-      File.read("#{dir}/#{topic.upcase}.md") rescue ""
+      f = Dir.glob("%s/%s.*" % [dir, topic.upcase]).first
+      case f
+      when /\.md/
+        File.read(f)
+      when /\.org/
+        Orgmode::Parser.new(File.read(f)).to_markdown
+      else
+        ""
+      end
     end
   end
 end
