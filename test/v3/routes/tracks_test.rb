@@ -23,7 +23,9 @@ class V3RoutesTracksTest < Minitest::Test
 
     Approvals.verify(fake2, name: 'v3_track')
 
-    get '/tracks/blueberry' # no such track
+    get '/tracks/blueberry'
+    assert_equal 404, last_response.status
+    # we still get a usable response, though.
     blueberry = JSON.parse(last_response.body)["track"]
     Approvals.verify(blueberry, name: 'v3_track_unimplemented')
   end

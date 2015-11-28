@@ -6,7 +6,9 @@ module V3
       end
 
       get '/tracks/:id' do |id|
-        pg :track, locals: { track: config.find(id) }
+        track = config.find(id)
+        status 404 unless track.implemented?
+        pg :track, locals: { track: track }
       end
     end
   end
