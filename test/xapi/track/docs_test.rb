@@ -1,5 +1,6 @@
 require './test/test_helper'
 require 'xapi/track/docs'
+require 'xapi/track/image'
 
 class DocsTest < Minitest::Test
   def test_content
@@ -21,5 +22,12 @@ class DocsTest < Minitest::Test
     docs = Xapi::Docs.new(path)
 
     assert docs.content.all? { |_, content| content == "" }
+  end
+
+  def test_image
+    path  = './test/fixtures/tracks/fake'
+    docs = Xapi::Docs.new(path)
+
+    assert_kind_of Xapi::Image, docs.image('test.png')
   end
 end

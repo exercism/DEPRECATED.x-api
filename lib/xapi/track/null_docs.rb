@@ -4,5 +4,9 @@ module Xapi
     def content
       Hash[Docs::TOPICS.zip(Array.new(Docs::TOPICS.size, ""))]
     end
+
+    def exists?
+      false
+    end
   end
 end

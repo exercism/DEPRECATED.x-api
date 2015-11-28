@@ -13,6 +13,14 @@ module Xapi
       Hash[TOPICS.zip(TOPICS.map { |topic| read(topic) })]
     end
 
+    def exists?
+      File.exist?(dir)
+    end
+
+    def image(image)
+      Xapi::Image.new(image, dir)
+    end
+
     private
 
     attr_reader :dir
