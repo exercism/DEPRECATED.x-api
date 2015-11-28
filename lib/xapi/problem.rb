@@ -15,12 +15,16 @@ module Xapi
       [track_id, slug].join("/")
     end
 
+    def exists?
+      File.exist?(dir)
+    end
+
     def name
       slug.split('-').map(&:capitalize).join(' ')
     end
 
     def not_found?
-      unknown_language? || unknown_problem?
+      !exists?
     end
 
     def validate
@@ -75,7 +79,7 @@ module Xapi
     end
 
     def unknown_problem?
-      !File.exist?(dir)
+      !exists?
     end
 
     def meta

@@ -1,0 +1,4 @@
+node exercise: problem do
+  attributes :track_id, :language, :slug, :name
+  node exists: problem.exists?
+end

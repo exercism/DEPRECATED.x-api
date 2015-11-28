@@ -1,0 +1,9 @@
+{
+  "exercise": {
+    "track_id": "fake",
+    "language": "Fake",
+    "slug": "hundred",
+    "name": "Hundred",
+    "exists": false
+  }
+}
