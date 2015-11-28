@@ -29,4 +29,27 @@ class V3RoutesTracksTest < Minitest::Test
     blueberry = JSON.parse(last_response.body)["track"]
     Approvals.verify(blueberry, name: 'v3_track_unimplemented')
   end
+
+  def test_images
+    get '/tracks/fake/docs/img/test.png'
+
+    assert_equal last_response.headers["Content-Type"], 'image/png'
+    Approvals.verify(last_response.body, name: 'valid_image_png')
+
+    get '/tracks/fake/docs/img/test.jpg'
+
+    assert_equal last_response.headers["Content-Type"], 'image/jpeg'
+    Approvals.verify(last_response.body, name: 'valid_image_jpg')
+
+    get '/tracks/no_exists/docs/img/ghost.png'
+    assert_equal 404, last_response.status
+
+    get '/tracks/animal/docs/img/no_content.png'
+    assert_equal 404, last_response.status
+
+    get '/tracks/fake/docs/img/not_found.png'
+    assert_equal last_response.headers["Content-Type"], 'application/json;charset=utf-8'
+    not_found = JSON.parse(last_response.body)
+    Approvals.verify(not_found, name: 'not_found_image')
+  end
 end
