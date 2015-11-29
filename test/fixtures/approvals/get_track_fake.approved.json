@@ -27,6 +27,7 @@
       "name": "Hello World",
       "files": {
         "one_test.tst": "assert 'hello'\n",
+        "two_test.tst": "assert \"World\"\n",
         "README.md": "# Hello World\n\nOh, hello.\n\n* hello\n* hello again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
       },
       "fresh": false

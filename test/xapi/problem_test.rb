@@ -4,7 +4,7 @@ require 'json'
 require 'xapi/code'
 require 'xapi/readme'
 require 'xapi/problem'
-require 'xapi/test_file'
+require 'xapi/tests'
 
 class ProblemTest < Minitest::Test
   def attributes
@@ -67,8 +67,8 @@ class ProblemTest < Minitest::Test
   end
 
   def test_test_file
-    expected_test_file = "assert 'one'\n"
+    expected = { "one_test.tst" => "assert 'one'\n" }
     problem = Xapi::Problem.new(attributes)
-    assert_equal expected_test_file, problem.test_file
+    assert_equal expected, problem.test_files
   end
 end

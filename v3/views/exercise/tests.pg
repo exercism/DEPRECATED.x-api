@@ -1,0 +1,7 @@
+node :exercise do
+  node track_id: problem.track_id
+  node slug: problem.slug
+  node name: problem.name
+  node language: problem.language
+  node files: problem.test_files
+end

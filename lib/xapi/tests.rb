@@ -1,6 +1,6 @@
 module Xapi
-  # TestFile represents the test included with the problem
-  class TestFile
+  # Tests represents the test included with the problem
+  class Tests
     attr_reader :files, :path
 
     def initialize(attributes)
@@ -8,8 +8,8 @@ module Xapi
       @files = attributes[:files]
     end
 
-    def text
-      files.find { |filename, _code| filename =~ test_pattern }.last
+    def test_files
+      files.select { |filename, _code| filename =~ test_pattern }
     end
 
     private
