@@ -56,8 +56,8 @@ module Xapi
       meta.text
     end
 
-    def test_file
-      TestFile.new(path: language_dir, files: files).text
+    def test_files
+      Tests.new(path: language_dir, files: files).test_files
     end
 
     private

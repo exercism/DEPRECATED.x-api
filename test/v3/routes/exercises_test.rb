@@ -15,6 +15,13 @@ class V3RoutesExercisesTest < Minitest::Test
     Approvals.verify(last_response.body, options)
   end
 
+  def test_test_with_multiple_files_and_no_pattern
+    get '/tracks/animal/exercises/dog/tests'
+
+    options = { format: :json, name: 'v3_exercise_tests' }
+    Approvals.verify(last_response.body, options)
+  end
+
   def test_exists
     get '/tracks/fake/exercises/three/exists'
     assert_equal 200, last_response.status

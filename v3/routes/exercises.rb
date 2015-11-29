@@ -6,6 +6,11 @@ module V3
         pg :"exercise/readme", locals: { problem: problem }
       end
 
+      get '/tracks/:id/exercises/:slug/tests' do |id, slug|
+        problem = config.find(id).find(slug)
+        pg :"exercise/tests", locals: { problem: problem }
+      end
+
       get '/tracks/:id/exercises/:slug/exists' do |id, slug|
         problem = config.find(id).find(slug)
         status 404 unless problem.exists?
