@@ -35,7 +35,7 @@ The core ideas in the codebase are:
 
 * [Progression](lib/xapi/progression.rb) - a complete list of all the problems currently available for
   a language, in the order that they will be delivered by default. This is
-  based on the contents of the `EXERCISES.txt` file in the language-specific
+  based on the contents of the `config.json` file in the language-specific
   repository.
 * [Problem](lib/xapi/problem.rb) - the basic unit of work in exercism. It is in a given language,
   and has a `slug` that identifies it.
