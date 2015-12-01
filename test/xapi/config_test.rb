@@ -38,6 +38,7 @@ class ConfigTest < Minitest::Test
       "php",
       "plsql",
       "python",
+      "racket",
       "ruby",
       "rust",
       "scala",
