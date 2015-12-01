@@ -3,5 +3,6 @@ node :exercise do
   node slug: problem.slug
   node name: problem.name
   node language: problem.language
+  node blurb: problem.blurb
   node files: problem.test_files
 end
