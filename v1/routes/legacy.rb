@@ -19,7 +19,7 @@ module V1
       end
 
       get '/problems/demo' do
-        halt 404, ERR_DOMO
+        halt 404, ERR_DEMO
       end
     end
   end
