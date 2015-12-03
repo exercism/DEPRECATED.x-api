@@ -39,7 +39,7 @@ module Xapi
     end
 
     def find(slug)
-      Problem.new(language: 'Unknown', track_id: id, slug: slug, path: '.')
+      NullProblem.new(language: 'Unknown', track_id: id, slug: slug, path: '.')
     end
   end
 end
