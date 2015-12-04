@@ -39,9 +39,8 @@ module Xapi
     end
 
     def find(slug)
-      problems.find(proc { Problem.new(attributes(slug)) }) { |problem|
-        problem.slug == slug
-      }
+      problems.find { |problem| problem.slug == slug } ||
+        NullProblem.new(null_attributes(slug))
     end
 
     def todo
@@ -51,6 +50,15 @@ module Xapi
     private
 
     attr_reader :root, :track_path, :metadata_slugs
+
+    def null_attributes(slug)
+      {
+        language: language,
+        track_id: id,
+        slug: slug,
+        path: '.',
+      }
+    end
 
     def attributes(slug)
       {
