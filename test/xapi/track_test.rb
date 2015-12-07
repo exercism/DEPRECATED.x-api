@@ -22,7 +22,8 @@ class TrackTest < Minitest::Test
   end
 
   def test_todo
-    track = Xapi::Track.new(@path, "fruit", %w(apple banana dog one two))
+    track = Xapi::Track.new(@path, "fruit",
+                            %w(apple banana dog one two four five))
     assert_equal %w(dog one two), track.todo
   end
 

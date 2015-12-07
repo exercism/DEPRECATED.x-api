@@ -6,5 +6,7 @@
   "test_pattern": "a.*animal",
   "problems": [
     "dog"
-  ]
+  ],
+  "deprecated": [],
+  "foregone": []
 }
