@@ -10,7 +10,7 @@ module V1
       get '/v2/exercises' do
         require_key
 
-        problems = forward_errors { filter(homework.problems, params[:tracks]) }
+        problems = forward_errors { filter(homework.problems, (params[:tracks] || [])) }
 
         pg :problems, locals: { problems: problems }
       end

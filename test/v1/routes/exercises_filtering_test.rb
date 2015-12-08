@@ -32,6 +32,12 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
     returns_tracks ['animal', 'fake', 'fruit']
   end
 
+  def test_that_missing_filter_returns_all
+    getting '/v2/exercises'
+
+    returns_tracks ['animal', 'fake', 'fruit']
+  end
+
   def test_that_blank_space_is_ignored
     getting '/v2/exercises?tracks=%20animal%20%20'
 
