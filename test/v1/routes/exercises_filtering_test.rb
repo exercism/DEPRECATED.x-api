@@ -18,11 +18,7 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
     VCR.use_cassette('exercism_api_current_exercises_v2') do
       get '/v2/exercises?tracks=fruit', key: 'abc123'
 
-      json = JSON.parse(last_response.body)
-      
-      tracks_received = json['problems'].map{|it| it['track_id']}.uniq
-
-      assert_equal ['fruit'], tracks_received
+      assert_equal ['fruit'], last_tracks
     end
   end
 
@@ -30,11 +26,7 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
     VCR.use_cassette('exercism_api_current_exercises_v2') do
       get '/v2/exercises?tracks=fruit,animal', key: 'abc123'
 
-      json = JSON.parse(last_response.body)
-      
-      tracks_received = json['problems'].map{|it| it['track_id']}.uniq
-
-      assert_equal ['animal', 'fruit'], tracks_received.sort
+      assert_equal ['animal', 'fruit'], last_tracks
     end
   end
 
@@ -42,11 +34,23 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
     VCR.use_cassette('exercism_api_current_exercises_v2') do
       get '/v2/exercises?tracks=', key: 'abc123'
 
-      json = JSON.parse(last_response.body)
-      
-      tracks_received = json['problems'].map{|it| it['track_id']}.uniq
-
-      assert_equal ['animal', 'fake', 'fruit'], tracks_received
+      assert_equal ['animal', 'fake', 'fruit'], last_tracks
     end
+  end
+
+  def test_that_blank_space_is_ignored
+    VCR.use_cassette('exercism_api_current_exercises_v2') do
+      get '/v2/exercises?tracks=%20animal%20%20', key: 'abc123'
+      
+      assert_equal ['animal'], last_tracks
+    end
+  end
+
+  private
+
+  def last_tracks
+    json = JSON.parse(last_response.body)
+      
+    tracks_received = json['problems'].map{|it| it['track_id']}.uniq
   end
 end
