@@ -17,7 +17,7 @@ module Xapi
     private_class_method :metadata_dir
 
     def self.slugs_in(dir)
-      Dir["#{dir}/*.yml"].map do |f|
+      Dir["#{dir}/*.yml"].sort.map do |f|
         f[REGEX_SLUG, 1]
       end
     end
