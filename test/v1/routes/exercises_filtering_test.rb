@@ -44,6 +44,12 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
     returns_tracks ['animal']
   end
 
+  def test_that_a_track_that_does_not_exist_returns_empty
+    getting '/v2/exercises?tracks=xxx-does-not-exist-xxx'
+    
+    returns_tracks []
+  end
+
   private
 
   def getting(url)
@@ -58,7 +64,7 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
 
   def last_tracks
     json = JSON.parse(last_response.body)
-      
+
     tracks_received = json['problems'].map{|it| it['track_id']}.uniq
   end
 end
