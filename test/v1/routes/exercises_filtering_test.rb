@@ -15,38 +15,40 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
   #
 
   def test_that_you_may_filter_to_single_track
-    VCR.use_cassette('exercism_api_current_exercises_v2') do
-      get '/v2/exercises?tracks=fruit', key: 'abc123'
+    getting '/v2/exercises?tracks=fruit'
 
-      assert_equal ['fruit'], last_tracks
-    end
+    returns_tracks ['fruit']
   end
 
   def test_that_you_may_filter_to_multiple_tracks
-    VCR.use_cassette('exercism_api_current_exercises_v2') do
-      get '/v2/exercises?tracks=fruit,animal', key: 'abc123'
+    getting '/v2/exercises?tracks=fruit,animal'
 
-      assert_equal ['animal', 'fruit'], last_tracks
-    end
+    returns_tracks ['animal', 'fruit']
   end
 
   def test_that_empty_filter_returns_all
-    VCR.use_cassette('exercism_api_current_exercises_v2') do
-      get '/v2/exercises?tracks=', key: 'abc123'
+    getting '/v2/exercises?tracks='
 
-      assert_equal ['animal', 'fake', 'fruit'], last_tracks
-    end
+    returns_tracks ['animal', 'fake', 'fruit']
   end
 
   def test_that_blank_space_is_ignored
-    VCR.use_cassette('exercism_api_current_exercises_v2') do
-      get '/v2/exercises?tracks=%20animal%20%20', key: 'abc123'
-      
-      assert_equal ['animal'], last_tracks
-    end
+    getting '/v2/exercises?tracks=%20animal%20%20'
+
+    returns_tracks ['animal']
   end
 
   private
+
+  def getting(url)
+    VCR.use_cassette('exercism_api_current_exercises_v2') do
+      get url, key: 'abc123'
+    end
+  end
+
+  def returns_tracks(expected_tracks=[])
+    assert_equal expected_tracks, last_tracks
+  end
 
   def last_tracks
     json = JSON.parse(last_response.body)
