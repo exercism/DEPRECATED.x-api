@@ -34,6 +34,14 @@ module Xapi
       data['problems']
     end
 
+    def deprecated
+      data['deprecated']
+    end
+
+    def foregone
+      data['foregone']
+    end
+
     def docs
       @docs ||= Docs.new(track_path)
     end
@@ -44,7 +52,7 @@ module Xapi
     end
 
     def todo
-      metadata_slugs - slugs
+      metadata_slugs - slugs - deprecated - foregone
     end
 
     private
