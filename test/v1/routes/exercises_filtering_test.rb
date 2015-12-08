@@ -18,8 +18,6 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
     VCR.use_cassette('exercism_api_current_exercises_v2') do
       get '/v2/exercises?tracks=fruit', key: 'abc123'
 
-      options = { format: :json, name: 'get_current_problems_by_language_v2' }
-
       json = JSON.parse(last_response.body)
       
       tracks_received = json['problems'].map{|it| it['track_id']}.uniq
@@ -32,8 +30,6 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
     VCR.use_cassette('exercism_api_current_exercises_v2') do
       get '/v2/exercises?tracks=fruit,animal', key: 'abc123'
 
-      options = { format: :json, name: 'get_current_problems_by_language_v2' }
-
       json = JSON.parse(last_response.body)
       
       tracks_received = json['problems'].map{|it| it['track_id']}.uniq
@@ -45,8 +41,6 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
   def test_that_empty_filter_returns_all
     VCR.use_cassette('exercism_api_current_exercises_v2') do
       get '/v2/exercises?tracks=', key: 'abc123'
-
-      options = { format: :json, name: 'get_current_problems_by_language_v2' }
 
       json = JSON.parse(last_response.body)
       
