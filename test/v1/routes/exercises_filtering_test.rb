@@ -28,6 +28,20 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
     end
   end
 
+  def test_that_you_may_filter_to_multiple_tracks
+    VCR.use_cassette('exercism_api_current_exercises_v2') do
+      get '/v2/exercises?tracks=fruit,animal', key: 'abc123'
+
+      options = { format: :json, name: 'get_current_problems_by_language_v2' }
+
+      json = JSON.parse(last_response.body)
+      
+      tracks_received = json['problems'].map{|it| it['track_id']}.uniq
+
+      assert_equal ['animal', 'fruit'], tracks_received.sort
+    end
+  end
+
   def test_that_empty_filter_returns_all
     VCR.use_cassette('exercism_api_current_exercises_v2') do
       get '/v2/exercises?tracks=', key: 'abc123'
@@ -41,6 +55,4 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
       assert_equal ['animal', 'fake', 'fruit'], tracks_received
     end
   end
-
-  # TEST: use comma or semi?
 end
