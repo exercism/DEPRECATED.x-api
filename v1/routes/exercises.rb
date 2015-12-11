@@ -9,7 +9,9 @@ module V1
 
       get '/v2/exercises' do
         require_key
-        problems = forward_errors { homework.problems }
+        problems = forward_errors do
+          filter(homework.problems, (params[:tracks] || []))
+        end
         pg :problems, locals: { problems: problems }
       end
 
@@ -35,6 +37,13 @@ module V1
         problem = config.find(language).find(slug)
         problem.validate or halt 404, { error: problem.error }.to_json
         pg :problems, locals: { problems: [problem] }
+      end
+
+      private
+
+      def filter(what, track_ids=[])
+        return what if track_ids.empty?
+        what.select { |it| track_ids.include?(it.track_id) }
       end
     end
   end
