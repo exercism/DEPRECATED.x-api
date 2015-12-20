@@ -12,6 +12,7 @@ gem 'rack', '~> 1.4'
 gem 'rake', '~> 10.4'
 gem 'sinatra', '~> 1.4', require: 'sinatra/base'
 gem 'tilt', '~> 1.3'
+gem 'rubyzip'
 
 group :development, :test do
   gem 'approvals', '~> 0.0.16', require: false

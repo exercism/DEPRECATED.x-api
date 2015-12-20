@@ -53,4 +53,16 @@ class V3RoutesExercisesTest < Minitest::Test
     options = { format: :json, name: 'v3_exercise_does_not_exist' }
     Approvals.verify(last_response.body, options)
   end
+
+  def test_slug
+    get '/tracks/fake/exercises/three'
+    assert_equal 200, last_response.status
+    assert_equal last_response.headers["Content-Disposition"].split(';')[0], 'attachment'
+    assert_equal last_response.headers["Content-Type"], 'application/octet-stream'
+
+    get '/tracks/fake/exercises/four'
+    assert_equal 404, last_response.status
+    options = { format: :json, name: 'v3_exercise_zip_file_not_exists' }
+    Approvals.verify(last_response.body, options)
+  end
 end

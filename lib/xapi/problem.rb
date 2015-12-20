@@ -1,3 +1,5 @@
+require_relative '../../v3/services/zip_archive'
+
 module Xapi
   # Problem represents a README and related code in a given language track.
   class Problem
@@ -60,6 +62,16 @@ module Xapi
       Tests.new(path: language_dir, files: files).test_files
     end
 
+    def zip(file: Tempfile.new([slug, '.zip']),
+            generator: ZipArchive)
+      generator.write(dir, file.path)
+      file
+    end
+
+    def dir
+      File.join(language_dir, slug)
+    end
+
     private
 
     def setup
@@ -68,10 +80,6 @@ module Xapi
 
     def language_dir
       File.join(path, 'tracks', track_id)
-    end
-
-    def dir
-      File.join(language_dir, slug)
     end
 
     def unknown_language?
