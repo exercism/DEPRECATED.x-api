@@ -71,4 +71,13 @@ class ProblemTest < Minitest::Test
     problem = Xapi::Problem.new(attributes)
     assert_equal expected, problem.test_files
   end
+
+  def test_zip
+    problem = Xapi::Problem.new(attributes)
+    file = Tempfile.new(['test', '.zip'])
+    mock = MiniTest::Mock.new
+    mock.expect(:write, file, [problem.dir, file.path])
+    problem.zip(file: file, generator: mock)
+    assert mock.verify
+  end
 end
