@@ -109,6 +109,3 @@ DEPENDENCIES
   tilt (~> 1.3)
   vcr (~> 2.8)
   webmock (~> 1.17.0)
-
-BUNDLED WITH
-   1.10.6
