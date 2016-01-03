@@ -34,7 +34,7 @@ class V3RoutesTracksTest < Minitest::Test
     get '/tracks/fake/problems'
     fake = JSON.parse(last_response.body)["track"]
     assert_equal fake.keys.sort, ["id", "language", "problems"]
-    Approvals.verify(fake["problems"], name: 'v3_track_problems')
+    Approvals.verify(fake["problems"].sort_by {|problem| problem["slug"]}, name: 'v3_track_problems')
   end
 
   def test_images
