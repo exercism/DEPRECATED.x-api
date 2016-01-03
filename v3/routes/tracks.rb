@@ -13,7 +13,7 @@ module V3
 
       get '/tracks/:id/problems' do |id|
         track = config.find(id)
-        pg :"track/problems", locals: {track: track}
+        pg :"track/problems", locals: { track: track }
       end
 
       get '/tracks/:id/docs/img/:filename' do |id, filename|

@@ -33,7 +33,7 @@ class V3RoutesTracksTest < Minitest::Test
   def test_problems
     get '/tracks/fake/problems'
     fake = JSON.parse(last_response.body)["track"]
-    assert_equal fake.keys.sort, ["id", "language", "problems"]
+    assert_equal fake.keys.sort, %w(id language problems)
     Approvals.verify(fake["problems"], name: 'v3_track_problems')
   end
 
