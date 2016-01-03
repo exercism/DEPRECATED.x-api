@@ -1,4 +1,4 @@
 [0] {"slug"=>"hello-world", "name"=>"Hello World", "blurb"=>"Oh, hello."}
 [1] {"slug"=>"one", "name"=>"One", "blurb"=>"This is one."}
-[2] {"slug"=>"three", "name"=>"Three", "blurb"=>"This is three."}
-[3] {"slug"=>"two", "name"=>"Two", "blurb"=>"This is two."}
+[2] {"slug"=>"two", "name"=>"Two", "blurb"=>"This is two."}
+[3] {"slug"=>"three", "name"=>"Three", "blurb"=>"This is three."}
