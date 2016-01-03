@@ -30,6 +30,13 @@ class V3RoutesTracksTest < Minitest::Test
     Approvals.verify(blueberry, name: 'v3_track_unimplemented')
   end
 
+  def test_problems
+    get '/tracks/fake/problems'
+    fake = JSON.parse(last_response.body)["track"]
+    assert_equal fake.keys.sort, ["id", "language", "problems"]
+    Approvals.verify(fake["problems"], name: 'v3_track_problems')
+  end
+
   def test_images
     get '/tracks/fake/docs/img/test.png'
 
