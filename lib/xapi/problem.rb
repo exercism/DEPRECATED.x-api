@@ -47,7 +47,11 @@ module Xapi
     end
 
     def code
-      Code.new(dir).files
+      Code.new(dir).files.reject { |file, _| ignored_files.include? file }
+    end
+
+    def ignored_files
+      ["HINTS.md"]
     end
 
     def blurb
@@ -74,6 +78,10 @@ module Xapi
 
     private
 
+    def hints
+      File.read(File.join(dir, 'HINTS.md')) rescue nil
+    end
+
     def setup
       File.read(File.join(language_dir, 'SETUP.md')) rescue nil
     end
@@ -91,7 +99,7 @@ module Xapi
     end
 
     def meta
-      @meta ||= Readme.new(slug, path, setup)
+      @meta ||= Readme.new(slug, path, setup, hints)
     end
   end
 end

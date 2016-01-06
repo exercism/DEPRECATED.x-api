@@ -1,12 +1,13 @@
 module Xapi
   # Readme combines metadata into a README for a problem.
   class Readme
-    attr_reader :slug, :dir, :help
+    attr_reader :slug, :dir, :help, :exercise_help
 
-    def initialize(slug, dir="./tracks", help=nil)
+    def initialize(slug, dir="./tracks", help=nil, exercise_help=nil)
       @slug = slug
       @dir = dir
       @help = help
+      @exercise_help = exercise_help
     end
 
     def name
@@ -19,8 +20,7 @@ module Xapi
 
 #{blurb}
 
-#{instructions}
-#{help}
+#{exercise_guide}
 ## Source
 
 #{source} [view source](#{source_url})
@@ -32,6 +32,10 @@ README
     end
 
     private
+
+    def exercise_guide
+      [exercise_help, instructions, help].compact.join("\n")
+    end
 
     def source
       data['source']
