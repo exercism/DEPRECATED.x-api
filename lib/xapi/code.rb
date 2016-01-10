@@ -7,11 +7,11 @@ module Xapi
     end
 
     def glob
-      (Dir.glob("#{dir}/**/*", File::FNM_DOTMATCH) - ['.', '..']).reject { |path| File.directory?(path) }
+      Dir.glob("#{dir}/**/*", File::FNM_DOTMATCH) - ['.', '..']
     end
 
     def paths
-      glob.reject { |path| path =~ /example/i }.sort
+      glob.reject(&dir_ey).reject(&example_ey).sort
     end
 
     def files
@@ -24,6 +24,16 @@ module Xapi
 
     def basename(path)
       path.gsub("#{dir}/", "")
+    end
+
+    # Don't name this dir?, because it returns a proc,
+    # which is always truthy.
+    def dir_ey
+      ->(path) { File.directory?(path) }
+    end
+
+    def example_ey
+      ->(path) { path =~ /example/i }
     end
   end
 end

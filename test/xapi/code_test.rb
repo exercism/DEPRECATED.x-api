@@ -12,17 +12,6 @@ class CodeTest < Minitest::Test
     @code = Xapi::Code.new('./test/fixtures/tracks/fake/one')
   end
 
-  def test_glob
-    expected = [
-      path_to("Fakefile"),
-      path_to("example.ext"),
-      path_to("one_test.tst"),
-      path_to("sub/src/ExampleFile.ext"),
-      path_to(".dot"),
-    ]
-    assert_equal expected.sort, code.glob.sort
-  end
-
   def test_paths
     expected = [
       path_to(".dot"),
