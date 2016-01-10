@@ -9,7 +9,7 @@
       "files": {
         "apple.ext": "an apple a day keeps the doctor away\n",
         "apple_test.tst": "assert 'one'\n",
-        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
       },
       "fresh": false
     }

@@ -35,7 +35,7 @@ class ProblemTest < Minitest::Test
 
   def test_handle_missing_setup_instructions_gracefully
     problem = Xapi::Problem.new(attributes.update(track_id: 'ruby'))
-    readme = "# One\n\nThis is one.\n\n* one\n* one again\n\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+    readme = "# One\n\nThis is one.\n\n* one\n* one again\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
     assert_equal readme, problem.readme
   end
 
