@@ -35,7 +35,7 @@ class ZipArchiveTest < Minitest::Test
     ZipArchive.write(problem.dir, zip.path)
 
     expected_files = [
-      "example.ext", "Fakefile", "one_test.tst", "sub/", "sub/src/",
+      ".dot", "example.ext", "Fakefile", "one_test.tst", "sub/", "sub/src/",
       "sub/src/ExampleFile.ext"
     ]
     assert_files_in_zip expected_files, zip

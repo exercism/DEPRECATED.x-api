@@ -7,7 +7,7 @@ module Xapi
     end
 
     def glob
-      Dir.glob("#{dir}/**/*").reject { |path| File.directory?(path) }
+      (Dir.glob("#{dir}/**/*", File::FNM_DOTMATCH) - ['.', '..']).reject { |path| File.directory?(path) }
     end
 
     def paths

@@ -18,12 +18,14 @@ class CodeTest < Minitest::Test
       path_to("example.ext"),
       path_to("one_test.tst"),
       path_to("sub/src/ExampleFile.ext"),
+      path_to(".dot"),
     ]
     assert_equal expected.sort, code.glob.sort
   end
 
   def test_paths
     expected = [
+      path_to(".dot"),
       path_to("Fakefile"),
       path_to("one_test.tst"),
     ]
@@ -32,6 +34,7 @@ class CodeTest < Minitest::Test
 
   def test_deliver_applicable_files
     expected = {
+      ".dot" => "dot\n",
       "Fakefile" => "Autorun fake code\n",
       "one_test.tst" => "assert 'one'\n",
     }

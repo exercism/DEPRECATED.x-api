@@ -23,6 +23,7 @@ class ProblemTest < Minitest::Test
       "README.md" => readme,
       "Fakefile" => "Autorun fake code\n",
       "one_test.tst" => "assert 'one'\n",
+      ".dot" => "dot\n",
     }
     assert_equal files, problem.files
     assert_equal 'fake', problem.track_id
