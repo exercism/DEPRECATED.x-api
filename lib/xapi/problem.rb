@@ -73,10 +73,22 @@ module Xapi
     end
 
     def dir
-      File.join(language_dir, slug)
+      if File.exist?(exercises_dir)
+        exercises_dir
+      else
+        legacy_exercises_dir
+      end
     end
 
     private
+
+    def legacy_exercises_dir
+      File.join(language_dir, slug)
+    end
+
+    def exercises_dir
+      File.join(language_dir, "exercises", slug)
+    end
 
     def hints
       File.read(File.join(dir, 'HINTS.md')) rescue nil

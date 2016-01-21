@@ -4,7 +4,7 @@ require 'xapi/code'
 class CodeTest < Minitest::Test
   attr_reader :code
 
-  def test_code
+  def test_exercise_in_root_dir
     code = Xapi::Code.new('./test/fixtures/tracks/fake/one')
     paths = [
       "./test/fixtures/tracks/fake/one/.dot",

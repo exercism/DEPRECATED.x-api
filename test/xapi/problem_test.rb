@@ -81,4 +81,13 @@ class ProblemTest < Minitest::Test
     problem.zip(file: file, generator: mock)
     assert mock.verify
   end
+
+  def test_files_in_exercises_dir
+    expected = {
+      "apple.ext" => "an apple a day keeps the doctor away\n",
+      "apple_test.tst" => "assert 'one'\n"
+    }
+    problem = Xapi::Problem.new(track_id: 'fruit', slug: 'apple', path: './test/fixtures')
+    assert_equal expected, problem.code
+  end
 end

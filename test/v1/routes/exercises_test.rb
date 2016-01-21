@@ -19,9 +19,6 @@ class V1RoutesExercisesTest < Minitest::Test
     end
   end
 
-  # Acceptance tests. Relies on real language-specific data.
-  # Expect it to fail regularly, since exercises get updated fairly frequently.
-
   def test_get_problems_by_language
     VCR.use_cassette('exercism_api_current_exercises_v2') do
       get '/v2/exercises/fruit', key: 'abc123'
