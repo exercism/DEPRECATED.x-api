@@ -18,7 +18,7 @@ module Xapi
 
     def tracks
       @tracks ||= ids.map do |track_name|
-        Xapi::Track.new(path, track_name, exercices)
+        Xapi::Track.new(path, track_name, exercises)
       end.sort_by(&:id)
     end
 
@@ -28,8 +28,8 @@ module Xapi
 
     private
 
-    def exercices
-      @exercices =  Xapi::Metadata.load(path).slugs
+    def exercises
+      Xapi::Metadata.load(path).slugs
     end
 
     def ids
