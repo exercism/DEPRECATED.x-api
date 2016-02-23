@@ -6,11 +6,11 @@ require './lib/xapi/track'
 METADATA = Dir.glob("metadata/*").map {|path| File.basename(path)}
 
 def missing?(slug)
-  !(METADATA.include?("#{slug}.yml") || METADATA.include?("#{slug}.md"))
+  !(METADATA.include?("#{slug}.yml") && METADATA.include?("#{slug}.md"))
 end
 
 omissions = []
-Dir.glob("problems/*").each do |path|
+Dir.glob("tracks/*").each do |path|
   track_id = File.basename(path)
   track = Xapi::Track.new(".", track_id)
   track.slugs.each do |slug|
