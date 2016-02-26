@@ -16,6 +16,11 @@ module V3
         pg :"track/problems", locals: { track: track }
       end
 
+      get '/tracks/:id/todo' do |id|
+        track = config.find(id)
+        pg :"track/todos", locals: { language: id, todos: track.todo_details }
+      end
+
       get '/tracks/:id/docs/img/:filename' do |id, filename|
         track = config.find(id)
         halt 404 unless track.implemented?
