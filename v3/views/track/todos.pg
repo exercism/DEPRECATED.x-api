@@ -1,0 +1,9 @@
+node language: language
+collection todos: todos do |todo|
+  node slug: todo.slug
+  node readme: todo.readme.text
+  collection implemented_examples: todo.implemented_examples do |problem|
+    node track_id: problem.track_id
+    node repo: problem.git_url
+  end
+end

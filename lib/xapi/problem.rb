@@ -17,6 +17,10 @@ module Xapi
       [track_id, slug].join("/")
     end
 
+    def git_url
+      Track.new(path, track_id).repository << '/tree/master/' << slug
+    end
+
     def exists?
       File.exist?(dir)
     end

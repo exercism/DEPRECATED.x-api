@@ -5,6 +5,7 @@ require 'xapi/problem'
 require 'xapi/null_track'
 require 'xapi/track/docs'
 require 'xapi/track/null_docs'
+require 'xapi/todo'
 
 class TrackTest < Minitest::Test
   def setup
@@ -25,6 +26,12 @@ class TrackTest < Minitest::Test
     track = Xapi::Track.new(@path, "fruit",
                             %w(apple banana dog one two four five))
     assert_equal %w(dog one two), track.todo
+  end
+
+  def test_todo_details
+    track = Xapi::Track.new(@path, "fruit",
+                            %w(apple banana dog one two four five))
+    assert_equal %w(dog one two), track.todo_details.map(&:slug)
   end
 
   def test_inactive_language

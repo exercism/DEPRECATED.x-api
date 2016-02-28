@@ -37,6 +37,12 @@ class V3RoutesTracksTest < Minitest::Test
     Approvals.verify(fake["problems"], name: 'v3_track_problems')
   end
 
+  def test_todos
+    get '/tracks/fake/todo'
+    fake = JSON.parse(last_response.body)
+    Approvals.verify(fake["todos"], name: 'v3_track_todo')
+  end
+
   def test_images
     get '/tracks/fake/docs/img/test.png'
 

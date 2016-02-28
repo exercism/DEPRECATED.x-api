@@ -5,6 +5,7 @@ require 'xapi/code'
 require 'xapi/readme'
 require 'xapi/problem'
 require 'xapi/tests'
+require 'xapi/track'
 
 class ProblemTest < Minitest::Test
   def attributes
@@ -89,5 +90,10 @@ class ProblemTest < Minitest::Test
     }
     problem = Xapi::Problem.new(track_id: 'fruit', slug: 'apple', path: './test/fixtures')
     assert_equal expected, problem.code
+  end
+
+  def test_git_url
+    problem = Xapi::Problem.new(attributes.update(slug: 'dog'))
+    assert_equal "https://github.com/exercism/xfake/tree/master/dog", problem.git_url
   end
 end

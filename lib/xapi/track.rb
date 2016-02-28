@@ -55,6 +55,10 @@ module Xapi
       metadata_slugs - slugs - deprecated - foregone
     end
 
+    def todo_details
+      todo.map { |problem| Todo.new(problem, root) }
+    end
+
     private
 
     attr_reader :root, :track_path, :metadata_slugs
