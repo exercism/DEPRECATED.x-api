@@ -133,3 +133,6 @@
 [submodule "tracks/racket"]
 	path = tracks/racket
 	url = https://github.com/exercism/xracket.git
+[submodule "problems/elm"]
+	path = problems/elm
+	url = https://github.com/exercism/xelm.git
