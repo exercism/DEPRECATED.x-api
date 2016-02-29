@@ -5,7 +5,7 @@ module Xapi
   class Problem
     Name = proc { |problem| [problem.language, problem.slug] }
 
-    attr_reader :track_id, :slug, :path, :language
+    attr_reader :track_id, :slug, :path, :language, :repository
 
     def initialize(attributes)
       attributes.each {|field, value|
@@ -18,7 +18,7 @@ module Xapi
     end
 
     def git_url
-      Track.new(path, track_id).repository << '/tree/master/' << slug
+      "#{ repository }/tree/master/#{ slug }"
     end
 
     def exists?

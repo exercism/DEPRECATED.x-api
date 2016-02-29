@@ -56,7 +56,7 @@ module Xapi
     end
 
     def todo_details
-      todo.map { |problem| Todo.new(problem, root) }
+      todo.map { |slug| Todo.new(slug, root) }
     end
 
     private
@@ -78,6 +78,7 @@ module Xapi
         track_id: id,
         slug: slug,
         path: root,
+        repository: repository,
       }
     end
 

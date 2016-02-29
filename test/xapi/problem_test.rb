@@ -14,6 +14,7 @@ class ProblemTest < Minitest::Test
       language: 'Who Cares',
       slug: 'one',
       path: './test/fixtures',
+      repository: 'https://github.com/exercism/xfake',
     }
   end
 

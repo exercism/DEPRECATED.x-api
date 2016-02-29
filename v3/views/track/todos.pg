@@ -1,4 +1,4 @@
-node language: language
+node track_id: track_id
 collection todos: todos do |todo|
   node slug: todo.slug
   node readme: todo.readme.text
