@@ -18,7 +18,7 @@ module V3
 
       get '/tracks/:id/todo' do |id|
         track = config.find(id)
-        pg :"track/todos", locals: { language: id, todos: track.todo_details }
+        pg :"track/todos", locals: { track_id: id, todos: track.todo_details }
       end
 
       get '/tracks/:id/docs/img/:filename' do |id, filename|

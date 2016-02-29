@@ -18,7 +18,7 @@ module Xapi
     end
 
     def git_url
-      Track.new(path, track_id).repository << '/tree/master/' << slug
+      @repository << '/tree/master/' << slug
     end
 
     def exists?
