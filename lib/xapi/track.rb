@@ -78,7 +78,7 @@ module Xapi
         track_id: id,
         slug: slug,
         path: root,
-        repository: repository
+        repository: repository,
       }
     end
 
