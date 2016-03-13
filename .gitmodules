@@ -136,3 +136,6 @@
 [submodule "tracks/elm"]
 	path = tracks/elm
 	url = https://github.com/exercism/xelm.git
+[submodule "tracks/crystal"]
+	path = tracks/crystal
+	url = https://github.com/exercism/xcrystal.git
