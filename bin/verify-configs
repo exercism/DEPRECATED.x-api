@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 root = Dir.pwd
-Dir.glob("problems/*").each do |path|
+Dir.glob("tracks/*").each do |path|
   `bin/configlet #{path}`
 end
