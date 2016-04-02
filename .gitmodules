@@ -94,9 +94,6 @@
 [submodule "tracks/powershell"]
 	path = tracks/powershell
 	url = https://github.com/exercism/xpowershell.git
-[submodule "tracks/proofs"]
-	path = tracks/proofs
-	url = https://github.com/exercism/xproofs.git
 [submodule "tracks/r"]
 	path = tracks/r
 	url = https://github.com/exercism/xr.git
