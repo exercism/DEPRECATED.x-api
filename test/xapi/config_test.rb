@@ -23,6 +23,7 @@ class ConfigTest < Minitest::Test
       "ecmascript",
       "elisp",
       "elixir",
+      "elm",
       "erlang",
       "fsharp",
       "go",
