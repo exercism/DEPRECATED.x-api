@@ -8,19 +8,9 @@ require 'xapi/problem'
 require 'yaml'
 
 class TodoTest < Minitest::Test
-  def setup
-    @path = "./test/fixtures/"
-  end
-
-  def test_readme
-    todo = Xapi::Todo.new('one', @path)
-    readme = Xapi::Readme.new('one', @path)
-    assert_equal readme.text, todo.readme.text
-  end
-
-  def test_implemented_examples
-    todo = Xapi::Todo.new('one', @path)
-    implemented_examples = todo.implemented_examples
-    assert_equal implemented_examples.map(&:track_id), ['fake']
+  def test_todo
+    todo = Xapi::Todo.new('one', "./test/fixtures/")
+    assert_equal "https://github.com/exercism/x-common/tree/master/one.md", todo.readme_url
+    assert_equal todo.implementations.map(&:track_id), ['fake']
   end
 end

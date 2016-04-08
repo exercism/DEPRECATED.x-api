@@ -1,9 +1,10 @@
 node track_id: track_id
 collection todos: todos do |todo|
   node slug: todo.slug
-  node readme: todo.readme.text
-  collection implemented_examples: todo.implemented_examples do |problem|
-    node track_id: problem.track_id
-    node repo: problem.git_url
+  node readme: todo.readme_url
+  node data: todo.json_url
+  collection implementations: todo.implementations do |implementation|
+    node track_id: implementation.track_id
+    node url: implementation.git_url
   end
 end

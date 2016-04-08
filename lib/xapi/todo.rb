@@ -7,11 +7,17 @@ module Xapi
       @slug, @path = slug, path
     end
 
-    def readme
-      Readme.new(slug, path)
+    def readme_url
+      "https://github.com/exercism/x-common/tree/master/%s.md" % slug
     end
 
-    def implemented_examples
+    def json_url
+      f = File.join(path, "metadata", "%s.json" % slug)
+      url = "https://github.com/exercism/x-common/tree/master/%s.json" % slug
+      url if File.exist?(f)
+    end
+
+    def implementations
       Config.new(path).tracks.flat_map do |track|
         track.problems.select { |problem| problem.slug == slug }
       end
