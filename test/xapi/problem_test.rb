@@ -94,7 +94,24 @@ class ProblemTest < Minitest::Test
   end
 
   def test_git_url
-    problem = Xapi::Problem.new(attributes.update(slug: 'dog'))
-    assert_equal "https://github.com/exercism/xfake/tree/master/dog", problem.git_url
+    attrs = {
+      repository: 'http://example.com',
+      path: './test/fixtures',
+    }
+
+    # not all tracks have moved their exercises to a subdirectory yet
+    legacy = {
+      track_id: 'fake',
+      slug: 'one',
+    }.merge(attrs)
+    problem1 = Xapi::Problem.new(legacy)
+    assert_equal "http://example.com/tree/master/one", problem1.git_url
+
+    legit = {
+      track_id: 'fruit',
+      slug: 'apple',
+    }.merge(attrs)
+    problem2 = Xapi::Problem.new(legit)
+    assert_equal "http://example.com/tree/master/exercises/apple", problem2.git_url
   end
 end

@@ -18,7 +18,7 @@ module Xapi
     end
 
     def git_url
-      "#{ repository }/tree/master/#{ slug }"
+      "%s/tree/master/%s" % [repository, problem_path]
     end
 
     def exists?
@@ -77,17 +77,17 @@ module Xapi
     end
 
     def dir
-      if File.exist?(exercises_dir)
-        exercises_dir
-      else
-        legacy_exercises_dir
-      end
+      File.join(language_dir, problem_path)
     end
 
     private
 
-    def legacy_exercises_dir
-      File.join(language_dir, slug)
+    def problem_path
+      if File.exist?(exercises_dir)
+        File.join("exercises", slug)
+      else
+        slug
+      end
     end
 
     def exercises_dir
