@@ -136,3 +136,6 @@
 [submodule "tracks/crystal"]
 	path = tracks/crystal
 	url = https://github.com/exercism/xcrystal.git
+[submodule "tracks/nim"]
+	path = tracks/nim
+	url = https://github.com/exercism/xnim.git
