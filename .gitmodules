@@ -139,3 +139,6 @@
 [submodule "tracks/nim"]
 	path = tracks/nim
 	url = https://github.com/exercism/xnim.git
+[submodule "tracks/kotlin"]
+	path = tracks/kotlin
+	url = https://github.com/exercism/xkotlin.git
