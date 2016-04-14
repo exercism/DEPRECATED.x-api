@@ -37,7 +37,7 @@ module Xapi
 
     def mark_as_fetched(problem)
       unless problem.not_found?
-        ExercismIO.fetch_for(key, problem.language, problem.slug)
+        ExercismIO.fetch(key, problem.language, problem.slug)
       end
       problem
     end

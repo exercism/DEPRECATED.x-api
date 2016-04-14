@@ -37,7 +37,7 @@ module V1
         problem = config.find(language).find(slug)
         problem.validate or halt 404, { error: problem.error }.to_json
         begin
-          Xapi::ExercismIO.fetch_for(params[:key], problem.track_id, problem.slug)
+          Xapi::ExercismIO.fetch(params[:key], problem.track_id, problem.slug)
         rescue
           # don't fail just because we can't track it.
         end

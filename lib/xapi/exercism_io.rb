@@ -26,7 +26,7 @@ module Xapi
       get('/api/v1/iterations/latest', key)["assignments"]
     end
 
-    def self.fetch_for(key, language, slug)
+    def self.fetch(key, language, slug)
       post("/api/v1/iterations/#{language}/#{slug}/fetch", key) if !!key
     end
 
