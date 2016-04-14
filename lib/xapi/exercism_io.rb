@@ -27,7 +27,7 @@ module Xapi
     end
 
     def self.fetch_for(key, language, slug)
-      post("/api/v1/iterations/#{language}/#{slug}/fetch", key)
+      post("/api/v1/iterations/#{language}/#{slug}/fetch", key) if !!key
     end
 
     def self.conn
