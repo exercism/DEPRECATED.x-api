@@ -6,6 +6,8 @@ AllCops:
     - 'vendor/**/*'
 Style/StringLiterals:
   Enabled: false
+Style/DoubleNegation:
+  Enabled: false
 Style/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 Style/TrailingComma:

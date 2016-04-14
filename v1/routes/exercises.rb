@@ -36,6 +36,8 @@ module V1
         # no need to authenticate for this one
         problem = config.find(language).find(slug)
         problem.validate or halt 404, { error: problem.error }.to_json
+
+        # rubocop:disable Lint/HandleExceptions
         begin
           Xapi::ExercismIO.fetch(params[:key], problem.track_id, problem.slug)
         rescue
