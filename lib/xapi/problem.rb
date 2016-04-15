@@ -1,4 +1,4 @@
-require_relative '../../v3/services/zip_archive'
+require_relative 'zip_archive'
 
 module Xapi
   # Problem represents a README and related code in a given language track.

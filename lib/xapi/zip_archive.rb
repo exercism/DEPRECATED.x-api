@@ -1,5 +1,7 @@
 require 'zip'
 
+# ZipArchize provides a compressed problem implementation.
+# It will be delivered via 'exercism fetch'.
 class ZipArchive
   def self.write(scr, dst)
     new(scr, dst).create

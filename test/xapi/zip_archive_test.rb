@@ -1,7 +1,22 @@
-require './lib/xapi/problem'
-require './test/v3_helper'
+require_relative '../test_helper'
+require_relative '../../lib/xapi/problem'
 
 class ZipArchiveTest < Minitest::Test
+  def assert_files_in_zip(files, zip_file)
+    files_in_zip = file_names(zip_file)
+    assert_equal files_in_zip.sort, files.sort
+  end
+
+  def file_names(zip_file)
+    names = []
+    Zip::InputStream.open(zip_file) do |io|
+      while (entry = io.get_next_entry)
+        names << entry.name
+      end
+    end
+    names
+  end
+
   def problem_attributes_recursive_files
     {
       track_id: 'fake',
