@@ -45,8 +45,9 @@ class V3RoutesTracksTest < Minitest::Test
   def test_images
     get '/tracks/fake/docs/img/test.png'
 
-    assert_equal last_response.headers["Content-Type"], 'image/png'
+    assert_equal 200, last_response.status, last_response.body
     Approvals.verify(last_response.body, name: 'valid_image_png')
+    assert_equal last_response.headers["Content-Type"], 'image/png'
 
     get '/tracks/fake/docs/img/test.jpg'
 

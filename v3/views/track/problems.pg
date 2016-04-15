@@ -1,7 +1,9 @@
 node track: track do
   attributes :id, :language
 
-  collection problems: track.problems do |problem|
-    attributes :slug, :name, :blurb
+  collection problems: track.implementations do |implementation|
+    node slug: implementation.problem.slug
+    node name: implementation.problem.name
+    node blurb: implementation.problem.blurb
   end
 end

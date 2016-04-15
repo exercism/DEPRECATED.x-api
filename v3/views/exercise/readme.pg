@@ -1,5 +1,9 @@
-node exercise: problem do
-  attributes :track_id, :language, :slug, :name, :blurb
+node :exercise do
+  node track_id: track.id
+  node language: track.language
+  node slug: implementation.problem.slug
+  node name: implementation.problem.name
+  node blurb: implementation.problem.blurb
 
-  node files: {"README.md" => problem.readme}
+  node files: {"README.md" => implementation.readme}
 end
