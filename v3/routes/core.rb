@@ -10,9 +10,11 @@ module V3
 
       configure :development, :production do
         set :config, Xapi::Config.new
+        set :tracks_path, "."
       end
 
       configure :test do
+        set :tracks_path, "./test/fixtures"
         set :config, Xapi::Config.new("./test/fixtures")
       end
 
