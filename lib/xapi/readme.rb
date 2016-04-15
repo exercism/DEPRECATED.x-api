@@ -34,7 +34,7 @@ README
     private
 
     def exercise_guide
-      [exercise_help, instructions, help].compact.join("\n")
+      [instructions, exercise_help, help].compact.join("\n")
     end
 
     def source
