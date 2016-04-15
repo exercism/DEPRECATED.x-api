@@ -17,9 +17,9 @@ class BackupTest < Minitest::Test
     ]
     backup.stub(:data, data) do
       expected = [
-        ["README.md", "two.ext", "two_test.tst"],
-        ["README.md", "apple.ext", "apple_test.tst"],
-        ["README.md", "banana.ext", "banana_test.tst"],
+        ["README.md", "two.ext", "two_test.ext"],
+        ["README.md", "apple.ext", "apple.tst"],
+        ["README.md", "banana.ext", "banana.tst"],
       ]
       assert_equal expected, backup.problems.map { |problem| problem.files.keys.sort }
 

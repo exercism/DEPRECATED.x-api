@@ -50,8 +50,8 @@ class ZipArchiveTest < Minitest::Test
     ZipArchive.write(problem.dir, zip.path)
 
     expected_files = [
-      ".dot", "example.ext", "Fakefile", "one_test.tst", "sub/", "sub/src/",
-      "sub/src/ExampleFile.ext"
+      ".dot", "HINTS.md", "example.ext", "Fakefile", "one_test.ext", "sub/", "sub/src/",
+      "sub/src/ExampleFile.ext", "sub/src/stubfile.ext"
     ]
     assert_files_in_zip expected_files, zip
     zip.unlink

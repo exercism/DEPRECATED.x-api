@@ -8,8 +8,8 @@
       "name": "Apple",
       "files": {
         "apple.ext": "an apple a day keeps the doctor away\n",
-        "apple_test.tst": "assert 'one'\n",
-        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+        "apple.tst": "assert 'apple'\n",
+        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source]()\n"
       },
       "fresh": false
     },
@@ -20,8 +20,8 @@
       "slug": "banana",
       "name": "Banana",
       "files": {
-        "banana_test.tst": "assert 'one'\n",
-        "README.md": "# Banana\n\nThis is banana.\n\n* banana\n* banana again\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+        "banana.tst": "assert 'banana'\n",
+        "README.md": "# Banana\n\nThis is banana.\n\n* banana\n* banana again\n\n* a hint\n* another hint\n\nDo stuff.\n\n## Source\n\n [view source](http://example.com)\n"
       },
       "fresh": false
     },
@@ -32,8 +32,8 @@
       "slug": "cherry",
       "name": "Cherry",
       "files": {
-        "cherry_test.tst": "assert 'one'\n",
-        "README.md": "# Cherry\n\nThis is cherry.\n\n* cherry\n* cherry again\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+        "cherry.tst": "assert 'cherry'\n",
+        "README.md": "# Cherry\n\nThis is cherry.\n\n* cherry\n* cherry again\n\nDo stuff.\n\n## Source\n\n [view source]()\n"
       },
       "fresh": false
     }

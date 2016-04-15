@@ -3,6 +3,7 @@
   "language": "Fruit",
   "repository": "https://example.com/exercism/xfruit",
   "active": true,
+  "test_pattern": ".*[.]tst$",
   "problems": [
     "apple",
     "banana",

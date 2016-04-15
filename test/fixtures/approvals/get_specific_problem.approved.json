@@ -6,8 +6,8 @@
     "name": "Three",
     "slug": "three",
     "files": {
-      "three_test.tst": "assert 'one'\n",
-      "README.md": "# Three\n\nThis is three.\n\n* three\n* three again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com/3)\n"
+      "three_test.ext": "assert 'one'\n",
+      "README.md": "# Three\n\nThis is three.\n\n* three\n* three again\n\n## Source\n\nThe internet. [view source](http://example.com/3)\n"
     },
     "blurb": "This is three.",
     "fresh": false

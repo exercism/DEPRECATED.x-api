@@ -20,11 +20,12 @@ class ProblemTest < Minitest::Test
 
   def test_assemble_problem
     problem = Xapi::Problem.new(attributes)
-    readme = "# One\n\nThis is one.\n\n* one\n* one again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+    readme = "# One\n\nThis is one.\n\n* one\n* one again\n\n* one hint\n* one more hint\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
     files = {
       "README.md" => readme,
       "Fakefile" => "Autorun fake code\n",
-      "one_test.tst" => "assert 'one'\n",
+      "one_test.ext" => "assert 'one'\n",
+      "sub/src/stubfile.ext" => "stub\n",
       ".dot" => "dot\n",
     }
     assert_equal files, problem.files
@@ -70,7 +71,7 @@ class ProblemTest < Minitest::Test
   end
 
   def test_test_file
-    expected = { "one_test.tst" => "assert 'one'\n" }
+    expected = { "one_test.ext" => "assert 'one'\n" }
     problem = Xapi::Problem.new(attributes)
     assert_equal expected, problem.test_files
   end
@@ -87,7 +88,7 @@ class ProblemTest < Minitest::Test
   def test_files_in_exercises_dir
     expected = {
       "apple.ext" => "an apple a day keeps the doctor away\n",
-      "apple_test.tst" => "assert 'one'\n",
+      "apple.tst" => "assert 'apple'\n",
     }
     problem = Xapi::Problem.new(track_id: 'fruit', slug: 'apple', path: './test/fixtures')
     assert_equal expected, problem.code

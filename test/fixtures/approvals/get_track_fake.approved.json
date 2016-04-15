@@ -26,9 +26,9 @@
       "slug": "hello-world",
       "name": "Hello World",
       "files": {
-        "one_test.tst": "assert 'hello'\n",
-        "two_test.tst": "assert \"World\"\n",
-        "README.md": "# Hello World\n\nOh, hello.\n\n* hello\n* hello again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+        "hello_test.ext": "assert 'hello'\n",
+        "world_test.ext": "assert 'World'\n",
+        "README.md": "# Hello World\n\nOh, hello.\n\n* hello\n* hello again\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
       },
       "fresh": false
     },
@@ -41,8 +41,9 @@
       "files": {
         ".dot": "dot\n",
         "Fakefile": "Autorun fake code\n",
-        "one_test.tst": "assert 'one'\n",
-        "README.md": "# One\n\nThis is one.\n\n* one\n* one again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+        "one_test.ext": "assert 'one'\n",
+        "sub/src/stubfile.ext": "stub\n",
+        "README.md": "# One\n\nThis is one.\n\n* one\n* one again\n\n* one hint\n* one more hint\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
       },
       "fresh": false
     },
@@ -53,8 +54,8 @@
       "slug": "two",
       "name": "Two",
       "files": {
-        "two_test.tst": "assert 'one'\n",
-        "README.md": "# Two\n\nThis is two.\n\n* two\n* two again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
+        "two_test.ext": "assert 'one'\n",
+        "README.md": "# Two\n\nThis is two.\n\n* two\n* two again\n\n## Source\n\nThe internet. [view source](http://example.com)\n"
       },
       "fresh": false
     },
@@ -65,8 +66,8 @@
       "slug": "three",
       "name": "Three",
       "files": {
-        "three_test.tst": "assert 'one'\n",
-        "README.md": "# Three\n\nThis is three.\n\n* three\n* three again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source](http://example.com/3)\n"
+        "three_test.ext": "assert 'one'\n",
+        "README.md": "# Three\n\nThis is three.\n\n* three\n* three again\n\n## Source\n\nThe internet. [view source](http://example.com/3)\n"
       },
       "fresh": false
     }
