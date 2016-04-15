@@ -1,5 +1,5 @@
 node exercise: problem do
-  attributes :track_id, :language, :slug, :name, :blurb, :readme
+  attributes :track_id, :language, :slug, :name, :blurb
 
   node files: {"README.md" => problem.readme}
 end
