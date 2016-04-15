@@ -6,6 +6,9 @@ require './config/build_id'
 require './config/bugsnag'
 require 'v3/routes'
 
+# V3 is the 3rd version of the API.
+# The CLI is currently using v1.
+# There is no v2 because v1 contains some weird v2 endpoints.
 module V3
   # API, version 3.
   class App < Sinatra::Application
