@@ -1,9 +1,9 @@
 {
   "exercise": {
     "track_id": "animal",
+    "language": "Animal",
     "slug": "dog",
     "name": "Dog",
-    "language": "Animal",
     "blurb": "This is dog.",
     "files": {
       "a_dog.animal": "assert 'woof woof'\n",

@@ -1,11 +1,3 @@
 {
-  "exercise": {
-    "track_id": "fakes",
-    "slug": "three",
-    "name": "three",
-    "language": "Unknown",
-    "blurb": "",
-    "files": {
-    }
-  }
+  "error": "No track fakes"
 }

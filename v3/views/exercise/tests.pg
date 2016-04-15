@@ -1,8 +1,5 @@
-node :exercise do
-  node track_id: problem.track_id
-  node slug: problem.slug
-  node name: problem.name
-  node language: problem.language
-  node blurb: problem.blurb
+node exercise: problem do
+  attributes :track_id, :language, :slug, :name, :blurb
+
   node files: problem.test_files
 end

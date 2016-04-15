@@ -1,11 +1,3 @@
 {
-  "exercise": {
-    "track_id": "fake",
-    "slug": "threedsf",
-    "name": "threedsf",
-    "language": "Fake",
-    "blurb": "",
-    "files": {
-    }
-  }
+  "error": "Problem threedsf is not implemented in track 'fake'"
 }

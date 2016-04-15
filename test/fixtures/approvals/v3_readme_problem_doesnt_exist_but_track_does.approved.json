@@ -1,10 +1,3 @@
 {
-  "exercise": {
-    "track_id": "fake",
-    "language": "Fake",
-    "slug": "threecu",
-    "name": "threecu",
-    "readme": "",
-    "blurb": ""
-  }
+  "error": "Problem threecu is not implemented in track 'fake'"
 }

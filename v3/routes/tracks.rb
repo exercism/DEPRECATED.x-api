@@ -36,15 +36,33 @@ module V3
 
       get '/tracks/:id/exercises/:slug/readme' do |id, slug|
         track = config.find(id)
-        status 404 unless track.exists?
+        unless track.exists?
+          halt 404, { error: "No track %s" % id }.to_json
+        end
+
         problem = track.find(slug)
-        status 404 unless problem.exists?
+        unless problem.exists?
+          halt 404, {
+            error: "Problem %s is not implemented in track '%s'" % [slug, id],
+          }.to_json
+        end
+
         pg :"exercise/readme", locals: { problem: problem }
       end
 
       get '/tracks/:id/exercises/:slug/tests' do |id, slug|
-        problem = config.find(id).find(slug)
-        status 404 unless problem.exists?
+        track = config.find(id)
+        unless track.exists?
+          halt 404, { error: "No track %s" % id }.to_json
+        end
+
+        problem = track.find(slug)
+        unless problem.exists?
+          halt 404, {
+            error: "Problem %s is not implemented in track '%s'" % [slug, id],
+          }.to_json
+        end
+
         pg :"exercise/tests", locals: { problem: problem }
       end
 
