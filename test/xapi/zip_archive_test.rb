@@ -40,7 +40,7 @@ class ZipArchiveTest < Minitest::Test
     zip = Tempfile.new(['test', '.zip'])
     ZipArchive.write(problem.dir, zip.path)
 
-    assert_files_in_zip ['a_dog.animal', 'a_dog_2.animal', 'example.ext'], zip
+    assert_files_in_zip ['a_dog.animal', 'a_dog_2.animal'], zip
     zip.unlink
   end
 
@@ -50,8 +50,7 @@ class ZipArchiveTest < Minitest::Test
     ZipArchive.write(problem.dir, zip.path)
 
     expected_files = [
-      ".dot", "HINTS.md", "example.ext", "Fakefile", "one_test.ext", "sub/", "sub/src/",
-      "sub/src/ExampleFile.ext", "sub/src/stubfile.ext"
+      ".dot", "Fakefile", "one_test.ext", "sub/", "sub/src/", "sub/src/stubfile.ext"
     ]
     assert_files_in_zip expected_files, zip
     zip.unlink

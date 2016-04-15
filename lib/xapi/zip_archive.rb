@@ -50,6 +50,8 @@ class ZipArchive
   end
 
   def remove_unwanted_entries(file)
-    Dir.entries(file) - %w(. ..)
+    (Dir.entries(file) - %w(. ..)).reject {|f|
+      f =~ /example/i || f =~ /HINTS\.md/
+    }
   end
 end
