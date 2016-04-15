@@ -66,12 +66,6 @@ module V3
         pg :"exercise/tests", locals: { problem: problem }
       end
 
-      get '/tracks/:id/exercises/:slug/exists' do |id, slug|
-        problem = config.find(id).find(slug)
-        status 404 unless problem.exists?
-        pg :"exercise/exists", locals: { problem: problem }
-      end
-
       get '/tracks/:id/exercises/:slug' do |id, slug|
         problem = config.find(id).find(slug)
         if problem.exists?
