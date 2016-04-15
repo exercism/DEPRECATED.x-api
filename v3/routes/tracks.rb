@@ -35,7 +35,9 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug/readme' do |id, slug|
-        problem = config.find(id).find(slug)
+        track = config.find(id)
+        status 404 unless track.exists?
+        problem = track.find(slug)
         status 404 unless problem.exists?
         pg :"exercise/readme", locals: { problem: problem }
       end

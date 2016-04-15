@@ -14,6 +14,10 @@ module Xapi
     end
     alias_method :active?, :active
 
+    def exists?
+      File.exist?(track_path)
+    end
+
     def implemented?
       problems.size > 0
     end

@@ -6,6 +6,10 @@ module Xapi
       @id = id
     end
 
+    def exists?
+      false
+    end
+
     def implemented?
       false
     end
