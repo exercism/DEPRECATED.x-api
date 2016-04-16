@@ -75,17 +75,4 @@ class V1RoutesTracksTest < Minitest::Test
     options = { format: :json, name: 'get_specific_problem_tests' }
     Approvals.verify(last_response.body, options)
   end
-
-  def test_get_track_problems_in_right_order
-    slugs_from_track = get_slugs_from('/tracks/fake')
-    slugs_from_track_problems = get_slugs_from('/tracks/fake/problems')
-    assert_equal slugs_from_track, slugs_from_track_problems
-  end
-
-  private
-
-  def get_slugs_from(url)
-    get url
-    JSON.parse(last_response.body)['problems'].map { |p| p['slug'] }
-  end
 end
