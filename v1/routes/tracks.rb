@@ -21,12 +21,6 @@ module V1
         pg :problem_readme, locals: { problem: problem }
       end
 
-      get '/tracks/:id/:problem/tests' do |id, slug|
-        problem = config.find(id).find(slug)
-        problem.validate or halt 404, { error: problem.error }.to_json
-        pg :problem_test, locals: { problem: problem }
-      end
-
       private
 
       def find_track(id)
