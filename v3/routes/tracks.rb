@@ -7,7 +7,9 @@ module V3
 
       get '/tracks/:id' do |id|
         track = config.find(id)
-        status 404 unless track.implemented?
+        unless track.exists?
+          halt 404, { error: "No track '%s'" % id }.to_json
+        end
         pg :track, locals: { track: track }
       end
 

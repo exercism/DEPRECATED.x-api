@@ -25,9 +25,8 @@ class V3RoutesTracksTest < Minitest::Test
 
     get '/tracks/blueberry'
     assert_equal 404, last_response.status
-    # we still get a usable response, though.
-    blueberry = JSON.parse(last_response.body)["track"]
-    Approvals.verify(blueberry, name: 'v3_track_unimplemented')
+    body = JSON.parse(last_response.body)
+    Approvals.verify(body, name: 'v3_track_unimplemented')
   end
 
   def test_problems

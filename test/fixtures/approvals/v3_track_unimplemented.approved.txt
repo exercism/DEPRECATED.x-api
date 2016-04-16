@@ -1,10 +1,3 @@
 {
-	"id" => "blueberry"
-	"language" => "blueberry"
-	"repository" => "https://github.com/exercism/xblueberry"
-	"todo" => []
-	"active" => false
-	"implemented" => false
-	"docs" => {"about"=>"", "installation"=>"", "tests"=>"", "learning"=>"", "resources"=>""}
-	"problems" => []
+	"error" => "No track 'blueberry'"
 }
