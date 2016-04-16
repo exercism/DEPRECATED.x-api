@@ -9,6 +9,10 @@
     "two",
     "three"
   ],
-  "deprecated": [],
-  "foregone": []
+  "deprecated": [
+    "dog"
+  ],
+  "foregone": [
+    "apple"
+  ]
 }

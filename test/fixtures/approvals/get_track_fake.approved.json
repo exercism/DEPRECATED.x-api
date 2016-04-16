@@ -12,10 +12,8 @@
     ],
     "repository": "https://github.com/exercism/xfake",
     "todo": [
-      "apple",
       "banana",
-      "cherry",
-      "dog"
+      "cherry"
     ]
   },
   "problems": [
