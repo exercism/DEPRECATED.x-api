@@ -8,12 +8,12 @@ module Xapi
     end
 
     def readme_url
-      "https://github.com/exercism/x-common/tree/master/%s.md" % slug
+      "https://github.com/exercism/x-common/blob/master/%s.md" % slug
     end
 
     def json_url
       f = File.join(path, "metadata", "%s.json" % slug)
-      url = "https://github.com/exercism/x-common/tree/master/%s.json" % slug
+      url = "https://github.com/exercism/x-common/blob/master/%s.json" % slug
       url if File.exist?(f)
     end
 

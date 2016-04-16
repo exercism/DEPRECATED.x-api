@@ -1,2 +1,2 @@
-[0] {"slug"=>"banana", "readme"=>"https://github.com/exercism/x-common/tree/master/banana.md", "data"=>nil, "implementations"=>[{"track_id"=>"fruit", "url"=>"https://example.com/exercism/xfruit/tree/master/exercises/banana"}]}
-[1] {"slug"=>"cherry", "readme"=>"https://github.com/exercism/x-common/tree/master/cherry.md", "data"=>nil, "implementations"=>[{"track_id"=>"fruit", "url"=>"https://example.com/exercism/xfruit/tree/master/exercises/cherry"}]}
+[0] {"slug"=>"banana", "readme"=>"https://github.com/exercism/x-common/blob/master/banana.md", "data"=>nil, "implementations"=>[{"track_id"=>"fruit", "url"=>"https://example.com/exercism/xfruit/tree/master/exercises/banana"}]}
+[1] {"slug"=>"cherry", "readme"=>"https://github.com/exercism/x-common/blob/master/cherry.md", "data"=>nil, "implementations"=>[{"track_id"=>"fruit", "url"=>"https://example.com/exercism/xfruit/tree/master/exercises/cherry"}]}
