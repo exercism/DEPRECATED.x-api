@@ -1,15 +1,15 @@
 {
   "problem": {
-    "id": "fake/three",
-    "language": "Fake",
     "track_id": "fake",
-    "name": "Three",
+    "language": "Fake",
+    "id": "fake/three",
     "slug": "three",
+    "name": "Three",
+    "blurb": "This is three.",
     "files": {
       "three_test.ext": "assert 'one'\n",
-      "README.md": "# Three\n\nThis is three.\n\n* three\n* three again\n\n## Source\n\nThe internet. [view source](http://example.com/3)\n"
+      "README.md": "# Three\n\nThis is three.\n\n* three\n* three again\n\n## Source\n\nThe internet. [http://example.com/3](http://example.com/3)\n"
     },
-    "blurb": "This is three.",
     "fresh": false
   }
 }

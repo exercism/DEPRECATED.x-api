@@ -10,10 +10,12 @@ module V1
 
       configure :development, :production do
         set :config, Xapi::Config.new
+        set :tracks_path, "."
       end
 
       configure :test do
         set :config, Xapi::Config.new("./test/fixtures")
+        set :tracks_path, "./test/fixtures"
       end
 
       helpers Helpers::Guards

@@ -3,13 +3,13 @@
     {
       "id": "fruit/apple",
       "track_id": "fruit",
-      "language": "Fruit",
+      "language": "fruit",
       "slug": "apple",
       "name": "Apple",
       "files": {
         "apple.ext": "an apple a day keeps the doctor away\n",
         "apple.tst": "assert 'apple'\n",
-        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source]()\n"
+        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\nDo stuff.\n\n## Source\n\nThe internet.\n"
       },
       "fresh": false
     }

@@ -2,7 +2,7 @@
   "problem_readme": {
     "track_id": "fake",
     "slug": "three",
-    "readme": "# Three\n\nThis is three.\n\n* three\n* three again\n\n## Source\n\nThe internet. [view source](http://example.com/3)\n",
+    "readme": "# Three\n\nThis is three.\n\n* three\n* three again\n\n## Source\n\nThe internet. [http://example.com/3](http://example.com/3)\n",
     "fresh": false
   }
 }

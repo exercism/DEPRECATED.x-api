@@ -1,9 +1,21 @@
 node :track => track do
-  attributes :language, :active, :id
+  attributes :language, :id
+  node :active => track.active?
   node :slug => track.id
-  node :problems => track.problems.map(&:id)
+  node :problems => track.problems.map {|slug| "%s/%s" % [track.id, slug]}
   node :repository => track.repository
-  node :todo => track.todo
+  node :todo => problems - track.slugs
 end
 
-partial :problems, :problems => track.problems
+collection :problems => track.implementations do |implementation|
+  node track_id: track.id
+  node language: track.language
+
+  node id: implementation.problem.slug
+  node slug: implementation.problem.slug
+  node name: implementation.problem.name
+  node files: implementation.files
+
+  # deprecated
+  node fresh: false
+end

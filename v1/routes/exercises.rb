@@ -1,41 +1,146 @@
 module V1
   module Routes
+    # Gawd. This is a whole nother level of hack.
     class Exercises < Core
-      helpers do
-        def homework
-          Xapi::Homework.new(params[:key], config.track_ids, path)
-        end
-      end
-
       get '/v2/exercises/restore' do
         require_key
-        problems = forward_errors do
-          Xapi::Backup.restore(params[:key])
+        solutions = forward_errors do
+          Xapi::ExercismIO.code_for(params[:key])
         end
-        pg :problems, locals: { problems: problems }
+
+        implementations = []
+        solutions.each do |solution|
+          track = ::Rewrite.tracks[solution["track"]]
+          next unless track.exists?
+
+          ti = track.implementations[solution["slug"]]
+          next unless ti.exists?
+
+          implementation = ti.dup
+          implementation.files.merge(solution["files"])
+          implementations << implementation
+        end
+
+        pg :implementations, locals: { implementations: implementations }
       end
 
       get '/v2/exercises' do
         require_key
-        problems = forward_errors do
-          filter(homework.problems, (params[:tracks] || []))
+
+        track_ids = params[:tracks].to_s.split(",").map {|s| s.strip}
+        if track_ids.empty?
+          track_ids = ::Rewrite.tracks.map(&:id)
         end
-        pg :problems, locals: { problems: problems }
+
+        implementations = []
+        solutions = forward_errors do
+          Xapi::ExercismIO.exercises_for(params[:key])
+        end
+        solutions.each do |track_id, problems|
+          unless track_ids.include? track_id
+            next
+          end
+
+          slugs = problems.map { |problem| problem["slug"] }
+          track = ::Rewrite.tracks[track_id]
+          slugs.each do |slug|
+            implementation = track.implementations[slug]
+            if implementation.exists?
+              implementations << implementation
+            end
+          end
+
+          # pretend they already solved hello-world if they've
+          # solved anything at all.
+          slugs << 'hello-world' unless slugs.empty?
+          next_slug = (track.problems - slugs).first
+          if !!next_slug
+            implementation = track.implementations[next_slug]
+            if implementation.exists?
+              implementations << implementation
+            end
+          end
+
+          # TODO: make one post per language.
+          # We have to update the exercism.io endpoint to accept a post body
+          # with a list of slugs.
+          (slugs + [next_slug]).compact.each do |slug|
+            # rubocop:disable Lint/HandleExceptions
+            begin
+              Xapi::ExercismIO.fetch(params[:key], track_id, slug)
+            rescue
+              # don't fail just because we can't track it.
+            end
+          end
+        end
+
+        pg :implementations, locals: { implementations: implementations }
       end
 
-      get '/v2/exercises/:language' do |language|
-        language = language.downcase
+      get '/v2/exercises/:track_id' do |id|
         require_key
-        problems = forward_errors { homework.problems_in(language) }
-        pg :problems, locals: { problems: problems }
+
+        track_ids = [id.downcase]
+
+        implementations = []
+        solutions = forward_errors do
+          Xapi::ExercismIO.exercises_for(params[:key])
+        end
+        solutions.each do |track_id, problems|
+          unless track_ids.include? track_id
+            next
+          end
+
+          slugs = problems.map { |problem| problem["slug"] }
+          track = ::Rewrite.tracks[track_id]
+          slugs.each do |slug|
+            implementation = track.implementations[slug]
+            if implementation.exists?
+              implementations << implementation
+            end
+          end
+
+          # pretend they already solved hello-world if they've
+          # solved anything at all.
+          slugs << 'hello-world' unless slugs.empty?
+          next_slug = (track.problems - slugs).first
+          if !!next_slug
+            implementation = track.implementations[next_slug]
+            if implementation.exists?
+              implementations << implementation
+            end
+          end
+
+          # TODO: make one post per language.
+          # We have to update the exercism.io endpoint to accept a post body
+          # with a list of slugs.
+          (slugs + [next_slug]).compact.each do |slug|
+            # rubocop:disable Lint/HandleExceptions
+            begin
+              Xapi::ExercismIO.fetch(params[:key], track_id, slug)
+            rescue
+              # don't fail just because we can't track it.
+            end
+          end
+        end
+
+        pg :implementations, locals: { implementations: implementations }
       end
 
-      get '/v2/exercises/:language/:slug' do |language, slug|
-        language, slug = language.downcase, slug.downcase
+      get '/v2/exercises/:track_id/:slug' do |track_id, slug|
+        track_id, slug = track_id.downcase, slug.downcase
 
-        # no need to authenticate for this one
-        problem = config.find(language).find(slug)
-        problem.validate or halt 404, { error: problem.error }.to_json
+        track = ::Rewrite::Track.new(track_id, settings.tracks_path)
+        unless track.exists?
+          halt 404, { error: "No track '%s'" % track_id }.to_json
+        end
+
+        implementation = track.implementations[slug]
+        unless implementation.exists?
+          halt 404, {
+            error: "No implementation for %s in track '%s'" % [slug, track_id],
+          }.to_json
+        end
 
         # rubocop:disable Lint/HandleExceptions
         begin
@@ -43,14 +148,7 @@ module V1
         rescue
           # don't fail just because we can't track it.
         end
-        pg :problems, locals: { problems: [problem] }
-      end
-
-      private
-
-      def filter(what, track_ids=[])
-        return what if track_ids.empty?
-        what.select { |it| track_ids.include?(it.track_id) }
+        pg :implementations, locals: { implementations: [implementation] }
       end
     end
   end

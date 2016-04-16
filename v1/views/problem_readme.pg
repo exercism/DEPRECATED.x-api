@@ -1,7 +1,7 @@
 node :problem_readme do
-  node track_id: problem.track_id
-  node slug: problem.slug
-  node readme: problem.readme
+  node track_id: track.id
+  node slug: implementation.problem.slug
+  node readme: implementation.readme
   # deprecated
   node fresh: false
 end
