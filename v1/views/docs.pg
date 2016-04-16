@@ -1,2 +1,2 @@
-node :id => track_id
-node docs: docs.content
+node :id => track.id
+node docs: track.docs.content

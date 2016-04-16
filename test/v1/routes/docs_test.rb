@@ -8,14 +8,6 @@ class V1RoutesDocsTest < Minitest::Test
     V1::App
   end
 
-  def test_no_error_on_missing_track
-    get '/docs/unknown'
-
-    assert_equal 200, last_response.status
-    options = { format: :json, name: 'get_docs_for_unknown_language' }
-    Approvals.verify(last_response.body, options)
-  end
-
   def test_no_error_on_missing_documentation
     get '/docs/animal'
 
