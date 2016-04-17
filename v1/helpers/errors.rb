@@ -8,7 +8,7 @@ module V1
           error: "%s %s %s/issues" % [
             "Something went wrong.",
             GITHUB_PLEASE,
-            Xapi::Config::EXERCISM_URL,
+            ::Rewrite::EXERCISM_URL,
           ],
         }.to_json
       end

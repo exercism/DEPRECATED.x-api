@@ -15,6 +15,10 @@ module Rewrite
   else
     ROOT = "."
   end
+  DEFAULT_PATH = "."
+  REPO_URL = "https://github.com/exercism/x-api"
+  EXERCISM_URL = "https://github.com/exercism/exercism.io"
+  CONTRIBUTING_URL = "%s/blob/master/CONTRIBUTING.md" % REPO_URL
 
   def self.problems
     @problems ||= Problems.new(ROOT)
