@@ -22,7 +22,7 @@ module V1
 
       def forward_errors
         yield
-      rescue Xapi::ApiError, Xapi::UnknownLanguage => e
+      rescue Xapi::ApiError => e
         halt 400, { error: e.message }.to_json
       rescue Exception => e
         if %w(test development).include?(ENV['RACK_ENV'].to_s)
