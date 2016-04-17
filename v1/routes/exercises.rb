@@ -7,18 +7,18 @@ module V1
         end
       end
 
-      get '/v2/exercises' do
-        require_key
-        problems = forward_errors do
-          filter(homework.problems, (params[:tracks] || []))
-        end
-        pg :problems, locals: { problems: problems }
-      end
-
       get '/v2/exercises/restore' do
         require_key
         problems = forward_errors do
           Xapi::Backup.restore(params[:key])
+        end
+        pg :problems, locals: { problems: problems }
+      end
+
+      get '/v2/exercises' do
+        require_key
+        problems = forward_errors do
+          filter(homework.problems, (params[:tracks] || []))
         end
         pg :problems, locals: { problems: problems }
       end
