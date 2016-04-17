@@ -4,6 +4,7 @@ AllCops:
     - 'test/fixtures/**/*'
     - 'bin/*'
     - 'vendor/**/*'
+    - 'v1/routes/exercises.rb'
 Style/StringLiterals:
   Enabled: false
 Style/DoubleNegation:

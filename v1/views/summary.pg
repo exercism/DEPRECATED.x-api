@@ -1,3 +1,4 @@
-node :problem => summary do |problem|
-  attributes :slug, :blurb, :source, :source_url, :track_ids
+node :problem => problem do |problem|
+  attributes :slug, :blurb, :source, :source_url
+  node track_ids: implementations.map(&:track_id)
 end

@@ -1,121 +1,74 @@
-require_relative 'zip_archive'
+require 'yaml'
 
 module Xapi
-  # Problem represents a README and related code in a given language track.
+  # Problem is a language-independent definition of an exercise.
   class Problem
-    Name = proc { |problem| [problem.language, problem.slug] }
-
-    attr_reader :track_id, :slug, :path, :language, :repository
-
-    def initialize(attributes)
-      attributes.each {|field, value|
-        instance_variable_set(:"@#{field}", value)
-      }
-    end
-
-    def id
-      [track_id, slug].join("/")
-    end
-
-    def git_url
-      "%s/tree/master/%s" % [repository, problem_path]
+    attr_reader :slug, :root
+    def initialize(slug, root)
+      @slug = slug
+      @root = root
     end
 
     def exists?
-      File.exist?(dir)
+      File.exist?(md) && File.exist?(yaml)
     end
 
     def name
-      slug.split('-').map(&:capitalize).join(' ')
+      @name ||= slug.split('-').map(&:capitalize).join(' ')
     end
 
-    def not_found?
-      !exists?
+    def description
+      @description ||= File.read(md)
     end
 
-    def validate
-      !unknown_language? && !unknown_problem?
-    end
-
-    def error_message
-      if unknown_language?
-        "We don't have problems in language '#{track_id}'"
-      elsif unknown_problem?
-        "We don't have problem '#{slug}' in '#{track_id}'"
+    def source_markdown
+      body = source.empty? ? "" : "%s" % source
+      url = source_url.empty? ? "" : "[%s](%s)" % [source_url, source_url]
+      if url.empty? && body.empty?
+        ""
+      else
+        "## Source\n\n" + [body, url].reject(&:empty?).join(" ")
       end
     end
-    alias_method :error, :error_message
 
-    def files
-      code.merge('README.md' => readme)
+    def md_url
+      repo_url('md')
     end
 
-    def code
-      Code.new(dir).files.reject { |file, _| ignored_files.include? file }
+    def json_url
+      repo_url('json') if File.exist?(path("%s.json" % slug))
     end
 
-    def ignored_files
-      ["HINTS.md"]
+    def yaml_url
+      repo_url('yml')
     end
 
-    def blurb
-      meta.blurb
-    end
-
-    def readme
-      meta.text
-    end
-
-    def test_files
-      Tests.new(path: language_dir, files: files).test_files
-    end
-
-    def zip(file: Tempfile.new([slug, '.zip']),
-            generator: ZipArchive)
-      generator.write(dir, file.path)
-      file
-    end
-
-    def dir
-      File.join(language_dir, problem_path)
+    %w(blurb source source_url).each do |name|
+      define_method name do
+        metadata[name].to_s.strip
+      end
     end
 
     private
 
-    def problem_path
-      if File.exist?(exercises_dir)
-        File.join("exercises", slug)
-      else
-        slug
-      end
+    def repo_url(ext)
+      "https://github.com/exercism/x-common/blob/master/%s.%s" % [slug, ext]
     end
 
-    def exercises_dir
-      File.join(language_dir, "exercises", slug)
+    def yaml
+      path('%s.yml' % slug)
     end
 
-    def hints
-      File.read(File.join(dir, 'HINTS.md')) rescue nil
+    def md
+      path('%s.md' % slug)
     end
 
-    def setup
-      File.read(File.join(language_dir, 'SETUP.md')) rescue nil
+    def path(f)
+      File.join(root, "metadata", f)
     end
 
-    def language_dir
-      File.join(path, 'tracks', track_id)
-    end
-
-    def unknown_language?
-      !File.exist?(language_dir)
-    end
-
-    def unknown_problem?
-      !exists?
-    end
-
-    def meta
-      @meta ||= Readme.new(slug, path, setup, hints)
+    def metadata
+      @metadata ||= YAML.load(File.read(yaml))
     end
   end
 end

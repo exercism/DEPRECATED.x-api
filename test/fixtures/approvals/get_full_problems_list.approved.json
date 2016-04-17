@@ -4,7 +4,7 @@
       "slug": "apple",
       "blurb": "This is apple.",
       "source": "The internet.",
-      "source_url": null,
+      "source_url": "",
       "track_ids": [
         "fruit"
       ]
@@ -12,7 +12,7 @@
     {
       "slug": "banana",
       "blurb": "This is banana.",
-      "source": null,
+      "source": "",
       "source_url": "http://example.com",
       "track_ids": [
         "fruit"
@@ -21,8 +21,8 @@
     {
       "slug": "cherry",
       "blurb": "This is cherry.",
-      "source": null,
-      "source_url": null,
+      "source": "",
+      "source_url": "",
       "track_ids": [
         "fruit"
       ]

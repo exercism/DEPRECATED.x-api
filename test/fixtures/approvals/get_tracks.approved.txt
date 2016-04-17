@@ -1,4 +1,4 @@
 [0] "animal"
 [1] "fake"
-[2] "fruit"
-[3] "jewels"
+[2] "jewels"
+[3] "fruit"

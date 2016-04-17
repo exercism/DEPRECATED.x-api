@@ -1,11 +1,14 @@
 node :problem do
-  node id: problem.id
-  node language: problem.language
-  node track_id: problem.track_id
-  node name: problem.name
-  node slug: problem.slug
-  node files: problem.files
-  node blurb: problem.blurb
+  node track_id: track.id
+  node language: track.language
+
+  node id: "%s/%s" % [track.id, implementation.problem.slug]
+  node slug: implementation.problem.slug
+  node name: implementation.problem.name
+  node blurb: implementation.problem.blurb
+
+  node files: implementation.files
+
   # deprecated
   node fresh: false
 end

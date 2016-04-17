@@ -1,97 +1,92 @@
+require 'json'
+require 'org-ruby'
+
 module Xapi
-  # Track is a collection of problems in a given language.
+  # Track is a collection of exercises in a given language.
   class Track
-    attr_reader :id
-    def initialize(root, id, metadata_slugs=[])
-      @root = root
-      @id = id
-      @track_path = File.join(root, "tracks", id)
-      @metadata_slugs = metadata_slugs
+    TOPICS = %w(about installation tests learning resources)
+
+    Image = Struct.new(:path) do
+      def exists?
+        File.exist?(path)
+      end
+
+      def type
+        File.extname(path).sub('.', '').to_sym
+      end
     end
 
-    def active
-      data['active']
+    attr_reader :id, :root
+    def initialize(id, root)
+      @id = id
+      @root = root
     end
-    alias_method :active?, :active
 
     def exists?
-      File.exist?(track_path)
+      File.exist?(dir)
     end
 
-    def implemented?
-      problems.size > 0
+    def active?
+      !!config["active"]
     end
 
-    def repository
-      data['repository']
+    def implementations
+      @implementations ||= Implementations.new(id, repository, problems, root)
     end
 
-    def language
-      data['language']
+    %w(language repository).each do |name|
+      define_method name do
+        config[name].to_s.strip
+      end
     end
 
-    def problems
-      @problems ||= slugs.map { |slug| Problem.new(attributes(slug)) }
+    %w(problems deprecated foregone).each do |name|
+      define_method name do
+        config[name] || []
+      end
     end
 
-    def slugs
-      data['problems']
-    end
-
-    def deprecated
-      data['deprecated']
-    end
-
-    def foregone
-      data['foregone']
+    def test_pattern
+      if config.key?('test_pattern')
+        Regexp.new(config['test_pattern'])
+      else
+        /test/i
+      end
     end
 
     def docs
-      @docs ||= Docs.new(track_path)
+      Hash[TOPICS.zip(TOPICS.map { |topic| doc(topic) })]
     end
 
-    def find(slug)
-      problems.find { |problem| problem.slug == slug } ||
-        NullProblem.new(null_attributes(slug))
+    def img(f)
+      Image.new(File.join(dir, "docs", "img", f))
     end
 
-    def todo
-      metadata_slugs - slugs - deprecated - foregone
-    end
-
-    def todo_details
-      todo.map { |slug| Todo.new(slug, root) }
+    def slugs
+      problems + foregone + deprecated
     end
 
     private
 
-    attr_reader :root, :track_path, :metadata_slugs
-
-    def null_attributes(slug)
-      {
-        language: language,
-        track_id: id,
-        slug: slug,
-        path: '.',
-      }
+    def dir
+      File.join(root, "tracks", id)
     end
 
-    def attributes(slug)
-      {
-        language: language,
-        track_id: id,
-        slug: slug,
-        path: root,
-        repository: repository,
-      }
+    def config
+      @config ||= JSON.parse(File.read(File.join(dir, "config.json")))
     end
 
-    def data
-      @data ||= JSON.parse(File.read(file))
-    end
-
-    def file
-      File.join(track_path, "config.json")
+    def doc(topic)
+      path = File.join(dir, "docs", topic.upcase)
+      f = Dir.glob("%s.*" % path).first
+      case f
+      when /\.md/
+        File.read(f)
+      when /\.org/
+        Orgmode::Parser.new(File.read(f)).to_markdown
+      else
+        ""
+      end
     end
   end
 end

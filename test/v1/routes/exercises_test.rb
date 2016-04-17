@@ -27,6 +27,8 @@ class V1RoutesExercisesTest < Minitest::Test
     end
   end
 
+  # Don't deliver hello-world if you've already solved exercises in that language,
+  # even if you never solved hello world.
   def test_get_problems
     VCR.use_cassette('exercism_api_current_exercises_v2', record: :new_episodes) do
       get '/v2/exercises', key: 'abc123'

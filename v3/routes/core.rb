@@ -9,21 +9,15 @@ module V3
       end
 
       configure :development, :production do
-        set :config, Xapi::Config.new
+        set :tracks_path, "."
       end
 
       configure :test do
-        set :config, Xapi::Config.new("./test/fixtures")
+        set :tracks_path, "./test/fixtures"
       end
 
       before do
         content_type 'application/json', charset: 'utf-8'
-      end
-
-      helpers do
-        def config
-          settings.config
-        end
       end
     end
   end

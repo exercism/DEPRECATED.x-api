@@ -1,5 +1,0 @@
-collection :problems => problems do |problem|
-  attributes :id, :track_id, :language, :slug, :name, :files
-  # deprecated
-  node fresh: false
-end

@@ -9,7 +9,7 @@
       "files": {
         "apple.ext": "an apple a day keeps the doctor away\n",
         "apple.tst": "assert 'apple'\n",
-        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\nDo stuff.\n\n## Source\n\nThe internet. [view source]()\n"
+        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\nDo stuff.\n\n## Source\n\nThe internet.\n"
       },
       "fresh": false
     },
@@ -21,7 +21,7 @@
       "name": "Banana",
       "files": {
         "banana.tst": "assert 'banana'\n",
-        "README.md": "# Banana\n\nThis is banana.\n\n* banana\n* banana again\n\n* a hint\n* another hint\n\nDo stuff.\n\n## Source\n\n [view source](http://example.com)\n"
+        "README.md": "# Banana\n\nThis is banana.\n\n* banana\n* banana again\n\nDo stuff.\n\n* a hint\n* another hint\n\n## Source\n\n[http://example.com](http://example.com)\n"
       },
       "fresh": false
     },
@@ -33,7 +33,7 @@
       "name": "Cherry",
       "files": {
         "cherry.tst": "assert 'cherry'\n",
-        "README.md": "# Cherry\n\nThis is cherry.\n\n* cherry\n* cherry again\n\nDo stuff.\n\n## Source\n\n [view source]()\n"
+        "README.md": "# Cherry\n\nThis is cherry.\n\n* cherry\n* cherry again\n\nDo stuff.\n\n\n"
       },
       "fresh": false
     }
