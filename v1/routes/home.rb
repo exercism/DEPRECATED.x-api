@@ -3,8 +3,8 @@ module V1
     class Home < Sinatra::Base
       get '/' do
         {
-          "repository" => ::Rewrite::REPO_URL,
-          "contributing" => ::Rewrite::CONTRIBUTING_URL,
+          "repository" => ::Xapi::REPO_URL,
+          "contributing" => ::Xapi::CONTRIBUTING_URL,
           "build_id" => BUILD_ID,
         }.to_json
       end

@@ -10,7 +10,7 @@ module V1
 
         implementations = []
         solutions.each do |solution|
-          track = ::Rewrite.tracks[solution["track"]]
+          track = ::Xapi.tracks[solution["track"]]
           next unless track.exists?
 
           ti = track.implementations[solution["slug"]]
@@ -29,7 +29,7 @@ module V1
 
         track_ids = params[:tracks].to_s.split(",").map {|s| s.strip}
         if track_ids.empty?
-          track_ids = ::Rewrite.tracks.map(&:id)
+          track_ids = ::Xapi.tracks.map(&:id)
         end
 
         implementations = []
@@ -42,7 +42,7 @@ module V1
           end
 
           slugs = problems.map { |problem| problem["slug"] }
-          track = ::Rewrite.tracks[track_id]
+          track = ::Xapi.tracks[track_id]
           slugs.each do |slug|
             implementation = track.implementations[slug]
             if implementation.exists?
@@ -92,7 +92,7 @@ module V1
           end
 
           slugs = problems.map { |problem| problem["slug"] }
-          track = ::Rewrite.tracks[track_id]
+          track = ::Xapi.tracks[track_id]
           slugs.each do |slug|
             implementation = track.implementations[slug]
             if implementation.exists?
@@ -130,7 +130,7 @@ module V1
       get '/v2/exercises/:track_id/:slug' do |track_id, slug|
         track_id, slug = track_id.downcase, slug.downcase
 
-        track = ::Rewrite::Track.new(track_id, settings.tracks_path)
+        track = ::Xapi::Track.new(track_id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % track_id }.to_json
         end

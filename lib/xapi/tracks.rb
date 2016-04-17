@@ -1,4 +1,4 @@
-module Rewrite
+module Xapi
   # Tracks is the collection of language tracks.
   class Tracks
     include Enumerable

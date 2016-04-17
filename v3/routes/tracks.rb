@@ -3,25 +3,25 @@ module V3
     class Tracks < Core
       get '/tracks' do
         pg :tracks, locals: {
-          tracks: ::Rewrite.tracks,
-          problems: ::Rewrite.problems,
+          tracks: ::Xapi.tracks,
+          problems: ::Xapi.problems,
         }
       end
 
       get '/tracks/:id' do |id|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
 
         pg :track, locals: {
           track: track,
-          todo: ::Rewrite.problems - track.slugs,
+          todo: ::Xapi.problems - track.slugs,
         }
       end
 
       get '/tracks/:id/problems' do |id|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
@@ -30,21 +30,21 @@ module V3
       end
 
       get '/tracks/:id/todo' do |id|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
 
-        slugs = ::Rewrite.problems - track.slugs
+        slugs = ::Xapi.problems - track.slugs
         pg :"track/todos", locals: {
           track: track,
-          problems: slugs.map { |slug| ::Rewrite.problems[slug] },
-          implementations: ::Rewrite.implementations,
+          problems: slugs.map { |slug| ::Xapi.problems[slug] },
+          implementations: ::Xapi.implementations,
         }
       end
 
       get '/tracks/:id/docs/img/:filename' do |id, filename|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
@@ -60,7 +60,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug/readme' do |id, slug|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
@@ -79,7 +79,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug/tests' do |id, slug|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
@@ -98,7 +98,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug' do |id, slug|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end

@@ -1,6 +1,6 @@
 require 'yaml'
 
-module Rewrite
+module Xapi
   # Problem is a language-independent definition of an exercise.
   class Problem
     attr_reader :slug, :root

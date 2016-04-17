@@ -1,4 +1,4 @@
-module Rewrite
+module Xapi
   # Implementations is a collection of exercises in a specific language track.
   class Implementations
     include Enumerable

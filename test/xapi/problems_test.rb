@@ -1,10 +1,10 @@
 require_relative 'test_helper'
-require_relative '../../lib/rewrite/problem'
-require_relative '../../lib/rewrite/problems'
+require_relative '../../lib/xapi/problem'
+require_relative '../../lib/xapi/problems'
 
-class RewriteProblemsTest < Minitest::Test
+class ProblemsTest < Minitest::Test
   def test_collection
-    problems = Rewrite::Problems.new(FIXTURE_PATH)
+    problems = Xapi::Problems.new(FIXTURE_PATH)
 
     # can access it like an array
     slugs = [

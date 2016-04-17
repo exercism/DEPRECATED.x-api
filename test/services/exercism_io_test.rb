@@ -1,6 +1,6 @@
 require './test/test_helper'
 require './test/vcr_helper'
-require 'xapi/exercism_io'
+require_relative '../../services/exercism_io'
 
 # If you delete the cassettes, you will need to
 # run `rake xapi:seed` in exercism/exercism.io

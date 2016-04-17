@@ -2,12 +2,12 @@
 
 require 'json'
 
-require_relative '../lib/rewrite'
+require_relative '../lib/xapi'
 
 omissions = []
-Rewrite.tracks.each do |track|
+Xapi.tracks.each do |track|
   track.problems.each do |slug|
-    unless Rewrite.problems[slug].exists?
+    unless Xapi.problems[slug].exists?
       omissions << slug
     end
   end

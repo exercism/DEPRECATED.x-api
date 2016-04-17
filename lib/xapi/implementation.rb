@@ -1,6 +1,6 @@
 require 'zip'
 
-module Rewrite
+module Xapi
   # Implementation is a language-specific implementation of an exercise.
   class Implementation
     IGNORE = [

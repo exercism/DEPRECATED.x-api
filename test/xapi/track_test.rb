@@ -1,9 +1,9 @@
 require_relative 'test_helper'
-require_relative '../../lib/rewrite'
+require_relative '../../lib/xapi'
 
-class RewriteTrackTest < Minitest::Test
+class TrackTest < Minitest::Test
   def test_default_track
-    track = Rewrite::Track.new('fake', FIXTURE_PATH)
+    track = Xapi::Track.new('fake', FIXTURE_PATH)
 
     assert track.exists?, "track 'fake' not found"
     assert track.active?, "track 'fake' inactive"
@@ -54,7 +54,7 @@ class RewriteTrackTest < Minitest::Test
   end
 
   def test_custom_test_pattern
-    track = Rewrite::Track.new('fruit', FIXTURE_PATH)
+    track = Xapi::Track.new('fruit', FIXTURE_PATH)
 
     files = [
       "file.ext",
@@ -69,6 +69,6 @@ class RewriteTrackTest < Minitest::Test
   end
 
   def test_unknown_track
-    refute Rewrite::Track.new('nope', FIXTURE_PATH).exists?, "unexpected track 'nope'"
+    refute Xapi::Track.new('nope', FIXTURE_PATH).exists?, "unexpected track 'nope'"
   end
 end

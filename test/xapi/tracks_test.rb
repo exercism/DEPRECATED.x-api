@@ -1,9 +1,9 @@
 require_relative 'test_helper'
-require_relative '../../lib/rewrite'
+require_relative '../../lib/xapi'
 
-class RewriteTracksTest < Minitest::Test
+class TracksTest < Minitest::Test
   def test_collection
-    tracks = Rewrite::Tracks.new(FIXTURE_PATH)
+    tracks = Xapi::Tracks.new(FIXTURE_PATH)
 
     # can access it like an array
     ids = %w(animal fake jewels fruit)

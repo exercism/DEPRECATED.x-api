@@ -3,25 +3,25 @@ module V1
     class Tracks < Core
       get '/tracks' do
         pg :tracks, locals: {
-          tracks: ::Rewrite.tracks,
-          problems: ::Rewrite.problems,
+          tracks: ::Xapi.tracks,
+          problems: ::Xapi.problems,
         }
       end
 
       get '/tracks/:id' do |id|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
 
         pg :track, locals: {
           track: track,
-          problems: ::Rewrite.problems,
+          problems: ::Xapi.problems,
         }
       end
 
       get '/tracks/:id/:problem' do |id, slug|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
@@ -40,7 +40,7 @@ module V1
       end
 
       get '/tracks/:id/:problem/readme' do |id, slug|
-        track = ::Rewrite::Track.new(id, settings.tracks_path)
+        track = ::Xapi::Track.new(id, settings.tracks_path)
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end

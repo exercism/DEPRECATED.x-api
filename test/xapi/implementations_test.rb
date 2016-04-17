@@ -1,13 +1,13 @@
 require_relative 'test_helper'
-require_relative '../../lib/rewrite/problem'
-require_relative '../../lib/rewrite/implementation'
-require_relative '../../lib/rewrite/implementations'
+require_relative '../../lib/xapi/problem'
+require_relative '../../lib/xapi/implementation'
+require_relative '../../lib/xapi/implementations'
 
-class RewriteImplementationsTest < Minitest::Test
+class ImplementationsTest < Minitest::Test
   def test_collection
     path = File.join(FIXTURE_PATH, 'tracks', 'fake', 'config.json')
     slugs = JSON.parse(File.read(path))["problems"]
-    implementations = Rewrite::Implementations.new('fake', "[URL]", slugs, FIXTURE_PATH)
+    implementations = Xapi::Implementations.new('fake', "[URL]", slugs, FIXTURE_PATH)
 
     # can access it like an array
     names = [

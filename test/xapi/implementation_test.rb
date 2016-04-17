@@ -1,8 +1,8 @@
 require_relative 'test_helper'
-require_relative '../../lib/rewrite/problem'
-require_relative '../../lib/rewrite/implementation'
+require_relative '../../lib/xapi/problem'
+require_relative '../../lib/xapi/implementation'
 
-class RewriteImplementationTest < Minitest::Test
+class ImplementationTest < Minitest::Test
   def assert_archive_contains(filenames, zip)
     files = []
     Zip::InputStream.open(zip) do |io|
@@ -14,8 +14,8 @@ class RewriteImplementationTest < Minitest::Test
   end
 
   def test_implementation
-    problem = Rewrite::Problem.new('hello-world', FIXTURE_PATH)
-    implementation = Rewrite::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
+    problem = Xapi::Problem.new('hello-world', FIXTURE_PATH)
+    implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
 
     assert implementation.exists?, "Expecting hello-world problem to be implemented in track 'fake'"
     assert_equal "[URL]/tree/master/hello-world", implementation.git_url
@@ -45,8 +45,8 @@ The internet. [http://example.com](http://example.com)
 
   # implementation specific hint in README (but not language-specific hint)
   def test_implementation_with_extra_files # including dotfiles and files in subdirectories
-    problem = Rewrite::Problem.new('one', FIXTURE_PATH)
-    implementation = Rewrite::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
+    problem = Xapi::Problem.new('one', FIXTURE_PATH)
+    implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
     readme = <<-README
 # One
 
@@ -74,8 +74,8 @@ The internet. [http://example.com](http://example.com)
   end
 
   def test_implementation_in_subdirectory
-    problem = Rewrite::Problem.new('apple', FIXTURE_PATH)
-    implementation = Rewrite::Implementation.new('fruit', "[URL]", problem, FIXTURE_PATH)
+    problem = Xapi::Problem.new('apple', FIXTURE_PATH)
+    implementation = Xapi::Implementation.new('fruit', "[URL]", problem, FIXTURE_PATH)
     assert_equal "[URL]/tree/master/exercises/apple", implementation.git_url
 
     readme = <<-README
@@ -103,8 +103,8 @@ The internet.
   end
 
   def test_language_and_implementation_specific_readme
-    problem = Rewrite::Problem.new('banana', FIXTURE_PATH)
-    implementation = Rewrite::Implementation.new('fruit', "[URL]", problem, FIXTURE_PATH)
+    problem = Xapi::Problem.new('banana', FIXTURE_PATH)
+    implementation = Xapi::Implementation.new('fruit', "[URL]", problem, FIXTURE_PATH)
     readme = <<-README
 # Banana
 
@@ -126,8 +126,8 @@ Do stuff.
   end
 
   def test_missing_implementation
-    problem = Rewrite::Problem.new('apple', FIXTURE_PATH)
-    implementation = Rewrite::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
+    problem = Xapi::Problem.new('apple', FIXTURE_PATH)
+    implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
     refute implementation.exists?, "Not expecting apple to be implemented for track 'fake'"
   end
 end

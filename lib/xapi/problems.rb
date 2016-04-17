@@ -1,4 +1,4 @@
-module Rewrite
+module Xapi
   # Problems is the collection of problems that we have metadata for.
   class Problems
     include Enumerable

@@ -6,6 +6,7 @@ require './config/build_id'
 require './config/bugsnag'
 require 'v1/routes'
 require 'v1/helpers'
+require_relative 'services/exercism_io'
 
 module V1
   # API, version 1 and kind of 2. It was a mess.

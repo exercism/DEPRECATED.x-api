@@ -1,7 +1,7 @@
 require 'json'
 require 'org-ruby'
 
-module Rewrite
+module Xapi
   # Track is a collection of exercises in a given language.
   class Track
     TOPICS = %w(about installation tests learning resources)
