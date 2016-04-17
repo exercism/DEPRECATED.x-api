@@ -1,20 +1,13 @@
 #!/usr/bin/env ruby
 
 require 'json'
-require './lib/xapi/track'
 
-METADATA = Dir.glob("metadata/*").map {|path| File.basename(path)}
-
-def missing?(slug)
-  !(METADATA.include?("#{slug}.yml") && METADATA.include?("#{slug}.md"))
-end
+require_relative '../lib/rewrite'
 
 omissions = []
-Dir.glob("tracks/*").each do |path|
-  track_id = File.basename(path)
-  track = Xapi::Track.new(".", track_id)
-  track.slugs.each do |slug|
-    if missing?(slug)
+Rewrite.tracks.each do |track|
+  track.problems.each do |slug|
+    unless Rewrite.problems[slug].exists?
       omissions << slug
     end
   end
