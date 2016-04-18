@@ -18,6 +18,7 @@ module V1
 
       helpers ::API::Helpers::Guards
       helpers ::API::Helpers::Errors
+      helpers ::API::Helpers::Finders
 
       before do
         content_type 'application/json', charset: 'utf-8'

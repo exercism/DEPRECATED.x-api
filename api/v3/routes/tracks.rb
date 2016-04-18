@@ -9,7 +9,7 @@ module V3
       end
 
       get '/tracks/:id' do |id|
-        track = track_of(id)
+        track = find_track(id)
         pg :track, locals: {
           track: track,
           todo: ::Xapi.problems - track.slugs,
@@ -17,12 +17,12 @@ module V3
       end
 
       get '/tracks/:id/problems' do |id|
-        track = track_of(id)
+        track = find_track(id)
         pg :"track/problems", locals: { track: track }
       end
 
       get '/tracks/:id/todo' do |id|
-        track = track_of(id)
+        track = find_track(id)
 
         slugs = ::Xapi.problems - track.slugs
         pg :"track/todos", locals: {
@@ -33,7 +33,7 @@ module V3
       end
 
       get '/tracks/:id/docs/img/:filename' do |id, filename|
-        track = track_of(id)
+        track = find_track(id)
 
         img = track.img(filename)
         unless img.exists?
@@ -46,7 +46,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug/readme' do |id, slug|
-        track = track_of(id)
+        track = find_track(id)
         implementation = implementation_of(track, slug)
 
         pg :"exercise/readme", locals: {
@@ -56,7 +56,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug/tests' do |id, slug|
-        track = track_of(id)
+        track = find_track(id)
         implementation = implementation_of(track, slug)
 
         pg :"exercise/tests", locals: {
@@ -66,7 +66,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug' do |id, slug|
-        track = track_of(id)
+        track = find_track(id)
         implementation = implementation_of(track, slug)
 
         filename = "%s-%s.zip" % [id, slug]
@@ -74,16 +74,6 @@ module V3
         headers["Content-Disposition"] = "attachment;filename=%s" % filename
 
         implementation.zip.string
-      end
-
-      private
-
-      def track_of(id)
-        track = ::Xapi::Track.new(id, settings.tracks_path)
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
-        track
       end
 
       def implementation_of(track, slug)

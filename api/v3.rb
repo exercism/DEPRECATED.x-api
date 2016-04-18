@@ -5,6 +5,7 @@ require "bugsnag"
 require './config/build_id'
 require './config/bugsnag'
 require 'v3/routes'
+require_relative 'helpers'
 
 # V3 is the 3rd version of the API.
 # The CLI is currently using v1.

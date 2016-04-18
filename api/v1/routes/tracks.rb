@@ -9,10 +9,7 @@ module V1
       end
 
       get '/tracks/:id' do |id|
-        track = ::Xapi::Track.new(id, settings.tracks_path)
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
+        track = find_track(id)
 
         pg :track, locals: {
           track: track,
@@ -21,10 +18,7 @@ module V1
       end
 
       get '/tracks/:id/:problem' do |id, slug|
-        track = ::Xapi::Track.new(id, settings.tracks_path)
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
+        track = find_track(id)
 
         implementation = track.implementations[slug]
         unless implementation.exists?

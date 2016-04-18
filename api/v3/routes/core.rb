@@ -19,6 +19,8 @@ module V3
       before do
         content_type 'application/json', charset: 'utf-8'
       end
+
+      helpers ::API::Helpers::Finders
     end
   end
 end
