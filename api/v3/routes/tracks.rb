@@ -45,24 +45,6 @@ module V3
         send_file img.path, type: img.type
       end
 
-      get '/tracks/:id/exercises/:slug/readme' do |id, slug|
-        track, implementation = find_track_and_implementation(id, slug)
-
-        pg :"exercise/readme", locals: {
-          track: track,
-          implementation: implementation,
-        }
-      end
-
-      get '/tracks/:id/exercises/:slug/tests' do |id, slug|
-        track, implementation = find_track_and_implementation(id, slug)
-
-        pg :"exercise/tests", locals: {
-          track: track,
-          implementation: implementation,
-        }
-      end
-
       get '/tracks/:id/exercises/:slug' do |id, slug|
         implementation = find_implementation(id, slug)
 
@@ -71,6 +53,16 @@ module V3
         headers["Content-Disposition"] = "attachment;filename=%s" % filename
 
         implementation.zip.string
+      end
+
+      # :files is either "readme" or "tests".
+      get '/tracks/:id/exercises/:slug/:files' do |id, slug, files|
+        track, implementation = find_track_and_implementation(id, slug)
+
+        pg "exercise/#{files}".to_sym, locals: {
+          track: track,
+          implementation: implementation,
+        }
       end
     end
   end
