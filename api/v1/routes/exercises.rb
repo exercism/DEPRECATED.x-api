@@ -129,22 +129,11 @@ module V1
 
       get '/v2/exercises/:track_id/:slug' do |track_id, slug|
         track_id, slug = track_id.downcase, slug.downcase
-
-        track = ::Xapi::Track.new(track_id, settings.tracks_path)
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % track_id }.to_json
-        end
-
-        implementation = track.implementations[slug]
-        unless implementation.exists?
-          halt 404, {
-            error: "No implementation for %s in track '%s'" % [slug, track_id],
-          }.to_json
-        end
+        implementation = find_implementation(track_id, slug)
 
         # rubocop:disable Lint/HandleExceptions
         begin
-          Xapi::ExercismIO.fetch(params[:key], problem.track_id, problem.slug)
+          Xapi::ExercismIO.fetch(params[:key], track_id, slug)
         rescue
           # don't fail just because we can't track it.
         end

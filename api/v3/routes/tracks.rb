@@ -46,8 +46,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug/readme' do |id, slug|
-        track = find_track(id)
-        implementation = implementation_of(track, slug)
+        track, implementation = find_track_and_implementation(id, slug)
 
         pg :"exercise/readme", locals: {
           track: track,
@@ -56,8 +55,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug/tests' do |id, slug|
-        track = find_track(id)
-        implementation = implementation_of(track, slug)
+        track, implementation = find_track_and_implementation(id, slug)
 
         pg :"exercise/tests", locals: {
           track: track,
@@ -66,24 +64,13 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug' do |id, slug|
-        track = find_track(id)
-        implementation = implementation_of(track, slug)
+        implementation = find_implementation(id, slug)
 
         filename = "%s-%s.zip" % [id, slug]
         headers['Content-Type'] = "application/octet-stream"
         headers["Content-Disposition"] = "attachment;filename=%s" % filename
 
         implementation.zip.string
-      end
-
-      def implementation_of(track, slug)
-        implementation = track.implementations[slug]
-        unless implementation.exists?
-          halt 404, {
-            error: "No implementation of '%s' in track '%s'" % [slug, track.id],
-          }.to_json
-        end
-        implementation
       end
     end
   end
