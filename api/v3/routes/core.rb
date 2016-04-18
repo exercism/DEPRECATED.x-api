@@ -4,7 +4,7 @@ module V3
       use Bugsnag::Rack
 
       configure do
-        set :root, "./v3"
+        set :root, "./api/v3"
         enable :raise_errors
       end
 

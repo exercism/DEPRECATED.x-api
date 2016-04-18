@@ -4,7 +4,7 @@ module V1
       use Bugsnag::Rack
 
       configure do
-        set :root, "./v1"
+        set :root, "./api/v1"
         enable :raise_errors
       end
 

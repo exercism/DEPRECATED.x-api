@@ -4,7 +4,7 @@ AllCops:
     - 'test/fixtures/**/*'
     - 'bin/*'
     - 'vendor/**/*'
-    - 'v1/routes/exercises.rb'
+    - 'api/v1/routes/exercises.rb'
 Style/StringLiterals:
   Enabled: false
 Style/DoubleNegation:
@@ -20,8 +20,8 @@ Style/IfUnlessModifier:
 Style/Documentation:
   Exclude:
     - 'test/**/*'
-    - 'v1/**/*'
-    - 'v3/**/*'
+    - 'api/v1/**/*'
+    - 'api/v3/**/*'
 Style/RaiseArgs:
   Enabled: true
   EnforcedStyle: compact
@@ -33,7 +33,7 @@ Style/FormatString:
   EnforcedStyle: percent
 Lint/RescueException:
   Exclude:
-    - 'v1/helpers/errors.rb'
+    - 'api/v1/helpers/errors.rb'
 Metrics/LineLength:
   Max: 80
   AllowURI: true

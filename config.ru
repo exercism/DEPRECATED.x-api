@@ -6,10 +6,10 @@ $LOAD_PATH << File.expand_path('../lib', __FILE__)
 
 require 'xapi'
 
-require 'v1'
+require 'api/v1'
 run V1::App
 
-require 'v3'
+require 'api/v3'
 map '/v3/' do
   run V3::App
 end
