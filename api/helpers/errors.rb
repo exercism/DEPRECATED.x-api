@@ -1,4 +1,4 @@
-module V1
+module API
   module Helpers
     module Errors
       GITHUB_PLEASE = "Please post an issue on GitHub so we can figure it out."

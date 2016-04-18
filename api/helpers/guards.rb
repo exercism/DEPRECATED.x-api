@@ -1,4 +1,4 @@
-module V1
+module API
   module Helpers
     module Guards
       def require_key

@@ -20,8 +20,8 @@ Style/IfUnlessModifier:
 Style/Documentation:
   Exclude:
     - 'test/**/*'
-    - 'api/v1/**/*'
-    - 'api/v3/**/*'
+    - 'api/**/*'
+    - 'api/**/*'
 Style/RaiseArgs:
   Enabled: true
   EnforcedStyle: compact
@@ -33,7 +33,7 @@ Style/FormatString:
   EnforcedStyle: percent
 Lint/RescueException:
   Exclude:
-    - 'api/v1/helpers/errors.rb'
+    - 'api/helpers/errors.rb'
 Metrics/LineLength:
   Max: 80
   AllowURI: true

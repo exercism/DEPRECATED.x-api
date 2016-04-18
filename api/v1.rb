@@ -5,7 +5,7 @@ require "bugsnag"
 require './config/build_id'
 require './config/bugsnag'
 require 'v1/routes'
-require 'v1/helpers'
+require_relative 'helpers'
 require_relative 'services/exercism_io'
 
 module V1

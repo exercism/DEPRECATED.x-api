@@ -16,8 +16,8 @@ module V1
         set :tracks_path, "./test/fixtures"
       end
 
-      helpers Helpers::Guards
-      helpers Helpers::Errors
+      helpers ::API::Helpers::Guards
+      helpers ::API::Helpers::Errors
 
       before do
         content_type 'application/json', charset: 'utf-8'
