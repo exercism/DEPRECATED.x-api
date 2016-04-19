@@ -142,3 +142,6 @@
 [submodule "tracks/kotlin"]
 	path = tracks/kotlin
 	url = https://github.com/exercism/xkotlin.git
+[submodule "tracks/teco"]
+	path = tracks/teco
+	url = https://github.com/exercism/xteco.git
