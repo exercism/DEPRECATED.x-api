@@ -15,6 +15,7 @@ module V3
   class App < Sinatra::Application
     configure do
       enable :raise_errors
+      set :protection, except: [:json_csrf]
     end
 
     not_found do

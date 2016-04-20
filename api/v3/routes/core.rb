@@ -6,6 +6,7 @@ module V3
       configure do
         set :root, "./api/v3"
         enable :raise_errors
+        set :protection, except: [:json_csrf]
       end
 
       configure :development, :production do
