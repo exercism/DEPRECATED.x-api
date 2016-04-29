@@ -2,7 +2,8 @@ node track_id: track.id
 
 collection todos: problems do |problem|
   node slug: problem.slug
-  node readme: problem.md_url
+  node readme: problem.description
+  node readme_url: problem.md_url
   node data: problem.json_url
 
   collection implementations: implementations[problem.slug] do |implementation|
