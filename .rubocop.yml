@@ -1,3 +1,4 @@
+inherit_from: .rubocop_todo.yml
 AllCops:
   Exclude:
     - 'tracks/**/*'
@@ -11,7 +12,7 @@ Style/DoubleNegation:
   Enabled: false
 Style/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 Style/BlockDelimiters:
   Enabled: false
