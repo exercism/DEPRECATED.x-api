@@ -1,0 +1,12 @@
+node :problem do
+  node slug: problem.slug
+  node blurb: problem.blurb
+  node readme_url: problem.md_url
+  node data: problem.json_url
+  node todos: todos
+
+  collection implementations: implementations do |implementation|
+    node track_id: implementation.track_id
+    node url: implementation.git_url
+  end
+end

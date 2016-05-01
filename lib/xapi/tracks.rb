@@ -18,6 +18,11 @@ module Xapi
       by_id[id]
     end
 
+    # rubocop:disable Style/OpMethod
+    def -(ids)
+      (by_id.keys - ids).sort
+    end
+
     private
 
     def all

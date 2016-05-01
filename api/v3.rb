@@ -28,6 +28,7 @@ module V3
       { error: msg }.to_json
     end
 
+    use Routes::Problems
     use Routes::Tracks
   end
 end
