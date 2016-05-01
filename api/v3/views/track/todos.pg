@@ -3,6 +3,7 @@ node track_id: track.id
 collection todos: problems do |problem|
   node slug: problem.slug
   node readme: problem.description
+  node blurb: problem.blurb
   node readme_url: problem.md_url
   node data: problem.json_url
 
