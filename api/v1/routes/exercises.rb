@@ -33,6 +33,7 @@ module V1
         end
 
         implementations = []
+
         solutions = forward_errors do
           Xapi::ExercismIO.exercises_for(params[:key])
         end
@@ -42,6 +43,8 @@ module V1
           end
 
           slugs = problems.map { |problem| problem["slug"] }
+
+
           track = ::Xapi.tracks[track_id]
           slugs.each do |slug|
             implementation = track.implementations[slug]
@@ -83,16 +86,15 @@ module V1
         track_ids = [id.downcase]
 
         implementations = []
-        solutions = forward_errors do
-          Xapi::ExercismIO.exercises_for(params[:key])
-        end
-        solutions.each do |track_id, problems|
-          unless track_ids.include? track_id
-            next
-          end
+        slugs_by_track_id = fetch_solutions(params[:key])
 
-          slugs = problems.map { |problem| problem["slug"] }
+        track_ids.each do |track_id|
           track = ::Xapi.tracks[track_id]
+          slugs = slugs_by_track_id[track_id]
+          # pretend they already solved hello-world if they've
+          # solved anything at all.
+          slugs << 'hello-world' unless slugs.empty?
+
           slugs.each do |slug|
             implementation = track.implementations[slug]
             if implementation.exists?
@@ -100,9 +102,6 @@ module V1
             end
           end
 
-          # pretend they already solved hello-world if they've
-          # solved anything at all.
-          slugs << 'hello-world' unless slugs.empty?
           next_slug = (track.problems - slugs).first
           if !!next_slug
             implementation = track.implementations[next_slug]
@@ -138,6 +137,21 @@ module V1
           # don't fail just because we can't track it.
         end
         pg :implementations, locals: { implementations: [implementation] }
+      end
+
+      private
+
+      def fetch_solutions(key)
+        solutions = forward_errors do
+          Xapi::ExercismIO.exercises_for(key)
+        end
+
+        hash = Hash.new {|h,k| h[k] = []}
+        solutions.each_with_object(hash) do |(track_id, problems), slugs_by_track_id|
+          slugs_by_track_id[track_id] = problems.map {|problem|
+            problem["slug"]
+          }
+        end
       end
     end
   end

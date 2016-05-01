@@ -361,4 +361,37 @@ http_interactions:
       string: '{"error":"Please double-check your exercism API key."}'
     http_version: 
   recorded_at: Sun, 17 Apr 2016 01:56:21 GMT
+- request:
+    method: post
+    uri: http://localhost:4567/api/v1/iterations/jewels/hello-world/fetch?key=abc123
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - github.com/exercism/xapi
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Cache-Control:
+      - private
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '54'
+    body:
+      encoding: UTF-8
+      string: '{"error":"Please double-check your exercism API key."}'
+    http_version: 
+  recorded_at: Sun, 01 May 2016 17:10:51 GMT
 recorded_with: VCR 2.9.3

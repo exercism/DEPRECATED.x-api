@@ -1,0 +1,16 @@
+{
+  "problems": [
+    {
+      "id": "jewels/hello-world",
+      "track_id": "jewels",
+      "language": "jewels",
+      "slug": "hello-world",
+      "name": "Hello World",
+      "files": {
+        "hello_world_test.ext": "assert 'hello'\n",
+        "README.md": "# Hello World\n\nOh, hello.\n\n* hello\n* hello again\n\n## Source\n\nThe internet. [http://example.com](http://example.com)\n"
+      },
+      "fresh": false
+    }
+  ]
+}
