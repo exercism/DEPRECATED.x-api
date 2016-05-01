@@ -41,17 +41,23 @@ Here's the terminology we're working towards:
 * _Track_ - a collection of exercises in a programming language.
 * _Track ID_ - a url-friendly version of the language name, e.g. `cpp`.
 * _Problem_ - a high-level, language-independent description of a problem to solve.
-* _Exercise_ - a language-specific implementation of a problem. This contains a README and a test suite.
+* _Implementation_ - a language-specific implementation of a problem. This contains a README and a test suite.
 
 ## Code Arrangement
 
 ```
 .
-├── v1.rb     # sinatra api
-├── v1/
-├── lib/xapi/ # application logic
-├── metadata/ # shared metadata
-└── tracks/   # language track submodules
+├── api             # sinatra APIs
+│   ├── helpers
+│   ├── helpers.rb  # helpers used by both APIs
+│   ├── services    # services used by both APIs
+│   ├── v1          # API v1 routes and views (also contains some hacky v2 stuff)
+│   ├── v1.rb
+│   ├── v3          # API v3 routes and views
+│   └── v3.rb
+├── lib/xapi/       # application logic
+├── metadata/       # shared metadata
+└── tracks/         # language track submodules
 ```
 
 ## Running Locally
