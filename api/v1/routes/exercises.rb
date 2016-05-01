@@ -31,21 +31,15 @@ module V1
         if track_ids.empty?
           track_ids = ::Xapi.tracks.map(&:id)
         end
+        track_ids = track_ids & ::Xapi.tracks.map(&:id)
 
         implementations = []
+        slugs_by_track_id = fetch_solutions(params[:key])
 
-        solutions = forward_errors do
-          Xapi::ExercismIO.exercises_for(params[:key])
-        end
-        solutions.each do |track_id, problems|
-          unless track_ids.include? track_id
-            next
-          end
-
-          slugs = problems.map { |problem| problem["slug"] }
-
-
+        track_ids.each do |track_id|
           track = ::Xapi.tracks[track_id]
+          slugs = slugs_by_track_id[track_id]
+
           slugs.each do |slug|
             implementation = track.implementations[slug]
             if implementation.exists?
@@ -83,7 +77,7 @@ module V1
       get '/v2/exercises/:track_id' do |id|
         require_key
 
-        track_ids = [id.downcase]
+        track_ids = [id.downcase] & ::Xapi.tracks.map(&:id)
 
         implementations = []
         slugs_by_track_id = fetch_solutions(params[:key])
@@ -91,9 +85,6 @@ module V1
         track_ids.each do |track_id|
           track = ::Xapi.tracks[track_id]
           slugs = slugs_by_track_id[track_id]
-          # pretend they already solved hello-world if they've
-          # solved anything at all.
-          slugs << 'hello-world' unless slugs.empty?
 
           slugs.each do |slug|
             implementation = track.implementations[slug]
@@ -102,6 +93,9 @@ module V1
             end
           end
 
+          # pretend they already solved hello-world if they've
+          # solved anything at all.
+          slugs << 'hello-world' unless slugs.empty?
           next_slug = (track.problems - slugs).first
           if !!next_slug
             implementation = track.implementations[next_slug]

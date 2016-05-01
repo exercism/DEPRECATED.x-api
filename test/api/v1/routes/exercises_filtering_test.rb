@@ -17,37 +17,37 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
   def test_that_you_may_filter_to_single_track
     getting '/v2/exercises?tracks=fruit'
 
-    returns_tracks %w( fruit )
+    assert_returns_tracks %w( fruit )
   end
 
   def test_that_you_may_filter_to_multiple_tracks
     getting '/v2/exercises?tracks=fruit,animal'
 
-    returns_tracks %w( animal fruit )
+    assert_returns_tracks %w( animal fruit )
   end
 
   def test_that_empty_filter_returns_all
     getting '/v2/exercises?tracks='
 
-    returns_tracks %w( animal fake fruit )
+    assert_returns_tracks %w( animal fake fruit jewels )
   end
 
   def test_that_missing_filter_returns_all
     getting '/v2/exercises'
 
-    returns_tracks %w( animal fake fruit )
+    assert_returns_tracks %w( animal fake fruit jewels )
   end
 
   def test_that_blank_space_is_ignored
     getting '/v2/exercises?tracks=%20animal%20%20'
 
-    returns_tracks %w( animal )
+    assert_returns_tracks %w( animal )
   end
 
   def test_that_a_track_that_does_not_exist_returns_empty
     getting '/v2/exercises?tracks=xxx-does-not-exist-xxx'
 
-    returns_tracks []
+    assert_returns_tracks []
   end
 
   private
@@ -58,11 +58,11 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
     end
   end
 
-  def returns_tracks(expected_tracks=[])
-    assert_equal expected_tracks, last_tracks
-  end
+  def assert_returns_tracks(expected_track_ids)
+    actual_track_ids = JSON.parse(last_response.body)['problems'].map { |row|
+      row['track_id']
+    }.uniq
 
-  def last_tracks
-    JSON.parse(last_response.body)['problems'].map { |it| it['track_id'] }.uniq
+    assert_equal expected_track_ids.sort, actual_track_ids.sort
   end
 end
