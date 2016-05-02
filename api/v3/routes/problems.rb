@@ -6,7 +6,10 @@ module V3
           problem.json_url.nil?
         }
 
-        { problems: problems.map(&:slug) }.to_json
+        pg :"problems/data_todos", locals: {
+          problems: problems,
+          implementations: ::Xapi.implementations,
+        }
       end
 
       get '/problems/:slug/todo' do |slug|
