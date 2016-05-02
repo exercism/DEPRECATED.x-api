@@ -39,14 +39,6 @@ module V1
         track_ids.each do |track_id|
           track = ::Xapi.tracks[track_id]
           slugs = slugs_by_track_id[track_id]
-
-          slugs.each do |slug|
-            implementation = track.implementations[slug]
-            if implementation.exists?
-              implementations << implementation
-            end
-          end
-
           # pretend they already solved hello-world if they've
           # solved anything at all.
           slugs << 'hello-world' unless slugs.empty?
@@ -56,15 +48,10 @@ module V1
             if implementation.exists?
               implementations << implementation
             end
-          end
 
-          # TODO: make one post per language.
-          # We have to update the exercism.io endpoint to accept a post body
-          # with a list of slugs.
-          (slugs + [next_slug]).compact.each do |slug|
             # rubocop:disable Lint/HandleExceptions
             begin
-              Xapi::ExercismIO.fetch(params[:key], track_id, slug)
+              Xapi::ExercismIO.fetch(params[:key], track_id, next_slug)
             rescue
               # don't fail just because we can't track it.
             end
@@ -85,14 +72,6 @@ module V1
         track_ids.each do |track_id|
           track = ::Xapi.tracks[track_id]
           slugs = slugs_by_track_id[track_id]
-
-          slugs.each do |slug|
-            implementation = track.implementations[slug]
-            if implementation.exists?
-              implementations << implementation
-            end
-          end
-
           # pretend they already solved hello-world if they've
           # solved anything at all.
           slugs << 'hello-world' unless slugs.empty?
@@ -102,15 +81,10 @@ module V1
             if implementation.exists?
               implementations << implementation
             end
-          end
 
-          # TODO: make one post per language.
-          # We have to update the exercism.io endpoint to accept a post body
-          # with a list of slugs.
-          (slugs + [next_slug]).compact.each do |slug|
             # rubocop:disable Lint/HandleExceptions
             begin
-              Xapi::ExercismIO.fetch(params[:key], track_id, slug)
+              Xapi::ExercismIO.fetch(params[:key], track_id, next_slug)
             rescue
               # don't fail just because we can't track it.
             end

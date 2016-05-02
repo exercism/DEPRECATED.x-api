@@ -28,7 +28,7 @@ http_interactions:
       - '395'
     body:
       encoding: UTF-8
-      string: '{"animal":[{"slug":"dog","state":"active"}],"fake":[{"slug":"one","state":"active"},{"slug":"three","state":"active"},{"slug":"two","state":"active"}],"fruit":[{"slug":"apple","state":"active"},{"slug":"banana","state":"active"},{"slug":"cherry","state":"active"}],"go":[{"slug":"leap","state":"archived"}],"haskell":[{"slug":"list-ops","state":"active"},{"slug":"word-count","state":"active"}]}'
+      string: '{"animal":[{"slug":"dog","state":"active"}],"fake":[{"slug":"one","state":"active"},{"slug":"two","state":"active"}],"fruit":[{"slug":"apple","state":"active"},{"slug":"banana","state":"active"}],"go":[{"slug":"leap","state":"archived"}],"haskell":[{"slug":"list-ops","state":"active"},{"slug":"word-count","state":"active"}]}'
     http_version: 
   recorded_at: Mon, 21 Sep 2015 20:38:55 GMT
 - request:

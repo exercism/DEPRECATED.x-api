@@ -1,34 +1,6 @@
 {
   "problems": [
     {
-      "id": "animal/dog",
-      "track_id": "animal",
-      "language": "animal",
-      "slug": "dog",
-      "name": "Dog",
-      "files": {
-        "a_dog.animal": "assert 'woof woof'\n",
-        "a_dog_2.animal": "assert \"Miaowww\"\n",
-        "README.md": "# Dog\n\nThis is dog.\n\n* dog\n* dog again\n\n## Source\n\nThe internet. [http://example.com](http://example.com)\n"
-      },
-      "fresh": false
-    },
-    {
-      "id": "fake/one",
-      "track_id": "fake",
-      "language": "fake",
-      "slug": "one",
-      "name": "One",
-      "files": {
-        ".dot": "dot\n",
-        "Fakefile": "Autorun fake code\n",
-        "one_test.ext": "assert 'one'\n",
-        "sub/src/stubfile.ext": "stub\n",
-        "README.md": "# One\n\nThis is one.\n\n* one\n* one again\n\n* one hint\n* one more hint\n\n## Source\n\nThe internet. [http://example.com](http://example.com)\n"
-      },
-      "fresh": false
-    },
-    {
       "id": "fake/three",
       "track_id": "fake",
       "language": "fake",
@@ -41,18 +13,6 @@
       "fresh": false
     },
     {
-      "id": "fake/two",
-      "track_id": "fake",
-      "language": "fake",
-      "slug": "two",
-      "name": "Two",
-      "files": {
-        "two_test.ext": "assert 'one'\n",
-        "README.md": "# Two\n\nThis is two.\n\n* two\n* two again\n\n## Source\n\nThe internet. [http://example.com](http://example.com)\n"
-      },
-      "fresh": false
-    },
-    {
       "id": "jewels/hello-world",
       "track_id": "jewels",
       "language": "jewels",
@@ -61,31 +21,6 @@
       "files": {
         "hello_world_test.ext": "assert 'hello'\n",
         "README.md": "# Hello World\n\nOh, hello.\n\n* hello\n* hello again\n\n## Source\n\nThe internet. [http://example.com](http://example.com)\n"
-      },
-      "fresh": false
-    },
-    {
-      "id": "fruit/apple",
-      "track_id": "fruit",
-      "language": "fruit",
-      "slug": "apple",
-      "name": "Apple",
-      "files": {
-        "apple.ext": "an apple a day keeps the doctor away\n",
-        "apple.tst": "assert 'apple'\n",
-        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\nDo stuff.\n\n## Source\n\nThe internet.\n"
-      },
-      "fresh": false
-    },
-    {
-      "id": "fruit/banana",
-      "track_id": "fruit",
-      "language": "fruit",
-      "slug": "banana",
-      "name": "Banana",
-      "files": {
-        "banana.tst": "assert 'banana'\n",
-        "README.md": "# Banana\n\nThis is banana.\n\n* banana\n* banana again\n\nDo stuff.\n\n* a hint\n* another hint\n\n## Source\n\n[http://example.com](http://example.com)\n"
       },
       "fresh": false
     },
