@@ -29,7 +29,7 @@ module V1
 
         track_ids = params[:tracks].to_s.split(",").map {|s| s.strip}
         if track_ids.empty?
-          track_ids = ::Xapi.tracks.map(&:id)
+          track_ids = ::Xapi.tracks.select(&:active?).map(&:id)
         end
         track_ids = track_ids & ::Xapi.tracks.map(&:id)
 
