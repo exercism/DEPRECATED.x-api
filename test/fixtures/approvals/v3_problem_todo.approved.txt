@@ -4,5 +4,5 @@
 	"readme_url" => "https://github.com/exercism/x-common/blob/master/hello-world.md"
 	"data" => nil
 	"todos" => ["fruit"]
-	"implementations" => [{"track_id"=>"fake", "url"=>"https://github.com/exercism/xfake/tree/master/hello-world"}, {"track_id"=>"jewels", "url"=>"https://github.com/exercism/xjewels/tree/master/hello-world"}]
+	"implementations" => [{"track_id"=>"fake", "url"=>"https://github.com/exercism/xfake/tree/master/hello-world"}, {"track_id"=>"jewels", "url"=>"https://github.com/exercism/xjewels/tree/master/hello-world"}, {"track_id"=>"shoes", "url"=>"https://github.com/exercism/xshoes/tree/master/hello-world"}]
 }

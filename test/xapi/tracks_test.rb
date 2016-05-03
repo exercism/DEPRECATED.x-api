@@ -6,7 +6,7 @@ class TracksTest < Minitest::Test
     tracks = Xapi::Tracks.new(FIXTURE_PATH)
 
     # can access it like an array
-    ids = %w(animal fake jewels fruit)
+    ids = %w(animal fake jewels fruit shoes)
     assert_equal ids, tracks.map(&:id)
 
     # can access it like a hash

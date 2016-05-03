@@ -31,7 +31,7 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
 
     # animal is excluded, because there are no more exercises in
     # that track.
-    assert_returns_tracks %w( fake fruit jewels )
+    assert_returns_tracks %w( fake fruit jewels shoes )
   end
 
   def test_that_missing_filter_returns_all
@@ -39,7 +39,7 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
 
     # animal is excluded, because there are no more exercises in
     # that track.
-    assert_returns_tracks %w( fake fruit jewels )
+    assert_returns_tracks %w( fake fruit jewels shoes )
   end
 
   def test_that_blank_space_is_ignored

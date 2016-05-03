@@ -35,6 +35,18 @@
         "README.md": "# Cherry\n\nThis is cherry.\n\n* cherry\n* cherry again\n\nDo stuff.\n\n\n"
       },
       "fresh": false
+    },
+    {
+      "id": "shoes/hello-world",
+      "track_id": "shoes",
+      "language": "shoes",
+      "slug": "hello-world",
+      "name": "Hello World",
+      "files": {
+        "hello_world_test.ext": "assert 'hello'\n",
+        "README.md": "# Hello World\n\nOh, hello.\n\n* hello\n* hello again\n\n## Source\n\nThe internet. [http://example.com](http://example.com)\n"
+      },
+      "fresh": false
     }
   ]
 }

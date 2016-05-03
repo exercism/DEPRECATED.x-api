@@ -1,0 +1,11 @@
+{
+  "slug": "shoes",
+  "language": "Shoes & Boots",
+  "repository": "https://github.com/exercism/xshoes",
+  "active": false,
+  "problems": [
+    "hello-world"
+  ],
+  "deprecated": [],
+  "foregone": []
+}
