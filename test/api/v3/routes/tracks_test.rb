@@ -39,6 +39,7 @@ class V3RoutesTracksTest < Minitest::Test
   def test_todos
     get '/tracks/fake/todo'
     fake = JSON.parse(last_response.body)
+    assert_equal "Fake", fake["language"]
     Approvals.verify(fake["todos"], name: 'v3_track_todo')
   end
 
