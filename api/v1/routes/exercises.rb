@@ -48,13 +48,6 @@ module V1
             if implementation.exists?
               implementations << implementation
             end
-
-            # rubocop:disable Lint/HandleExceptions
-            begin
-              Xapi::ExercismIO.fetch(params[:key], track_id, next_slug)
-            rescue
-              # don't fail just because we can't track it.
-            end
           end
         end
 
@@ -81,13 +74,6 @@ module V1
             if implementation.exists?
               implementations << implementation
             end
-
-            # rubocop:disable Lint/HandleExceptions
-            begin
-              Xapi::ExercismIO.fetch(params[:key], track_id, next_slug)
-            rescue
-              # don't fail just because we can't track it.
-            end
           end
         end
 
@@ -97,13 +83,6 @@ module V1
       get '/v2/exercises/:track_id/:slug' do |track_id, slug|
         track_id, slug = track_id.downcase, slug.downcase
         implementation = find_implementation(track_id, slug)
-
-        # rubocop:disable Lint/HandleExceptions
-        begin
-          Xapi::ExercismIO.fetch(params[:key], track_id, slug)
-        rescue
-          # don't fail just because we can't track it.
-        end
         pg :implementations, locals: { implementations: [implementation] }
       end
 

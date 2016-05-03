@@ -26,11 +26,6 @@ module Xapi
       get('/api/v1/iterations/latest', key)["assignments"]
     end
 
-    # rubocop:disable NegatedIf
-    def self.fetch(key, language, slug)
-      post("/api/v1/iterations/#{language}/#{slug}/fetch", key) if !!key
-    end
-
     def self.conn
       Faraday.new(url: url) do |c|
         c.use Faraday::Adapter::NetHttp
