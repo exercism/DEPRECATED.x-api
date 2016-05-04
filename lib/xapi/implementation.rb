@@ -22,7 +22,7 @@ module Xapi
     end
 
     def files
-      Hash[paths.map {|path|
+      @files ||= Hash[paths.map {|path|
         [filename(path), File.read(path)]
       }].merge("README.md" => readme)
     end
