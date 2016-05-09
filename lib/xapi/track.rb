@@ -34,7 +34,7 @@ module Xapi
       @implementations ||= Implementations.new(id, repository, problems, root)
     end
 
-    %w(language repository).each do |name|
+    %w(language repository checklist_issue).each do |name|
       define_method name do
         config[name].to_s.strip
       end

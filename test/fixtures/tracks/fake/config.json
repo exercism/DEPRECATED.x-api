@@ -2,6 +2,7 @@
   "slug": "fake",
   "language": "Fake",
   "repository": "https://github.com/exercism/xfake",
+  "checklist_issue": "1",
   "active": true,
   "problems": [
     "hello-world",

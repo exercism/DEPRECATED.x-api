@@ -9,6 +9,7 @@ class TrackTest < Minitest::Test
     assert track.active?, "track 'fake' inactive"
     assert_equal "Fake", track.language
     assert_equal "https://github.com/exercism/xfake", track.repository
+    assert_equal "1", track.checklist_issue
 
     problems = %w(hello-world one two three)
     assert_equal problems, track.problems
