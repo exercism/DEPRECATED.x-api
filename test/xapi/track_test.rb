@@ -54,6 +54,12 @@ class TrackTest < Minitest::Test
     refute img.exists?, "should not have a nope.png"
   end
 
+  def test_track_with_default_checklist_issue
+    track = Xapi::Track.new('fruit', FIXTURE_PATH)
+
+    assert_equal "1", track.checklist_issue
+  end
+
   def test_custom_test_pattern
     track = Xapi::Track.new('fruit', FIXTURE_PATH)
 
