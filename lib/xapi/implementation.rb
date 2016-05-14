@@ -10,6 +10,7 @@ module Xapi
     ]
 
     attr_reader :track_id, :repo, :problem, :root
+    attr_writer :files
     def initialize(track_id, repo, problem, root)
       @track_id = track_id
       @repo = repo

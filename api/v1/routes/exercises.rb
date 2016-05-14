@@ -17,7 +17,7 @@ module V1
           next unless ti.exists?
 
           implementation = ti.dup
-          implementation.files.merge!(solution["files"])
+          implementation.files = implementation.files.merge(solution["files"])
           implementations << implementation
         end
 

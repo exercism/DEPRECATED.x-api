@@ -130,4 +130,13 @@ Do stuff.
     implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
     refute implementation.exists?, "Not expecting apple to be implemented for track 'fake'"
   end
+
+  def test_override_implementation_files
+    problem = Xapi::Problem.new('hello-world', FIXTURE_PATH)
+    implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
+
+    files = { "filename" => "contents" }
+    implementation.files = files
+    assert_equal files, implementation.files
+  end
 end
