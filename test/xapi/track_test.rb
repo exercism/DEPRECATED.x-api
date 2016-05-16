@@ -9,6 +9,7 @@ class TrackTest < Minitest::Test
     assert track.active?, "track 'fake' inactive"
     assert_equal "Fake", track.language
     assert_equal "https://github.com/exercism/xfake", track.repository
+    assert_equal "5", track.checklist_issue
 
     problems = %w(hello-world one two three)
     assert_equal problems, track.problems
@@ -51,6 +52,12 @@ class TrackTest < Minitest::Test
 
     img = track.img('nope.png')
     refute img.exists?, "should not have a nope.png"
+  end
+
+  def test_track_with_default_checklist_issue
+    track = Xapi::Track.new('fruit', FIXTURE_PATH)
+
+    assert_equal "1", track.checklist_issue
   end
 
   def test_custom_test_pattern

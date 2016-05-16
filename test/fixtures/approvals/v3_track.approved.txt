@@ -2,6 +2,7 @@
 	"id" => "fake"
 	"language" => "Fake"
 	"repository" => "https://github.com/exercism/xfake"
+	"checklist_issue" => "5"
 	"todo" => ["banana", "cherry"]
 	"active" => true
 	"implemented" => true

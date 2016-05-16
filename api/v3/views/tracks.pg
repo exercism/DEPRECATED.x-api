@@ -1,5 +1,5 @@
 collection tracks: tracks do |track|
-  attributes :id, :language, :repository
+  attributes :id, :language, :repository, :checklist_issue
   node todo: problems - track.slugs
   node active: track.active?
   node implemented: track.problems.size > 0

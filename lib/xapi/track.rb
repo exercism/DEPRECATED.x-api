@@ -34,6 +34,10 @@ module Xapi
       @implementations ||= Implementations.new(id, repository, problems, root)
     end
 
+    def checklist_issue
+      config.fetch("checklist_issue", 1).to_s
+    end
+
     %w(language repository).each do |name|
       define_method name do
         config[name].to_s.strip
