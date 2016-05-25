@@ -35,7 +35,7 @@ module Xapi
     end
 
     def checklist_issue
-      config.fetch("checklist_issue", 1).to_s
+      config.fetch("checklist_issue", 1)
     end
 
     %w(language repository).each do |name|
