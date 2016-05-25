@@ -38,6 +38,10 @@ module Xapi
       config.fetch("checklist_issue", 1)
     end
 
+    def gitter
+      config["gitter"]
+    end
+
     %w(language repository).each do |name|
       define_method name do
         config[name].to_s.strip

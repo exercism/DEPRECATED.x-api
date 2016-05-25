@@ -3,6 +3,7 @@
 	"language" => "Fake"
 	"repository" => "https://github.com/exercism/xfake"
 	"checklist_issue" => 5
+	"gitter" => nil
 	"todo" => ["banana", "cherry"]
 	"active" => true
 	"implemented" => true

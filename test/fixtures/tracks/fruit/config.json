@@ -4,6 +4,7 @@
   "repository": "https://example.com/exercism/xfruit",
   "active": true,
   "test_pattern": ".*[.]tst$",
+  "gitter": "xfruit",
   "problems": [
     "apple",
     "banana",
