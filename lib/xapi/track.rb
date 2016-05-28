@@ -74,6 +74,10 @@ module Xapi
       problems + foregone + deprecated
     end
 
+    def doc_format
+      Dir.glob(File.join(dir, "docs", "*.*")).first.to_s.split(".").last || "md"
+    end
+
     private
 
     def dir

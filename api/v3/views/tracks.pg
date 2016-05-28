@@ -3,6 +3,7 @@ collection tracks: tracks do |track|
   node todo: problems - track.slugs
   node active: track.active?
   node implemented: track.problems.size > 0
+  node doc_format: track.doc_format
 
   node docs: track.docs
 

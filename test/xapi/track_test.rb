@@ -55,6 +55,12 @@ class TrackTest < Minitest::Test
     refute img.exists?, "should not have a nope.png"
   end
 
+  def test_doc_format
+    assert_equal "org", Xapi::Track.new('fake', FIXTURE_PATH).doc_format
+    assert_equal "md", Xapi::Track.new('fruit', FIXTURE_PATH).doc_format
+    assert_equal "md", Xapi::Track.new('jewels', FIXTURE_PATH).doc_format # no docs dir
+  end
+
   def test_track_with_gitter_room
     track = Xapi::Track.new('fruit', FIXTURE_PATH)
 
