@@ -145,3 +145,6 @@
 [submodule "tracks/teco"]
 	path = tracks/teco
 	url = https://github.com/exercism/xteco.git
+[submodule "tracks/factor"]
+	path = tracks/factor
+	url = https://github.com/exercism/xfactor.git
