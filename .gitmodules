@@ -76,9 +76,6 @@
 [submodule "tracks/swift"]
 	path = tracks/swift
 	url = https://github.com/exercism/xswift.git
-[submodule "tracks/assembly"]
-	path = tracks/assembly
-	url = https://github.com/exercism/xassembly.git
 [submodule "tracks/bash"]
 	path = tracks/bash
 	url = https://github.com/exercism/xbash.git
@@ -148,3 +145,6 @@
 [submodule "tracks/factor"]
 	path = tracks/factor
 	url = https://github.com/exercism/xfactor.git
+[submodule "tracks/nasm"]
+	path = tracks/nasm
+	url = https://github.com/exercism/xnasm.git
