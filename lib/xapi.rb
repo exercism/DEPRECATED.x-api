@@ -7,8 +7,13 @@ end
 module Xapi
   if ENV["RACK_ENV"] == "test"
     ROOT = "./test/fixtures"
+    ROOT_URL = "http://x.exercism.io"
+  elsif ENV["RACK_ENV"] == "development"
+    ROOT = "."
+    ROOT_URL = "http://localhost:9292"
   else
     ROOT = "."
+    ROOT_URL = "http://x.exercism.io"
   end
   DEFAULT_PATH = "."
   REPO_URL = "https://github.com/exercism/x-api"

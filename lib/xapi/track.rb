@@ -42,6 +42,12 @@ module Xapi
       config["gitter"]
     end
 
+    def icon_url
+      if img("img/icon.png").exists?
+        "#{Xapi::ROOT_URL}/v3/tracks/#{id}/img/icon.png"
+      end
+    end
+
     %w(language repository).each do |name|
       define_method name do
         config[name].to_s.strip
@@ -66,8 +72,8 @@ module Xapi
       Hash[TOPICS.zip(TOPICS.map { |topic| doc(topic) })]
     end
 
-    def img(f)
-      Image.new(File.join(dir, "docs", "img", f))
+    def img(file_path)
+      Image.new(File.join(dir, file_path))
     end
 
     def slugs

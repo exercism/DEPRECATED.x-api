@@ -43,6 +43,21 @@ class V3RoutesTracksTest < Minitest::Test
     Approvals.verify(fake["todos"], name: 'v3_track_todo')
   end
 
+  def test_track_icon_image
+    get '/tracks/fake/img/icon.png'
+
+    assert_equal 200, last_response.status, last_response.body
+    Approvals.verify(last_response.body, name: 'valid_icon_png')
+    assert_equal last_response.headers["Content-Type"], 'image/png'
+
+    get '/tracks/fruit/img/icon.svg'
+    assert_equal last_response.headers["Content-Type"], 'image/svg+xml'
+    Approvals.verify(last_response.body, name: 'valid_icon_svg')
+
+    get '/tracks/no_exists/img/icon.png'
+    assert_equal 404, last_response.status
+  end
+
   def test_images
     get '/tracks/fake/docs/img/test.png'
 
