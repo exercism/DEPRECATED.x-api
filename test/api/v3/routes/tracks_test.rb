@@ -53,9 +53,12 @@ class V3RoutesTracksTest < Minitest::Test
     get '/tracks/fruit/img/icon.svg'
     assert_equal last_response.headers["Content-Type"], 'image/svg+xml'
     Approvals.verify(last_response.body, name: 'valid_icon_svg')
+  end
 
-    get '/tracks/no_exists/img/icon.png'
-    assert_equal 404, last_response.status
+  def test_track_icon_default
+    get '/tracks/shoes/img/icon.png'
+    Approvals.verify(last_response.body, name: 'default_icon_png')
+    assert_equal last_response.headers["Content-Type"], 'image/png'
   end
 
   def test_images
