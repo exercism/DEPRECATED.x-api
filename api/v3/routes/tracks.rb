@@ -32,10 +32,20 @@ module V3
         }
       end
 
+      get '/tracks/:id/img/:filename' do |id, filename|
+        track = find_track(id)
+
+        img = track.img("img/#{filename}").tap do |image|
+          image.path = "img/default_icon.png" unless image.exists?
+        end
+
+        send_file img.path, type: img.type
+      end
+
       get '/tracks/:id/docs/img/:filename' do |id, filename|
         track = find_track(id)
 
-        img = track.img(filename)
+        img = track.img("docs/img/#{filename}")
         unless img.exists?
           halt 404, {
             error: "No image %s in track '%s'" % [filename, id],

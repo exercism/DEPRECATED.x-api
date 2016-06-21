@@ -10,7 +10,6 @@ module V1
 
       get '/tracks/:id' do |id|
         track = find_track(id)
-
         pg :track, locals: {
           track: track,
           problems: ::Xapi.problems,

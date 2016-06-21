@@ -46,12 +46,17 @@ class TrackTest < Minitest::Test
     }
     assert_equal docs, track.docs
 
-    img = track.img('test.png')
+    img = track.img('img/icon.png')
+    assert img.exists?, "track icon fake.png cannot be found"
+    assert_equal :png, img.type
+    assert_equal "./test/fixtures/tracks/fake/img/icon.png", img.path
+
+    img = track.img('docs/img/test.png')
     assert img.exists?, "image test.png cannot be found"
     assert_equal :png, img.type
     assert_equal "./test/fixtures/tracks/fake/docs/img/test.png", img.path
 
-    img = track.img('nope.png')
+    img = track.img('docs/img/nope.png')
     refute img.exists?, "should not have a nope.png"
   end
 

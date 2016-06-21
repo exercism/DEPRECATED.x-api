@@ -2,6 +2,7 @@
   "slug": "fruit",
   "language": "Fruit",
   "repository": "https://example.com/exercism/xfruit",
+  "image": "fruit.svg",
   "active": true,
   "test_pattern": ".*[.]tst$",
   "gitter": "xfruit",
