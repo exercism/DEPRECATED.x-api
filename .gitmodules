@@ -148,3 +148,6 @@
 [submodule "tracks/nasm"]
 	path = tracks/nasm
 	url = https://github.com/exercism/xnasm.git
+[submodule "tracks/idris"]
+	path = tracks/idris
+	url = https://github.com/exercism/xidris.git
