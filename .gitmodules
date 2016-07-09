@@ -151,3 +151,6 @@
 [submodule "tracks/idris"]
 	path = tracks/idris
 	url = https://github.com/exercism/xidris.git
+[submodule "tracks/ceylon"]
+	path = tracks/ceylon
+	url = https://github.com/exercism/xceylon
