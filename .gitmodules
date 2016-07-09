@@ -154,3 +154,6 @@
 [submodule "tracks/ceylon"]
 	path = tracks/ceylon
 	url = https://github.com/exercism/xceylon
+[submodule "tracks/purescript"]
+	path = tracks/purescript
+	url = https://github.com/exercism/xpurescript
