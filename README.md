@@ -127,6 +127,16 @@ ruby to define the JSON structure.
 
 Please see the [CONTRIBUTING](CONTRIBUTING.md) guidelines in the root of this repository.
 
+## Releasing
+
+To update all of the language tracks with their latest commits, run:
+
+```
+git submodule foreach git pull origin master
+```
+
+Then commit the changes (`git commit -m "Update submodules"`) and push to both GitHub and Heroku.
+
 ## License
 
 The MIT License (MIT)
