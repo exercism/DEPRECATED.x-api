@@ -1,29 +1,3 @@
 #!/bin/bash
 
-git diff --quiet
-modified=$?
-
-git diff --cached --quiet
-staged=$?
-
-untracked=$(git ls-files --other --exclude-standard --directory)
-
-if [ $modified -ne 0 ] || [ $staged -ne 0 ] || [ ! -z "$untracked" ]
-then
-	echo "Please stash or commit your changes"
-	exit 1
-fi
-
-ROOT=$(pwd)
-
-for dir in $(ls tracks)
-do
-	cd tracks/$dir
-	git fetch origin && git reset --hard origin/master
-	cd $ROOT
-done
-
-cd metadata
-git fetch origin && git reset --hard origin/master
-cd $ROOT
-rake
+git submodule foreach git pull origin master
