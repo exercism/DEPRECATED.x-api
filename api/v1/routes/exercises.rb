@@ -58,6 +58,7 @@ module V1
         require_key
 
         track_ids = [id.downcase] & ::Xapi.tracks.map(&:id)
+        halt 404, { error: "No track '%s'" % id }.to_json if track_ids.empty?
 
         implementations = []
         slugs_by_track_id = fetch_solutions(params[:key])
