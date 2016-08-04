@@ -64,25 +64,21 @@ class V1RoutesExercisesTest < Minitest::Test
   end
 
   def test_get_exercises_by_track
-    VCR.use_cassette('exercism_api_error') do
-      get '/v2/exercises/invalid_track', key: 'abc123'
-      options = { format: :json, name: 'get_exercises_invalid_track_error' }
-      Approvals.verify(last_response.body, options)
-    end
+    get '/v2/exercises/invalid_track', key: 'abc123'
+    options = { format: :json, name: 'get_exercises_invalid_track_error' }
+    Approvals.verify(last_response.body, options)
   end
 
-  def test_get_exercises_by_track_slug
-    VCR.use_cassette('exercism_api_error') do
-      get '/v2/exercises/invalid_track/apple', key: 'abc123'
-      options = { format: :json, name: 'get_exercises_invalid_track_error' }
-      Approvals.verify(last_response.body, options)
-    end
+  def test_get_exercises_by_track_slug_invalid_track
+    get '/v2/exercises/invalid_track/apple', key: 'abc123'
+    options = { format: :json, name: 'get_exercises_invalid_track_error' }
+    Approvals.verify(last_response.body, options)
+  end
 
-    VCR.use_cassette('exercism_api_error') do
-      get '/v2/exercises/fruit/invalid_slug', key: 'abc123'
-      options = { format: :json, name: 'get_exercises_invalid_slug_error' }
-      Approvals.verify(last_response.body, options)
-    end
+  def test_get_exercises_by_track_slug_invalid_slug
+    get '/v2/exercises/fruit/invalid_slug', key: 'abc123'
+    options = { format: :json, name: 'get_exercises_invalid_slug_error' }
+    Approvals.verify(last_response.body, options)
   end
 
   def test_api_error
