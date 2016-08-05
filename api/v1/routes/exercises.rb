@@ -54,26 +54,24 @@ module V1
         pg :implementations, locals: { implementations: implementations }
       end
 
-      get '/v2/exercises/:track_id' do |id|
+      get '/v2/exercises/:track_id' do |track_id|
         require_key
 
-        track_ids = [id.downcase] & ::Xapi.tracks.map(&:id)
+        track = find_track(track_id)
 
         implementations = []
-        slugs_by_track_id = fetch_solutions(params[:key])
 
-        track_ids.each do |track_id|
-          track = ::Xapi.tracks[track_id]
-          slugs = slugs_by_track_id[track_id]
-          # pretend they already solved hello-world if they've
-          # solved anything at all.
-          slugs << 'hello-world' unless slugs.empty?
-          next_slug = (track.problems - slugs).first
-          if !!next_slug
-            implementation = track.implementations[next_slug]
-            if implementation.exists?
-              implementations << implementation
-            end
+        slugs_by_track_id = fetch_solutions(params[:key])
+        slugs = slugs_by_track_id[track_id]
+
+        # pretend they already solved hello-world if they've
+        # solved anything at all.
+        slugs << 'hello-world' unless slugs.empty?
+        next_slug = (track.problems - slugs).first
+        if !!next_slug
+          implementation = track.implementations[next_slug]
+          if implementation.exists?
+            implementations << implementation
           end
         end
 
