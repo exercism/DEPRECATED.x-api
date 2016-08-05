@@ -3,7 +3,8 @@ sudo: false
 rvm:
   - 2.2.5
 script:
-  - CI=1 bundle exec rake test:each
+  - CI=1 bundle exec rake test
+  - bundle exec rake test:each
   - bin/fetch-configlet
   - bin/verify-configs
   - bundle exec bin/verify-metadata
