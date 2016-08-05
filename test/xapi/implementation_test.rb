@@ -19,7 +19,6 @@ class ImplementationTest < Minitest::Test
 
     assert implementation.exists?, "Expecting hello-world problem to be implemented in track 'fake'"
     assert_equal "[URL]/tree/master/hello-world", implementation.git_url
-
     readme = <<-README
 # Hello World
 
@@ -31,6 +30,10 @@ Oh, hello.
 ## Source
 
 The internet. [http://example.com](http://example.com)
+
+## Submitting Incomplete Problems
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+
     README
 
     files = {
@@ -61,6 +64,10 @@ This is one.
 ## Source
 
 The internet. [http://example.com](http://example.com)
+
+## Submitting Incomplete Problems
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+
     README
     files = {
       ".dot" => "dot\n",
@@ -91,6 +98,10 @@ Do stuff.
 ## Source
 
 The internet.
+
+## Submitting Incomplete Problems
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+
     README
     assert_equal readme, implementation.readme
     files = {
@@ -121,6 +132,10 @@ Do stuff.
 ## Source
 
 [http://example.com](http://example.com)
+
+## Submitting Incomplete Problems
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+
     README
     assert_equal readme, implementation.readme
   end
