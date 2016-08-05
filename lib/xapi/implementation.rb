@@ -57,7 +57,7 @@ module Xapi
     def paths
       Dir.glob("#{dir}**/*", File::FNM_DOTMATCH).reject {|f|
         File.directory?(f) || IGNORE.any? { |pattern| f =~ pattern }
-      }
+      }.sort
     end
 
     def create_zip
