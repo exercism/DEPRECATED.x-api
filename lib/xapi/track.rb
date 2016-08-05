@@ -69,7 +69,7 @@ module Xapi
     end
 
     def docs
-      Hash[TOPICS.zip(TOPICS.map { |topic| doc(topic) })]
+      Hash[TOPICS.zip(TOPICS.map { |topic| document_contents(topic) })]
     end
 
     def img(file_path)
@@ -81,7 +81,8 @@ module Xapi
     end
 
     def doc_format
-      Dir.glob(File.join(dir, "docs", "*.*")).first.to_s.split(".").last || "md"
+      first_file = Dir.glob(File.join(dir, "docs", "*.*")).sort.first
+      first_file.to_s.split(".").last || "md"
     end
 
     private
@@ -91,20 +92,28 @@ module Xapi
     end
 
     def config
-      @config ||= JSON.parse(File.read(File.join(dir, "config.json")))
+      @config ||= JSON.parse(File.read(config_filename))
     end
 
-    def doc(topic)
-      path = File.join(dir, "docs", topic.upcase)
-      f = Dir.glob("%s.*" % path).first
-      case f
-      when /\.md/
-        File.read(f)
-      when /\.org/
-        Orgmode::Parser.new(File.read(f)).to_markdown
+    def config_filename
+      File.join(dir, "config.json")
+    end
+
+    def document_contents(topic)
+      filename = document_fiename(topic)
+      case filename
+      when /\.md$/
+        File.read(filename)
+      when /\.org$/
+        Orgmode::Parser.new(File.read(filename)).to_markdown
       else
-        ""
+        ''
       end
+    end
+
+    def document_fiename(topic)
+      path = File.join(dir, "docs", topic.upcase)
+      Dir.glob("%s.*" % path).sort.first
     end
   end
 end
