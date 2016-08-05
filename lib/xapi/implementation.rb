@@ -101,7 +101,6 @@ module Xapi
         problem.description,
         track_hint,
         implementation_hint,
-        
       ].reject(&:empty?).join("\n").strip
     end
 
