@@ -22,12 +22,10 @@ class V1RoutesProblemsTest < Minitest::Test
     Approvals.verify(last_response.body, options)
   end
 
-
   def test_nonexistant_problem
     get '/problems/nonexistant'
     options = { format: :json, name: 'get_problems_nonexistant' }
     assert_equal 404, last_response.status
     Approvals.verify(last_response.body, options)
   end
-
 end
