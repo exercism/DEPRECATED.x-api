@@ -81,11 +81,19 @@ module Xapi
     end
 
     def doc_format
-      first_file = Dir.glob(File.join(dir, "docs", "*.*")).sort.first
-      first_file.to_s.split(".").last || "md"
+      default_format = 'md'
+      path = File.join(dir, "docs", "*.*")
+      most_popular_format(path) || default_format
     end
 
     private
+
+    def most_popular_format(path)
+      formats = Dir.glob(path).map do |filename|
+        File.extname(filename).sub(/^\./, '')
+      end
+      formats.max_by { |format| formats.count(format) }
+    end
 
     def dir
       File.join(root, "tracks", id)
