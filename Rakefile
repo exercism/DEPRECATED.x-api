@@ -11,8 +11,9 @@ namespace :test do
   task :each do
     files = FileList['test/**/*_test.rb'].exclude('test/fixtures/**/*')
     failures = files.reject do |file|
-      puts "ruby %s" % file
-      system("ruby #{file}")
+      command = "ruby #{file}"
+      puts command
+      system(command)
     end
 
     unless failures.empty?

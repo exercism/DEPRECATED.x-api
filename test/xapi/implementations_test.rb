@@ -1,4 +1,4 @@
-require_relative 'test_helper'
+require_relative '../test_helper'
 require_relative '../../lib/xapi/problem'
 require_relative '../../lib/xapi/implementation'
 require_relative '../../lib/xapi/implementations'
