@@ -1,0 +1,11 @@
+#!/bin/bash
+
+remote="$1"
+
+if [[ $remote =~ heroku ]]
+then
+	hash=$(git log -1 --format="%h")
+	heroku config:set --app exercism-x-api BUILD_ID=$hash
+fi
+
+exit 0
