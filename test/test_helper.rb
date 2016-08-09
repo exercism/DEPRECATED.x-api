@@ -13,5 +13,10 @@ gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
 require 'minitest/pride'
 
+require 'approvals'
+Approvals.configure do |config|
+  config.approvals_path = './test/fixtures/approvals/'
+end
+
 $LOAD_PATH << File.expand_path('../../lib', __FILE__)
 FIXTURE_PATH = "./test/fixtures".freeze
