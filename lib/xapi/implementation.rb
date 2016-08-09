@@ -91,6 +91,8 @@ module Xapi
 #{readme_body}
 
 #{problem.source_markdown}
+
+#{incomplete_solutions_body}
       README
     end
 
@@ -100,6 +102,13 @@ module Xapi
         track_hint,
         implementation_hint,
       ].reject(&:empty?).join("\n").strip
+    end
+
+    def incomplete_solutions_body
+      <<-README
+## Submitting Incomplete Problems
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+      README
     end
 
     def track_hint
