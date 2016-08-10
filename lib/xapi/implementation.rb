@@ -1,5 +1,5 @@
-require 'zip'
-
+require 'pathname'
+require_relative 'file_bundle'
 module Xapi
   # Implementation is a language-specific implementation of an exercise.
   class Implementation
@@ -15,7 +15,7 @@ module Xapi
       @track_id = track_id
       @repo = repo
       @problem = problem
-      @root = root
+      @root = Pathname.new(root)
     end
 
     def exists?
@@ -23,13 +23,16 @@ module Xapi
     end
 
     def files
-      @files ||= Hash[paths.map {|path|
-        [filename(path), File.read(path)]
+      @files ||= Hash[FileBundle.paths(dir, IGNORE).map {|path|
+        [path.relative_path_from(dir).to_s, File.read(path)]
       }].merge("README.md" => readme)
     end
 
     def zip
-      @zip ||= create_zip
+      @zip ||= FileBundle.create_zip(dir, FileBundle.paths(dir, IGNORE)) do |io|
+        io.put_next_entry('README.md')
+        io.print readme
+      end
     end
 
     def readme
@@ -37,7 +40,7 @@ module Xapi
     end
 
     def exercise_dir
-      if File.exist?(File.join(track_dir, 'exercises'))
+      if File.exist?(track_dir.join('exercises'))
         File.join('exercises', problem.slug)
       else
         problem.slug
@@ -50,36 +53,12 @@ module Xapi
 
     private
 
-    def filename(f)
-      f.gsub(dir, "")
-    end
-
-    def paths
-      Dir.glob("#{dir}**/*", File::FNM_DOTMATCH).reject {|f|
-        File.directory?(f) || IGNORE.any? { |pattern| f =~ pattern }
-      }.sort
-    end
-
-    def create_zip
-      Zip::OutputStream.write_buffer do |io|
-        paths.each do |path|
-          io.put_next_entry(filename(path))
-          io.print IO.read(path)
-        end
-        io.put_next_entry('README.md')
-        io.print readme
-      end
-    end
-
     def dir
-      @dir ||= (
-        # Make sure the problem directory always has the trailing slash.
-        File.join(track_dir, exercise_dir) + File::SEPARATOR
-      ).squeeze(File::SEPARATOR)
+      @dir ||= track_dir.join(exercise_dir)
     end
 
     def track_dir
-      @track_dir ||= File.join(root, 'tracks', track_id)
+      @track_dir ||= root.join('tracks', track_id)
     end
 
     def assemble_readme
@@ -112,7 +91,7 @@ It's possible to submit an incomplete solution so you can see how others have co
     end
 
     def track_hint
-      read File.join(track_dir, 'SETUP.md')
+      read track_dir.join('SETUP.md')
     end
 
     def implementation_hint

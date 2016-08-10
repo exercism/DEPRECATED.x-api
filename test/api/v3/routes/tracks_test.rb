@@ -84,4 +84,11 @@ class V3RoutesTracksTest < Minitest::Test
     not_found = JSON.parse(last_response.body)
     Approvals.verify(not_found, name: 'not_found_image')
   end
+
+  def test_global
+    get '/tracks/animal/global'
+    assert_equal 200, last_response.status
+    assert_equal last_response.headers["Content-Disposition"].split(';')[0], 'attachment'
+    assert_equal last_response.headers["Content-Type"], 'application/octet-stream'
+  end
 end
