@@ -50,34 +50,13 @@ It's possible to submit an incomplete solution so you can see how others have co
   def test_implementation_with_extra_files # including dotfiles and files in subdirectories
     problem = Xapi::Problem.new('one', FIXTURE_PATH)
     implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
-    readme = <<-README
-# One
-
-This is one.
-
-* one
-* one again
-
-* one hint
-* one more hint
-
-## Source
-
-The internet. [http://example.com](http://example.com)
-
-## Submitting Incomplete Problems
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
-
-    README
-    files = {
-      ".dot" => "dot\n",
-      "Fakefile" => "Autorun fake code\n",
-      "one_test.ext" => "assert 'one'\n",
-      "sub/src/stubfile.ext" => "stub\n",
-      "README.md" => readme,
-    }
-    assert_equal files, implementation.files
-    assert_archive_contains files.keys, implementation.zip
+    files = [
+      ".dot",
+      "Fakefile",
+      "one_test.ext",
+      "sub/src/stubfile.ext",
+      "README.md"]
+    assert_archive_contains files, implementation.zip
   end
 
   def test_implementation_in_subdirectory
