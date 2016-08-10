@@ -1,6 +1,6 @@
 require_relative '../test_helper'
-require_relative '../../lib/xapi/problem'
-require_relative '../../lib/xapi/implementation'
+require 'xapi/problem'
+require 'xapi/implementation'
 
 class ImplementationTest < Minitest::Test
   def assert_archive_contains(filenames, zip)
