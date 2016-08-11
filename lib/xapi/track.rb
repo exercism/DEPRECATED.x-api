@@ -17,10 +17,11 @@ module Xapi
       end
     end
 
-    attr_reader :id, :root
+    attr_reader :id, :root, :file_bundle
     def initialize(id, root)
       @id = id
       @root = Pathname.new(root)
+      @file_bundle = FileBundle.new(dir.join("global"))
     end
 
     def exists?
@@ -88,8 +89,7 @@ module Xapi
     end
 
     def global_zip
-      global_dir = dir.join("global")
-      @zip ||= FileBundle.create_zip(global_dir, FileBundle.paths(global_dir))
+      @zip ||= file_bundle.create_zip
     end
 
     private
