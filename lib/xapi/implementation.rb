@@ -9,13 +9,14 @@ module Xapi
       Regexp.new("\/\.$"),
     ]
 
-    attr_reader :track_id, :repo, :problem, :root
+    attr_reader :track_id, :repo, :problem, :root, :file_bundle
     attr_writer :files
     def initialize(track_id, repo, problem, root)
       @track_id = track_id
       @repo = repo
       @problem = problem
       @root = Pathname.new(root)
+      @file_bundle = FileBundle.new(dir, IGNORE)
     end
 
     def exists?
@@ -23,13 +24,13 @@ module Xapi
     end
 
     def files
-      @files ||= Hash[FileBundle.paths(dir, IGNORE).map {|path|
+      @files ||= Hash[file_bundle.list_paths.map {|path|
         [path.relative_path_from(dir).to_s, File.read(path)]
       }].merge("README.md" => readme)
     end
 
     def zip
-      @zip ||= FileBundle.create_zip(dir, FileBundle.paths(dir, IGNORE)) do |io|
+      @zip ||= file_bundle.create_zip do |io|
         io.put_next_entry('README.md')
         io.print readme
       end
