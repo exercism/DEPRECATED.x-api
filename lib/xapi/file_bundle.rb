@@ -8,9 +8,9 @@ module Xapi
       @ignore_patterns = ignore_patterns
     end
 
-    def create_zip
+    def zip
       Zip::OutputStream.write_buffer do |io|
-        list_paths.each do |path|
+        paths.each do |path|
           io.put_next_entry(path.relative_path_from(dir))
           io.print IO.read(path)
         end
@@ -18,7 +18,7 @@ module Xapi
       end
     end
 
-    def list_paths
+    def paths
       Pathname.glob("#{dir}/**/*", File::FNM_DOTMATCH).reject {|file|
         file.directory? ||
           ignore_patterns.any? { |pattern| file.to_s =~ pattern }
