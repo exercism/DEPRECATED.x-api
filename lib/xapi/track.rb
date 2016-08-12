@@ -89,7 +89,7 @@ module Xapi
     end
 
     def global_zip
-      @zip ||= file_bundle.create_zip
+      @zip ||= file_bundle.zip
     end
 
     private

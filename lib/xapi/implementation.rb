@@ -24,13 +24,13 @@ module Xapi
     end
 
     def files
-      @files ||= Hash[file_bundle.list_paths.map {|path|
+      @files ||= Hash[file_bundle.paths.map {|path|
         [path.relative_path_from(dir).to_s, File.read(path)]
       }].merge("README.md" => readme)
     end
 
     def zip
-      @zip ||= file_bundle.create_zip do |io|
+      @zip ||= file_bundle.zip do |io|
         io.put_next_entry('README.md')
         io.print readme
       end
