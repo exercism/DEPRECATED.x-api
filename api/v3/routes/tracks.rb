@@ -65,6 +65,14 @@ module V3
         implementation.zip.string
       end
 
+      get '/tracks/:id/global' do |id|
+        track = find_track(id)
+        filename = "%s-%s.zip" % [id, "global"]
+        headers['Content-Type'] = "application/octet-stream"
+        headers["Content-Disposition"] = "attachment;filename=%s" % filename
+        track.global_zip.string
+      end
+
       # :files is either "readme" or "tests".
       get '/tracks/:id/exercises/:slug/:files' do |id, slug, files|
         track, implementation = find_track_and_implementation(id, slug)

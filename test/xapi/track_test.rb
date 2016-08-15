@@ -2,6 +2,16 @@ require_relative '../test_helper'
 require_relative '../../lib/xapi'
 
 class TrackTest < Minitest::Test
+  def assert_archive_contains(filenames, zip)
+    files = []
+    Zip::InputStream.open(zip) do |io|
+      while (entry = io.get_next_entry)
+        files << entry.name
+      end
+    end
+    assert_equal filenames.sort, files.sort
+  end
+
   def test_default_track
     track = Xapi::Track.new('fake', FIXTURE_PATH)
 
@@ -92,5 +102,11 @@ class TrackTest < Minitest::Test
     subject = Xapi::Track.new('noicon', FIXTURE_PATH)
     expected = nil
     assert_equal expected, subject.icon_url
+  end
+
+  def test_global_files
+    track = Xapi::Track.new('animal', FIXTURE_PATH)
+    files = ["some-vendored-library", "sub-global/other-some-vendor"]
+    assert_archive_contains files, track.global_zip
   end
 end
