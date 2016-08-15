@@ -88,7 +88,7 @@ class V3RoutesTracksTest < Minitest::Test
   def test_global
     get '/tracks/animal/global'
     assert_equal 200, last_response.status
-    assert_equal last_response.headers["Content-Disposition"].split(';')[0], 'attachment'
-    assert_equal last_response.headers["Content-Type"], 'application/octet-stream'
+    assert_equal "attachment;filename=animal-global.zip", last_response.headers["Content-Disposition"]
+    assert_equal 'application/octet-stream', last_response.headers["Content-Type"]
   end
 end
