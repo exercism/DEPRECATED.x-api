@@ -157,3 +157,6 @@
 [submodule "tracks/purescript"]
 	path = tracks/purescript
 	url = https://github.com/exercism/xpurescript
+[submodule "tracks/mips"]
+	path = tracks/mips
+	url = https://github.com/exercism/xmips.git
