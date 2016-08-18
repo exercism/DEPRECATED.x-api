@@ -1,6 +1,7 @@
 require 'json'
+require 'pathname'
 require 'org-ruby'
-
+require_relative 'file_bundle'
 module Xapi
   # Track is a collection of exercises in a given language.
   class Track
@@ -16,10 +17,11 @@ module Xapi
       end
     end
 
-    attr_reader :id, :root
+    attr_reader :id, :root, :file_bundle
     def initialize(id, root)
       @id = id
-      @root = root
+      @root = Pathname.new(root)
+      @file_bundle = FileBundle.new(dir.join("global"))
     end
 
     def exists?
@@ -86,6 +88,10 @@ module Xapi
       most_popular_format(path) || default_format
     end
 
+    def global_zip
+      @zip ||= file_bundle.zip
+    end
+
     private
 
     def most_popular_format(path)
@@ -96,7 +102,7 @@ module Xapi
     end
 
     def dir
-      File.join(root, "tracks", id)
+      root.join("tracks", id)
     end
 
     def config
