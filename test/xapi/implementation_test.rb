@@ -1,157 +1,67 @@
 require_relative '../test_helper'
-require_relative '../../lib/xapi/problem'
-require_relative '../../lib/xapi/implementation'
+require 'xapi/problem'
+require 'xapi/implementation'
 
 class ImplementationTest < Minitest::Test
-  def assert_archive_contains(filenames, zip)
+  PATH     = FIXTURE_PATH
+  TRACK_ID = 'fake'.freeze
+  URL      = '[URL]'.freeze
+  PROBLEM  = Xapi::Problem.new('hello-world', PATH)
+
+  def test_zip
+    implementation = Xapi::Implementation.new(TRACK_ID, URL, PROBLEM, PATH)
+    # Our archive is not binary identically reproducable :(
+    archive = implementation.zip
+    assert_instance_of StringIO, archive
+    expected_files = ['hello_test.ext', 'world_test.ext', 'README.md']
+    assert_equal expected_files, archive_filenames(implementation.zip)
+  end
+
+  def test_implementation_with_extra_files
+    problem = Xapi::Problem.new('one', PATH)
+    implementation = Xapi::Implementation.new(TRACK_ID, URL, problem, PATH)
+    # implementation_one_files.approved.txt has:
+    #   implementation specific hint in README (but not language-specific hint)
+    #   includes dotfiles and files in subdirectories
+    Approvals.verify(implementation.files, name: 'implementation_one_files')
+  end
+
+  def test_implementation_in_subdirectory
+    problem = Xapi::Problem.new('apple', PATH)
+    implementation = Xapi::Implementation.new('fruit', URL, problem, PATH)
+    assert_equal "[URL]/tree/master/exercises/apple", implementation.git_url
+    assert_match Regexp.new('exercises[\\/]apple'), implementation.exercise_dir
+    Approvals.verify(implementation.files, name: 'implementation_apple_files')
+  end
+
+  def test_language_and_implementation_specific_readme
+    problem = Xapi::Problem.new('banana', PATH)
+    implementation = Xapi::Implementation.new('fruit', URL, problem, PATH)
+    Approvals.verify(implementation.readme, name: 'implementation_banana_readme')
+  end
+
+  def test_missing_implementation
+    problem = Xapi::Problem.new('apple', PATH)
+    implementation = Xapi::Implementation.new(TRACK_ID, URL, problem, PATH)
+    refute implementation.exists?, "Not expecting apple to be implemented for track TRACK_ID"
+  end
+
+  def test_override_implementation_files
+    implementation = Xapi::Implementation.new(TRACK_ID, URL, PROBLEM, PATH)
+    files = { "filename" => "contents" }
+    implementation.files = files
+    assert_equal files, implementation.files
+  end
+
+  private
+
+  def archive_filenames(zip)
     files = []
     Zip::InputStream.open(zip) do |io|
       while (entry = io.get_next_entry)
         files << entry.name
       end
     end
-    assert_equal filenames.sort, files.sort
-  end
-
-  def test_implementation
-    problem = Xapi::Problem.new('hello-world', FIXTURE_PATH)
-    implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
-
-    assert implementation.exists?, "Expecting hello-world problem to be implemented in track 'fake'"
-    assert_equal "[URL]/tree/master/hello-world", implementation.git_url
-    readme = <<-README
-# Hello World
-
-Oh, hello.
-
-* hello
-* hello again
-
-## Source
-
-The internet. [http://example.com](http://example.com)
-
-## Submitting Incomplete Problems
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
-
-    README
-
-    files = {
-      "hello_test.ext" => "assert 'hello'\n",
-      "world_test.ext" => "assert 'World'\n",
-      "README.md" => readme,
-    }
-    assert_equal files, implementation.files
-    assert_archive_contains files.keys, implementation.zip
-    assert_equal "hello-world", implementation.exercise_dir
-  end
-
-  # implementation specific hint in README (but not language-specific hint)
-  def test_implementation_with_extra_files # including dotfiles and files in subdirectories
-    problem = Xapi::Problem.new('one', FIXTURE_PATH)
-    implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
-    readme = <<-README
-# One
-
-This is one.
-
-* one
-* one again
-
-* one hint
-* one more hint
-
-## Source
-
-The internet. [http://example.com](http://example.com)
-
-## Submitting Incomplete Problems
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
-
-    README
-    files = {
-      ".dot" => "dot\n",
-      "Fakefile" => "Autorun fake code\n",
-      "one_test.ext" => "assert 'one'\n",
-      "sub/src/stubfile.ext" => "stub\n",
-      "README.md" => readme,
-    }
-    assert_equal files, implementation.files
-    assert_archive_contains files.keys, implementation.zip
-  end
-
-  def test_implementation_in_subdirectory
-    problem = Xapi::Problem.new('apple', FIXTURE_PATH)
-    implementation = Xapi::Implementation.new('fruit', "[URL]", problem, FIXTURE_PATH)
-    assert_equal "[URL]/tree/master/exercises/apple", implementation.git_url
-
-    readme = <<-README
-# Apple
-
-This is apple.
-
-* apple
-* apple again
-
-Do stuff.
-
-## Source
-
-The internet.
-
-## Submitting Incomplete Problems
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
-
-    README
-    assert_equal readme, implementation.readme
-    files = {
-      "apple.ext" => "an apple a day keeps the doctor away\n",
-      "apple.tst" => "assert 'apple'\n",
-      "README.md" => readme,
-    }
-    assert_match Regexp.new("exercises.apple"), implementation.exercise_dir
-    assert_equal files, implementation.files
-  end
-
-  def test_language_and_implementation_specific_readme
-    problem = Xapi::Problem.new('banana', FIXTURE_PATH)
-    implementation = Xapi::Implementation.new('fruit', "[URL]", problem, FIXTURE_PATH)
-    readme = <<-README
-# Banana
-
-This is banana.
-
-* banana
-* banana again
-
-Do stuff.
-
-* a hint
-* another hint
-
-## Source
-
-[http://example.com](http://example.com)
-
-## Submitting Incomplete Problems
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
-
-    README
-    assert_equal readme, implementation.readme
-  end
-
-  def test_missing_implementation
-    problem = Xapi::Problem.new('apple', FIXTURE_PATH)
-    implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
-    refute implementation.exists?, "Not expecting apple to be implemented for track 'fake'"
-  end
-
-  def test_override_implementation_files
-    problem = Xapi::Problem.new('hello-world', FIXTURE_PATH)
-    implementation = Xapi::Implementation.new('fake', "[URL]", problem, FIXTURE_PATH)
-
-    files = { "filename" => "contents" }
-    implementation.files = files
-    assert_equal files, implementation.files
+    files
   end
 end
