@@ -1,5 +1,4 @@
 require 'yaml'
-
 module Xapi
   # Problem is a language-independent definition of an exercise.
   class Problem
@@ -11,6 +10,10 @@ module Xapi
 
     def exists?
       File.exist?(md) && File.exist?(yaml)
+    end
+
+    def metadata_dir
+      File.join(root, "metadata", "exercises", slug)
     end
 
     def name
@@ -32,15 +35,16 @@ module Xapi
     end
 
     def md_url
-      repo_url('md')
+      repo_url('description', 'md')
     end
 
     def json_url
-      repo_url('json') if File.exist?(path("%s.json" % slug))
+      default_path = path_to('canonical-data', 'json')
+      json_repo_url(default_path) if File.exist?(default_path)
     end
 
     def yaml_url
-      repo_url('yml')
+      repo_url('metadata', 'yml')
     end
 
     %w(blurb source source_url).each do |name|
@@ -51,24 +55,39 @@ module Xapi
 
     private
 
-    def repo_url(ext)
-      "https://github.com/exercism/x-common/blob/master/%s.%s" % [slug, ext]
+    def json_repo_url(default_path)
+      target = File.basename(default_path)
+      deprecated_url =
+        "https://github.com/exercism/x-common/blob/master/#{slug}.json"
+      default_url = repo_url('canonical-data', 'json')
+      target == "#{slug}.json" ? deprecated_url : default_url
+    end
+
+    def repo_url(target, ext)
+      "https://github.com/exercism/x-common/blob/master/exercises/%s/%s.%s" %
+        [slug, target, ext]
     end
 
     def yaml
-      path('%s.yml' % slug)
+      path_to('metadata', 'yml')
     end
 
     def md
-      path('%s.md' % slug)
+      path_to('description', 'md')
     end
 
-    def path(f)
-      File.join(root, "metadata", f)
+    def path(file_name)
+      File.join(root, "metadata", file_name)
     end
 
     def metadata
       @metadata ||= YAML.load(File.read(yaml))
+    end
+
+    def path_to(target, extension)
+      default_path = File.join(metadata_dir, "#{target}.#{extension}")
+      deprecated_path = path("#{slug}.#{extension}")
+      File.exist?(default_path) ? default_path : deprecated_path
     end
   end
 end

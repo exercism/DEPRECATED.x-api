@@ -28,9 +28,18 @@ module Xapi
     private
 
     def all
-      @all ||= Dir["%s/metadata/*.yml" % root].sort.map { |f|
+      @all ||= problems + problems_in_deprecated_path
+    end
+
+    def problems_in_deprecated_path
+      Dir["%s/metadata/*.yml" % root].sort.map { |f|
         Problem.new(f[SLUG_PATTERN, 1], root)
       }
+    end
+
+    def problems
+      Dir.glob("%s/metadata/exercises/*/" % root).sort
+         .map { |f| Problem.new(File.basename(f), root) }
     end
 
     def by_slug
