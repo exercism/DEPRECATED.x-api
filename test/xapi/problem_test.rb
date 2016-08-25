@@ -18,6 +18,21 @@ class ProblemTest < Minitest::Test
     assert_equal 'http://example.com', problem.source_url
   end
 
+  def test_existing_problem_in_new_location
+    problem = Xapi::Problem.new('mango', FIXTURE_PATH)
+
+    assert problem.exists?, "hello world files not found in the metadata dir"
+    assert_equal 'mango', problem.slug
+    assert_equal 'Mango', problem.name
+    assert_equal 'This is mango.', problem.blurb
+    assert_equal "* mango\n* mango again\n", problem.description
+    assert_equal 'https://github.com/exercism/x-common/blob/master/mango.yml', problem.yaml_url
+    assert_equal 'https://github.com/exercism/x-common/blob/master/mango.md', problem.md_url
+    assert_equal "## Source\n\nThe mango. [http://example.com](http://example.com)", problem.source_markdown
+    assert_equal 'The mango.', problem.source
+    assert_equal 'http://example.com', problem.source_url
+  end
+
   def test_json_url
     # when JSON file exists
     problem = Xapi::Problem.new('apple', FIXTURE_PATH)

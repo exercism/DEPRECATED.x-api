@@ -13,6 +13,10 @@ module Xapi
       File.exist?(md) && File.exist?(yaml)
     end
 
+    def meta_dir
+      File.join(root, "metadata", "exercises", slug)
+    end
+
     def name
       @name ||= slug.split('-').map(&:capitalize).join(' ')
     end
@@ -63,7 +67,12 @@ module Xapi
       path('%s.md' % slug)
     end
 
-    def path(f)
+    def path(file_name)
+      old_path = root_path(file_name)
+      File.exists?(old_path) ? old_path : File.join(meta_dir, file_name)
+    end
+
+    def root_path(f)
       File.join(root, "metadata", f)
     end
 
