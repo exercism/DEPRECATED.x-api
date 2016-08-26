@@ -28,7 +28,7 @@ module Xapi
     private
 
     def all
-      @all ||= Dir["%s/metadata/*.yml" % root].sort.map { |f|
+      @all ||= Dir["%s/metadata/**/*.yml" % root].sort.map { |f|
         Problem.new(f[SLUG_PATTERN, 1], root)
       }
     end

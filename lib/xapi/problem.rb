@@ -69,7 +69,7 @@ module Xapi
 
     def path(file_name)
       old_path = root_path(file_name)
-      File.exists?(old_path) ? old_path : File.join(meta_dir, file_name)
+      File.exist?(old_path) ? old_path : File.join(meta_dir, file_name)
     end
 
     def root_path(f)
