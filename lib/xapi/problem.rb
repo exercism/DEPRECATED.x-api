@@ -1,6 +1,6 @@
 require 'yaml'
-
 module Xapi
+
   # Problem is a language-independent definition of an exercise.
   class Problem
     attr_reader :slug, :root
@@ -13,7 +13,7 @@ module Xapi
       File.exist?(md) && File.exist?(yaml)
     end
 
-    def meta_dir
+    def metadata_dir
       File.join(root, "metadata", "exercises", slug)
     end
 
@@ -40,7 +40,9 @@ module Xapi
     end
 
     def json_url
-      repo_url('json') if File.exist?(path("%s.json" % slug))
+      json_file_path = File.join(metadata_dir, "canonical-data.json")
+      repo_url('json') if File.exist?(json_file_path) ||
+                          File.exist?(path("%s.json" % slug))
     end
 
     def yaml_url
@@ -60,20 +62,19 @@ module Xapi
     end
 
     def yaml
-      path('%s.yml' % slug)
+      deprecated_yml_path = path('%s.yml' % slug)
+      yml_file_path = File.join(metadata_dir, "metadata.yml")
+      File.exist?(yml_file_path) ? yml_file_path : deprecated_yml_path
     end
 
     def md
-      path('%s.md' % slug)
+      deprecated_md_path = path('%s.md' % slug)
+      md_file_path = File.join(metadata_dir, "description.md")
+      File.exist?(md_file_path) ? md_file_path : deprecated_md_path
     end
 
     def path(file_name)
-      old_path = root_path(file_name)
-      File.exist?(old_path) ? old_path : File.join(meta_dir, file_name)
-    end
-
-    def root_path(f)
-      File.join(root, "metadata", f)
+      File.join(root, "metadata", file_name)
     end
 
     def metadata

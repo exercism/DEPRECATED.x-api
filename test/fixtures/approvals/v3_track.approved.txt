@@ -5,7 +5,7 @@
 	"checklist_issue" => 5
 	"gitter" => nil
 	"image" => "http://x.exercism.io/v3/tracks/fake/img/icon.png"
-	"todo" => ["banana", "cherry", "mango"]
+	"todo" => ["banana", "cherry"]
 	"active" => true
 	"implemented" => true
 	"doc_format" => "org"

@@ -13,8 +13,7 @@
     "repository": "https://github.com/exercism/xfake",
     "todo": [
       "banana",
-      "cherry",
-      "mango"
+      "cherry"
     ]
   },
   "problems": [

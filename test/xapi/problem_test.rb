@@ -18,10 +18,10 @@ class ProblemTest < Minitest::Test
     assert_equal 'http://example.com', problem.source_url
   end
 
-  def test_existing_problem_in_new_location
+  def test_for_problems_in_exercise_folder_location
     problem = Xapi::Problem.new('mango', FIXTURE_PATH)
 
-    assert problem.exists?, "hello world files not found in the metadata dir"
+    assert problem.exists?, "mango files not found in the metadata dir"
     assert_equal 'mango', problem.slug
     assert_equal 'Mango', problem.name
     assert_equal 'This is mango.', problem.blurb
