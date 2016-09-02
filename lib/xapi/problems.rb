@@ -38,8 +38,7 @@ module Xapi
     end
 
     def problems
-      Dir.glob("%s/metadata/exercises/**/" % root).sort
-         .reject { |f| File.directory?(f) } # rejecting '.' and '..'
+      Dir.glob("%s/metadata/exercises/*/" % root).sort
          .map { |f| Problem.new(File.basename(f), root) }
     end
 
