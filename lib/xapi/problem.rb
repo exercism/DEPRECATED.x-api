@@ -61,15 +61,11 @@ module Xapi
     end
 
     def yaml
-      deprecated_yml_path = path('%s.yml' % slug)
-      yml_file_path = File.join(metadata_dir, "metadata.yml")
-      File.exist?(yml_file_path) ? yml_file_path : deprecated_yml_path
+      find_file('metadata', 'yml')
     end
 
     def md
-      deprecated_md_path = path('%s.md' % slug)
-      md_file_path = File.join(metadata_dir, "description.md")
-      File.exist?(md_file_path) ? md_file_path : deprecated_md_path
+      find_file('description', 'md')
     end
 
     def path(file_name)
@@ -78,6 +74,13 @@ module Xapi
 
     def metadata
       @metadata ||= YAML.load(File.read(yaml))
+    end
+
+    def find_file(default_basename, suffix)
+      default_file_name = "#{default_basename}.#{suffix}"
+      default_path = File.join(metadata_dir, default_file_name)
+      deprecated_path = path("#{slug}.#{suffix}")
+      File.exist?(default_path) ? default_path : deprecated_path
     end
   end
 end
