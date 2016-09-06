@@ -38,6 +38,10 @@ class ProblemTest < Minitest::Test
     problem = Xapi::Problem.new('mango', FIXTURE_PATH)
     assert_equal "https://github.com/exercism/x-common/blob/master/exercises/mango/canonical-data.json", problem.json_url
 
+    # when JSON file exists in deprecated location
+    problem = Xapi::Problem.new('apple', FIXTURE_PATH)
+    assert_equal "https://github.com/exercism/x-common/blob/master/apple.json", problem.json_url
+
     # missing JSON file
     problem = Xapi::Problem.new('banana', FIXTURE_PATH)
     assert_equal nil, problem.json_url

@@ -39,8 +39,8 @@ module Xapi
     end
 
     def json_url
-      json_file = path_to('canonical-data', 'json')
-      repo_url('canonical-data', 'json') if File.exist?(json_file)
+      default_path = path_to('canonical-data', 'json')
+      json_repo_url(default_path) if File.exist?(default_path)
     end
 
     def yaml_url
@@ -54,6 +54,14 @@ module Xapi
     end
 
     private
+
+    def json_repo_url(default_path)
+      target = File.basename(default_path)
+      deprecated_url =
+        "https://github.com/exercism/x-common/blob/master/#{slug}.json"
+      default_url = repo_url('canonical-data', 'json')
+      target == "#{slug}.json" ? deprecated_url : default_url
+    end
 
     def repo_url(target, ext)
       "https://github.com/exercism/x-common/blob/master/exercises/%s/%s.%s" %
