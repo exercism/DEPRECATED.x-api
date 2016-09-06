@@ -35,17 +35,16 @@ module Xapi
     end
 
     def md_url
-      repo_url('md')
+      repo_url('description', 'md')
     end
 
     def json_url
-      json_file_path = File.join(metadata_dir, "canonical-data.json")
-      repo_url('json') if File.exist?(json_file_path) ||
-                          File.exist?(path("%s.json" % slug))
+      json_file = path_to('canonical-data', 'json')
+      repo_url('canonical-data', 'json') if File.exist?(json_file)
     end
 
     def yaml_url
-      repo_url('yml')
+      repo_url('metadata', 'yml')
     end
 
     %w(blurb source source_url).each do |name|
@@ -56,16 +55,17 @@ module Xapi
 
     private
 
-    def repo_url(ext)
-      "https://github.com/exercism/x-common/blob/master/%s.%s" % [slug, ext]
+    def repo_url(target, ext)
+      "https://github.com/exercism/x-common/blob/master/exercises/%s/%s.%s" %
+        [slug, target, ext]
     end
 
     def yaml
-      find_file('metadata', 'yml')
+      path_to('metadata', 'yml')
     end
 
     def md
-      find_file('description', 'md')
+      path_to('description', 'md')
     end
 
     def path(file_name)
@@ -76,10 +76,9 @@ module Xapi
       @metadata ||= YAML.load(File.read(yaml))
     end
 
-    def find_file(default_basename, suffix)
-      default_file_name = "#{default_basename}.#{suffix}"
-      default_path = File.join(metadata_dir, default_file_name)
-      deprecated_path = path("#{slug}.#{suffix}")
+    def path_to(target, extension)
+      default_path = File.join(metadata_dir, "#{target}.#{extension}")
+      deprecated_path = path("#{slug}.#{extension}")
       File.exist?(default_path) ? default_path : deprecated_path
     end
   end

@@ -10,8 +10,8 @@ class ProblemTest < Minitest::Test
     assert_equal 'Hello World', problem.name
     assert_equal 'Oh, hello.', problem.blurb
     assert_equal "* hello\n* hello again\n", problem.description
-    assert_equal 'https://github.com/exercism/x-common/blob/master/hello-world.yml', problem.yaml_url
-    assert_equal 'https://github.com/exercism/x-common/blob/master/hello-world.md', problem.md_url
+    assert_equal 'https://github.com/exercism/x-common/blob/master/exercises/hello-world/metadata.yml', problem.yaml_url
+    assert_equal 'https://github.com/exercism/x-common/blob/master/exercises/hello-world/description.md', problem.md_url
 
     assert_equal "## Source\n\nThe internet. [http://example.com](http://example.com)", problem.source_markdown
     assert_equal 'The internet.', problem.source
@@ -26,8 +26,8 @@ class ProblemTest < Minitest::Test
     assert_equal 'Mango', problem.name
     assert_equal 'This is mango.', problem.blurb
     assert_equal "* mango\n* mango again\n", problem.description
-    assert_equal 'https://github.com/exercism/x-common/blob/master/mango.yml', problem.yaml_url
-    assert_equal 'https://github.com/exercism/x-common/blob/master/mango.md', problem.md_url
+    assert_equal 'https://github.com/exercism/x-common/blob/master/exercises/mango/metadata.yml', problem.yaml_url
+    assert_equal 'https://github.com/exercism/x-common/blob/master/exercises/mango/description.md', problem.md_url
     assert_equal "## Source\n\nThe mango. [http://example.com](http://example.com)", problem.source_markdown
     assert_equal 'The mango.', problem.source
     assert_equal 'http://example.com', problem.source_url
@@ -35,8 +35,8 @@ class ProblemTest < Minitest::Test
 
   def test_json_url
     # when JSON file exists
-    problem = Xapi::Problem.new('apple', FIXTURE_PATH)
-    assert_equal "https://github.com/exercism/x-common/blob/master/apple.json", problem.json_url
+    problem = Xapi::Problem.new('mango', FIXTURE_PATH)
+    assert_equal "https://github.com/exercism/x-common/blob/master/exercises/mango/canonical-data.json", problem.json_url
 
     # missing JSON file
     problem = Xapi::Problem.new('banana', FIXTURE_PATH)
