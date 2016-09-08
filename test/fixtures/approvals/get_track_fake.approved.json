@@ -15,7 +15,8 @@
       "banana",
       "cherry",
       "mango"
-    ]
+    ],
+    "test_pattern": "(?i-mx:test)"
   },
   "problems": [
     {

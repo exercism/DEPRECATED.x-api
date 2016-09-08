@@ -5,6 +5,7 @@ node :track => track do
   node :problems => track.problems.map {|slug| "%s/%s" % [track.id, slug]}
   node :repository => track.repository
   node :todo => problems - track.slugs
+  node :test_pattern => track.test_pattern
 end
 
 collection :problems => track.implementations do |implementation|
