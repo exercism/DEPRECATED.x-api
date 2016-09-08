@@ -5,4 +5,5 @@ collection tracks: tracks do |track|
   attributes :language, :id
   node active: track.active?
   node todo: problems - track.slugs
+  node :test_pattern => track.test_pattern
 end
