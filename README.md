@@ -16,7 +16,7 @@ The exercises for each language are stored in separate repositories, included
 here as git submodules.
 
 The common metadata which is shared between all the language tracks are also
-included as a git submodule.
+included as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 ## Getting Started
 
@@ -59,6 +59,12 @@ Here's the terminology we're working towards:
 ├── metadata/       # shared metadata
 └── tracks/         # language track submodules
 ```
+
+### metadata directory
+
+The metadata directory is actually a git submodule. A git submodule is essentially a project in another project. This particular submodule is the [exercism/x-common](https://github.com/exercism/x-common) project.
+
+The `x-common` repo contains shared metadata for Exercism exercises. When there is a need to get common information such as generic problem descriptions of exercises, they can be accessed via the git submodule.
 
 ## Running Locally
 
