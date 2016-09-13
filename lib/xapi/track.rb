@@ -50,13 +50,18 @@ module Xapi
       end
     end
 
+    def problems
+      problems = config["problems"] || []
+      exercises.empty? ? problems : exercises.map { |exer| exer["slug"] }
+    end
+
     %w(language repository).each do |name|
       define_method name do
         config[name].to_s.strip
       end
     end
 
-    %w(problems deprecated foregone).each do |name|
+    %w(exercises deprecated foregone).each do |name|
       define_method name do
         config[name] || []
       end

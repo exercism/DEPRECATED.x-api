@@ -11,6 +11,42 @@
     "two",
     "three"
   ],
+  "exercises": [
+      {
+        "slug": "hello-world" ,
+        "difficulty": 1,
+        "topics": [
+            "control-flow (if-statements)",
+            "optional values",
+            "text formatting"
+        ]
+      },
+      {
+        "difficulty": 3,
+        "slug": "one",
+        "topics": [
+            "strings",
+            "filtering"
+        ]
+      },
+      {
+        "difficulty": 1,
+        "slug": "two",
+        "topics": [
+            "parsing",
+            "transforming"
+        ]
+      },
+      {
+        "slug": "three" ,
+        "difficulty": 1,
+        "topics": [
+            "control-flow (if-statements)",
+            "optional values",
+            "text formatting"
+        ]
+      }
+  ],
   "deprecated": [
     "dog"
   ],
