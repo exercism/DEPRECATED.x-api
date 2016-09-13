@@ -36,7 +36,7 @@ Lint/RescueException:
   Exclude:
     - 'api/helpers/errors.rb'
 Metrics/LineLength:
-  Max: 80
+  Max: 120
   AllowURI: true
   URISchemes:
     - http
@@ -52,3 +52,5 @@ Metrics/AbcSize:
 Metrics/LineLength:
   Exclude:
     - 'test/**/*'
+Metrics/ClassLength:
+  Max: 130
