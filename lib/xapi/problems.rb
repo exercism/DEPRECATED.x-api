@@ -39,11 +39,23 @@ module Xapi
 
     def problems
       Dir.glob("%s/metadata/exercises/*/" % root).sort
-         .map { |f| Problem.new(File.basename(f), root) }
+         .map {|f|
+           slug = File.basename(f)
+           Problem.new(slug, root) unless deprecated?(slug)
+         }
+         .compact
+    end
+
+    def deprecated?(slug)
+      File.exist?(path_to_deprecated(slug))
     end
 
     def by_slug
       @by_slug ||= problem_map
+    end
+
+    def path_to_deprecated(slug)
+      File.join(root, "metadata", "exercises", slug, ".deprecated")
     end
 
     def problem_map
