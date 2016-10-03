@@ -160,3 +160,6 @@
 [submodule "tracks/mips"]
 	path = tracks/mips
 	url = https://github.com/exercism/xmips.git
+[submodule "tracks/pascal"]
+	path = tracks/pascal
+	url = https://github.com/exercism/xpascal.git
