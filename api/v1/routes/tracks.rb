@@ -21,8 +21,15 @@ module V1
 
         implementation = track.implementations[slug]
         unless implementation.exists?
+
+          error = if Xapi.problems[slug].exists?
+            "Exercise '%s' isn't yet available in %s. Help us fix it by contributing to Exercism! Visit https://github.com/exercism/exercism.io/blob/master/CONTRIBUTING.md to get started!"
+          else
+            "Cannot find %s in any of our Exercism tracks!"
+          end
+
           halt 404, {
-            error: "No implementation for %s in track '%s'" % [slug, id],
+            error: error % [slug, id],
           }.to_json
         end
 
