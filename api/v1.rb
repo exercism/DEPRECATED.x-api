@@ -1,6 +1,7 @@
 $LOAD_PATH << File.expand_path('..', __FILE__)
 require 'sinatra/base'
 require 'sinatra/petroglyph'
+require 'trackler'
 require "bugsnag"
 require './config/build_id'
 require './config/bugsnag'

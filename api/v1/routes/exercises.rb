@@ -10,7 +10,7 @@ module V1
 
         implementations = []
         solutions.each do |solution|
-          track = ::Xapi.tracks[solution["track"]]
+          track = Trackler.tracks[solution["track"]]
           next unless track.exists?
 
           ti = track.implementations[solution["slug"]]
@@ -29,15 +29,15 @@ module V1
 
         track_ids = params[:tracks].to_s.split(",").map {|s| s.strip}
         if track_ids.empty?
-          track_ids = ::Xapi.tracks.select(&:active?).map(&:id)
+          track_ids = Trackler.tracks.select(&:active?).map(&:id)
         end
-        track_ids = track_ids & ::Xapi.tracks.map(&:id)
+        track_ids = track_ids & Trackler.tracks.map(&:id)
 
         implementations = []
         slugs_by_track_id = fetch_solutions(params[:key])
 
         track_ids.each do |track_id|
-          track = ::Xapi.tracks[track_id]
+          track = Trackler.tracks[track_id]
           slugs = slugs_by_track_id[track_id]
           # pretend they already solved hello-world if they've
           # solved anything at all.
@@ -57,7 +57,10 @@ module V1
       get '/v2/exercises/:track_id' do |track_id|
         require_key
 
-        track = find_track(track_id)
+        track = Trackler.tracks[track_id]
+        unless track.exists?
+          halt 404, { error: "No track '%s'" % track_id }.to_json
+        end
 
         implementations = []
 
@@ -80,7 +83,18 @@ module V1
 
       get '/v2/exercises/:track_id/:slug' do |track_id, slug|
         track_id, slug = track_id.downcase, slug.downcase
-        implementation = find_implementation(track_id, slug)
+        track = Trackler.tracks[track_id]
+        unless track.exists?
+          halt 404, { error: "No track '%s'" % track_id }.to_json
+        end
+
+        implementation = track.implementations[slug]
+        unless implementation.exists?
+          halt 404, {
+            error: "No implementation of '%s' in track '%s'" % [slug, track_id],
+          }.to_json
+        end
+
         pg :implementations, locals: { implementations: [implementation] }
       end
 
