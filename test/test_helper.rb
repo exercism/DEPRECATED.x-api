@@ -12,6 +12,9 @@ end
 gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'trackler'
+
+Trackler.use_fixture_data
 
 require 'approvals'
 Approvals.configure do |config|
