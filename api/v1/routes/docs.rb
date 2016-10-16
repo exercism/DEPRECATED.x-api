@@ -2,7 +2,7 @@ module V1
   module Routes
     class Docs < Core
       get '/docs/:track' do |id|
-        track = ::Xapi::Track.new(id, settings.tracks_path)
+        track = Trackler.tracks[id]
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
