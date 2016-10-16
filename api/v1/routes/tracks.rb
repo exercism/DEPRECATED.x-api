@@ -3,21 +3,27 @@ module V1
     class Tracks < Core
       get '/tracks' do
         pg :tracks, locals: {
-          tracks: ::Xapi.tracks,
-          problems: ::Xapi.problems,
+          tracks: Trackler.tracks,
+          problems: Trackler.problems,
         }
       end
 
       get '/tracks/:id' do |id|
-        track = find_track(id)
+        track = Trackler.tracks[id]
+        unless track.exists?
+          halt 404, { error: "No track '%s'" % id }.to_json
+        end
         pg :track, locals: {
           track: track,
-          problems: ::Xapi.problems,
+          problems: Trackler.problems,
         }
       end
 
       get '/tracks/:id/:problem' do |id, slug|
-        track = find_track(id)
+        track = Trackler.tracks[id]
+        unless track.exists?
+          halt 404, { error: "No track '%s'" % id }.to_json
+        end
 
         implementation = track.implementations[slug]
         unless implementation.exists?
@@ -33,7 +39,7 @@ module V1
       end
 
       get '/tracks/:id/:problem/readme' do |id, slug|
-        track = ::Xapi::Track.new(id, settings.tracks_path)
+        track = Trackler.tracks[id]
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
