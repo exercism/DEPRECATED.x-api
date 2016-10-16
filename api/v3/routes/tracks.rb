@@ -9,10 +9,7 @@ module V3
       end
 
       get '/tracks/:id' do |id|
-        track = Trackler.tracks[id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
+        track = find_track(id)
         pg :track, locals: {
           track: track,
           todo: Trackler.problems - track.slugs,
@@ -20,19 +17,12 @@ module V3
       end
 
       get '/tracks/:id/problems' do |id|
-        track = Trackler.tracks[id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
+        track = find_track(id)
         pg :"track/problems", locals: { track: track }
       end
 
       get '/tracks/:id/todo' do |id|
-        track = Trackler.tracks[id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
-
+        track = find_track(id)
         slugs = Trackler.problems - track.slugs
         pg :"track/todos", locals: {
           track: track,
@@ -42,11 +32,7 @@ module V3
       end
 
       get '/tracks/:id/img/:filename' do |id, filename|
-        track = Trackler.tracks[id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
-
+        track = find_track(id)
         img = track.img("img/#{filename}").tap do |image|
           image.path = "img/default_icon.png" unless image.exists?
         end
@@ -55,10 +41,7 @@ module V3
       end
 
       get '/tracks/:id/docs/img/:filename' do |id, filename|
-        track = Trackler.tracks[id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
+        track = find_track(id)
 
         img = track.img("docs/img/#{filename}")
         unless img.exists?
@@ -71,18 +54,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug' do |id, slug|
-        track = Trackler.tracks[id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
-
-        implementation = track.implementations[slug]
-        unless implementation.exists?
-          halt 404, {
-            error: "No implementation of '%s' in track '%s'" % [slug, id],
-          }.to_json
-        end
-
+        _, implementation = find_track_and_implementation(id, slug)
         filename = "%s-%s.zip" % [id, slug]
         headers['Content-Type'] = "application/octet-stream"
         headers["Content-Disposition"] = "attachment;filename=%s" % filename
@@ -91,10 +63,7 @@ module V3
       end
 
       get '/tracks/:id/global' do |id|
-        track = Trackler.tracks[id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
+        track = find_track(id)
         filename = "%s-%s.zip" % [id, "global"]
         headers['Content-Type'] = "application/octet-stream"
         headers["Content-Disposition"] = "attachment;filename=%s" % filename
@@ -103,18 +72,7 @@ module V3
 
       # :files is either "readme" or "tests".
       get '/tracks/:id/exercises/:slug/:files' do |id, slug, files|
-        track = Trackler.tracks[id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % id }.to_json
-        end
-
-        implementation = track.implementations[slug]
-        unless implementation.exists?
-          halt 404, {
-            error: "No implementation of '%s' in track '%s'" % [slug, id],
-          }.to_json
-        end
-
+        track, implementation = find_track_and_implementation(id, slug)
         pg "exercise/#{files}".to_sym, locals: {
           track: track,
           implementation: implementation,

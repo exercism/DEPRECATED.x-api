@@ -57,10 +57,7 @@ module V1
       get '/v2/exercises/:track_id' do |track_id|
         require_key
 
-        track = Trackler.tracks[track_id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % track_id }.to_json
-        end
+        track = find_track(track_id)
 
         implementations = []
 
@@ -83,18 +80,7 @@ module V1
 
       get '/v2/exercises/:track_id/:slug' do |track_id, slug|
         track_id, slug = track_id.downcase, slug.downcase
-        track = Trackler.tracks[track_id]
-        unless track.exists?
-          halt 404, { error: "No track '%s'" % track_id }.to_json
-        end
-
-        implementation = track.implementations[slug]
-        unless implementation.exists?
-          halt 404, {
-            error: "No implementation of '%s' in track '%s'" % [slug, track_id],
-          }.to_json
-        end
-
+        _, implementation = find_track_and_implementation(track_id, slug)
         pg :implementations, locals: { implementations: [implementation] }
       end
 
