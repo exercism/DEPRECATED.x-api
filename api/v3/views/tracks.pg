@@ -1,6 +1,6 @@
 collection tracks: tracks do |track|
   attributes :id, :language, :repository, :checklist_issue, :gitter
-  node image: track.icon_url
+  node image: ::Xapi::ROOT_URL + ("/v3/tracks/%s/img/icon.png" % track.id)
   node todo: problems - track.slugs
   node active: track.active?
   node implemented: track.problems.size > 0
