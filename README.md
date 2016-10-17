@@ -12,12 +12,6 @@ This codebase provides an API for delivering Exercism
 exercises. This is consumed both by the Exercism command-line client,
 as well as the Exercism website.
 
-The exercises for each language are stored in separate repositories, included
-here as git submodules.
-
-The common metadata which is shared between all the language tracks are also
-included as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
-
 ## Getting Started
 
 The API is implemented in Ruby as a Sinatra application.
@@ -26,8 +20,6 @@ Fork and clone per usual, then run:
 
 ```bash
 $ bundle install
-$ git submodule init
-$ git submodule update
 ```
 
 ## Terminology
@@ -55,16 +47,8 @@ Here's the terminology we're working towards:
 │   ├── v1.rb
 │   ├── v3          # API v3 routes and views
 │   └── v3.rb
-├── lib/xapi/       # application logic
-├── metadata/       # shared metadata
-└── tracks/         # language track submodules
+└── lib/xapi.rb     # application settings & logic
 ```
-
-### metadata directory
-
-The metadata directory is actually a git submodule. A git submodule is essentially a project in another project. This particular submodule is the [exercism/x-common](https://github.com/exercism/x-common) project.
-
-The `x-common` repo contains shared metadata for Exercism exercises. When there is a need to get common information such as generic problem descriptions of exercises, they can be accessed via the git submodule.
 
 ## Running Locally
 
@@ -80,11 +64,6 @@ Puma 2.7.1 starting...
 
 At this point you can navigate to an existing endpoint in your browser, e.g.
 [localhost:9292/tracks/ruby/bob](http://localhost:9292/tracks/ruby/bob)
-
-**If the endpoint does not return exercism problem data, it is probably because
-you haven't updated or inititialized the submodules. Be sure to work through the
-[Getting Started](https://github.com/exercism/x-api/blob/master/README.md#getting-started)
-section of the README.**
 
 ## Tests
 
@@ -135,13 +114,13 @@ Please see the [CONTRIBUTING](CONTRIBUTING.md) guidelines in the root of this re
 
 ## Releasing
 
-To update all of the language tracks with their latest commits, run:
+To update all of the language track data with their latest commits, run:
 
 ```
-git submodule foreach git pull origin master
+bundle update trackler
 ```
 
-Then commit the changes (`git commit -m "Update submodules"`) and push to both GitHub and Heroku.
+Then commit the changes (`git commit -m "Update trackler"`) and push to both GitHub and Heroku.
 
 ## License
 

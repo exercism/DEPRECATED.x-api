@@ -4,7 +4,8 @@ This contributing guide pertains to the exercism Problem API (x-api),
 which is a small application that delivers the problems in all of the
 languages.
 
-The problem API includes each of the language repositories as a git submodule.
+The problem API includes a gem, `trackler`, which each of the language repositories
+as a git submodule.
 
 Submodules can be a bit tricky to work with, but in this case it's worth it,
 since contributing to a language track can be done with no dependencies on
