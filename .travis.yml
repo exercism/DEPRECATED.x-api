@@ -5,7 +5,4 @@ rvm:
 script:
   - CI=1 bundle exec rake test
   - bundle exec rake test:each
-  - bin/fetch-configlet
-  - bin/verify-configs
-  - bundle exec bin/verify-metadata
   - bundle exec rubocop

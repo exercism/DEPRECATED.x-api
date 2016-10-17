@@ -1,0 +1,75 @@
+#!/usr/bin/env ruby
+
+require 'trackler'
+require 'net/http'
+
+# Note: requires manually starting x-api on port 9999
+# rackup -p9999
+# TODO: spin the server up in this script, and kill it
+# at the end.
+
+endpoints = [
+  '/',
+  '/problems',
+  '/tracks',
+  '/v3/tracks',
+  '/v3/problems/data-todos',
+]
+
+
+Trackler.problems.each do |problem|
+  endpoints << '/v3/problems/%s/todo' % problem.slug
+end
+
+Trackler.tracks.each do |track|
+  endpoints += [
+    '/tracks/%s' % track.id,
+    '/docs/%s' % track.id,
+    '/v3/tracks/%s' % track.id,
+    '/v3/tracks/%s/problems' % track.id,
+    '/v3/tracks/%s/todo' % track.id,
+    '/v3/tracks/%s/img/icon.png' % track.id,
+    '/v3/tracks/%s/global' % track.id,
+  ]
+
+  # TODO '/v3/tracks/%s/docs/img/:filename'
+
+  track.problems.each do |problem|
+    endpoints += [
+      '/problems/%s' % problem,
+      '/tracks/%s/%s' % [track.id, problem],
+      '/tracks/%s/%s/readme' % [track.id, problem],
+      '/v3/tracks/%s/exercises/%s' % [track.id, problem],
+      '/v3/tracks/%s/exercises/%s/readme' % [track.id, problem],
+      '/v3/tracks/%s/exercises/%s/tests' % [track.id, problem],
+    ]
+  end
+
+  # NOTE: not testing /v2/restore or /v2/exercises
+  # because these talk to exercism.io
+  track.problems.each do |problem|
+    endpoints += [
+      '/v2/exercises/%s/%s' % [track.id, problem],
+    ]
+  end
+end
+
+failures = {}
+domain = 'http://localhost:9999'
+uri = URI(domain)
+Net::HTTP.start(uri.host, uri.port) do |http|
+  endpoints.each do |endpoint|
+    url = URI(domain + endpoint)
+    request = Net::HTTP::Get.new url
+    response = http.request request
+    if response.code.to_i > 299
+      failures[endpoint] = response.body
+    end
+  end
+end
+
+failures.each do |endpoint, body|
+  puts "ERROR: %s" % endpoint
+  puts "  %s" % body
+end
+exit failures.length
