@@ -32,6 +32,8 @@ Style/AndOr:
 Style/FormatString:
   Enabled: true
   EnforcedStyle: percent
+Style/GuardClause:
+  Enabled: false
 Lint/RescueException:
   Exclude:
     - 'api/helpers/errors.rb'
@@ -47,9 +49,6 @@ Metrics/MethodLength:
   Exclude:
     - 'test/**/*'
 Metrics/AbcSize:
-  Exclude:
-    - 'test/**/*'
-Metrics/LineLength:
   Exclude:
     - 'test/**/*'
 Metrics/ClassLength:

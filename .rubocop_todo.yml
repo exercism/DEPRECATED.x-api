@@ -16,8 +16,6 @@ Style/MutableConstant:
     - 'api/helpers/errors.rb'
     - 'api/v1/routes/legacy.rb'
     - 'lib/xapi.rb'
-    - 'lib/xapi/implementation.rb'
-    - 'lib/xapi/track.rb'
     - 'test/xapi/test_helper.rb'
 
 # Offense count: 1

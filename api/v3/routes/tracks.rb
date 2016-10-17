@@ -3,8 +3,8 @@ module V3
     class Tracks < Core
       get '/tracks' do
         pg :tracks, locals: {
-          tracks: ::Xapi.tracks,
-          problems: ::Xapi.problems,
+          tracks: Trackler.tracks,
+          problems: Trackler.problems,
         }
       end
 
@@ -12,7 +12,7 @@ module V3
         track = find_track(id)
         pg :track, locals: {
           track: track,
-          todo: ::Xapi.problems - track.slugs,
+          todo: Trackler.problems - track.slugs,
         }
       end
 
@@ -23,18 +23,16 @@ module V3
 
       get '/tracks/:id/todo' do |id|
         track = find_track(id)
-
-        slugs = ::Xapi.problems - track.slugs
+        slugs = Trackler.problems - track.slugs
         pg :"track/todos", locals: {
           track: track,
-          problems: slugs.map { |slug| ::Xapi.problems[slug] },
-          implementations: ::Xapi.implementations,
+          problems: slugs.map { |slug| Trackler.problems[slug] },
+          implementations: Trackler.implementations,
         }
       end
 
       get '/tracks/:id/img/:filename' do |id, filename|
         track = find_track(id)
-
         img = track.img("img/#{filename}").tap do |image|
           image.path = "img/default_icon.png" unless image.exists?
         end
@@ -56,8 +54,7 @@ module V3
       end
 
       get '/tracks/:id/exercises/:slug' do |id, slug|
-        implementation = find_implementation(id, slug)
-
+        _, implementation = find_track_and_implementation(id, slug)
         filename = "%s-%s.zip" % [id, slug]
         headers['Content-Type'] = "application/octet-stream"
         headers["Content-Disposition"] = "attachment;filename=%s" % filename
@@ -76,7 +73,6 @@ module V3
       # :files is either "readme" or "tests".
       get '/tracks/:id/exercises/:slug/:files' do |id, slug, files|
         track, implementation = find_track_and_implementation(id, slug)
-
         pg "exercise/#{files}".to_sym, locals: {
           track: track,
           implementation: implementation,

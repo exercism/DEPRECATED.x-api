@@ -2,7 +2,7 @@ module API
   module Helpers
     module Finders
       def find_track(id)
-        track = ::Xapi::Track.new(id, settings.tracks_path)
+        track = Trackler.tracks[id]
         unless track.exists?
           halt 404, { error: "No track '%s'" % id }.to_json
         end
@@ -18,10 +18,6 @@ module API
           }.to_json
         end
         [track, implementation]
-      end
-
-      def find_implementation(track_id, slug)
-        find_track_and_implementation(track_id, slug).last
       end
     end
   end
