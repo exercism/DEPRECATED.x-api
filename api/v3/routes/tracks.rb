@@ -12,7 +12,7 @@ module V3
         track = find_track(id)
         pg :track, locals: {
           track: track,
-          todo: Trackler.problems - track.slugs,
+          todo: Trackler.todos[id].map(&:slug),
         }
       end
 
@@ -23,10 +23,9 @@ module V3
 
       get '/tracks/:id/todo' do |id|
         track = find_track(id)
-        slugs = Trackler.problems - track.slugs
         pg :"track/todos", locals: {
           track: track,
-          problems: slugs.map { |slug| Trackler.problems[slug] },
+          problems: Trackler.todos[id],
           implementations: Trackler.implementations,
         }
       end

@@ -5,6 +5,7 @@ module V1
         pg :tracks, locals: {
           tracks: Trackler.tracks,
           problems: Trackler.problems,
+          todos: Trackler.todos,
         }
       end
 
@@ -13,6 +14,7 @@ module V1
         pg :track, locals: {
           track: track,
           problems: Trackler.problems,
+          todos: Trackler.todos,
         }
       end
 

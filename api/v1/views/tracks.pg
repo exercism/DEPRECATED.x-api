@@ -4,6 +4,6 @@ collection tracks: tracks do |track|
   node :repository => track.repository
   attributes :language, :id
   node active: track.active?
-  node todo: problems - track.slugs
+  node todo: todos[track.id].map(&:slug)
   node :test_pattern => track.test_pattern
 end
