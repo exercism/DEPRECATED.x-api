@@ -3,6 +3,6 @@
 	"blurb" => "Oh, hello."
 	"readme_url" => "https://github.com/exercism/x-common/blob/master/exercises/hello-world/description.md"
 	"data" => nil
-	"todos" => ["fruit"]
+	"todos" => ["fruit", "vehicles"]
 	"implementations" => [{"track_id"=>"fake", "url"=>"https://github.com/exercism/xfake/tree/master/hello-world"}, {"track_id"=>"jewels", "url"=>"https://github.com/exercism/xjewels/tree/master/hello-world"}, {"track_id"=>"shoes", "url"=>"https://github.com/exercism/xshoes/tree/master/hello-world"}]
 }
