@@ -5,6 +5,7 @@ module V3
         pg :tracks, locals: {
           tracks: Trackler.tracks,
           problems: Trackler.problems,
+          todos: Trackler.todos,
         }
       end
 
@@ -12,7 +13,7 @@ module V3
         track = find_track(id)
         pg :track, locals: {
           track: track,
-          todo: Trackler.todos[id].map(&:slug),
+          todos: Trackler.todos[id].map(&:slug),
         }
       end
 

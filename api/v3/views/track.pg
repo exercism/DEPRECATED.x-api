@@ -1,7 +1,7 @@
 node track: track do
   attributes :id, :language, :repository, :checklist_issue, :gitter
   node image: ::Xapi::ROOT_URL + ("/v3/tracks/%s/img/icon.png" % track.id)
-  node todo: todo
+  node todo: todos
   node active: track.active?
   node implemented: track.problems.size > 0
   node doc_format: track.doc_format
