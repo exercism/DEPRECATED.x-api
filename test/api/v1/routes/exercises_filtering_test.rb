@@ -17,13 +17,13 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
   def test_that_you_may_filter_to_single_track
     getting '/v2/exercises?tracks=fruit'
 
-    assert_returns_tracks %w( fruit )
+    assert_returns_tracks %w(fruit)
   end
 
   def test_that_you_may_filter_to_multiple_tracks
     getting '/v2/exercises?tracks=fake,jewels'
 
-    assert_returns_tracks %w( fake jewels )
+    assert_returns_tracks %w(fake jewels)
   end
 
   def test_that_empty_filter_returns_all
@@ -31,7 +31,7 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
 
     # animal is excluded, because there are no more exercises in
     # that track.
-    assert_returns_tracks %w( fake fruit jewels )
+    assert_returns_tracks %w(fake fruit jewels)
   end
 
   def test_that_missing_filter_returns_all
@@ -39,13 +39,13 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
 
     # animal is excluded, because there are no more exercises in
     # that track.
-    assert_returns_tracks %w( fake fruit jewels )
+    assert_returns_tracks %w(fake fruit jewels)
   end
 
   def test_that_blank_space_is_ignored
     getting '/v2/exercises?tracks=%20fake%20%20'
 
-    assert_returns_tracks %w( fake )
+    assert_returns_tracks %w(fake)
   end
 
   def test_that_a_track_that_does_not_exist_returns_empty
