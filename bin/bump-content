@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+git reset --hard
+git checkout master
+bundle update trackler
+git add Gemfile.lock
+git commit -m "Update trackler"
