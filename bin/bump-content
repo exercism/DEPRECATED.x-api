@@ -4,4 +4,4 @@ git reset --hard
 git checkout master
 bundle update trackler
 git add Gemfile.lock
-git commit -m "Update trackler"
+bundle exec rake && git commit -m "Update trackler" && git push origin master
