@@ -14,7 +14,9 @@
     "todo": [
       "banana",
       "cherry",
-      "mango"
+      "imbe",
+      "mango",
+      "no-metadata"
     ],
     "test_pattern": "(?i-mx:test)"
   },
