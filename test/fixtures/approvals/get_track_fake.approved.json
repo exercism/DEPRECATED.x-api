@@ -15,8 +15,7 @@
       "banana",
       "cherry",
       "imbe",
-      "mango",
-      "no-metadata"
+      "mango"
     ],
     "test_pattern": "(?i-mx:test)"
   },
