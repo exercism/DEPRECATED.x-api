@@ -7,7 +7,7 @@ node track: track do
   node doc_format: track.doc_format
   node test_pattern: track.test_pattern
 
-  node docs: track.docs
+  node docs: track.docs.to_h
 
   collection problems: track.implementations do |implementation|
     node slug: implementation.problem.slug
