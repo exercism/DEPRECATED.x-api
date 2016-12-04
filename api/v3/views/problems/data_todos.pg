@@ -1,8 +1,8 @@
 collection problems: problems do |problem|
   node slug: problem.slug
   node blurb: problem.blurb
-  node readme_url: problem.md_url
-  node data: problem.json_url
+  node readme_url: problem.description_url
+  node data: problem.canonical_data_url
 
   collection implementations: implementations[problem.slug] do |implementation|
     node track_id: implementation.track_id

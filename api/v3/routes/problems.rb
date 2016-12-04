@@ -3,7 +3,7 @@ module V3
     class Problems < Core
       get '/problems/data-todos' do
         problems = Trackler.problems.select { |problem|
-          problem.json_url.nil?
+          problem.canonical_data_url.nil?
         }
 
         pg :"problems/data_todos", locals: {
