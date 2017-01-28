@@ -4,7 +4,6 @@ module V1
       get '/tracks' do
         pg :tracks, locals: {
           tracks: Trackler.tracks,
-          problems: Trackler.problems,
           todos: Trackler.todos,
         }
       end
@@ -13,7 +12,6 @@ module V1
         track = find_track(id)
         pg :track, locals: {
           track: track,
-          problems: Trackler.problems,
           todos: Trackler.todos,
         }
       end

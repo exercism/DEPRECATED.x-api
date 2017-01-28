@@ -4,7 +4,6 @@ module V3
       get '/tracks' do
         pg :tracks, locals: {
           tracks: Trackler.tracks,
-          problems: Trackler.problems,
           todos: Trackler.todos,
         }
       end
