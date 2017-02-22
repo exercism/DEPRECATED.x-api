@@ -6,7 +6,8 @@
       "source": "The internet.",
       "source_url": "",
       "track_ids": [
-        "fruit"
+        "fruit",
+        "snowflake"
       ]
     },
     {
@@ -15,7 +16,8 @@
       "source": "",
       "source_url": "http://example.com",
       "track_ids": [
-        "fruit"
+        "fruit",
+        "snowflake"
       ]
     },
     {
@@ -24,7 +26,8 @@
       "source": "",
       "source_url": "",
       "track_ids": [
-        "fruit"
+        "fruit",
+        "snowflake"
       ]
     },
     {
