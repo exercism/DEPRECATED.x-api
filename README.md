@@ -12,6 +12,23 @@ This codebase provides an API for delivering Exercism
 exercises. This is consumed both by the Exercism command-line client,
 as well as the Exercism website.
 
+## Prerequisites
+
+You need Ruby (version 1.9 or greater) and Bundler to work on this API. 
+
+To check which version of Ruby you have, then run:
+
+```bash
+$ ruby -version
+```
+
+To install bundler, then run:
+
+```bash
+$ gem install bundler
+```
+
+
 ## Getting Started
 
 The API is implemented in Ruby as a Sinatra application.
