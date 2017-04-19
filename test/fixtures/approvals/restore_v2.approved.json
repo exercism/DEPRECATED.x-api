@@ -23,7 +23,7 @@
       "files": {
         "apple.ext": "// iteration 1",
         "apple.tst": "assert 'apple'\n",
-        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\nDo stuff.\n\n## Source\n\nThe internet.\n\n## Submitting Incomplete Problems\nIt's possible to submit an incomplete solution so you can see how others have completed the exercise.\n\n"
+        "README.md": "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\nThe SETUP.md file is deprecated, and exercises/TRACK_HINTS.md should be used.\n\n## Source\n\nThe internet.\n\n## Submitting Incomplete Problems\nIt's possible to submit an incomplete solution so you can see how others have completed the exercise.\n\n"
       },
       "fresh": false
     },
@@ -35,7 +35,7 @@
       "name": "Banana",
       "files": {
         "banana.tst": "assert 'banana'\n",
-        "README.md": "# Banana\n\nThis is banana.\n\n* banana\n* banana again\n\nDo stuff.\n\n* a hint\n* another hint\n\n## Source\n\n[http://example.com](http://example.com)\n\n## Submitting Incomplete Problems\nIt's possible to submit an incomplete solution so you can see how others have completed the exercise.\n\n",
+        "README.md": "# Banana\n\nThis is banana.\n\n* banana\n* banana again\n\n* banana specific hints.\n* a hint\n* another hint\n\nThe SETUP.md file is deprecated, and exercises/TRACK_HINTS.md should be used.\n\n## Source\n\n[http://example.com](http://example.com)\n\n## Submitting Incomplete Problems\nIt's possible to submit an incomplete solution so you can see how others have completed the exercise.\n\n",
         "banana.ext": "// iteration 1"
       },
       "fresh": false
