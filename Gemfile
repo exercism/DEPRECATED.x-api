@@ -12,7 +12,7 @@ gem 'rack', '~> 1.4'
 gem 'rake', '~> 10.4'
 gem 'sinatra', '~> 1.4', require: 'sinatra/base'
 gem 'tilt', '~> 1.3'
-gem 'trackler', '~> 2.0.0'
+gem 'trackler', '~> 2.1.0'
 gem 'rubyzip'
 
 group :development, :test do
