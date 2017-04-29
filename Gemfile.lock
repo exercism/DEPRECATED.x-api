@@ -75,7 +75,7 @@ GEM
     thor (0.19.1)
     tilt (1.4.1)
     tins (1.6.0)
-    trackler (2.1.0.3)
+    trackler (2.1.0.4)
       org-ruby (~> 0.9.0)
       rubyzip (~> 1.1)
     unf (0.1.4)
