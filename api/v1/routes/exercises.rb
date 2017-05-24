@@ -9,12 +9,10 @@ module V1
           Xapi::ExercismIO.code_for(params[:key])
         end
 
-        restores = implementations_of(solutions)
-
-        pg :restore, locals: { restores: restores }
+        pg :restore, locals: { things_to_restore: implementations_and_files_to_restore(solutions)}
       end
 
-      def implementations_of(solutions)
+      def implementations_and_files_to_restore(solutions)
         solutions.map do |solution|
           track = Trackler.tracks[solution["track"]]
           next unless track.exists?
@@ -24,7 +22,7 @@ module V1
 
           files = implementation.files.merge solution["files"]
 
-          [implementation, files]
+          OpenStruct.new(implementation: implementation, files: files)
         end.compact
       end
 

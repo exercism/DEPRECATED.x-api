@@ -1,10 +1,12 @@
-collection :problems => restores do |(implementation, files)|
+collection :problems => things_to_restore do |thing|
+  implementation = thing.implementation
+
   node id: "%s/%s" % [implementation.track_id, implementation.problem.slug]
   node track_id: implementation.track_id
   node language: implementation.track_id
   node slug: implementation.problem.slug
   node name: implementation.problem.name
-  node files: files
+  node files: thing.files
   # deprecated
   node fresh: false
 end
