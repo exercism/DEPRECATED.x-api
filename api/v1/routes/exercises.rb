@@ -19,12 +19,12 @@ module V1
           track = Trackler.tracks[solution["track"]]
           next unless track.exists?
 
-          ti = track.implementations[solution["slug"]]
-          next unless ti.exists?
+          implementation = track.implementations[solution["slug"]]
+          next unless implementation.exists?
 
-          files = ti.files.merge(solution["files"])
+          files = implementation.files.merge solution["files"]
 
-          [ti, files]
+          [implementation, files]
         end.compact
       end
 
