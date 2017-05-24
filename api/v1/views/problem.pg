@@ -2,10 +2,10 @@ node :problem do
   node track_id: track.id
   node language: track.language
 
-  node id: "%s/%s" % [track.id, implementation.problem.slug]
-  node slug: implementation.problem.slug
-  node name: implementation.problem.name
-  node blurb: implementation.problem.blurb
+  node id: "%s/%s" % [track.id, implementation.slug]
+  node slug: implementation.slug
+  node name: implementation.name
+  node blurb: implementation.blurb
 
   node files: implementation.files
 

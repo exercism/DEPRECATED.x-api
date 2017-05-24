@@ -3,15 +3,15 @@ node track: track do
   node image: ::Xapi::ROOT_URL + ("/v3/tracks/%s/img/icon.png" % track.id)
   node todo: todos
   node active: track.active?
-  node implemented: track.problems.size > 0
+  node implemented: track.implementations.size > 0
   node doc_format: track.doc_format
   node test_pattern: track.test_pattern
 
   node docs: track.docs.to_h
 
   collection problems: track.implementations do |implementation|
-    node slug: implementation.problem.slug
-    node name: implementation.problem.name
-    node blurb: implementation.problem.blurb
+    node slug: implementation.slug
+    node name: implementation.name
+    node blurb: implementation.blurb
   end
 end

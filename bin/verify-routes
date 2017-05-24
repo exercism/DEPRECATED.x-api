@@ -34,7 +34,7 @@ Trackler.tracks.each do |track|
 
   # TODO '/v3/tracks/%s/docs/img/:filename'
 
-  track.problems.each do |problem|
+  track.implementations.each do |problem|
     endpoints += [
       '/problems/%s' % problem.slug,
       '/tracks/%s/%s' % [track.id, problem.slug],
@@ -47,7 +47,7 @@ Trackler.tracks.each do |track|
 
   # NOTE: not testing /v2/restore or /v2/exercises
   # because these talk to exercism.io
-  track.problems.each do |problem|
+  track.implementations.each do |problem|
     endpoints += [
       '/v2/exercises/%s/%s' % [track.id, problem.slug],
     ]

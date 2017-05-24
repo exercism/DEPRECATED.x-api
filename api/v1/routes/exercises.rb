@@ -52,7 +52,7 @@ module V1
           # pretend they already solved hello-world if they've
           # solved anything at all.
           slugs << 'hello-world' unless slugs.empty?
-          next_slug = (track.problems.map(&:slug) - slugs).first
+          next_slug = (track.implementations.map(&:slug) - slugs).first
           if !!next_slug
             implementation = track.implementations[next_slug]
             if implementation.exists?
@@ -77,7 +77,7 @@ module V1
         # pretend they already solved hello-world if they've
         # solved anything at all.
         slugs << 'hello-world' unless slugs.empty?
-        next_slug = (track.problems.map(&:slug) - slugs).first
+        next_slug = (track.implementations.map(&:slug) - slugs).first
         if !!next_slug
           implementation = track.implementations[next_slug]
           if implementation.exists?
