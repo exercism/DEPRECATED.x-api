@@ -2,6 +2,14 @@ module V1
   module Routes
     # Gawd. This is a whole nother level of hack.
     class Exercises < Core
+      class Restoration
+        attr_reader :implementation, :files
+        def initialize(implementation:, files:)
+          @implementation = implementation
+          @files = files
+        end
+      end
+
       get '/v2/exercises/restore' do
         require_key
 
@@ -9,10 +17,10 @@ module V1
           Xapi::ExercismIO.code_for(params[:key])
         end
 
-        pg :restore, locals: { things_to_restore: implementations_and_files_to_restore(solutions)}
+        pg :restore, locals: { things_to_restore: restorations(solutions)}
       end
 
-      def implementations_and_files_to_restore(solutions)
+      def restorations(solutions)
         solutions.map do |solution|
           track = Trackler.tracks[solution["track"]]
           next unless track.exists?
@@ -22,7 +30,7 @@ module V1
 
           files = implementation.files.merge solution["files"]
 
-          OpenStruct.new(implementation: implementation, files: files)
+          Restoration.new(implementation: implementation, files: files)
         end.compact
       end
 
