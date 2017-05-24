@@ -9,12 +9,12 @@ module V1
           Xapi::ExercismIO.code_for(params[:key])
         end
 
-        implementations = implementations_guts(solutions)
+        restores = implementations_of(solutions)
 
-        pg :implementations, locals: { implementations: implementations }
+        pg :restore, locals: { restores: restores }
       end
 
-      def implementations_guts(solutions)
+      def implementations_of(solutions)
         implementations = []
 
         solutions.each do |solution|
@@ -24,9 +24,9 @@ module V1
           ti = track.implementations[solution["slug"]]
           next unless ti.exists?
 
-          implementation = ti.dup
-          implementation.merge_files solution["files"]
-          implementations << implementation
+          files = ti.files.merge(solution["files"])
+
+          implementations << [ti, files]
         end
         implementations
       end
