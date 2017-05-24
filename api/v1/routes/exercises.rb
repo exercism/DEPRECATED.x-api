@@ -15,9 +15,7 @@ module V1
       end
 
       def implementations_of(solutions)
-        implementations = []
-
-        solutions.each do |solution|
+        solutions.map do |solution|
           track = Trackler.tracks[solution["track"]]
           next unless track.exists?
 
@@ -26,9 +24,8 @@ module V1
 
           files = ti.files.merge(solution["files"])
 
-          implementations << [ti, files]
-        end
-        implementations
+          [ti, files]
+        end.compact
       end
 
       get '/v2/exercises' do
