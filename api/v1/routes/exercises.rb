@@ -4,11 +4,19 @@ module V1
     class Exercises < Core
       get '/v2/exercises/restore' do
         require_key
+
         solutions = forward_errors do
           Xapi::ExercismIO.code_for(params[:key])
         end
 
+        implementations = implementations_guts(solutions)
+
+        pg :implementations, locals: { implementations: implementations }
+      end
+
+      def implementations_guts(solutions)
         implementations = []
+
         solutions.each do |solution|
           track = Trackler.tracks[solution["track"]]
           next unless track.exists?
@@ -20,8 +28,7 @@ module V1
           implementation.merge_files solution["files"]
           implementations << implementation
         end
-
-        pg :implementations, locals: { implementations: implementations }
+        implementations
       end
 
       get '/v2/exercises' do
