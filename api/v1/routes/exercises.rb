@@ -8,6 +8,18 @@ module V1
           @implementation = implementation
           @files = files
         end
+
+        def self.for(solution)
+          track = Trackler.tracks[solution["track"]]
+          return unless track.exists?
+
+          implementation = track.implementations[solution["slug"]]
+          return unless implementation.exists?
+
+          files = implementation.files.merge solution["files"]
+
+          Restoration.new(implementation: implementation, files: files)
+        end
       end
 
       get '/v2/exercises/restore' do
@@ -17,21 +29,9 @@ module V1
           Xapi::ExercismIO.code_for(params[:key])
         end
 
-        pg :restore, locals: { things_to_restore: restorations(solutions)}
-      end
+        restorations = solutions.map { |solution| Restoration.for(solution) }.compact
 
-      def restorations(solutions)
-        solutions.map do |solution|
-          track = Trackler.tracks[solution["track"]]
-          next unless track.exists?
-
-          implementation = track.implementations[solution["slug"]]
-          next unless implementation.exists?
-
-          files = implementation.files.merge solution["files"]
-
-          Restoration.new(implementation: implementation, files: files)
-        end.compact
+        pg :restore, locals: { things_to_restore: restorations }
       end
 
       get '/v2/exercises' do
