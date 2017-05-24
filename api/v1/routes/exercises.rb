@@ -2,26 +2,36 @@ module V1
   module Routes
     # Gawd. This is a whole nother level of hack.
     class Exercises < Core
+      class Restoration
+        attr_reader :implementation, :files
+        def initialize(implementation:, files:)
+          @implementation = implementation
+          @files = files
+        end
+
+        def self.for(solution)
+          track = Trackler.tracks[solution["track"]]
+          return unless track.exists?
+
+          implementation = track.implementations[solution["slug"]]
+          return unless implementation.exists?
+
+          files = implementation.files.merge solution["files"]
+
+          Restoration.new(implementation: implementation, files: files)
+        end
+      end
+
       get '/v2/exercises/restore' do
         require_key
+
         solutions = forward_errors do
           Xapi::ExercismIO.code_for(params[:key])
         end
 
-        implementations = []
-        solutions.each do |solution|
-          track = Trackler.tracks[solution["track"]]
-          next unless track.exists?
+        restorations = solutions.map { |solution| Restoration.for(solution) }.compact
 
-          ti = track.implementations[solution["slug"]]
-          next unless ti.exists?
-
-          implementation = ti.dup
-          implementation.merge_files solution["files"]
-          implementations << implementation
-        end
-
-        pg :implementations, locals: { implementations: implementations }
+        pg :restore, locals: { things_to_restore: restorations }
       end
 
       get '/v2/exercises' do
