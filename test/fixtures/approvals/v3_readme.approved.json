@@ -6,7 +6,7 @@
     "name": "Three",
     "blurb": "This is three.",
     "files": {
-      "README.md": "# Three\n\n* three\n* three again\n\n## Source\n\nThe internet. [http://example.com/3](http://example.com/3)\n\n## Submitting Incomplete Problems\nIt's possible to submit an incomplete solution so you can see how others have completed the exercise.\n\n"
+      "README.md": "# Three\n\n* three\n* three again\n\n## Source\n\nThe internet. [http://example.com/3](http://example.com/3)\n\n## Submitting Incomplete Solutions\nIt's possible to submit an incomplete solution so you can see how others have completed the exercise.\n\n"
     }
   }
 }
