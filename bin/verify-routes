@@ -17,8 +17,8 @@ endpoints = [
 ]
 
 
-Trackler.problems.each do |problem|
-  endpoints << '/v3/problems/%s/todo' % problem.slug
+Trackler.specifications.each do |specification|
+  endpoints << '/v3/problems/%s/todo' % specification.slug
 end
 
 Trackler.tracks.each do |track|

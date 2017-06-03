@@ -1,4 +1,4 @@
-collection :problems => problems do |problem|
+collection :problems => specifications do |specification|
   attributes :slug, :blurb, :source, :source_url
-  node track_ids: implementations[problem.slug].map(&:track_id)
+  node track_ids: implementations[specification.slug].map(&:track_id)
 end
