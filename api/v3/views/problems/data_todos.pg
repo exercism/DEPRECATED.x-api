@@ -1,10 +1,10 @@
-collection problems: problems do |problem|
-  node slug: problem.slug
-  node blurb: problem.blurb
-  node readme_url: problem.description_url
-  node data: problem.canonical_data_url
+collection problems: specifications do |specification|
+  node slug: specification.slug
+  node blurb: specification.blurb
+  node readme_url: specification.description_url
+  node data: specification.canonical_data_url
 
-  collection implementations: implementations[problem.slug] do |implementation|
+  collection implementations: implementations[specification.slug] do |implementation|
     node track_id: implementation.track_id
     node url: implementation.git_url
   end

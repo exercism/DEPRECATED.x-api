@@ -2,12 +2,12 @@ module V3
   module Routes
     class Problems < Core
       get '/problems/data-todos' do
-        problems = Trackler.problems.select { |problem|
-          problem.canonical_data_url.nil?
+        specifications = Trackler.specifications.select { |specification|
+          specification.canonical_data_url.nil?
         }
 
         pg :"problems/data_todos", locals: {
-          problems: problems,
+          specifications: specifications,
           implementations: Trackler.implementations,
         }
       end
@@ -19,7 +19,7 @@ module V3
         }.map(&:id)
 
         pg :"problem/todos", locals: {
-          problem: Trackler.problems[slug],
+          problem: Trackler.specifications[slug],
           todos: todos,
           implementations: implementations,
         }

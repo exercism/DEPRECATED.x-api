@@ -1,4 +1,4 @@
-node :problem => problem do |problem|
+node :problem => specification do |specification|
   attributes :slug, :blurb, :source, :source_url
   node track_ids: implementations.map(&:track_id)
 end

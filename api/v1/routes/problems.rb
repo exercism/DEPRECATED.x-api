@@ -3,20 +3,20 @@ module V1
     class Problems < Core
       get '/problems' do
         pg :summaries, locals: {
-          problems: Trackler.problems,
+          specifications: Trackler.specifications,
           implementations: Trackler.implementations,
         }
       end
 
       # v1: brute force
       get '/problems/:slug' do |slug|
-        problem = Trackler.problems[slug]
-        unless problem.exists?
+        specification = Trackler.specifications[slug]
+        unless specification.exists?
           halt 404, { error: "No problem '%s'" % slug }.to_json
         end
 
         pg :summary, locals: {
-          problem: problem,
+          specification: specification,
           implementations: Trackler.implementations[slug],
         }
       end
