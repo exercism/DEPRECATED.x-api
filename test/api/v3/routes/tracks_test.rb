@@ -12,7 +12,7 @@ class V3RoutesTracksTest < Minitest::Test
     get '/tracks'
 
     tracks = JSON.parse(last_response.body)["tracks"]
-    expected = %w(animal fake fruit jewels shoes snowflake vehicles)
+    expected = %w(animal coins fake fruit jewels shoes snowflake vehicles)
     assert_equal expected, tracks.map { |track| track["id"] }.sort
     Approvals.verify(tracks, name: 'v3_tracks')
 
