@@ -75,7 +75,7 @@ GEM
     thor (0.19.1)
     tilt (1.4.1)
     tins (1.6.0)
-    trackler (2.1.0.34)
+    trackler (2.1.0.36)
       org-ruby (~> 0.9.0)
       rubyzip (~> 1.1)
     unf (0.1.4)
@@ -115,4 +115,4 @@ RUBY VERSION
    ruby 2.2.5p319
 
 BUNDLED WITH
-   1.15.0
+   1.15.1
