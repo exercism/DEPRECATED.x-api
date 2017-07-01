@@ -1,2 +1,0 @@
-We no longer support the demo command.
-Check out the http://exercism.io/languages page to seewhat languages are available.

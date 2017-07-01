@@ -1,2 +1,0 @@
-node :id => track.id
-node docs: track.docs.to_h

@@ -20,7 +20,7 @@ class V1RoutesExercisesTest < Minitest::Test
   end
 
   def test_get_problems_by_language
-    VCR.use_cassette('exercism_api_current_exercises_v2') do
+    VCR.use_cassette('exercism_api_current_exercises') do
       get '/v2/exercises/fruit', key: 'abc123'
       options = { format: :json, name: 'get_current_problems_by_language_v2' }
       Approvals.verify(last_response.body, options)
@@ -28,7 +28,7 @@ class V1RoutesExercisesTest < Minitest::Test
   end
 
   def test_get_the_first_problem_in_a_language
-    VCR.use_cassette('exercism_api_current_exercises_v2') do
+    VCR.use_cassette('exercism_api_current_exercises') do
       get '/v2/exercises/jewels', key: 'abc123'
       options = { format: :json, name: 'get_first_problem_in_language_v2' }
       Approvals.verify(last_response.body, options)
@@ -38,7 +38,7 @@ class V1RoutesExercisesTest < Minitest::Test
   # Don't deliver hello-world if you've already solved exercises in that language,
   # even if you never solved hello world.
   def test_get_problems
-    VCR.use_cassette('exercism_api_current_exercises_v2', record: :new_episodes) do
+    VCR.use_cassette('exercism_api_current_exercises', record: :new_episodes) do
       get '/v2/exercises', key: 'abc123'
 
       options = { format: :json, name: 'get_current_problems_v2' }
@@ -56,7 +56,7 @@ class V1RoutesExercisesTest < Minitest::Test
   end
 
   def test_restore_exercises_and_solutions
-    VCR.use_cassette('exercism_api_restore_v2') do
+    VCR.use_cassette('exercism_api_restore') do
       get '/v2/exercises/restore', key: 'abc123'
       options = { format: :json, name: 'restore_v2' }
       Approvals.verify(last_response.body, options)

@@ -1,1 +1,0 @@
-Please upgrade the exercism command-line client.

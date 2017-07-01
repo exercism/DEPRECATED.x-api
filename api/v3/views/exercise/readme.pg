@@ -1,9 +1,0 @@
-node :exercise do
-  node track_id: track.id
-  node language: track.language
-  node slug: implementation.slug
-  node name: implementation.name
-  node blurb: implementation.blurb
-
-  node files: {"README.md" => implementation.readme}
-end
