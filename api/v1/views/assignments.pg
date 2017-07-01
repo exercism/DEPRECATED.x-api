@@ -1,8 +1,0 @@
-collection assignments: assignments do |assignment|
-  node track_id: assignment.track_id
-  node id: assignment.slug
-  node track: assignment.track_id
-  attributes :slug, :files
-  # deprecated
-  node :fresh => false
-end

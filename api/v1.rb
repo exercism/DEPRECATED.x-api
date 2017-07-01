@@ -31,11 +31,8 @@ module V1
       { error: msg }.to_json
     end
 
-    use Routes::Legacy
     use Routes::Home
     use Routes::Tracks
-    use Routes::Problems
     use Routes::Exercises
-    use Routes::Docs
   end
 end

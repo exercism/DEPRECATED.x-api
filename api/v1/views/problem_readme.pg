@@ -1,7 +1,0 @@
-node :problem_readme do
-  node track_id: track.id
-  node slug: implementation.slug
-  node readme: implementation.readme
-  # deprecated
-  node fresh: false
-end

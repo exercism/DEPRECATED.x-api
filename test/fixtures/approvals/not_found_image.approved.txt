@@ -1,3 +1,0 @@
-{
-	"error" => "No image not_found.png in track 'fake'"
-}

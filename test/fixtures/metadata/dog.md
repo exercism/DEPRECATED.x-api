@@ -1,2 +1,0 @@
-* dog
-* dog again

@@ -44,29 +44,4 @@ class V1RoutesTracksTest < Minitest::Test
 
     assert_equal 404, last_response.status
   end
-
-  def test_error_on_nonexistent_problem
-    get '/tracks/fake/unknown'
-
-    assert_equal 404, last_response.status
-  end
-
-  def test_error_on_nonexistent_problem_with_readme
-    get '/tracks/fake/unknown/readme'
-
-    assert_equal 404, last_response.status
-  end
-
-  def test_get_specific_problem
-    get '/tracks/fake/three'
-    options = { format: :json, name: 'get_specific_problem' }
-    Approvals.verify(last_response.body, options)
-  end
-
-  def test_get_specific_problem_readme
-    get '/tracks/fake/three/readme'
-
-    options = { format: :json, name: 'get_specific_problem_readme' }
-    Approvals.verify(last_response.body, options)
-  end
 end

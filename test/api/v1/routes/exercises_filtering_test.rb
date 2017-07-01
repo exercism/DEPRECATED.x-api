@@ -57,7 +57,7 @@ class V1RoutesExerciseFilteringTest < Minitest::Test
   private
 
   def getting(url)
-    VCR.use_cassette('exercism_api_current_exercises_v2') do
+    VCR.use_cassette('exercism_api_current_exercises') do
       get url, key: 'abc123'
     end
   end

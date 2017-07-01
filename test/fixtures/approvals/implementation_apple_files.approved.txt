@@ -1,5 +1,0 @@
-{
-	"apple.ext" => "an apple a day keeps the doctor away\n"
-	"apple.tst" => "assert 'apple'\n"
-	"README.md" => "# Apple\n\nThis is apple.\n\n* apple\n* apple again\n\nDo stuff.\n\n## Source\n\nThe internet.\n\n## Submitting Incomplete Problems\nIt's possible to submit an incomplete solution so you can see how others have completed the exercise.\n\n"
-}

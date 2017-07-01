@@ -1,9 +1,0 @@
-node track: track do
-  attributes :id, :language
-
-  collection problems: track.implementations do |implementation|
-    node slug: implementation.slug
-    node name: implementation.name
-    node blurb: implementation.blurb
-  end
-end

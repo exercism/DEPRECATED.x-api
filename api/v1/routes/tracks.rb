@@ -15,22 +15,6 @@ module V1
           todos: Trackler.todos,
         }
       end
-
-      get '/tracks/:id/:problem' do |id, slug|
-        track, implementation = find_track_and_implementation(id, slug)
-        pg :problem, locals: {
-          track: track,
-          implementation: implementation,
-        }
-      end
-
-      get '/tracks/:id/:problem/readme' do |id, slug|
-        track, implementation = find_track_and_implementation(id, slug)
-        pg :problem_readme, locals: {
-          track: track,
-          implementation: implementation,
-        }
-      end
     end
   end
 end

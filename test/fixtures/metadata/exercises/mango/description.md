@@ -1,2 +1,0 @@
-* mango
-* mango again
