@@ -17,11 +17,9 @@ problems in Haskell or Erlang!**
 ### Table of Contents
 * [Abstractions](#abstractions)
 * [Code Arrangement](#code-arrangement)
-* [config.json](#configjson)
-* [configlet](#configlet)
 * [CLI](#cli)
-* [Problem API](#problem-api)
-* [Track Anatomy](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#track-anatomy)
+* [See Also](#see-also)
+
 
 ### Abstractions
 ---
@@ -63,3 +61,8 @@ variable:
 ```bash
 $ export EXERCISES_API_URL=http://localhost:9292
 ```
+
+### See Also
+* [configlet](#https://github.com/exercism/configlet)
+* [Track Anatomy](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#track-anatomy)
+* [config.json](#https://github.com/exercism/problem-specifications/blob/master/CONTRIBUTING.md#track-configuration-file)
